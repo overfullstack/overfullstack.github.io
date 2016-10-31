@@ -1,0 +1,55 @@
+<!doctype html>
+
+<html class="no-js" lang="en">
+
+<head>
+    {% include fork-on-github.html %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <link rel="canonical" href="{{ site.baseurl }}{{ page.url }}">
+
+    <!-- Open Graph -->
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
+    <meta property="og:description" content="{% if page.summary %}{{ page.summary | strip_html }}{% elsif page.excerpt %}{{ page.excerpt  | strip_html }}{% else %}{{ site.description | strip_html }}{% endif %}" />
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+    <meta property="og:site_name" content="{{ site.title | strip_html | xml_escape }}">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/main.css">
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+    <script src="{{ site.baseurl }}/scripts/modernizr.custom.js"></script>
+</head>
+
+<body>
+    <header role="banner" class="page-header" id="top">
+        <h1>{{site.title}}</h1>
+        <p>{{site.tagline}}</p>
+        <nav role="navigation">
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="toggle-label"><span>menu</span></label>
+            <ul class="menu">
+                <li><a href="{{site.baseurl}}/index.html" title="Articles">Blog</a></li>
+                <li><a href="{{site.baseurl}}/about.html" title="learn more">About</a></li>
+                <li><a href="{{site.baseurl}}/resources.html" title="resources">Resources</a></li>
+                <li><a href="{{site.baseurl}}/tags/" title="Archive">Archive</a></li>
+            </ul>
+        </nav>
+    </header>
+    {{content}} {% if page.id %} {% include footer-post.html %} {% else %} {% include footer.html %} {% endif %}
+</body>
+
+</html>

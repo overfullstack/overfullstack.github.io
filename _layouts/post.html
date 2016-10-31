@@ -1,0 +1,56 @@
+--- 
+layout: default 
+page-type: post 
+---
+<main role="main" class="cf">
+    <article class="posts" style="width:100%;">
+        <article role="article" itemscope itemtype="http://schema.org/BlogPosting">
+            <header>
+                <h2>{{page.title}}</h2>
+                <span>
+                <time itemprop="dateCreated" datetime="{{post.date}}">
+                    {{ page.date | date: site.date_format }} 
+                    
+                    {% if site.disqus_shortname %} 
+                    &middot;
+                    <a href="{{ site.url }}{{ page.url }}#disqus_thread"></a>
+                    {% endif %}
+                    
+                    {% if post.update_date %} 
+                    &middot; 
+                    Updated {{ post.update_date | date: site.date_format }} 
+                    {% endif %}
+                </time>
+                </span>
+            </header>
+            <div id="toc"></div>
+            {{content}}
+            <footer>
+                <p>Posted in {% for tag in page.tags %}<a href="{{ site.baseurl }}/tags/index.html#{{ tag | cgi_escape }}" title="Pages tagged {{ tag }}" rel="tag">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
+                {% include share-buttons.html %}
+            </footer>
+        </article>
+        <section class="post-links">
+            <p>Read more:</p>
+            {% if page.previous.url %}
+            <p class="prevLink"><a class="previous" href="{{ site.baseurl }}{{page.previous.url}}">{{page.previous.title}}</a></p>
+            {% endif %} {% if page.next.url %}
+            <p class="nextLink"><a class="next" href="{{ site.baseurl }}{{page.next.url}}">{{page.next.title}}</a></p>
+            {% endif %}
+        </section>
+        {% if page.comments %}
+        <div id="disqus_thread"></div>
+        <script src="/scripts/disqus-lazy-load-comments.js"></script>
+        <script id="dsq-count-scr" src="//{{ site.disqus_shortname }}.disqus.com/count.js" async></script>
+        {% endif %} 
+        {% if page.toc %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="/scripts/toc.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#toc').toc({ listType: 'ul' });
+            });
+        </script>
+        {% endif %}
+    </article>
+</main>
