@@ -13,6 +13,7 @@
 
     <!-- Open Graph -->
     <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="/logo.png"/>
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
     <meta property="og:description" content="{% if page.summary %}{{ page.summary | strip_html }}{% elsif page.excerpt %}{{ page.excerpt  | strip_html }}{% else %}{{ site.description | strip_html }}{% endif %}" />
@@ -31,7 +32,9 @@
     <link rel="stylesheet" href="{{ site.baseurl }}/css/main.css">
     <link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
-    <script src="{{ site.baseurl }}/scripts/modernizr.custom.js"></script>
+    <script src="{{ site.baseurl }}/scripts/modernizr.custom.js" async></script>
+    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
+    <script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us14.list-manage.com","uuid":"89b49b1153522d2db888cf421","lid":"43c75af4e3"}) })</script>
 </head>
 
 <body>
@@ -46,6 +49,9 @@
                 <li><a href="{{site.baseurl}}/about.html" title="learn more">About</a></li>
                 <li><a href="{{site.baseurl}}/resources.html" title="resources">Resources</a></li>
                 <li><a href="{{site.baseurl}}/tags/" title="Archive">Archive</a></li>
+                <li><a href="{{site.baseurl}}/subscribe.html" title="Subscribe">Subscribe</a></li>
+                <li><a href="{{site.baseurl}}/write-to-me.html" title="Write-to-me">Write to Me</a></li>
+                <li><a href="https://goo.gl/dkDacH" target="_blank" title="my-resume">My Résumé</a></li>
             </ul>
         </nav>
     </header>

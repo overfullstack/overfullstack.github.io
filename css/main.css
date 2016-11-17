@@ -623,8 +623,8 @@ p code {
 }
 
 pre {
-    font-size: 1.4em;
-    line-height: 1.6;
+    font-size: 1em;
+    line-height: 1.2;
     color: white;
     padding: .5em 1em;
     margin-bottom: 1em;
@@ -809,6 +809,7 @@ aside li {
 .social {
     display: flex;
     justify-content: space-around;
+    margin-left: 0;
 }
 
 .social a {
