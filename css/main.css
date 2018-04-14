@@ -427,7 +427,7 @@ th {
 -----------------------------------------------------*/
 
 body {
-    font: 110% 'Roboto Slab', Georgia, serif;
+    font: 90% 'Roboto Slab', Georgia, serif;
     background: white;
     direction: ltr;
 }
@@ -849,6 +849,10 @@ aside li {
 
 .rss {
     background: url(../images/social/rss.svg) no-repeat;
+}
+
+.medium {
+    background: url(../images/social/medium.svg) no-repeat;
 }
 
 .share {

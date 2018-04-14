@@ -2,7 +2,7 @@
 title: The Hacker Garage
 tagline: My Tech Blog - Book
 description: My Hacker blog, where I would like to share my learnings and digitize the notes I make, to make them helpful for other developers :)
-baseurl: "https://gopalshackergarage.github.io"
+baseurl: ""
 date_format: '%B %d, %Y'
 email: gopalakshintala@gmail.com
 url: "https://gopalshackergarage.github.io"
