@@ -1,9 +1,17 @@
 module.exports = {
   siteMetadata: {
     title: 'The Hacker Garage',
-    author: 'Gopal S Akshintala',
     description: 'My Blog Book',
     siteUrl: 'https://github.com/gopalshackergarage/gopalshackergarage.github.io',
+    author: {
+      name: 'Gopal S Akshintala',
+      email: '#',
+      telegram: '#',
+      twitter: '#',
+      github: '#',
+      rss: '#',
+      vk: '#'
+    }
   },
   pathPrefix: '/gatsby-starter-blog',
   plugins: [
@@ -59,6 +67,7 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sass`,
     {
       resolve: 'gatsby-plugin-typography',
       options: {

@@ -1,6 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { Link,graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 
 import Bio from '../components/Bio'
@@ -32,13 +32,13 @@ class BlogPostTemplate extends React.Component {
         >
           {post.frontmatter.date}
         </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div dangerouslySetInnerHTML={{ __html: post.html }}/>
         <hr
           style={{
             marginBottom: rhythm(1),
           }}
         />
-        <Bio />
+        <Bio siteMetadata={this.props.data.site.siteMetadata}/>
 
         <ul
           style={{
@@ -78,7 +78,15 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-        author
+        author {
+          name
+          email
+          telegram
+          twitter
+          github
+          rss
+          vk
+        }
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {

@@ -4,34 +4,40 @@ import React from 'react'
 import 'typeface-montserrat'
 import 'typeface-merriweather'
 
-import profilePic from './profile-pic.jpg'
+import profilePic from '../assets/profile-pic.jpg'
 import { rhythm } from '../utils/typography'
+import Links from './Links'
 
 class Bio extends React.Component {
   render() {
+    const { author } = this.props.siteMetadata
+    console.log(this.props.siteMetadata)
     return (
-      <div
-        style={{
-          display: 'flex',
-          marginBottom: rhythm(2.5),
-        }}
-      >
-        <img
-          src={profilePic}
-          alt={`Gopal S Akshintala`}
+      <div>
+        <div
           style={{
-            marginRight: rhythm(1 / 2),
-            marginBottom: 0,
-            width: rhythm(2),
-            height: rhythm(2),
+            display: 'flex',
+            marginBottom: rhythm(1/2),
           }}
-        />
-        <p>
-          Written by <strong>Gopal S Akshintala</strong> who lives and works in Hyderabad building useful things.{' '}
-          <a href="http://bit.ly/agstwtr">
-            You should follow him on Twitter
-          </a>
-        </p>
+        >
+          <img
+            src={profilePic}
+            alt={author.name}
+            style={{
+              marginRight: rhythm(1 / 2),
+              marginBottom: 0,
+              width: rhythm(2),
+              height: rhythm(2),
+            }}
+          />
+          <p>
+            Written by <strong>{author.name}</strong> who lives and works in Hyderabad building useful things.{' '}
+            <a href="http://bit.ly/agsres" target="_blank">
+              Checkout my <b>Résumé</b>
+            </a>
+          </p>
+        </div>
+        <Links data={author}/>
       </div>
     )
   }

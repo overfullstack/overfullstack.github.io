@@ -23,7 +23,7 @@ class BlogIndex extends React.Component {
           meta={[{ name: 'description', content: siteDescription }]}
           title={siteTitle}
         />
-        <Bio />
+        <Bio siteMetadata={this.props.data.site.siteMetadata}/>
         {posts.map(({ node }) => {
           const title = get(node, 'frontmatter.title') || node.fields.slug
           return (
@@ -55,6 +55,15 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         description
+        author {
+          name
+          email
+          telegram
+          twitter
+          github
+          rss
+          vk
+        }
       }
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
