@@ -12,7 +12,7 @@ module.exports = {
       rss: '#',
     },
   },
-  pathPrefix: '/gatsby-starter-blog',
+  pathPrefix: '/gopalshackergarage.github.io',
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,

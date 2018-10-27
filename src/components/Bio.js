@@ -15,8 +15,7 @@ class Bio extends React.Component {
       <div>
         <div
           style={{
-            display: 'flex',
-            marginBottom: rhythm(1/2),
+            display: 'flex'
           }}
         >
           <img
@@ -24,9 +23,10 @@ class Bio extends React.Component {
             alt={author.name}
             style={{
               marginRight: rhythm(1 / 2),
-              marginBottom: 0,
-              width: rhythm(2),
-              height: rhythm(2),
+              marginTop: rhythm(-1 / 2),
+              width: rhythm(3),
+              height: rhythm(3),
+              borderRadius: '50%',
             }}
           />
           <p>
