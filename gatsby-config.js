@@ -5,13 +5,12 @@ module.exports = {
     siteUrl: 'https://github.com/gopalshackergarage/gopalshackergarage.github.io',
     author: {
       name: 'Gopal S Akshintala',
-      email: '#',
-      telegram: '#',
-      twitter: '#',
-      github: '#',
+      email: 'gopal.akshintala@gmail.com',
+      twitter: 'http://bit.ly/agstwtr',
+      linkedin: 'http://bit.ly/agslnkd',
+      github: 'http://bit.ly/agsgithub',
       rss: '#',
-      vk: '#'
-    }
+    },
   },
   pathPrefix: '/gatsby-starter-blog',
   plugins: [

@@ -11,7 +11,6 @@ import Links from './Links'
 class Bio extends React.Component {
   render() {
     const { author } = this.props.siteMetadata
-    console.log(this.props.siteMetadata)
     return (
       <div>
         <div
@@ -33,7 +32,7 @@ class Bio extends React.Component {
           <p>
             Written by <strong>{author.name}</strong> who lives and works in Hyderabad building useful things.{' '}
             <a href="http://bit.ly/agsres" target="_blank">
-              Checkout my <b>Résumé</b>
+              Checkout his <b>Résumé</b>
             </a>
           </p>
         </div>
