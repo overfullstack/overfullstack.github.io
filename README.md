@@ -2,25 +2,6 @@ My Hacker blog, where I would like to share my learnings and digitize the notes 
 
 Please Visit the Blog @ https://gopalshackergarage.github.io
 
-## Todos
-- Search the site feature.
-- Icons for posts.
-- Updated date.
-- Line Numbers for Code.
-- Innovative and funny 404 page.
-- Update Resources.
-
-- ~~Email subscription~~
-- ~~Contact me form~~
-- ~~Sharing buttons on every post~~
-- ~~Table of Contents auto generation~~
-- ~~Jekyll index page not dynamically regenerating locally~~
-- ~~'Fork me on Github' label in the corner~~
-- ~~Quora, Soundcloud and other badges~~
-- ~~Code highlighting based on language~~
-- ~~Migrating to new Jekyll standards~~
-- ~~Favicon Transparent bg~~
-- ~~Integrating disqus commenting.~~
 
 ## Content License
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
