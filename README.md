@@ -1,4 +1,4 @@
-My Hacker blog, where I would like to share my learnings and digitize the notes I make, to make them helpful for other developers :)
+My Hacker blog, where I would like to share my learning and digitize the notes I make, to make them helpful for other developers :)
 
 Please Visit the Blog @ https://gopalshackergarage.github.io
 

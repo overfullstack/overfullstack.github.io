@@ -9,8 +9,8 @@ tags: [Functional Programming, Skills, Java 8]
 ---
 <!-- TODO: Refine the blog posts, so they actually look like blog posts and not your scribbled notes -->
 ### FP vs OOP Simply:
-- Whenever I write some code to deal with data about an entity then functional programming seems to work best.
-- Whenever I write some code to simulate that entity then object-oriented programming seems to work best.
+- Whenever I write some code to deal with data about an entity, then functional programming seems to work best.
+- Whenever I write some code to simulate that entity, then object-oriented programming seems to work best.
 <!--more-->
 
 For example, if we have to design a system that deals with **People**, we use OOP to design a **Person** class, which holds the state and behavior of a person. But let us say, we need to perform an operation to calculate age of every person based on their DOB, OOP tells us to keep that as a function inside **Person** class. But if you as FP, it looks at it like a mathematical data-driven operation. It suggests you to prepare a function independent of a person class, which can be called with DOB as input, and we get age as output. We can **Evaluate** ages of all people by passing them through this function.
@@ -23,7 +23,7 @@ Functional Programming is just a different way of thinking about structuring you
 - Functions can be treated as values, and they can be assigned to variables. These are called **First Class Functions** and this type of programming is called **Higher Order Programming**. Function<>, Consumer<> etc can be used as variable types to which either lambdas or anonymous inner classes be assigned as values.
 
 ```java
-private static Function<String,String> lastWord = (String phrase) ->
+private static Function<String, String> lastWord = (String phrase) ->
      Arrays.asList(phrase.split(" ")).stream()
                     .reduce((other, last) -> last)
                     .orElse("");
