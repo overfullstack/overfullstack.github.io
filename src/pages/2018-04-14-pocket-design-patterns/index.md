@@ -1,17 +1,14 @@
 ---
 layout: post
-title:  "Pocket Design Patterns"
-date:   2018-04-14
+draft: false
+title: Pocket Design Patterns
+date: 2018-04-14
 excerpt_separator: <!--more-->
-toc: true
-comments: true
-tags: [Design]
+tags:
+    - "Design"
+description: "All the popular Design Patterns abridged for quick revision, along with some tidbits."
 ---
-<!-- TODO: Refine the blog posts, so they actually look like blog posts and not your scribbled notes -->
-
-All the popular Design Patterns abridged for quick revision, along with some titbits :)
-<!--more-->
-
+All the popular Design Patterns abridged for quick revision, along with some tidbits.
 ## Creational Patterns
 ### Factory method Vs Abstract Factory
 - Abstract factory has a level more depth of abstraction.

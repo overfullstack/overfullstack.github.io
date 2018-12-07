@@ -6,7 +6,7 @@ import get from 'lodash/get'
 import Bio from '../components/Bio'
 import Layout from '../components/layout'
 import { rhythm, scale } from '../utils/typography'
-require("prismjs/plugins/line-numbers/prism-line-numbers.css")
+import "gist-syntax-themes/stylesheets/tomorrow-night.css"
 
 class BlogPostTemplate extends React.Component {
   render() {
