@@ -1,13 +1,15 @@
 ---
+title: Pocket Design Patterns
+date: "2018-04-14T00:00:00.000Z"
 layout: post
 draft: false
-title: Pocket Design Patterns
-date: 2018-04-14
-excerpt_separator: <!--more-->
-tags:
+path: "/posts/pocket-design-patterns/"
+category: "Design Patterns"
+tags: 
     - "Design"
 description: "All the popular Design Patterns abridged for quick revision, along with some tidbits."
 ---
+
 All the popular Design Patterns abridged for quick revision, along with some tidbits.
 ## Creational Patterns
 ### Factory method Vs Abstract Factory

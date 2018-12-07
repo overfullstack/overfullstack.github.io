@@ -1,17 +1,16 @@
 ---
+title: Kung fu Lambda
+date: "2016-10-26T00:00:00.000Z"
 layout: post
 draft: false
-title: Kung fu Lambda - Fun in Functional Programming with Java 8
-date: 2016-10-26
-excerpt_separator: <!--more-->
+path: "/posts/functional-programming-with-java-8/"
+category: "Functional Programming"
 tags: 
-    - "Functional Programming" 
-    - "Skills"
     - "Java 8"
-description: "A Brief about how Java 8 is competing with younger functional languages."
+description: "Fun in Functional Programming with Java 8 and how it is competing with younger functional languages."
 ---
-<!-- TODO: Refine the blog posts, so they actually look like blog posts and not your scribbled notes -->
-A Brief about how Java 8 is competing with younger functional languages.
+
+Fun in Functional Programming with Java 8 and how it is competing with younger functional languages.
 ### FP vs OOP Simply:
 - Whenever I write some code to deal with data about an entity, then functional programming seems to work best.
 - Whenever I write some code to simulate that entity, then object-oriented programming seems to work best.

@@ -1,11 +1,13 @@
 ---
+title: Functional Terminology
+date: "2018-12-07T00:00:00.000Z"
 layout: post
 draft: false
-title: "Functional Terminology"
-date: 2018-12-07
-excerpt_separator: <!--more-->
-tags:
-    - "Functional Programming" 
+path: "/posts/functional-terminology/"
+category: "Functional Programming"
+tags: 
+    - "Functional Programming"
+description: "Speak Functional language fluently"
 ---
 
 ## Pure Functions 
