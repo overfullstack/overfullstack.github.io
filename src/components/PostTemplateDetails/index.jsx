@@ -1,12 +1,14 @@
+import 'gist-syntax-themes/stylesheets/solarized-light.css'
 import React from 'react'
 import { Link } from 'gatsby'
 import moment from 'moment'
 import Disqus from '../Disqus/Disqus'
 import './style.scss'
+import Links from '../Links'
 
 class PostTemplateDetails extends React.Component {
   render() {
-    const { subtitle, author } = this.props.data.site.siteMetadata
+    const { author } = this.props.data.site.siteMetadata
     const post = this.props.data.markdownRemark
     const tags = post.fields.tagSlugs
 
@@ -63,7 +65,6 @@ class PostTemplateDetails extends React.Component {
             {tagsBlock}
             <hr />
             <p className="post-single__footer-text">
-              {subtitle}
               <a
                 href={`${author.resume}`}
                 target="_blank"
@@ -71,6 +72,9 @@ class PostTemplateDetails extends React.Component {
               >
                 <br /> <strong>{author.name}&#39;s Résumé</strong>
               </a>
+            </p>
+            <p className="post-single__footer-text">
+              <Links data={author} isFlat />
             </p>
             {commentsBlock}
           </div>
