@@ -1,4 +1,4 @@
-import 'gist-syntax-themes/stylesheets/solarized-light.css'
+import 'gist-syntax-themes/stylesheets/idle-fingers.css'
 import React from 'react'
 import { Link } from 'gatsby'
 import moment from 'moment'

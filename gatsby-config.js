@@ -26,12 +26,12 @@ module.exports = {
     author: {
       name: 'Gopal S Akshintala',
       email: 'gopal.akshintala@gmail.com',
-      telegram: '#',
+      telegram: 'https://t.me/gopalakshintala',
       twitter: 'http://bit.ly/agstwtr',
       github: 'http://bit.ly/agsgithub',
       resume: 'http://bit.ly/agsres',
+      linkedin: 'http://bit.ly/agslnkd',
       rss: '#',
-      vk: '#',
     },
   },
   plugins: [

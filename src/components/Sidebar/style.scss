@@ -39,6 +39,12 @@
     }
 }
 
+.img-mobile {
+    margin-top: -4px;
+    margin-right: 32px;
+    float: left;
+}
+
 @include breakpoint-sm {
     .sidebar {
         lost-column: 5/12;

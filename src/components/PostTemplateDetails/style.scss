@@ -125,6 +125,11 @@
     margin-right: auto;
 }
 
+.post-gif {
+    width: 100%;
+    max-width: $layout-post-single-width;
+}
+
 @include breakpoint-sm {
     .post-single {
         &__footer {
