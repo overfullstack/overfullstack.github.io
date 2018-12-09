@@ -38,7 +38,7 @@
     "gatsby-plugin-sitemap": "^2.0.1",
     "gatsby-remark-copy-linked-files": "^2.0.5",
     "gatsby-remark-embed-gist": "^1.1.4",
-    "gatsby-remark-images": "^2.0.4",
+    "gatsby-remark-images": "^3.0.1",
     "gatsby-remark-prismjs": "^3.0.2",
     "gatsby-remark-responsive-iframe": "^2.0.5",
     "gatsby-remark-smartypants": "^2.0.5",
@@ -56,14 +56,14 @@
     "react-responsive": "^6.0.1"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.1",
-    "eslint": "^4.14.0",
-    "eslint-config-airbnb": "^16.1.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.10.0",
+    "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.5.1",
-    "gh-pages": "^1.1.0",
+    "gh-pages": "^2.0.1",
     "lost": "^8.2.0",
     "postcss-pxtorem": "^4.0.1",
     "prettier": "^1.10.2"

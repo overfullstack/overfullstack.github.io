@@ -1,5 +1,5 @@
 ---
-title: Kung fu Lambda
+title: Kung fu Lambda ƛ
 date: "2016-10-26T00:00:00.000Z"
 layout: post
 draft: false
