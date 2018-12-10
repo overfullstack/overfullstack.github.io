@@ -91,7 +91,7 @@ The code ended-up like an Alien plant:
 ### Behead the Octopus, Lego the Focussed Functions
 - State should always march **Unidirectional**, like an unstoppable army of zombies.
 <img class="post-gif" src="https://media.giphy.com/media/V3zHRAZGp7Qo8/giphy.gif">
-- I ain't copying this from the Flux guys at Facebook. This is seen ever since there are pipes in Unix, since 1978.
+- I ain't copying this from the [Flux](https://facebook.github.io/flux/) guys at Facebook. This is seen ever since there are pipes in Unix, since 1978.
 - Simply, make the shit of a function be the food for another.
 - To do that, above Imperative Program can be transformed into **Declarative Style** like this:
 

@@ -8,7 +8,7 @@ import Links from '../Links'
 
 class PostTemplateDetails extends React.Component {
   render() {
-    const { author } = this.props.data.site.siteMetadata
+    const { subtitle, author } = this.props.data.site.siteMetadata
     const post = this.props.data.markdownRemark
     const tags = post.fields.tagSlugs
 
@@ -65,6 +65,7 @@ class PostTemplateDetails extends React.Component {
             {tagsBlock}
             <hr />
             <p className="post-single__footer-text">
+              <i>{subtitle}</i>
               <a
                 href={`${author.resume}`}
                 target="_blank"

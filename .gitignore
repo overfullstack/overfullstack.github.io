@@ -8,3 +8,4 @@ npm-debug.log
 .intermediate-representation/
 yarn.lock
 /.idea/workspace.xml
+/package-lock.json
