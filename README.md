@@ -2,6 +2,10 @@ My Hacker blog, where I would like to share my learning and digitize the notes I
 
 Please Visit the Blog @ https://gopalshackergarage.github.io
 
+## Features
+- Built using Gatsby.js
+- Integration with Travis CI for auto deployment to github pages.
+
 
 ## Content License
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">

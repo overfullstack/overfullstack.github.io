@@ -7,7 +7,7 @@ path: "/posts/monads-for-drunken-coders-pint-1/"
 category: "Functional Programming"
 tags: 
     - "Java 8"
-description: "A chilled explanation of the Dreaded Monad"
+description: "A chilled introduction to the Dreaded Monad, using Java 8"
 ---
 
 ## Story of an Egg validator 
@@ -114,7 +114,9 @@ The code ended-up like an Alien plant:
 `gist:7777085ba07fb61268bc507dfa9e5df8#PseudoValidator.java`
 - This poor function is trying to validate, but is not sure how to communicate back to its caller with multiple possibilities. Unfortunately, Strongly-typed languages are strict about return type.
 - Had it been a Dynamically-typed-language like Javascript, this is not a problem at all. This is one of the reasons why Dynamically typed languages got popular for. Of-course, that makes them very difficult to debug. It's difficult to build even a proper IDE around them.
-- The solution for this in a Strongly-typed-language like Java is **Data Containerization**. 
+- A dirty solution in a Strongly-typed-language like Java can be, have some Enum `ValidationFailureType` as the return type which has all failure types listed, and in all these cases just return that specific failure accordingly. 
+- But you got to return a `null` in valid case and you know what happens if caller doesn't know about that. A blast of NPE!
+- **Data Containerization** solves this. 
 - Not those plain-old-java-wrappers, but **Containers**. Ship your heterogeneous data inside these containers. 
 
 Let's take a fork here and visit the Monad-Land to understand Containerization.
