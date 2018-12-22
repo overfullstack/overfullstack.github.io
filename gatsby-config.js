@@ -225,5 +225,14 @@ module.exports = {
         icon: 'src/assets/favicon.png',
       },
     },
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-131255680-1',
+        // Puts tracking script in the head instead of the body
+        head: true,
+        // Any additional create only fields (optional)
+      },
+    },
   ],
 }
