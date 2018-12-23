@@ -1,4 +1,4 @@
-/** 
+/**
  * Generic
  */
 
@@ -78,14 +78,11 @@ img {
 }
 
 hr {
-    margin-top: 52px;
-    margin-bottom: 52px;
     border: 0;
     color: $color-base;
     display: block;
     height: 26px;
-    margin-right: auto;
-    margin-left: auto;
+    margin: auto;
     background-size: 100% 26px;
     background-image: linear-gradient(to bottom, transparent 1px, transparent 11px, $color-base 11px, $color-base 15px, transparent 15px, transparent 26px);
     width: 100px;

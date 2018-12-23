@@ -24,6 +24,7 @@
   "author": "Gopal S Akshintala <gopal.akshintala@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "applause-button": "^3.0.0",
     "bluebird": "^3.5.1",
     "gatsby": "^2.0.22",
     "gatsby-plugin-catch-links": "^2.0.4",
@@ -47,6 +48,7 @@
     "gatsby-transformer-sharp": "^2.1.3",
     "gist-syntax-themes": "^1.1.0",
     "lodash": "^4.17.4",
+    "moment": "latest",
     "node-sass": "^4.9.3",
     "prismjs": "^1.15.0",
     "react": "^16.5.2",

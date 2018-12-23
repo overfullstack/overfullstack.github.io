@@ -5,6 +5,8 @@ Please Visit the Blog @ https://gopalshackergarage.github.io
 ## Features
 - Built using Gatsby.js
 - Integration with Travis CI for auto deployment to github pages.
+- Google Analytics integration.
+- Claps (like Medium).
 
 
 ## Content License

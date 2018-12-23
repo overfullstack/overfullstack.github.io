@@ -12,19 +12,21 @@ class PostTemplateDetails extends React.Component {
     const post = this.props.data.markdownRemark
     const tags = post.fields.tagSlugs
 
+    const applauseButton = <applause-button multiclap="true" />
     const homeBlock = (
       <div>
         <Link className="post-single__home-button" to="/">
           All Articles
         </Link>
+        {applauseButton}
       </div>
     )
 
     const tagsBlock = (
       <div className="post-single__tags">
         <ul className="post-single__tags-list">
-          {tags &&
-            tags.map((tag, i) => (
+          {tags
+            && tags.map((tag, i) => (
               <li className="post-single__tags-list-item" key={tag}>
                 <Link to={tag} className="post-single__tags-list-item-link">
                   {post.frontmatter.tags[i]}
@@ -57,12 +59,15 @@ class PostTemplateDetails extends React.Component {
             />
             <div className="post-single__date">
               <em>
-                Published {moment(post.frontmatter.date).format('D MMM YYYY')}
+                Published
+                {' '}
+                {moment(post.frontmatter.date).format('D MMM YYYY')}
               </em>
             </div>
           </div>
           <div className="post-single__footer">
             {tagsBlock}
+            {applauseButton}
             <hr />
             <p className="post-single__footer-text">
               <i>{subtitle}</i>
@@ -71,12 +76,16 @@ class PostTemplateDetails extends React.Component {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <br /> <strong>{author.name}&#39;s Résumé</strong>
+                <br />
+                <strong>
+                  {author.name}
+                  &#39;s Résumé
+                </strong>
               </a>
             </p>
-            <p className="post-single__footer-text">
+            <div className="post-single__footer-text">
               <Links data={author} isFlat />
-            </p>
+            </div>
             {commentsBlock}
           </div>
         </div>

@@ -15,7 +15,7 @@
         font-weight: 600;
         text-align: center;
         @include line-height(1.65);
-        @include margin-top(1);
+        @include margin-top(0.25);
         @include margin-bottom(0);
     }
     &__body {
@@ -119,6 +119,15 @@
     }
 }
 
+applause-button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60px;
+    height: 60px;
+    @include margin-top(1);
+}
+
 .gist {
     max-width: $layout-post-single-width;
     margin-left: auto;
@@ -128,7 +137,7 @@
 .post-gif {
     width: 100%;
     max-width: $layout-post-single-width;
-}
+    }
 
 @include breakpoint-sm {
     .post-single {
@@ -168,10 +177,19 @@
         }
         &__home-button {
             position: fixed;
-            max-width: auto;
             margin: 0;
             top: 30px;
             left: 30px;
         }
     }
+
+    applause-button {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        margin: 0;
+        top: 50%;
+        left: 3.125rem;
+    }
+
 }
