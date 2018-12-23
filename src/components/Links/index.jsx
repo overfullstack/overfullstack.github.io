@@ -11,7 +11,7 @@ class Links extends React.Component {
       linkedin: author.linkedin,
       telegram: author.telegram,
       email: author.email,
-      rss: author.rss,
+      stackoverflow: author.stackoverflow,
     }
 
     return (
@@ -46,8 +46,8 @@ class Links extends React.Component {
                   </a>
                 </li>
                 <li className="links__list-item">
-                  <a href={links.rss}>
-                    <i className="icon-rss" />
+                  <a href={links.stackoverflow}>
+                    <i className="icon-stackoverflow" />
                   </a>
                 </li>
               </ul>
@@ -97,8 +97,8 @@ class Links extends React.Component {
               </ul>
               <ul className="links__list">
                 <li className="links__list-item">
-                  <a href={links.rss}>
-                    <i className="icon-rss" />
+                  <a href={links.stackoverflow}>
+                    <i className="icon-stackoverflow" />
                   </a>
                 </li>
               </ul>

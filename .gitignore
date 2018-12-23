@@ -6,6 +6,6 @@ npm-debug.log
 .gatsby-context.js
 .DS_Store
 .intermediate-representation/
-yarn.lock
 /.idea/workspace.xml
 /package-lock.json
+/yarn.lock

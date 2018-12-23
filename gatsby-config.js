@@ -31,7 +31,7 @@ module.exports = {
       github: 'http://bit.ly/agsgithub',
       resume: 'http://bit.ly/agsres',
       linkedin: 'http://bit.ly/agslnkd',
-      rss: '#',
+      stackoverflow: 'http://bit.ly/agsso',
     },
   },
   plugins: [

@@ -41,7 +41,7 @@ export const pageQuery = graphql`
           linkedin
           telegram
           email
-          rss
+          stackoverflow
         }
         disqusShortname
         url
