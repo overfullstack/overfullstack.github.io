@@ -1,5 +1,4 @@
 import React from 'react'
-import MediaQuery from 'react-responsive'
 import get from 'lodash/get'
 import { Link } from 'gatsby'
 import Menu from '../Menu'
@@ -17,29 +16,14 @@ class Sidebar extends React.Component {
       menu,
     } = this.props.data.site.siteMetadata
     const isHomePage = get(location, 'pathname', '/') === '/'
-    const imgDesktop = (<img
-      src={profilePic}
-      className="sidebar__author-photo"
-      width="75"
-      height="75"
-      alt={author.name}
-    />)
-    const imgMobile = (<img
-      src={profilePic}
-      className="sidebar__author-photo img-mobile"
-      width="75"
-      height="75"
-      alt={author.name}
-    />)
     const authorBlock = (
       <div>
         <Link to="/">
-          <MediaQuery minDeviceWidth={1224}>
-            {imgDesktop}
-          </MediaQuery>
-          <MediaQuery maxDeviceWidth={1224}>
-            {imgMobile}
-          </MediaQuery>
+          <img
+            src={profilePic}
+            className="sidebar__author-photo"
+            alt={author.name}
+          />
         </Link>
         {isHomePage ? (
           <h1 className="sidebar__author-title">

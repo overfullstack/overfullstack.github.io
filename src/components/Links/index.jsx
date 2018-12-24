@@ -17,7 +17,7 @@ class Links extends React.Component {
     return (
       <div>
         {this.props.isFlat
-          ?
+          ? (
             <div className="links">
               <ul className="links__list" style={{ justifyContent: 'space-between' }}>
                 <li className="links__list-item">
@@ -46,13 +46,14 @@ class Links extends React.Component {
                   </a>
                 </li>
                 <li className="links__list-item">
-                  <a href={links.stackoverflow}>
+                  <a href={links.stackoverflow} target="_blank" rel="noopener noreferrer">
                     <i className="icon-stackoverflow" />
                   </a>
                 </li>
               </ul>
             </div>
-          :
+          )
+          : (
             <div className="links">
               <ul className="links__list">
                 <li className="links__list-item">
@@ -97,12 +98,17 @@ class Links extends React.Component {
               </ul>
               <ul className="links__list">
                 <li className="links__list-item">
-                  <a href={links.stackoverflow}>
+                  <a
+                    href={links.stackoverflow}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <i className="icon-stackoverflow" />
                   </a>
                 </li>
               </ul>
             </div>
+          )
         }
       </div>
     )
