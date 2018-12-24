@@ -1,5 +1,5 @@
 ---
-title: Functional Terminology
+title: Functional Terminology ⨐
 date: "2018-12-07T00:00:00.000Z"
 layout: post
 draft: false
@@ -40,7 +40,7 @@ description: "Speak Functional language fluently"
 - A closure can also be thought of as a record storing a function together with a environment. One final way of defining a closure is as a mapping associating each variable of the function with the value or reference to which the name was bound when the closure was created. Next up, let's go over functional composition.
 
 ## Some-more
-- **Monad**, Think of monads as a context object that wraps a value and allows us to apply a set of transformations on that value and get it back out with all the transformations applied. 
+- **Monad**, Think of monad as a context object that wraps a value and allows us to apply a set of transformations on that value and get it back out with all the transformations applied. 
 - Stream and Optional are Monads, when they are used as `Stream.of()` and `Optional.of()` as constructors and `map()` and `flatMap()` as binding functions.
 
 ```java

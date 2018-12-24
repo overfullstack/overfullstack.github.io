@@ -5,6 +5,7 @@ import Menu from '../Menu'
 import Links from '../Links'
 import profilePic from '../../assets/photo.jpg'
 import './style.scss'
+import Emoji from '../Emoji/Emoji'
 
 class Sidebar extends React.Component {
   render() {
@@ -49,6 +50,10 @@ class Sidebar extends React.Component {
           <div>
             <Menu data={menu} />
             <Links data={author} />
+            <p className="sidebar__copyright" style={{ marginTop: 0 }}>
+              This Blog is built with React.js&nbsp;
+              <Emoji symbol="⚛️" />
+            </p>
             <p className="sidebar__copyright">{copyright}</p>
           </div>
         </div>

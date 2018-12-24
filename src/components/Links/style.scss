@@ -3,6 +3,10 @@
 
 .links {
     @include margin-bottom(1);
+    display: inline-block;
+    ul:first-of-type {
+        margin-top: 0;
+    }
     &__list {
         display: flex;
         list-style: none;

@@ -7,6 +7,7 @@ path: "/posts/monads-for-drunken-coders-pint-1/"
 category: "Functional Programming"
 tags: 
     - "Java 8"
+    - "Monads"
 description: "A chilled introduction to the Dreaded Monad, using Java 8"
 ---
 
