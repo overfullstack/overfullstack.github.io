@@ -14,13 +14,6 @@
     "deploy": "gatsby build && gh-pages -d public -b master"
   },
   "repository": "git+https://github.com/gopalshackergarage/gopalshackergarage.github.io.git,",
-  "keywords": [
-    "gatsby",
-    "blog",
-    "react",
-    "theme",
-    "starter"
-  ],
   "author": "Gopal S Akshintala <gopal.akshintala@gmail.com>",
   "license": "MIT",
   "dependencies": {
