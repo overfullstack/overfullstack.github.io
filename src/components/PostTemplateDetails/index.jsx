@@ -12,7 +12,7 @@ class PostTemplateDetails extends React.Component {
     const post = this.props.data.markdownRemark
     const tags = post.fields.tagSlugs
 
-    const applauseButton = <applause-button multiclap="true" />
+    const applauseButton = <div className="applause"><applause-button multiclap="true" /></div>
     const homeBlock = (
       <div>
         <Link className="post-single__home-button" to="/">
@@ -67,7 +67,7 @@ class PostTemplateDetails extends React.Component {
           </div>
           <div className="post-single__footer">
             {tagsBlock}
-            {applauseButton}
+            <div className="mobile-footer-clap">{applauseButton}</div>
             <hr />
             <p className="post-single__footer-text">
               <i>{subtitle}</i>

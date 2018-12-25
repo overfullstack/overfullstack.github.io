@@ -120,12 +120,26 @@
 }
 
 applause-button {
-    display: block;
     margin-left: auto;
     margin-right: auto;
     width: 60px;
     height: 60px;
     @include margin-top(1);
+}
+
+.applause {
+    animation: popout 1s ease;
+    -webkit-animation: popout 1s ease;
+}
+@keyframes popout {
+    from{transform:scale(0)}
+    80%{transform:scale(1.2)}
+    to{transform:scale(1)}
+}
+@-webkit-keyframes popout {
+    from{-webkit-transform:scale(0)}
+    80%{-webkit-transform:scale(1.2)}
+    to{-webkit-transform:scale(1)}
 }
 
 .gist {
@@ -183,13 +197,20 @@ applause-button {
         }
     }
 
-    applause-button {
+    .applause {
         position: fixed;
+        top: 50%;
+        left: 3.125rem;
+    }
+
+    .mobile-footer-clap {
+        display: none;
+    }
+
+    applause-button {
         width: 60px;
         height: 60px;
         margin: 0;
-        top: 50%;
-        left: 3.125rem;
     }
 
 }
