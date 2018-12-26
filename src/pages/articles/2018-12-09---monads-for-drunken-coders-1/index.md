@@ -110,13 +110,14 @@ The code ended-up like an Alien plant:
 - Flowing through a function, Data inside a stream/collection of one type can metamorphose into various life forms of all shapes and sizes as it comes out, may be due to invalidations or exceptions or some eggs hatch into chickens or dinosaurs or your database just gets struck by a lightning.
 - The dichotomy of Data metamorphism with Stream Uniformity can be seen in our current problem. 
 - We have two categories of data, Good eggs and Bad eggs. But who needs bad eggs, what you really interested are, the Validation failures for bad eggs. 
-- So two categories here, demand two totally disparate data types (Good-eggs), (Validation-failures due to (invalidations) and (exceptions)) to co-exist, inside a stream, as they flow through the pipeline. Check-out cases in this pseudo code:
+- So two categories here, demand two totally disparate data types (Good-eggs), (Validation-failures due to (invalidations) and (exceptions)) to co-exist, inside a stream, as they flow through the pipeline. Check-out these cases in this pseudo code:
 
 `gist:7777085ba07fb61268bc507dfa9e5df8#PseudoValidator.java`
-- This poor function is trying to validate, but is not sure how to communicate back to its caller with multiple possibilities. Unfortunately, Strongly-typed languages are strict about return type.
+- This poor function is not sure how to communicate back to its caller with multiple possibilities. Unfortunately, Strongly-typed languages are strict about return type.
 - Had it been a Dynamically-typed-language like Javascript, this is not a problem at all. This is one of the reasons why Dynamically typed languages got popular for. Of-course, that makes them very difficult to debug. It's difficult to build even a proper IDE around them.
 - A dirty solution in a Strongly-typed-language like Java can be, have some Enum `ValidationFailureType` as the return type which has all failure types listed, and in all these cases just return that specific failure accordingly. 
-- But you got to return a `null` in valid case and you know what happens if caller doesn't know about that. A blast of NPE!
+- In valid case, you need to return something like `ValidationFailureType.NONE`. But, that means you can't pipe this function, with other validation functions (without the octopus orchestrator), as the valid egg is now lost in the oblivion of if-else labyrinth.
+- If you return a `null` in valid case, you know what happens if caller doesn't know about that. A blast of NPE!  
 - **Data Containerization** solves this. 
 - Not those plain-old-java-wrappers, but **Containers**. Ship your heterogeneous data inside these containers. 
 
