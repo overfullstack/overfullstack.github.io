@@ -21,39 +21,39 @@ class Links extends React.Component {
             <ul className="links__list" style={{ justifyContent: 'space-between' }}>
               <li className="links__list-item">
                 <a href={`${links.twitter}`} target="_blank" rel="noopener noreferrer">
-                  <i className="icon-twitter"/>
+                  <i className="icon-twitter" />
                 </a>
               </li>
               <li className="links__list-item">
                 <a href={`${links.github}`} target="_blank" rel="noopener noreferrer">
-                  <i className="icon-github"/>
+                  <i className="icon-github" />
                 </a>
               </li>
               <li className="links__list-item">
                 <a href={`${links.linkedin}`} target="_blank" rel="noopener noreferrer">
-                  <i className="icon-linkedin"/>
+                  <i className="icon-linkedin" />
                 </a>
               </li>
               <li className="links__list-item">
                 <a href={`mailto:${links.email}`}>
-                  <i className="icon-mail"/>
+                  <i className="icon-mail" />
                 </a>
               </li>
               <li className="links__list-item">
                 <a href={`${links.telegram}`}>
-                  <i className="icon-paper-plane"/>
+                  <i className="icon-paper-plane" />
                 </a>
               </li>
               <li className="links__list-item">
                 <a href={links.stackoverflow} target="_blank" rel="noopener noreferrer">
-                  <i className="icon-stackoverflow"/>
+                  <i className="icon-stackoverflow" />
                 </a>
               </li>
             </ul>
           </div>
         )
         : (
-          <div className="links">
+          <div className="links" style={{ display: 'inline-block' }}>
             <ul className="links__list">
               <li className="links__list-item">
                 <a
@@ -61,7 +61,7 @@ class Links extends React.Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i className="icon-twitter"/>
+                  <i className="icon-twitter" />
                 </a>
               </li>
               <li className="links__list-item">
@@ -70,7 +70,7 @@ class Links extends React.Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i className="icon-github"/>
+                  <i className="icon-github" />
                 </a>
               </li>
               <li className="links__list-item">
@@ -79,19 +79,19 @@ class Links extends React.Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i className="icon-linkedin"/>
+                  <i className="icon-linkedin" />
                 </a>
               </li>
             </ul>
             <ul className="links__list">
               <li className="links__list-item">
                 <a href={`mailto:${links.email}`}>
-                  <i className="icon-mail"/>
+                  <i className="icon-mail" />
                 </a>
               </li>
               <li className="links__list-item">
                 <a href={`${links.telegram}`}>
-                  <i className="icon-paper-plane"/>
+                  <i className="icon-paper-plane" />
                 </a>
               </li>
             </ul>
@@ -102,7 +102,7 @@ class Links extends React.Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i className="icon-stackoverflow"/>
+                  <i className="icon-stackoverflow" />
                 </a>
               </li>
             </ul>

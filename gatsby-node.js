@@ -17,6 +17,7 @@ exports.createPages = ({ graphql, actions }) => {
     graphql(`
       {
         allMarkdownRemark(
+          sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
           filter: { frontmatter: { draft: { ne: true } } }
         ) {
@@ -26,6 +27,7 @@ exports.createPages = ({ graphql, actions }) => {
                 slug
               }
               frontmatter {
+                title
                 tags
                 layout
                 category
@@ -40,7 +42,8 @@ exports.createPages = ({ graphql, actions }) => {
         reject(result.errors)
       }
 
-      _.each(result.data.allMarkdownRemark.edges, edge => {
+      const edges = result.data.allMarkdownRemark.edges
+      _.each(edges, (edge, index) => {
         if (_.get(edge, 'node.frontmatter.layout') === 'page') {
           createPage({
             path: edge.node.fields.slug,
@@ -48,10 +51,17 @@ exports.createPages = ({ graphql, actions }) => {
             context: { slug: edge.node.fields.slug },
           })
         } else if (_.get(edge, 'node.frontmatter.layout') === 'post') {
+          const previous = index === edges.length - 1 ? null : edges[index + 1].node
+          // index === 2 instead of 0 to skip about me and contact me
+          const next = index === 2 ? null : edges[index - 1].node
           createPage({
             path: edge.node.fields.slug,
             component: slash(postTemplate),
-            context: { slug: edge.node.fields.slug },
+            context: {
+              slug: edge.node.fields.slug,
+              previous,
+              next,
+            },
           })
 
           let tags = []
@@ -99,8 +109,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const slug = `/${parsedFilePath.dir.split('---')[1]}/`
     createNodeField({ node, name: 'slug', value: slug })
   } else if (
-    node.internal.type === 'MarkdownRemark' &&
-    typeof node.slug === 'undefined'
+    node.internal.type === 'MarkdownRemark'
+    && typeof node.slug === 'undefined'
   ) {
     const fileNode = getNode(node.parent)
     let slug = fileNode.fields.slug

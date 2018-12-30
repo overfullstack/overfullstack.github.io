@@ -9,6 +9,7 @@ import Links from '../Links'
 class PostTemplateDetails extends React.Component {
   render() {
     const { subtitle, author } = this.props.data.site.siteMetadata
+    const { previous, next } = this.props.pageContext
     const post = this.props.data.markdownRemark
     const tags = post.fields.tagSlugs
 
@@ -59,8 +60,7 @@ class PostTemplateDetails extends React.Component {
             />
             <div className="post-single__date">
               <em>
-                Published
-                {' '}
+                Published&nbsp;
                 {moment(post.frontmatter.date).format('D MMM YYYY')}
               </em>
             </div>
@@ -69,6 +69,32 @@ class PostTemplateDetails extends React.Component {
             {tagsBlock}
             <div className="mobile-footer-clap">{applauseButton}</div>
             <hr />
+            <ul
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'space-between',
+                listStyle: 'none',
+                padding: 0,
+              }}
+            >
+              <li>
+                {previous && (
+                  <Link to={previous.fields.slug} rel="prev">
+                    ←&nbsp;
+                    {previous.frontmatter.title}
+                  </Link>
+                )}
+              </li>
+              <li>
+                {next && (
+                  <Link to={next.fields.slug} rel="next">
+                    {next.frontmatter.title}
+                    &nbsp;→
+                  </Link>
+                )}
+              </li>
+            </ul>
             <p className="post-single__footer-text">
               <i>{subtitle}</i>
               <a
