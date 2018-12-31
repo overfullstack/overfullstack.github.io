@@ -5,6 +5,7 @@ import moment from 'moment'
 import Disqus from '../Disqus/Disqus'
 import './style.scss'
 import Links from '../Links'
+import Bio from '../Bio'
 
 class PostTemplateDetails extends React.Component {
   render() {
@@ -96,16 +97,14 @@ class PostTemplateDetails extends React.Component {
               </li>
             </ul>
             <p className="post-single__footer-text">
-              <i>{subtitle}</i>
+              <Bio author={author} subtitle={subtitle} isHomePage={false} />
               <a
                 href={`${author.resume}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <br />
                 <strong>
-                  {author.name}
-                  &#39;s Résumé
+                  My&nbsp; Résumé
                 </strong>
               </a>
             </p>
