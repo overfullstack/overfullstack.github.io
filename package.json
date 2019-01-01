@@ -1,7 +1,7 @@
 {
   "version": "3.0.0",
-  "name": "gopals-hacker-garage-v2",
-  "description": "The Hacker Garage",
+  "name": "gopals-over-full-stack-v2",
+  "description": "It's all Over full-stack",
   "main": "n/a",
   "scripts": {
     "develop": "gatsby develop",
@@ -13,7 +13,7 @@
     "format": "prettier --write './*.js' 'src/**/*.js' 'src/**/*.jsx'",
     "deploy": "gatsby build && gh-pages -d public -b master"
   },
-  "repository": "git+https://github.com/gopalshackergarage/gopalshackergarage.github.io.git,",
+  "repository": "git+https://github.com/overfullstack/overfullstack.github.io.git,",
   "author": "Gopal S Akshintala <gopal.akshintala@gmail.com>",
   "license": "MIT",
   "dependencies": {

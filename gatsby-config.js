@@ -3,12 +3,12 @@ const pxtorem = require('postcss-pxtorem')
 
 module.exports = {
   siteMetadata: {
-    url: 'https://github.com/gopalshackergarage/gopalshackergarage.github.io',
-    title: 'The Hacker Garage',
+    url: 'https://github.com/overfullstack/overfullstack.github.io',
+    title: 'It\'s All Over full-stack',
     subtitle: 'So excited about this Craft that, I can\'t keep myself from blogging about it.',
     copyright: '© All rights reserved.',
     disqusShortname: 'gopal',
-    pathPrefix: '/gopalshackergarage.github.io',
+    pathPrefix: '/overfullstack.github.io',
     menu: [
       {
         label: 'Articles',
@@ -107,7 +107,7 @@ module.exports = {
               // Optional:
 
               // the github handler whose gists are to be accessed
-              username: 'gopalshackergarage',
+              username: 'overfullstack',
 
               // a flag indicating whether the github default gist css should be included or not
               // default: true
@@ -216,8 +216,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Gopal\'s Hacker Garage',
-        short_name: 'Gopal\'s Hacker Garage',
+        name: 'Gopal\'s Over full-stack',
+        short_name: 'Gopal\'s Over full-stack',
         start_url: '/',
         background_color: '#ffffff',
         theme_color: '#663399',

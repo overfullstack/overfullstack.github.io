@@ -1,6 +1,6 @@
-My Hacker blog, where I would like to share my learning and digitize the notes I make, to make them helpful for other developers :)
+My Personal blog, where I would like to share my learning and digitize the notes I make, to make them helpful for other developers :)
 
-Please Visit the Blog @ https://gopalshackergarage.github.io
+Please Visit the Blog @ https://overfullstack.github.io
 
 ## Features
 - Built using Gatsby.js
