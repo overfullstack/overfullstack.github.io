@@ -3,16 +3,16 @@ import { Link } from 'gatsby'
 import './style.scss'
 import profilePic from '../../assets/photo.jpg'
 
-const Bio = ({ author, subtitle, isHomePage }) => (
+const Bio = ({ author, subtitle, path }) => (
   <div>
     <Link to="/">
       <img
         src={profilePic}
-        className="bio__author-photo"
+        className={(path === 'posts') ? 'post-bio__author-photo' : 'bio__author-photo'}
         alt={author.name}
       />
     </Link>
-    {isHomePage ? (
+    {(path === '/') ? (
       <h1 className="bio__author-title">
         <Link className="bio__author-title-link" to="/">
           {author.name}

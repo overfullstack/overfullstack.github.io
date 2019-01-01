@@ -2,10 +2,12 @@ import 'gist-syntax-themes/stylesheets/idle-fingers.css'
 import React from 'react'
 import { Link } from 'gatsby'
 import moment from 'moment'
+import get from 'lodash/get'
 import Disqus from '../Disqus/Disqus'
 import './style.scss'
 import Links from '../Links'
 import Bio from '../Bio'
+import { getCurrentPath } from '../utils'
 
 class PostTemplateDetails extends React.Component {
   render() {
@@ -13,7 +15,7 @@ class PostTemplateDetails extends React.Component {
     const { previous, next } = this.props.pageContext
     const post = this.props.data.markdownRemark
     const tags = post.fields.tagSlugs
-
+    const { location } = this.props
     const applauseButton = <div className="applause"><applause-button multiclap="true" /></div>
     const homeBlock = (
       <div>
@@ -47,6 +49,7 @@ class PostTemplateDetails extends React.Component {
         />
       </div>
     )
+
 
     return (
       <div>
@@ -96,8 +99,12 @@ class PostTemplateDetails extends React.Component {
                 )}
               </li>
             </ul>
-            <p className="post-single__footer-text">
-              <Bio author={author} subtitle={subtitle} isHomePage={false} />
+            <div className="post-single__footer-text" style={{ marginBottom: '1.625rem' }}>
+              <Bio
+                author={author}
+                subtitle={subtitle}
+                path={getCurrentPath(location)}
+              />
               <a
                 href={`${author.resume}`}
                 target="_blank"
@@ -107,7 +114,7 @@ class PostTemplateDetails extends React.Component {
                   My&nbsp; Résumé
                 </strong>
               </a>
-            </p>
+            </div>
             <div className="post-single__footer-text">
               <Links data={author} isFlat />
             </div>

@@ -35,12 +35,12 @@
 
 @include breakpoint-md {
     .menu {
+        float: none;
+        display: block;
         &__list {
             list-style: none;
-            padding: 0;
             margin: 0;
             float: none;
-            display: none;
         }
     }
 }

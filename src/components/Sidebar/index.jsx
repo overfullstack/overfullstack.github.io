@@ -5,6 +5,7 @@ import Links from '../Links'
 import './style.scss'
 import Emoji from '../Emoji/Emoji'
 import Bio from '../Bio'
+import { getCurrentPath } from '../utils'
 
 class Sidebar extends React.Component {
   render() {
@@ -15,11 +16,16 @@ class Sidebar extends React.Component {
       copyright,
       menu,
     } = this.props.data.site.siteMetadata
-    const isHomePage = get(location, 'pathname', '/') === '/'
     return (
       <div className="sidebar">
         <div className="sidebar__inner">
-          <div className="sidebar__author"><Bio author={author} subtitle={subtitle} isHomePage={isHomePage} /></div>
+          <div className="sidebar__author">
+            <Bio
+              author={author}
+              subtitle={subtitle}
+              path={getCurrentPath(location)}
+            />
+          </div>
           <div>
             <Menu data={menu} />
             <Links data={author} />
