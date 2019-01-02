@@ -10,7 +10,6 @@ tags:
 description: "All the popular Design Patterns abridged for quick revision, along with some tidbits."
 ---
 
-All the popular Design Patterns abridged for quick revision, along with some tidbits.
 ## Creational Patterns
 ### Factory method Vs Abstract Factory
 - Abstract factory has a level more depth of abstraction.

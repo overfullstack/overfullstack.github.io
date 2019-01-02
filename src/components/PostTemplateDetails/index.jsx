@@ -2,12 +2,11 @@ import 'gist-syntax-themes/stylesheets/idle-fingers.css'
 import React from 'react'
 import { Link } from 'gatsby'
 import moment from 'moment'
-import get from 'lodash/get'
 import Disqus from '../Disqus/Disqus'
 import './style.scss'
 import Links from '../Links'
 import Bio from '../Bio'
-import { getCurrentPath } from '../utils'
+import { formatReadingTime, getCurrentPath } from '../utils'
 
 class PostTemplateDetails extends React.Component {
   render() {
@@ -50,13 +49,15 @@ class PostTemplateDetails extends React.Component {
       </div>
     )
 
-
     return (
       <div>
         {homeBlock}
         <div className="post-single">
           <div className="post-single__inner">
             <h1 className="post-single__title">{post.frontmatter.title}</h1>
+            <div style={{ textAlign: 'center', fontSize: 'larger' }}>
+              {`${formatReadingTime(post.timeToRead)}`}
+            </div>
             <div
               className="post-single__body"
               /* eslint-disable-next-line react/no-danger */

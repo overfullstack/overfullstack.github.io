@@ -10,7 +10,6 @@ tags:
 description: "Fun in Functional Programming with Java 8 and how it is competing with younger functional languages."
 ---
 
-Fun in Functional Programming with Java 8 and how it is competing with younger functional languages.
 ### FP vs OOP Simply:
 - Whenever I write some code to deal with data about an entity, then functional programming seems to work best.
 - Whenever I write some code to simulate that entity, then object-oriented programming seems to work best.
