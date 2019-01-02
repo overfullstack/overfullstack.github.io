@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import moment from 'moment'
 import './style.scss'
+import { formatReadingTime } from '../utils'
 
 class Post extends React.Component {
   render() {
@@ -12,6 +13,7 @@ class Post extends React.Component {
       description,
     } = this.props.data.node.frontmatter
     const { slug, categorySlug } = this.props.data.node.fields
+    const { timeToRead } = this.props.data.node
 
     return (
       <div className="post">
@@ -35,9 +37,9 @@ class Post extends React.Component {
           </Link>
         </h2>
         <p className="post__description">{description}</p>
-        <Link className="post__readmore" to={slug}>
-          Read
-        </Link>
+        <div>
+          {`${formatReadingTime(timeToRead)}`}
+        </div>
       </div>
     )
   }
