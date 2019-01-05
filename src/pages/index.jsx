@@ -17,7 +17,7 @@ class IndexRoute extends React.Component {
 
     return (
       <Layout>
-        <SEO image={logo} description={subtitle} />
+        <SEO image={logo} description={subtitle} title={title} />
         <div>
           <Helmet>
             <title>{title}</title>

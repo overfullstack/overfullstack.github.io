@@ -24,6 +24,7 @@
     "gatsby-plugin-feed": "^2.0.11",
     "gatsby-plugin-google-analytics": "^2.0.8",
     "gatsby-plugin-google-fonts": "latest",
+    "gatsby-plugin-mailchimp": "https://github.com/benjaminhoffman/gatsby-plugin-mailchimp.git#gatsby-v2",
     "gatsby-plugin-manifest": "^2.0.13",
     "gatsby-plugin-offline": "^2.0.20",
     "gatsby-plugin-react-helmet": "^3.0.5",
@@ -49,7 +50,8 @@
     "react": "^16.7.0",
     "react-disqus-comments": "^1.4.0",
     "react-dom": "^16.7.0",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "react-toastify": "^4.5.2"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

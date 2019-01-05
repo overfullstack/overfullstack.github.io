@@ -7,6 +7,7 @@ import './style.scss'
 import Links from '../Links'
 import Bio from '../Bio'
 import { formatReadingTime, getCurrentPath } from '../utils'
+import Signup from '../Signup/Signup'
 
 class PostTemplateDetails extends React.Component {
   render() {
@@ -118,6 +119,9 @@ class PostTemplateDetails extends React.Component {
             </div>
             <div className="post-single__footer-text">
               <Links data={author} isFlat />
+              <div style={{ marginBottom: '1.625rem' }}>
+                <Signup />
+              </div>
             </div>
             {commentsBlock}
           </div>

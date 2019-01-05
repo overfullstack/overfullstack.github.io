@@ -138,6 +138,12 @@ module.exports = {
           },
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants',
+          {
+            resolve: 'gatsby-plugin-mailchimp',
+            options: {
+              endpoint: 'https://github.us7.list-manage.com/subscribe/post?u=ab6b858fe942240463c3a5ab5&amp;id=8851ab5056',
+            },
+          },
         ],
       },
     },
