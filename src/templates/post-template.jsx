@@ -3,16 +3,23 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PostTemplateDetails from '../components/PostTemplateDetails'
+import SEO from '../components/SEO'
 
 class PostTemplate extends React.Component {
   render() {
-    const { title, subtitle } = this.props.data.site.siteMetadata
+    const { title, subtitle, image } = this.props.data.site.siteMetadata
     const post = this.props.data.markdownRemark
     const { title: postTitle, description: postDescription } = post.frontmatter
     const description = postDescription !== null ? postDescription : subtitle
 
     return (
       <Layout>
+        <SEO
+          title={title}
+          description={description}
+          image={image}
+          slug={post.fields.slug}
+        />
         <div>
           <Helmet>
             <title>{`${postTitle} - ${title}`}</title>
@@ -59,6 +66,7 @@ export const pageQuery = graphql`
         tags
         date
         description
+        image
       }
     }
   }

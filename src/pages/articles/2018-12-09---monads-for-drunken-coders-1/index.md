@@ -4,6 +4,7 @@ date: "2018-12-09T00:00:00.000Z"
 layout: post
 draft: false
 path: "/posts/monads-for-drunken-coders-pint-1/"
+image: "https://i.imgur.com/ff0QYbi.jpg"
 category: "Functional Programming"
 tags: 
     - "Java 8"

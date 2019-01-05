@@ -4,6 +4,6 @@ layout: page
 path: "/about"
 ---
 
-[About-me](about.me/gopal-s-akshintala)
+[About-me](http://bit.ly/agsabtme)
 
 [My Résumé](http://bit.ly/agsres)

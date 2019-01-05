@@ -9,6 +9,7 @@ module.exports = {
     copyright: '© All rights reserved.',
     disqusShortname: 'gopal',
     pathPrefix: '/overfullstack.github.io',
+    logo: 'https://i.imgur.com/hndlj3V.png',
     menu: [
       {
         label: 'Articles',
@@ -29,9 +30,10 @@ module.exports = {
       telegram: 'https://t.me/gopalakshintala',
       twitter: 'http://bit.ly/agstwtr',
       github: 'http://bit.ly/agsgithub',
-      resume: 'http://bit.ly/agsres',
+      resume: 'http://bit.ly/agsresu',
       linkedin: 'http://bit.ly/agslnkd',
       stackoverflow: 'http://bit.ly/agsso',
+      aboutme: 'http://bit.ly/agsabtme',
     },
   },
   plugins: [
@@ -86,6 +88,7 @@ module.exports = {
                         layout
                         draft
                         description
+                        image
                       }
                     }
                   }

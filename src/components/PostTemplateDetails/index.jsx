@@ -112,7 +112,7 @@ class PostTemplateDetails extends React.Component {
                 rel="noopener noreferrer"
               >
                 <strong>
-                  My&nbsp; Résumé
+                  My&nbsp;Résumé
                 </strong>
               </a>
             </div>
