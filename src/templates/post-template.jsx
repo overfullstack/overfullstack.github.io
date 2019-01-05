@@ -7,22 +7,23 @@ import SEO from '../components/SEO'
 
 class PostTemplate extends React.Component {
   render() {
-    const { title, subtitle, image } = this.props.data.site.siteMetadata
+    const { title, subtitle } = this.props.data.site.siteMetadata
     const post = this.props.data.markdownRemark
-    const { title: postTitle, description: postDescription } = post.frontmatter
+    const { title: postTitle, description: postDescription, cover } = post.frontmatter
     const description = postDescription !== null ? postDescription : subtitle
 
+    const actualPostTitle = `${postTitle} - ${title}`
     return (
       <Layout>
         <SEO
-          title={title}
+          title={actualPostTitle}
           description={description}
-          image={image}
+          image={cover.childImageSharp.original.src}
           slug={post.fields.slug}
         />
         <div>
           <Helmet>
-            <title>{`${postTitle} - ${title}`}</title>
+            <title>{actualPostTitle}</title>
             <meta name="description" content={description} />
           </Helmet>
           <PostTemplateDetails {...this.props} />
@@ -60,13 +61,20 @@ export const pageQuery = graphql`
       timeToRead
       fields {
         tagSlugs
+        slug
       }
       frontmatter {
         title
         tags
         date
         description
-        image
+        cover {
+          childImageSharp {
+            original {
+              src
+            }
+          }
+        }
       }
     }
   }

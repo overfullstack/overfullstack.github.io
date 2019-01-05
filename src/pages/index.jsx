@@ -17,7 +17,7 @@ class IndexRoute extends React.Component {
 
     return (
       <Layout>
-        <SEO image={logo} />
+        <SEO image={logo} description={subtitle} />
         <div>
           <Helmet>
             <title>{title}</title>
@@ -75,6 +75,13 @@ export const pageQuery = graphql`
             date
             category
             description
+            cover {
+              childImageSharp {
+                original {
+                  src
+                }
+              }
+            }
           }
         }
       }

@@ -5,6 +5,7 @@ layout: post
 draft: false
 path: "/posts/functional-programming-with-java-8/"
 category: "Functional Programming"
+cover: "./cover.jpg"
 tags: 
     - "Java 8"
 description: "Fun in Functional Programming with Java 8 and how it is competing with younger functional languages."

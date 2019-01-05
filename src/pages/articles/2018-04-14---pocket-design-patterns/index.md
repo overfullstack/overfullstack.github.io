@@ -5,6 +5,7 @@ layout: post
 draft: false
 path: "/posts/pocket-design-patterns/"
 category: "Design Patterns"
+cover: "./cover.jpg"
 tags: 
     - "Design"
 description: "All the popular Design Patterns abridged for quick revision, along with some tidbits."

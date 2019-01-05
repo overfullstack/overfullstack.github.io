@@ -9,7 +9,7 @@ const query = graphql`
       siteMetadata {
         title
         subtitle
-        url
+        siteurl
         author {
           aboutme
         }
@@ -26,8 +26,8 @@ const SEO = ({
     render={data => {
       const { siteMetadata } = data.site
       const metaDescription = description || siteMetadata.subtitle
-      const metaImage = image ? `${siteMetadata.url}/${image}` : null
-      const url = `${siteMetadata.url}${slug}`
+      const metaImage = image ? `${siteMetadata.siteurl}/${image}` : null
+      const url = `${siteMetadata.siteurl}${slug}`
       return (
         <Helmet
           htmlAttributes={{ lang: 'en' }}

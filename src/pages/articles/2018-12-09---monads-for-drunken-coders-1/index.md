@@ -5,6 +5,7 @@ layout: post
 draft: false
 path: "/posts/monads-for-drunken-coders-pint-1/"
 image: "https://i.imgur.com/ff0QYbi.jpg"
+cover: "./cover.jpg"
 category: "Functional Programming"
 tags: 
     - "Java 8"

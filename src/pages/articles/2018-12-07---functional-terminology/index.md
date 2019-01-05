@@ -5,6 +5,7 @@ layout: post
 draft: false
 path: "/posts/functional-terminology/"
 category: "Functional Programming"
+cover: "./cover.jpg"
 tags: 
     - "Functional Programming"
 description: "Speak Functional language fluently"

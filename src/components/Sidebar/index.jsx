@@ -1,5 +1,4 @@
 import React from 'react'
-import get from 'lodash/get'
 import Menu from '../Menu'
 import Links from '../Links'
 import './style.scss'
