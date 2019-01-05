@@ -149,4 +149,46 @@ pre[data-line] {
 .gatsby-highlight pre[class*="language-"] {
     float: left;
     min-width: 100%;
+    margin-top: 0;
+}
+
+.gatsby-code-title {
+    max-width: 39rem;
+    margin-bottom: -0.6rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 0.5em;
+    padding-left: 1rem;
+    font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+    font-size: 1rem;
+    background: #687a86;
+    color: white;
+    z-index: 0;
+
+    border-top-left-radius: 0.3em;
+    border-top-right-radius: 0.3em;
+}
+
+.gatsby-highlight pre[class='language-java line-numbers']::before {
+    content: 'java';
+    background: #4383a4;
+    color: #ff9400;
+}
+
+.gatsby-highlight pre[class*='language-']::before {
+    position: absolute;
+    top: 0;
+    right: 4.125rem;
+    padding: 3px 10px;
+    font-size: 12px;
+    text-align: right;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    border-radius: 0 0 5px 5px;
+}
+
+.line-numbers-rows {
+    padding: 0.8rem 0.625rem !important;
+    border-right: none !important;
 }

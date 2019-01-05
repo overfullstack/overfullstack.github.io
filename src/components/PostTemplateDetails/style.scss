@@ -153,11 +153,6 @@ applause-button {
     max-width: $layout-post-single-width;
 }
 
-.line-numbers-rows {
-    padding: 0.9rem 0.625rem !important;
-    border-right: none !important;
-}
-
 @include breakpoint-sm {
     .post-single {
         &__footer {

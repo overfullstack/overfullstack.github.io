@@ -14,7 +14,7 @@ description: "A chilled introduction to the Dreaded Monad, using Java 8"
 ---
 
 ## Story of an Egg validator 
-<img class="post-gif" src="https://media.giphy.com/media/4QXVm8706KgkU/giphy.gif">
+<img class="post-gif" src="./media/introduction.gif">
 
 ### Sol 1: One egg - One validation
 Life is so simple. Pass that one egg through that one validator. Results in good or bad.
@@ -25,8 +25,15 @@ Not difficult at all, simply pass them through validator, one after the other an
 ### Sol 97: Many eggs - Many validations
 Why do I sense climate's getting a bit hotter. Ok, still no problem, I know Java 8. Let me write a pipe of filter functions. Each of them just pass the good ones ahead and discard bad ones.
 
-`gist:7777085ba07fb61268bc507dfa9e5df8#FirstFunctionalCode.java`
-
+```java:title=FirstFunctionalCode.java
+eggs.stream()
+    .filter(EggValidator::validator1)
+    .filter(EggValidator::validator2)
+    .filter(EggValidator::validator3)
+    ....
+    ...
+    ..
+```
 Yay! I'm a Functional programmer! Let me have a 🍺
 
 - But what if at the end of validation pipeline, I need both good and bad eggs? Hmm, placing the 🍺 mug back on table. 
@@ -54,8 +61,56 @@ I think, I'm too drunk. My head is spinning! 🤯
 
 The code ended-up like an Alien plant:
 
-`gist:7777085ba07fb61268bc507dfa9e5df8#EggValidatorBad.java`
-
+```java:title=EggValidatorBad.java
+public class OmegaEggValidator {
+  public ValidationResults create() {
+    Map<Integer, ValidationFailure> badEggFailureBucketMap = new HashMap<>();
+    int eggIndex = 0;
+    for (Iterator iterator = eggList.iterator(); iterator.hasNext(); eggIndex++) {
+      OmegaEgg eggTobeValidated = iterator.next();
+      if (!isValid1(eggTobeValidated)) {
+        iterator.remove(); // Mutation
+        // How do you cleanly map validation-failure to which validation-method failed?
+        badEggFailureBucketMap.put(eggIndex, VALIDATION_FAILURE_1);
+        continue;
+      }
+      try {
+        if (!isValid2(eggTobeValidated)) {
+          iterator.remove();
+          badEggFailureBucketMap.put(eggIndex, VALIDATION_FAILURE_2);
+        }
+      } catch (Exception e) { // Repetition of same logic for exception handling
+        iterator.remove();
+        badEggFailureBucketMap.put(eggIndex, VALIDATION_FAILURE_WITH_EXCEPTION_2 + e.getMessage());
+      }
+      try { // Inter-dependent validations
+        if (isValid31(eggTobeValidated)) {
+          Yellow yellowTobeValidated = extractYellow(eggTobeValidated);
+          if (yellowTobeValidated != null) { // Nested-if for null checking nested objects
+            try {
+              if (!isValid32(yellowTobeValidated)) {
+                iterator.remove();
+                badEggFailureBucketMap.put(eggIndex, VALIDATION_FAILURE_32);
+              }
+            } catch (Exception exceptionalOmegaEgg) {
+              iterator.remove();
+              badEggFailureBucketMap.put(eggIndex, VALIDATION_FAILURE_WITH_EXCEPTION_32 + e.getMessage());
+            }
+          }
+        } else {
+          iterator.remove();
+          badEggFailureBucketMap.put(eggIndex, VALIDATION_FAILURE_2);
+        }
+      } catch (Exception e) {
+        iterator.remove();
+        badEggFailureBucketMap.put(eggIndex, VALIDATION_FAILURE_WITH_EXCEPTION + e.getMessage());
+      }
+    } 
+    // This algorithm is tightly coupled with One-type 'Omega', 
+    // We need to repeat the entire algo for another type.
+  }
+}
+```
 ### Imperative vs Functional Chatter
 - If a right Paradigm isn't chosen, you literally have to stab and cut-open the Open-Closed principle every time you get a new requirement. 
 - Every Software architectural problem can be seen like a block of objects doing functions or functions doing (I mean, processing) objects. There you go! I just metaphored OOPs vs FP.
@@ -79,31 +134,71 @@ The code ended-up like an Alien plant:
 ### Octopus Functions
 - It's been told since my Grandfather, that functions need to be small and do only one thing and do it well, nothing new.
 - But there is one Octopus function administrating all these function calls, which in itself is a monster. State being pin-balled among imperative control statements, function calls and try-catches, is a horror show, when trying to reason-out the code flow or debug it.
-<img class="post-gif" src="https://media.giphy.com/media/l0HlHJGHe3yAMhdQY/giphy.gif">
+<img class="post-gif" src="./media/octopus.gif">
 - In our problem, it is even trying to handle the coupling between Validation method and Validation failure. That surely is not its responsibility. Validation method should be responsible to communicate that to the orchestrator.
 - This simple function is just trying to append all last-words in List of Strings with `&`, with a lot of do-this-do-that imperative administration. It might be clear to the computer, but not very intuitive to another developer (or the same dev after sometime). 
 
-`gist:7777085ba07fb61268bc507dfa9e5df8#ImperativeLastWord.java`
+```java:title=ImperativeLastWord.java
+private static String summarizeLastWords(List<String> descriptions) {
+  StringBuffer output = new StringBuffer();
+  boolean isFirst = true;
+  for (String d: descriptions) { // External Iteration
+    if (!d.isEmpty()) {
+      if (!isFirst) {
+        output.append(" & ");
+      }
+      String lastWord = lastWord(d);
+      output.append(lastWord);
+      isFirst = false;
+    }
+  }
+  return output.toString();
+}
+
+private static String lastWord(final String d) {
+  final int lastSpaceIndex = d.lastIndexOf(" ");
+  final String lastWord;
+  if (lastSpaceIndex < 0) {
+    lastWord = d;
+  } else {
+    lastWord = d.substring(lastSpaceIndex + 1, d.length());
+  }
+  return lastWord;
+}
+```
 - Imagine how complicated it becomes, if we require more conditions and exception handling.
 - In the age of Java 8, I can say this developer is trying too hard, using low-level stuff like dry if-else and for-each.
 - He is taking too much of control over iterating and filtering stuff, and as Uncle Ben says, **With great Power comes great Responsibility**.
- <img class="post-gif" src="https://media.giphy.com/media/10KIsXhwdoerHW/giphy.gif">
+ <img class="post-gif" src="./media/uncle-ben.gif">
 - You sure don't have to take this responsibility. Pass that to the Collections library itself, they know how to iterate and filter and much more. Just pass them the **Criteria**.
 - If you get too serious into functional programming, you shall think twice every-time before writing any for-loop or if-else condition. (But don't take it too serious 😉, for-loops are good for small iterations).
 
 ### Behead the Octopus, Lego the Focussed Functions
 - State should always march **Unidirectional**, like an unstoppable army of zombies.
-<img class="post-gif" src="https://media.giphy.com/media/V3zHRAZGp7Qo8/giphy.gif">
+<img class="post-gif" src="./media/zombies.gif">
 - I ain't copying this from the [Flux](https://facebook.github.io/flux/) guys at Facebook. This is seen ever since there are pipes in Unix, since 1978.
 - Simply, make the shit of a function be the food for another.
 - To do that, above Imperative Program can be transformed into **Declarative Style** like this:
 
-`gist:7777085ba07fb61268bc507dfa9e5df8#FunctionalLastWord.java`
+```java:title=FunctionalLastWord.java
+private static String summarize(List<String> descriptions) {
+  return descriptions.stream() // Internal Iteration
+    .filter(s -> !s.isEmpty())
+    .map(lastWord) // More on this later
+    .collect(Collectors.joining(" & "));
+}
+
+// First-Class Function
+private static Function<String,String> lastWord =
+  phrase -> Arrays.stream(phrase.split(" "))
+    .reduce((other, last) -> last)
+    .orElse("");
+```
 - This might not be familiar for many Java devs, but sure is more readable, even for someone unfamiliar with code, if feels like reading an English sentence. **Familiarity is different from Readability**.
 - **Separation of Concerns** made it clear and concise, like an SQL Query.
 - This way functions can be fitted into each other to create a smooth pipeline, aiding unidirectional flow of data. 
 - This is flexible to restructure, and it's easy to hire and fire these criterion functions, without thinking too much.
-<img class="post-gif" src="https://media.giphy.com/media/xUA7b0Klw8Wfor7FWo/giphy.gif">
+<img class="post-gif" src="./media/lego.gif">
 
 ### Flow Heterogeneous data Fluently
 - Streamlining of functions is easier said than done when dealing with Heterogeneous data.
@@ -114,7 +209,29 @@ The code ended-up like an Alien plant:
 - We have two categories of data, Good eggs and Bad eggs. But who needs bad eggs, what you really interested are, the Validation failures for bad eggs. 
 - So two categories here, demand two totally disparate data types (Good-eggs), (Validation-failures due to (invalidations) and (exceptions)) to co-exist, inside a stream, as they flow through the pipeline. Check-out these cases in this pseudo code:
 
-`gist:7777085ba07fb61268bc507dfa9e5df8#PseudoValidator.java`
+```java:title=PseudoValidator.java
+Stream<Egg> validatedEggStream = eggs.stream().map(egg -> validate(egg));
+
+private <what-should-I-return?> validate(Egg egg) {
+  boolean isValid = false;
+  if (!egg.isRotten()) {
+    if (egg.getYellow() != null) {
+      try {
+        makeHalfBoiledOmelette(egg); // My Fav
+        isValid = true;
+      } catch (EggException e) { 
+        return <How-to-return-exception?>; // case 1
+      }
+    } else if (egg.getEggWhite() != null) {
+      eggWhiteDefect = examineEggWhite(egg); // case 2
+      isValid = (eggWhiteDefect == null);
+    } else {
+      return <not-an-egg>; // case 3
+    }
+  }
+  return isValid ? egg : <How-to-return-defect?>;
+}
+```
 - This poor function is not sure how to communicate back to its caller with multiple possibilities. Unfortunately, Strongly-typed languages are strict about return type.
 - Had it been a Dynamically-typed-language like Javascript, this is not a problem at all. This is one of the reasons why Dynamically typed languages got popular for. Of-course, that makes them very difficult to debug. It's difficult to build even a proper IDE around them.
 - A dirty solution in a Strongly-typed-language like Java can be, have some Enum `ValidationFailureType` as the return type which has all failure types listed, and in all these cases just return that specific failure accordingly. 
@@ -131,10 +248,19 @@ Let's take a fork here and visit the Monad-Land to understand Containerization.
 - Functor contains a value `x` of some type, and let you operate on that value by passing a first-class function `f` through `map`, that returns you a new functor containing result value `f(x)`. (This is Functional English 😋).
 - If that's not clear, this code snippet should clarify it:
 
-`gist:7777085ba07fb61268bc507dfa9e5df8#Functor.java`
-
+```java:title=Functor.java
+public class Functor<T> {
+  private final T value;
+  public Functor(T value) {
+    this.value = value;
+  }
+  public <U> Functor<U> map(Function<T, U> mapperFunction) {
+    return new Functor<>(mapperFunction.apply(value)); // Functor wrapping f(x)
+  }
+}
+```
 ### The Siblings - map(), flatMap()
-<img class="post-gif" src="https://media.giphy.com/media/MVgEZjevKLTzy/giphy.gif">
+<img class="post-gif" src="./media/minions.gif">
 
 - Both `map()` and `flatMap()` are Higher-Order functions, which take first-class functions as parameters.
 - `map` applies the mapper-function on wrapped value and returns a new Functor instance wrapping the result value. 
@@ -145,7 +271,7 @@ Let's take a fork here and visit the Monad-Land to understand Containerization.
 
 #### The Monad
 - Finally! the Dawn of Monad (Introducing the title lead with a BGM)
-<img class="post-gif" src="https://media.giphy.com/media/xU67CtAMi8f5K/giphy.gif">
+<img class="post-gif" src="./media/dawn-of-justice.gif">
 
 > The curse of the monad is that once you get the epiphany, once you understand - "oh that's what it is" - you lose the ability to explain it to anybody.
 > \- Douglas Crockford
@@ -157,7 +283,20 @@ Let's take a fork here and visit the Monad-Land to understand Containerization.
 - Monad laws are simple math-rules, like the associativity, Left identity and Right identity. More on these later.
 - Of-course, there is no such constraint that Monads should ONLY implement `flatMap`.
 
-`gist:7777085ba07fb61268bc507dfa9e5df8#Monad.java`
+```java:title=Monad.java
+public class Monad<T> {
+  private final T value;
+  public Monad(T value) {
+    this.value = value;
+  }
+  public <U> Monad<U> map(Function<T, U> mapperFunction) {
+    return new Monad<>(mapping.apply(value));
+  }
+  public <U> Monad<U> flatMap(Function<T, Monad<U>> mapperFunction) {
+    return mapperFunction.apply(value);
+  }
+}
+```
 - Monad's anatomy needs 3 basic organs:
     - A Parameterized type: `Monad<T>`
     - A Unit function: `new Monad()`
@@ -170,12 +309,12 @@ Enough of Theory! how can this help the problem at hand?
 - Now every function can speak the same language, by passing around these Monad boxes and operate on them with functions, without worrying much about what it contains. Uniform boxes with Heterogenous data.
 - Like, validation functions can ship either a goodEgg or a validation failure to the orchestration function, and it doesn't even care what's in the box. Now, Orchestrator only has one job to do, just pump the data inside the pipeline ahead.
 - Plus, you just got something for free, **Context Abstraction**. Notice, the algo depends on the Monad type and not the parameter type contained in it. Wow! an epiphany!!
-<img class="post-gif" src="https://media.giphy.com/media/7nfYQYbqxOao8/giphy.gif">
+<img class="post-gif" src="./media/wow.gif">
 - Now, both the Parameter type and Algorithm are cleanly separate, and algo can be reused on multiple parameter types, which solves our last problem.
 
 ### Post credits scene: Making of Monad
 Now you see it? Now you don't? 
-<img class="post-gif" src="https://media.giphy.com/media/6fadYfd0J6WrK/giphy.gif">
+<img class="post-gif" src="./media/now-you-see-me.gif">
 - Chances are you already worked with lot of Monads, if you started adapting Java 8.
 - Java guys took 3 years between Java 7 and 8 and packed Java 8 with bunch of functional toys, and alongside came some Monads like Optional, Stream etc.,.
 
