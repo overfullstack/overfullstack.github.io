@@ -23,15 +23,30 @@ Functional Programming is just a different way of thinking about structuring you
 - FP is handy over OOP when the core essence of objects are functions. In such scenario, design can be changed from OOP to FP, by passing the core function as an argument to constructor and use it for evaluation. This smells **Strategy Pattern**. Before Java 8, we had to use anonymous inner classes to achieve the same.
 - Functions can be treated as values, and they can be assigned to variables. These are called **First Class Functions** and this type of programming is called **Higher Order Programming**. Function<>, Consumer<> etc can be used as variable types to which either lambdas or anonymous inner classes be assigned as values.
 
-`gist:d5809d7bf15d7e1a34c289f9b2ff6522#FirstClassFunction.java`
-- Functional Interfaces, with only one abstract function, can be represented with Lambdas, `() -> {}`
+```java:title=FirstClassFunction.java
+private static Function<String, String> lastWord = (String phrase) ->
+     Arrays.asList(phrase.split(" ")).stream()
+                    .reduce((other, last) -> last)
+                    .orElse("");
+```
+
+- Functional Interfaces, with only one abstract function, can be represented with Lambdas, () -> {}
 - **Data-in Data-out (DIDO) Functions**, are those that return the same value for a given set of inputs. This is called **Referential Transparency**. Also know as **Pure Functions** or functions with **No Side Effects**. These kind of functions form the core of a Functional program.
 - FP also encourages **Immutability** for the same reason, to avoid any side effects.
 
 ### Thinking in FP
 - In the code below, the function receives lambda as an argument. Since this is a type of Functional Interface, the lambda holds the implementation of single abstract method, in this case `apply()` ('apply' is the notation used for single abstract method in functional interface when its purpose can be anything).
 
-`gist:d5809d7bf15d7e1a34c289f9b2ff6522#FunctionalInterface.java`
+```java:title=FunctionalInterface.java
+@FunctionalInterface
+public static interface FunctionOf3 {
+  public double apply(double a, double b, double c);
+}
+
+static FunctionOverTime combinationOf3(FunctionOverTime a, FunctionOverTime b, FunctionOverTime c, FunctionOf3 combination) {
+  return (time) -> combination.apply(a.valueAt(time), b.valueAt(time), c.valueAt(time));
+}
+```
 - Think of lambdas as Maths formulas. So you can essentially pass the values along with their formula to the function, and function uses the formula passed to evaluate like above. This way we can abstract the formula and the values passed.
 - Like Encapsulation in OOP, FP's mantra is **Isolation**, that is running functions without any knowledge of the outside world.
 - In FP thinking, **Evaluation over Execution** is preferred. Evaluation is mostly constructed with DIDO (Data-in Data-out) functions, which take data in, process and return an output, without causing side effects. This should form the Core of the application. This is wrapped up with Execution elements like UI, DB, File IO etc. Functional part should only focus on evaluation and computing output from input.
@@ -47,21 +62,46 @@ Functional Programming is just a different way of thinking about structuring you
 - Lazy processing is efficient and moreover it does things with Separation of Concerns.
 - Also, all intermediate operations are **Lazy Streams**, which means one unit of stream gets executed through all the steps in the pipe-line, before the next one is taken up. If a Truncate operation like `findFirst()` is encountered, rest of the units are ignored.
 
-`gist:d5809d7bf15d7e1a34c289f9b2ff6522#LazyStream.java`
+```java:title=LazyStream.java
+List<Integer> list = Arrays.asList(1, 10, 3, 7, 5);
+int a = list.stream()
+            .peek(num -> System.out.println("will filter " + num))
+            .filter(x -> x > 5)
+            .findFirst()
+            .get();
+System.out.println(a);
+
+/* 
+This outputs:
+will filter 1
+will filter 10
+10
+*/
+
+```
 - Functions like `mapToDouble()` can deal with primitives without wrapping, which is more efficient. Explore more of such...
 - Short-Circuiting terminal operations like `anyMatch()` process the stream only as much as required to return the desired result.
 - Once the terminal operation is executed, the stream is dead, and throws an exception when reused (Unlike Iterator which would just return empty). To Reuse as Stream, declare it as type `Supplier<Stream>` and use its `get()` method to get new instance of stream.
 
-`gist:d5809d7bf15d7e1a34c289f9b2ff6522#Supplier.java`
+```java:title=Supplier.java
+Supplier<DoubleStream> totalStream = () -> saleStream().mapToDouble(Sale::total);
+boolean bigSaleDay = totalStream.get().anyMatch(total -> total > 100.00);
+```
 - Intermediate operations when called on a stream returns a stream.
 - Use `flatMap()` to flatten a collection of stream before operating on it and outputs a concatenation of all those streams.
 - In the code below, assume `saleStream()` produces a stream of sales and every sale has a list of items. `map` returns a Stream of Streams, while `flatMap` flattens all those streams and concatinates them into a single stream.
 
-`gist:d5809d7bf15d7e1a34c289f9b2ff6522#Supplier.java`
+```java:title=MapAndFlatMap.java
+Stream<Stream<Item>> itemStream1 = saleStream().map(sale -> sale.items.stream());
+Stream<Item> itemStream2 = saleStream().flatMap(sale -> sale.items.stream());
+```
 - `collect()` to collect the out-coming stream to a desired data structure like List. It also has interesting functions like `groupBy` and `groupByConcurrent`, `summarizingDoubles` etc. This is called **fold** in FP terms, which summarizes bunch of values into one.
 - `Stream.generate(supplier)` can generate an infinite stream of objects, but it needs to be used along with a Short-Circuiting operator like `limit()`. The below code generates sale objects supplied by the `Supplier`, limited by the quantity passed.
 
-`gist:d5809d7bf15d7e1a34c289f9b2ff6522#InfiniteStream.java`
+```java:title=InfiniteStream.java
+public static Supplier<Sale> supplier = () -> new Sale(...);
+return Stream.generate(supplier).limit(quantity);
+```
 - **ParallelStreams** are a great way to span work onto multiple threads, when order of processing is not of a concern.
 - `Optional` is preferred over traditional null checking with `isPresent()` which is more intuative. Since passing optionals around methods avoids presence of NULLs, there won't be any restlessness about NPE. Note, you still need to check `isPresent()`, so it's not a total replacement to avoid checking, it just makes it error free. According to the documentation, Optional should be used as a return type. And that’s all. It's a neat solution for handling data that might be not present.
 - Also, It can be flawlessly used in the stream chains, without worrying about Null. It can also be used to return alternate results with `orElse` when the result set is empty.

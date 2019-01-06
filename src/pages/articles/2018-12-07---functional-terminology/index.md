@@ -44,7 +44,7 @@ description: "Speak Functional language fluently"
 - **Monad**, Think of monad as a context object that wraps a value and allows us to apply a set of transformations on that value and get it back out with all the transformations applied. 
 - Stream and Optional are Monads, when they are used as `Stream.of()` and `Optional.of()` as constructors and `map()` and `flatMap()` as binding functions.
 
-```java
+```java:title=OptionalMonad.java
 Optional.of(5).flatMap(addOne).flatMap(addTwo).equals(Optional.of(5).flatMap(addThree));
 ```
 - `collect()` method is called **fold** in FP terms, which summarizes bunch of values into one.

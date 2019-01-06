@@ -104,7 +104,7 @@ description: "All the popular Design Patterns abridged for quick revision, along
 ### Principle of Least knowledge (or) Law of Delimiter
 - One should make calls only to its immediate objects. Otherwise, it builds unnecessary dependencies between objects and makes the system fragile and complex to understand.
 
-```java
+```java:title=LawOfDelimiter.java
 station.getThermometer().getTemp() // Wrong approach
 station.getTemp() // Right approach
 ```
