@@ -1,8 +1,8 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import moment from 'moment'
-import './style.scss'
-import { formatReadingTime } from '../utils'
+import React from 'react';
+import { Link } from 'gatsby';
+import moment from 'moment';
+import './style.scss';
+import { formatReadingTime } from '../utils';
 
 class Post extends React.Component {
   render() {
@@ -11,9 +11,9 @@ class Post extends React.Component {
       date,
       category,
       description,
-    } = this.props.data.node.frontmatter
-    const { slug, categorySlug } = this.props.data.node.fields
-    const { timeToRead } = this.props.data.node
+    } = this.props.data.node.frontmatter;
+    const { slug, categorySlug } = this.props.data.node.fields;
+    const { timeToRead } = this.props.data.node;
 
     return (
       <div className="post">
@@ -41,8 +41,8 @@ class Post extends React.Component {
           {`${formatReadingTime(timeToRead)}`}
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Post
+export default Post;

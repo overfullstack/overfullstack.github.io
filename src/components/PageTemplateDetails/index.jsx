@@ -1,10 +1,10 @@
-import React from 'react'
-import Sidebar from '../Sidebar'
-import './style.scss'
+import React from 'react';
+import Sidebar from '../Sidebar';
+import './style.scss';
 
 class PageTemplateDetails extends React.Component {
   render() {
-    const page = this.props.data.markdownRemark
+    const page = this.props.data.markdownRemark;
 
     return (
       <div>
@@ -22,8 +22,8 @@ class PageTemplateDetails extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default PageTemplateDetails
+export default PageTemplateDetails;

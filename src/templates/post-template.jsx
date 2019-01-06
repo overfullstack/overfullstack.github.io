@@ -1,18 +1,18 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import PostTemplateDetails from '../components/PostTemplateDetails'
-import SEO from '../components/SEO'
+import React from 'react';
+import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
+import Layout from '../components/Layout';
+import PostTemplateDetails from '../components/PostTemplateDetails';
+import SEO from '../components/SEO';
 
 class PostTemplate extends React.Component {
   render() {
-    const { title, subtitle } = this.props.data.site.siteMetadata
-    const post = this.props.data.markdownRemark
-    const { title: postTitle, description: postDescription, cover } = post.frontmatter
-    const description = postDescription !== null ? postDescription : subtitle
+    const { title, subtitle } = this.props.data.site.siteMetadata;
+    const post = this.props.data.markdownRemark;
+    const { title: postTitle, description: postDescription, cover } = post.frontmatter;
+    const description = postDescription !== null ? postDescription : subtitle;
 
-    const actualPostTitle = `${postTitle} - ${title}`
+    const actualPostTitle = `${postTitle} - ${title}`;
     return (
       <Layout>
         <SEO
@@ -29,11 +29,11 @@ class PostTemplate extends React.Component {
           <PostTemplateDetails {...this.props} />
         </div>
       </Layout>
-    )
+    );
   }
 }
 
-export default PostTemplate
+export default PostTemplate;
 
 export const pageQuery = graphql`
   query PostBySlug($slug: String!) {
@@ -78,4 +78,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

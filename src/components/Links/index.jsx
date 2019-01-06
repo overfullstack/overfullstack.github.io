@@ -1,10 +1,10 @@
-import React from 'react'
-import './style.scss'
-import '../../assets/fonts/fontello-771c82e0/css/fontello.css'
+import React from 'react';
+import './style.scss';
+import '../../assets/fonts/fontello-771c82e0/css/fontello.css';
 
 class Links extends React.Component {
   render() {
-    const author = this.props.data
+    const author = this.props.data;
     const links = {
       twitter: author.twitter,
       github: author.github,
@@ -12,7 +12,7 @@ class Links extends React.Component {
       telegram: author.telegram,
       email: author.email,
       stackoverflow: author.stackoverflow,
-    }
+    };
 
     return (
       this.props.isFlat
@@ -108,8 +108,8 @@ class Links extends React.Component {
             </ul>
           </div>
         )
-    )
+    );
   }
 }
 
-export default Links
+export default Links;

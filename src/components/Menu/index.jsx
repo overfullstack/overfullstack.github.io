@@ -1,10 +1,10 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import './style.scss'
+import React from 'react';
+import { Link } from 'gatsby';
+import './style.scss';
 
 class Menu extends React.Component {
   render() {
-    const menu = this.props.data
+    const menu = this.props.data;
 
     const menuBlock = (
       <ul className="menu__list">
@@ -20,10 +20,10 @@ class Menu extends React.Component {
           </li>
         ))}
       </ul>
-    )
+    );
 
-    return <nav className="menu">{menuBlock}</nav>
+    return <nav className="menu">{menuBlock}</nav>;
   }
 }
 
-export default Menu
+export default Menu;

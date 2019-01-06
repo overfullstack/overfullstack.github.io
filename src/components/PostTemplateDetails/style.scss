@@ -40,8 +40,6 @@
         }
         & .gatsby-highlight {
             max-width: $layout-post-single-width;
-            margin-left: 15px;
-            margin-right: 15px;
             @include margin-bottom(1);
         }
         & :not(div) {

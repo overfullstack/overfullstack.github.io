@@ -1,14 +1,14 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import Sidebar from '../components/Sidebar'
-import CategoryTemplateDetails from '../components/CategoryTemplateDetails'
+import React from 'react';
+import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
+import Layout from '../components/Layout';
+import Sidebar from '../components/Sidebar';
+import CategoryTemplateDetails from '../components/CategoryTemplateDetails';
 
 class CategoryTemplate extends React.Component {
   render() {
-    const { title } = this.props.data.site.siteMetadata
-    const { category } = this.props.pageContext
+    const { title } = this.props.data.site.siteMetadata;
+    const { category } = this.props.pageContext;
 
     return (
       <Layout>
@@ -18,11 +18,11 @@ class CategoryTemplate extends React.Component {
           <CategoryTemplateDetails {...this.props} />
         </div>
       </Layout>
-    )
+    );
   }
 }
 
-export default CategoryTemplate
+export default CategoryTemplate;
 
 export const pageQuery = graphql`
   query CategoryPage($category: String) {
@@ -74,4 +74,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

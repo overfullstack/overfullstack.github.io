@@ -1,22 +1,22 @@
-import 'gist-syntax-themes/stylesheets/idle-fingers.css'
-import React from 'react'
-import { Link } from 'gatsby'
-import moment from 'moment'
-import Disqus from '../Disqus/Disqus'
-import './style.scss'
-import Links from '../Links'
-import Bio from '../Bio'
-import { formatReadingTime, getCurrentPath } from '../utils'
-import Signup from '../Signup/Signup'
+import 'gist-syntax-themes/stylesheets/idle-fingers.css';
+import React from 'react';
+import { Link } from 'gatsby';
+import moment from 'moment';
+import Disqus from '../Disqus/Disqus';
+import './style.scss';
+import Links from '../Links';
+import Bio from '../Bio';
+import { formatReadingTime, getCurrentPath } from '../utils';
+import Signup from '../Signup/Signup';
 
 class PostTemplateDetails extends React.Component {
   render() {
-    const { subtitle, author } = this.props.data.site.siteMetadata
-    const { previous, next } = this.props.pageContext
-    const post = this.props.data.markdownRemark
-    const tags = post.fields.tagSlugs
-    const { location } = this.props
-    const applauseButton = <div className="applause"><applause-button multiclap="true" /></div>
+    const { subtitle, author } = this.props.data.site.siteMetadata;
+    const { previous, next } = this.props.pageContext;
+    const post = this.props.data.markdownRemark;
+    const tags = post.fields.tagSlugs;
+    const { location } = this.props;
+    const applauseButton = <div className="applause"><applause-button multiclap="true" /></div>;
     const homeBlock = (
       <div>
         <Link className="post-single__home-button" to="/">
@@ -24,7 +24,7 @@ class PostTemplateDetails extends React.Component {
         </Link>
         {applauseButton}
       </div>
-    )
+    );
 
     const tagsBlock = (
       <div className="post-single__tags">
@@ -39,7 +39,7 @@ class PostTemplateDetails extends React.Component {
             ))}
         </ul>
       </div>
-    )
+    );
 
     const commentsBlock = (
       <div>
@@ -48,7 +48,7 @@ class PostTemplateDetails extends React.Component {
           siteMetadata={this.props.data.site.siteMetadata}
         />
       </div>
-    )
+    );
 
     return (
       <div>
@@ -127,8 +127,8 @@ class PostTemplateDetails extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default PostTemplateDetails
+export default PostTemplateDetails;

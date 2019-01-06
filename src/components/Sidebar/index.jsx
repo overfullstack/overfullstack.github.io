@@ -1,20 +1,20 @@
-import React from 'react'
-import Menu from '../Menu'
-import Links from '../Links'
-import './style.scss'
-import Emoji from '../Emoji/Emoji'
-import Bio from '../Bio'
-import { getCurrentPath } from '../utils'
+import React from 'react';
+import Menu from '../Menu';
+import Links from '../Links';
+import './style.scss';
+import Emoji from '../Emoji/Emoji';
+import Bio from '../Bio';
+import { getCurrentPath } from '../utils';
 
 class Sidebar extends React.Component {
   render() {
-    const { location } = this.props
+    const { location } = this.props;
     const {
       author,
       subtitle,
       copyright,
       menu,
-    } = this.props.data.site.siteMetadata
+    } = this.props.data.site.siteMetadata;
     return (
       <div className="sidebar">
         <div className="sidebar__inner">
@@ -36,8 +36,8 @@ class Sidebar extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Sidebar
+export default Sidebar;

@@ -1,5 +1,5 @@
-const lost = require('lost')
-const pxtorem = require('postcss-pxtorem')
+const lost = require('lost');
+const pxtorem = require('postcss-pxtorem');
 
 module.exports = {
   siteMetadata: {
@@ -187,7 +187,7 @@ module.exports = {
             url: site.siteMetadata.url + edge.node.path,
             changefreq: 'daily',
             priority: 0.7,
-          }
+          };
         }),
       },
     },
@@ -252,4 +252,4 @@ module.exports = {
       },
     },
   ],
-}
+};

@@ -1,40 +1,40 @@
-import React from 'react'
+import React from 'react';
 
-import addToMailchimp from 'gatsby-plugin-mailchimp/src'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-import './Signup.css'
-import newsLetterLogo from './newsletterLogo.svg'
+import addToMailchimp from 'gatsby-plugin-mailchimp/src';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import './Signup.css';
+import newsLetterLogo from './newsletterLogo.svg';
 
 class Signup extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       email: '',
       listFields: { NAME: '' },
-    }
+    };
   }
 
   handleOnChangeEmail = e => {
-    this.setState({ email: e.target.value })
+    this.setState({ email: e.target.value });
   }
 
   handleOnChangeName = e => {
-    this.setState({ listFields: { NAME: e.target.value } })
+    this.setState({ listFields: { NAME: e.target.value } });
   }
 
   handleSubmit = async e => {
-    e.preventDefault()
-    const { email, listFields } = this.state
-    const result = await addToMailchimp(email, listFields)
+    e.preventDefault();
+    const { email, listFields } = this.state;
+    const result = await addToMailchimp(email, listFields);
     if (result.result === 'error') {
       toast.error(result.msg, {
         position: toast.POSITION.BOTTOM_CENTER,
-      })
+      });
     } else {
       toast.success(result.msg, {
         position: toast.POSITION.BOTTOM_CENTER,
-      })
+      });
     }
   }
 
@@ -154,10 +154,10 @@ class Signup extends React.Component {
             </div>
           </div>
         </div>
-        <ToastContainer  />
+        <ToastContainer />
       </form>
-    )
+    );
   }
 }
 
-export default Signup
+export default Signup;

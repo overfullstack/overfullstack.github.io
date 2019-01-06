@@ -1,19 +1,19 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import Post from '../components/Post'
-import Sidebar from '../components/Sidebar'
-import SEO from '../components/SEO'
+import React from 'react';
+import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
+import Layout from '../components/Layout';
+import Post from '../components/Post';
+import Sidebar from '../components/Sidebar';
+import SEO from '../components/SEO';
 
 class IndexRoute extends React.Component {
   render() {
-    const items = []
-    const { title, subtitle, logo } = this.props.data.site.siteMetadata
-    const posts = this.props.data.allMarkdownRemark.edges
+    const items = [];
+    const { title, subtitle, logo } = this.props.data.site.siteMetadata;
+    const posts = this.props.data.allMarkdownRemark.edges;
     posts.forEach(post => {
-      items.push(<Post data={post} key={post.node.fields.slug} />)
-    })
+      items.push(<Post data={post} key={post.node.fields.slug} />);
+    });
 
     return (
       <Layout>
@@ -29,11 +29,11 @@ class IndexRoute extends React.Component {
           </div>
         </div>
       </Layout>
-    )
+    );
   }
 }
 
-export default IndexRoute
+export default IndexRoute;
 
 export const pageQuery = graphql`
   query IndexQuery {
@@ -87,4 +87,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Emoji = ({ label, symbol }) => (
   <span
@@ -9,5 +9,5 @@ const Emoji = ({ label, symbol }) => (
   >
     {symbol}
   </span>
-)
-export default Emoji
+);
+export default Emoji;

@@ -51,7 +51,8 @@
     "react-disqus-comments": "^1.4.0",
     "react-dom": "^16.7.0",
     "react-helmet": "^5.2.0",
-    "react-toastify": "^4.5.2"
+    "react-toastify": "^4.5.2",
+    "prop-types": "latest"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import './style.scss'
-import profilePic from '../../assets/photo.jpg'
+import React from 'react';
+import { Link } from 'gatsby';
+import './style.scss';
+import profilePic from '../../assets/photo.jpg';
 
 const Bio = ({ author, subtitle, path }) => (
   <div>
@@ -27,6 +27,6 @@ const Bio = ({ author, subtitle, path }) => (
     )}
     <p className="bio__author-subtitle" style={{ marginBottom: '0.625rem' }}>{subtitle}</p>
   </div>
-)
+);
 
-export default Bio
+export default Bio;

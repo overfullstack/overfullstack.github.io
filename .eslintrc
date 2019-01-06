@@ -16,7 +16,7 @@
     "function-paren-newline": "off",
     "no-console": "off",
     "prefer-destructuring": "off",
-    "semi": ["error", "never"],
+    "semi": ["error"],
     "import/extensions": "off",
     "import/no-extraneous-dependencies": "off",
     "jsx-a11y/anchor-is-valid": "off",
