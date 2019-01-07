@@ -150,6 +150,8 @@ pre[data-line] {
     float: left;
     min-width: 100%;
     margin-top: 0;
+    overflow: hidden;
+    padding-top: 2rem;
 }
 
 .gatsby-code-title {
@@ -178,7 +180,7 @@ pre[data-line] {
 .gatsby-highlight pre[class*='language-']::before {
     position: absolute;
     top: 0;
-    right: 4.125rem;
+    left: 20rem;
     padding: 3px 10px;
     font-size: 12px;
     text-align: right;
@@ -188,7 +190,25 @@ pre[data-line] {
     border-radius: 0 0 5px 5px;
 }
 
+.gatsby-highlight::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+.gatsby-highlight::-webkit-scrollbar-thumb {
+    background: #687a86;
+}
+.gatsby-highlight::-webkit-scrollbar-track {
+    background: #faede5;
+    border-radius: 0 0 4px 4px;
+}
+
 .line-numbers-rows {
-    padding: 0.8rem 0.625rem !important;
+    padding: 2rem 0.625rem !important;
     border-right: none !important;
+}
+
+@include breakpoint-md {
+    .gatsby-highlight pre[class*='language-']::before {
+        left: 36rem;
+    }
 }
