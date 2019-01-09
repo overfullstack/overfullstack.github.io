@@ -43,6 +43,7 @@ export const pageQuery = graphql`
           github
           linkedin
           stackoverflow
+          aboutme
         }
       }
     }

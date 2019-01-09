@@ -50,6 +50,7 @@ export const pageQuery = graphql`
           telegram
           email
           stackoverflow
+          aboutme
         }
         disqusShortname
         url

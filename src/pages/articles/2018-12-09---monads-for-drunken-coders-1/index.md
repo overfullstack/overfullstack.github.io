@@ -263,10 +263,9 @@ public class Functor<T> {
 <img class="post-gif" src="./media/minions.gif">
 
 - Both `map()` and `flatMap()` are Higher-Order functions, which take first-class functions as parameters.
-- `map` applies the mapper-function on wrapped value and returns a new Functor instance wrapping the result value. 
-- Say, if the return value of the mapper-function is a `Functor<Type>`, then the return value of `map` ends up being `Functor<Functor<Type>>`
+- `map` applies the mapper-function on wrapped value and returns a new Functor instance, wrapping the result value. Say, if the return value of the mapper-function is a `Functor<T>`, then the return value of `map` ends up being `Functor<Functor<T>>`
 - `flatMap` applies the mapper-function and simply returns its result without wrapping in another Functor.
-- So, the difference is, if the return value of the mapper-function is a `Functor<Type>`, `flatMap` returns a `Functor<Type>` itself.
+- So, the difference is, if the return value of the mapper-function is a `Functor<T>`, `flatMap` returns a `Functor<T>` itself.
 - But why am I speaking about flatMap() ?
 
 #### The Monad

@@ -1,28 +1,27 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import './style.scss';
 import profilePic from '../../assets/photo.jpg';
 
 const Bio = ({ author, subtitle, path }) => (
   <div>
-    <Link to="/">
+    <a href={`${author.aboutme}`} target="_blank" rel="noopener noreferrer">
       <img
         src={profilePic}
         className={(path === 'posts') ? 'post-bio__author-photo' : 'bio__author-photo'}
         alt={author.name}
       />
-    </Link>
+    </a>
     {(path === '/') ? (
       <h1 className="bio__author-title">
-        <Link className="bio__author-title-link" to="/">
+        <a className="bio__author-title-link" href={`${author.aboutme}`} target="_blank" rel="noopener noreferrer">
           {author.name}
-        </Link>
+        </a>
       </h1>
     ) : (
       <h2 className="bio__author-title">
-        <Link className="bio__author-title-link" to="/">
+        <a className="bio__author-title-link" href={`${author.aboutme}`} target="_blank" rel="noopener noreferrer">
           {author.name}
-        </Link>
+        </a>
       </h2>
     )}
     <p className="bio__author-subtitle" style={{ marginBottom: '0.625rem' }}>{subtitle}</p>
