@@ -5,12 +5,12 @@
   "main": "n/a",
   "scripts": {
     "develop": "gatsby develop",
-    "build": "gatsby build",
     "clean:public": "rm -rf public",
     "clean": "npm run clean:public",
     "lint": "./node_modules/.bin/eslint --cache --ext .js,.jsx --ignore-pattern public .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write './*.js' 'src/**/*.js' 'src/**/*.jsx'",
+    "build": "rm -rf public && rm -rf .cache && gatsby build",
     "deploy": "gatsby build && gh-pages -d public -b master"
   },
   "repository": "git+https://github.com/overfullstack/overfullstack.github.io.git,",
