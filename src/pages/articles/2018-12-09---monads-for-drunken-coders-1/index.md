@@ -61,7 +61,7 @@ I think, I'm too drunk. My head is spinning! 🤯
 
 The code ended-up like an Alien plant:
 
-```java:title=EggValidatorBad.java
+```java{9,19,23,27,48,49}:title=EggValidatorBad.java
 public class OmegaEggValidator {
   public ValidationResults create() {
     Map<Integer, ValidationFailure> badEggFailureBucketMap = new HashMap<>();
@@ -79,14 +79,17 @@ public class OmegaEggValidator {
           iterator.remove();
           badEggFailureBucketMap.put(eggIndex, VALIDATION_FAILURE_2);
         }
-      } catch (Exception e) { // Repetition of same logic for exception handling
+      } catch (Exception e) { 
+        // Repetition of same logic for exception handling
         iterator.remove();
         badEggFailureBucketMap.put(eggIndex, VALIDATION_FAILURE_WITH_EXCEPTION_2 + e.getMessage());
       }
-      try { // Inter-dependent validations
+      // Inter-dependent validations
+      try {
         if (isValid31(eggTobeValidated)) {
           Yellow yellowTobeValidated = extractYellow(eggTobeValidated);
-          if (yellowTobeValidated != null) { // Nested-if for null checking nested objects
+          // Nested-if for null checking nested objects
+          if (yellowTobeValidated != null) { 
             try {
               if (!isValid32(yellowTobeValidated)) {
                 iterator.remove();
@@ -209,7 +212,7 @@ private static Function<String,String> lastWord =
 - We have two categories of data, Good eggs and Bad eggs. But who needs bad eggs, what you really interested are, the Validation failures for bad eggs. 
 - So two categories here, demand two totally disparate data types (Good-eggs), (Validation-failures due to (invalidations) and (exceptions)) to co-exist, inside a stream, as they flow through the pipeline. Check-out these cases in this pseudo code:
 
-```java:title=PseudoValidator.java
+```java{11,14,17,20}:title=PseudoValidator.java
 Stream<Egg> validatedEggStream = eggs.stream().map(egg -> validate(egg));
 
 private <what-should-I-return?> validate(Egg egg) {
@@ -229,7 +232,7 @@ private <what-should-I-return?> validate(Egg egg) {
       return <not-an-egg>; // case 3
     }
   }
-  return isValid ? egg : <How-to-return-defect?>;
+  return isValid ? egg : <How-to-return-defect?>; //case 4
 }
 ```
 - This poor function is not sure how to communicate back to its caller with multiple possibilities. Unfortunately, Strongly-typed languages are strict about return type.
@@ -248,7 +251,7 @@ Let's take a fork here and visit the Monad-Land to understand Containerization.
 - Functor contains a value `x` of some type, and let you operate on that value by passing a first-class function `f` through `map`, that returns you a new functor containing result value `f(x)`. (This is Functional English 😋).
 - If that's not clear, this code snippet should clarify it:
 
-```java:title=Functor.java
+```java{7}:title=Functor.java
 public class Functor<T> {
   private final T value;
   public Functor(T value) {
@@ -282,7 +285,7 @@ public class Functor<T> {
 - Monad laws are simple math-rules, like the associativity, Left identity and Right identity. More on these later.
 - Of-course, there is no such constraint that Monads should ONLY implement `flatMap`.
 
-```java:title=Monad.java
+```java{9,10,11}:title=Monad.java
 public class Monad<T> {
   private final T value;
   public Monad(T value) {
