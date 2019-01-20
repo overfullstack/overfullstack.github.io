@@ -21,7 +21,7 @@
       }
     ],
     "arrow-parens": [
-      "error",
+      "warn",
       "as-needed"
     ],
     "comma-dangle": [
@@ -41,6 +41,7 @@
     "react/prefer-stateless-function": "off",
     "react/prop-types": "off",
     "react/jsx-tag-spacing": "off",
-    "no-trailing-spaces": "off"
+    "no-trailing-spaces": "off",
+    "object-curly-spacing": "off"
   }
 }

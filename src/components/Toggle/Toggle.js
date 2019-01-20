@@ -2,7 +2,7 @@
  * Copyright (c) 2015 instructure-react
  * Forked from https://github.com/aaronshaf/react-toggle/
  * + applied https://github.com/aaronshaf/react-toggle/pull/90
- **/
+ * */
 
 import './Toggle.css';
 

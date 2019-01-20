@@ -8,6 +8,7 @@ import Links from '../Links';
 import Bio from '../Bio';
 import { formatReadingTime, getCurrentPath } from '../utils';
 import Signup from '../Signup/Signup';
+import ThemeToggle from '../Toggle/ThemeToggle';
 
 class PostTemplateDetails extends React.Component {
   render() {
@@ -17,11 +18,13 @@ class PostTemplateDetails extends React.Component {
     const tags = post.fields.tagSlugs;
     const { location } = this.props;
     const applauseButton = <div className="applause"><applause-button multiclap="true"/></div>;
+
     const homeBlock = (
       <div>
         <Link className="post-single__home-button" to="/">
           All Articles
         </Link>
+        <div className="post-single__theme-toggle"><ThemeToggle/></div>
         {applauseButton}
       </div>
     );

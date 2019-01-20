@@ -5,22 +5,9 @@ import './style.scss';
 import Emoji from '../Emoji/Emoji';
 import Bio from '../Bio';
 import { getCurrentPath } from '../utils';
-import sun from '../../assets/theme/sun.png';
-import moon from '../../assets/theme/moon.png';
-import Toggle from '../Toggle/Toggle';
+import ThemeToggle from '../Toggle/ThemeToggle';
 
 class Sidebar extends React.Component {
-  state = {
-    theme: null,
-  }
-
-  componentDidMount() {
-    this.setState({ theme: window.__theme });
-    window.__onThemeChange = () => {
-      this.setState({ theme: window.__theme });
-    };
-  }
-
   render() {
     const { location } = this.props;
     const {
@@ -30,35 +17,6 @@ class Sidebar extends React.Component {
       declaration,
       menu,
     } = this.props.data.site.siteMetadata;
-    const themeToggle = this.state.theme !== null ? (
-      <Toggle
-        icons={{
-          checked: (
-            <img
-              src={moon}
-              alt="dark"
-              role="presentation"
-              style={{ pointerEvents: 'none' }}
-            />
-          ),
-          unchecked: (
-            <img
-              src={sun}
-              alt="light"
-              role="presentation"
-              style={{ pointerEvents: 'none' }}
-            />
-          ),
-        }}
-        checked={this.state.theme === 'dark'}
-        onChange={e => window.__setPreferredTheme(
-          e.target.checked ? 'dark' : 'light',
-        )
-        }
-      />
-    ) : (
-      <div style={{ height: '24px' }} />
-    );
 
     return (
       <div className="sidebar">
@@ -73,7 +31,7 @@ class Sidebar extends React.Component {
           <div className="sidebar__inner-middle">
             <Menu data={menu} />
             <Links data={author} />
-            {themeToggle}
+            <ThemeToggle/>
           </div>
 
           <div>

@@ -115,6 +115,11 @@
             border: 0;
         }
     }
+    &__theme-toggle {
+        float: right;
+        margin-right: 0.9375rem;
+        margin-top: -1.875rem;
+    }
 }
 
 applause-button {
@@ -192,6 +197,11 @@ applause-button {
             margin: 0;
             top: 30px;
             left: 30px;
+        }
+        &__theme-toggle {
+            float: none;
+            right: 0;
+            position: fixed;
         }
     }
 
