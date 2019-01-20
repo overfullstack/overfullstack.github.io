@@ -24,7 +24,7 @@ const Bio = ({ author, subtitle, path }) => (
         </a>
       </h2>
     )}
-    <p className="bio__author-subtitle" style={{ marginBottom: '0.625rem' }}>{subtitle}</p>
+    <p className="bio__author-subtitle">{subtitle}</p>
   </div>
 );
 

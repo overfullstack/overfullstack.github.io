@@ -9,6 +9,7 @@ module.exports = {
     subtitle: 'So excited about this Craft that, I can\'t keep myself from blogging about it.',
     caption: 'A blog by Gopal S Akshintala',
     copyright: '© All rights reserved.',
+    declaration: 'I built this blog with React.js',
     disqusShortname: 'gopal',
     pathPrefix: '/overfullstack.github.io',
     logo: '',

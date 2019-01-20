@@ -43,6 +43,7 @@ export const pageQuery = graphql`
         subtitle
         caption
         copyright
+        declaration
         logo
         menu {
           label

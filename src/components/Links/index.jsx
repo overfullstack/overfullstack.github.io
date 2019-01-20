@@ -53,7 +53,7 @@ class Links extends React.Component {
           </div>
         )
         : (
-          <div className="links" style={{ display: 'inline-block' }}>
+          <div className="links">
             <ul className="links__list">
               <li className="links__list-item">
                 <a

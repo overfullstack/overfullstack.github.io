@@ -62,6 +62,7 @@ export const pageQuery = graphql`
         title
         subtitle
         copyright
+        declaration
         menu {
           label
           path
@@ -74,6 +75,7 @@ export const pageQuery = graphql`
           github
           linkedin
           stackoverflow
+          aboutme
         }
       }
     }

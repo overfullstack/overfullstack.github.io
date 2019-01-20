@@ -42,6 +42,7 @@ export const pageQuery = graphql`
         title
         subtitle
         copyright
+        declaration
         author {
           name
           twitter
