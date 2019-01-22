@@ -21,6 +21,11 @@ class Post extends React.Component {
           <time
             className="post__meta-time"
             dateTime={moment(date).format('MMMM D, YYYY')}
+            style={{
+              boxShadow: 'none',
+              textDecoration: 'none',
+              color: 'var(--textNormal)',
+            }}
           >
             {moment(date).format('MMMM YYYY')}
           </time>
@@ -32,7 +37,15 @@ class Post extends React.Component {
           </span>
         </div>
         <h2 className="post__title">
-          <Link className="post__title-link" to={slug}>
+          <Link
+            className="post__title-link"
+            to={slug}
+            style={{
+              boxShadow: 'none',
+              textDecoration: 'none',
+              color: 'var(--textLink)',
+            }}
+          >
             {title}
           </Link>
         </h2>

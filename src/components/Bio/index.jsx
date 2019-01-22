@@ -13,7 +13,17 @@ const Bio = ({ author, subtitle, path }) => (
     </a>
     {(path === '/') ? (
       <h1 className="bio__author-title">
-        <a className="bio__author-title-link" href={`${author.aboutme}`} target="_blank" rel="noopener noreferrer">
+        <a
+          className="bio__author-title-link"
+          href={`${author.aboutme}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            boxShadow: 'none',
+            textDecoration: 'none',
+            color: 'var(--textLink)',
+          }}
+        >
           {author.name}
         </a>
       </h1>

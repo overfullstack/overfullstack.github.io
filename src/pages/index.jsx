@@ -12,23 +12,31 @@ class IndexRoute extends React.Component {
     const { title, subtitle, caption, logo } = this.props.data.site.siteMetadata;
     const posts = this.props.data.allMarkdownRemark.edges;
     posts.forEach(post => {
-      items.push(<Post data={post} key={post.node.fields.slug} />);
+      items.push(<Post data={post} key={post.node.fields.slug}/>);
     });
 
     return (
-      <Layout>
-        <SEO image={logo} description={subtitle} title={title} caption={caption} />
-        <div>
-          <Helmet>
-            <title>{title}</title>
-            <meta name="description" content={subtitle} />
-          </Helmet>
-          <Sidebar {...this.props} />
-          <div className="content">
-            <div className="content__inner">{items}</div>
+      <div style={{
+        color: 'var(--textNormal)',
+        background: 'var(--bg)',
+        transition: 'color 0.2s ease-out, background 0.2s ease-out',
+        minHeight: '100vh',
+      }}
+      >
+        <Layout>
+          <SEO image={logo} description={subtitle} title={title} caption={caption} />
+          <div>
+            <Helmet>
+              <title>{title}</title>
+              <meta name="description" content={subtitle}/>
+            </Helmet>
+            <Sidebar {...this.props} />
+            <div className="content">
+              <div className="content__inner">{items}</div>
+            </div>
           </div>
-        </div>
-      </Layout>
+        </Layout>
+      </div>
     );
   }
 }

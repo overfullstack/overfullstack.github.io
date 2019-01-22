@@ -14,6 +14,11 @@ class Menu extends React.Component {
               to={item.path}
               className="menu__list-item-link"
               activeClassName="menu__list-item-link menu__list-item-link--active"
+              style={{
+                boxShadow: 'none',
+                textDecoration: 'none',
+                color: 'var(--textLink)',
+              }}
             >
               {item.label}
             </Link>
