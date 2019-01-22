@@ -9,6 +9,7 @@ const query = graphql`
       siteMetadata {
         title
         subtitle
+        caption
         siteurl
         author {
           aboutme
@@ -19,7 +20,7 @@ const query = graphql`
 `;
 
 const SEO = ({
-  meta, image, title, description, slug,
+  meta, image, title, caption, description, slug,
 }) => (
   <StaticQuery
     query={query}
@@ -31,13 +32,13 @@ const SEO = ({
       return (
         <Helmet
           htmlAttributes={{ lang: 'en' }}
-          {...(title
+          {...(caption
             ? {
-              titleTemplate: `%s - ${siteMetadata.title}`,
-              title,
+              titleTemplate: `${caption} - %s`,
+              title: siteMetadata.title,
             }
             : {
-              title: siteMetadata.title,
+              title: `A blog by Gopal S Akshintala - ${siteMetadata.title}`,
             })}
           meta={[
             {

@@ -7,6 +7,7 @@ module.exports = {
     siteurl: 'https://overfullstack.github.io',
     title: 'It\'s All Over full-stack',
     subtitle: 'So excited about this Craft that, I can\'t keep myself from blogging about it.',
+    caption: 'A blog by Gopal S Akshintala',
     copyright: '© All rights reserved.',
     disqusShortname: 'gopal',
     pathPrefix: '/overfullstack.github.io',
