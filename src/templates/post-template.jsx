@@ -14,21 +14,29 @@ class PostTemplate extends React.Component {
 
     const actualPostTitle = `${postTitle} - ${title}`;
     return (
-      <Layout>
-        <SEO
-          title={actualPostTitle}
-          description={description}
-          image={cover.childImageSharp.original.src}
-          slug={post.fields.slug}
-        />
-        <div>
-          <Helmet>
-            <title>{actualPostTitle}</title>
-            <meta name="description" content={description} />
-          </Helmet>
-          <PostTemplateDetails {...this.props} />
-        </div>
-      </Layout>
+      <div style={{
+        color: 'var(--textNormal)',
+        background: 'var(--bg)',
+        transition: 'color 0.2s ease-out, background 0.2s ease-out',
+        minHeight: '100vh',
+      }}
+      >
+        <Layout>
+          <SEO
+            title={actualPostTitle}
+            description={description}
+            image={cover.childImageSharp.original.src}
+            slug={post.fields.slug}
+          />
+          <div>
+            <Helmet>
+              <title>{actualPostTitle}</title>
+              <meta name="description" content={description}/>
+            </Helmet>
+            <PostTemplateDetails {...this.props} />
+          </div>
+        </Layout>
+      </div>
     );
   }
 }

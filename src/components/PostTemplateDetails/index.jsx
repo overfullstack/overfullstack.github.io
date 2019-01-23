@@ -17,7 +17,9 @@ class PostTemplateDetails extends React.Component {
     const post = this.props.data.markdownRemark;
     const tags = post.fields.tagSlugs;
     const { location } = this.props;
-    const applauseButton = <div className="applause"><applause-button multiclap="true"/></div>;
+    const applauseButton = <div className="applause">
+      <applause-button multiclap="true"/>
+    </div>;
 
     const homeBlock = (
       <div>
@@ -33,13 +35,13 @@ class PostTemplateDetails extends React.Component {
       <div className="post-single__tags">
         <ul className="post-single__tags-list">
           {tags
-            && tags.map((tag, i) => (
-              <li className="post-single__tags-list-item" key={tag}>
-                <Link to={tag} className="post-single__tags-list-item-link">
-                  {post.frontmatter.tags[i]}
-                </Link>
-              </li>
-            ))}
+          && tags.map((tag, i) => (
+            <li className="post-single__tags-list-item" key={tag}>
+              <Link to={tag} className="post-single__tags-list-item-link">
+                {post.frontmatter.tags[i]}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     );
@@ -58,8 +60,20 @@ class PostTemplateDetails extends React.Component {
         {homeBlock}
         <div className="post-single">
           <div className="post-single__inner">
-            <h1 className="post-single__title">{post.frontmatter.title}</h1>
-            <div style={{ textAlign: 'center', fontSize: 'larger' }}>
+            <h1
+              className="post-single__title"
+              style={{
+                boxShadow: 'none',
+                textDecoration: 'none',
+                color: 'var(--textTitle)',
+              }}
+            >
+              {post.frontmatter.title}
+            </h1>
+            <div style={{
+              textAlign: 'center',
+              fontSize: 'larger',
+            }}>
               {`${formatReadingTime(post.timeToRead)}`}
             </div>
             <div
@@ -70,14 +84,15 @@ class PostTemplateDetails extends React.Component {
             <div className="post-single__date">
               <em>
                 Published&nbsp;
-                {moment(post.frontmatter.date).format('D MMM YYYY')}
+                {moment(post.frontmatter.date)
+                  .format('D MMM YYYY')}
               </em>
             </div>
           </div>
           <div className="post-single__footer">
             {tagsBlock}
             <div className="mobile-footer-clap">{applauseButton}</div>
-            <hr />
+            <hr/>
             <ul
               style={{
                 display: 'flex',
@@ -121,9 +136,9 @@ class PostTemplateDetails extends React.Component {
               </a>
             </div>
             <div className="post-single__footer-text">
-              <Links data={author} isFlat />
+              <Links data={author} isFlat/>
               <div style={{ marginBottom: '1.625rem' }}>
-                <Signup />
+                <Signup/>
               </div>
             </div>
             {commentsBlock}

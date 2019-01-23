@@ -9,7 +9,9 @@ import SEO from '../components/SEO';
 class IndexRoute extends React.Component {
   render() {
     const items = [];
-    const { title, subtitle, caption, logo } = this.props.data.site.siteMetadata;
+    const {
+      title, subtitle, caption, logo,
+    } = this.props.data.site.siteMetadata;
     const posts = this.props.data.allMarkdownRemark.edges;
     posts.forEach(post => {
       items.push(<Post data={post} key={post.node.fields.slug}/>);
