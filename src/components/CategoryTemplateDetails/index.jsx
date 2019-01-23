@@ -15,7 +15,9 @@ class CategoryTemplateDetails extends React.Component {
       <div className="content">
         <div className="content__inner">
           <div className="category">
-            <h1 className="category__title">{category}</h1>
+            <h1 className="category__title"
+
+            >{category}</h1>
             <div className="category__body">{items}</div>
           </div>
         </div>

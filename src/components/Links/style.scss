@@ -3,6 +3,7 @@
 
 .links {
     @include margin-bottom(1);
+    @include margin-top(0.5);
     ul:first-of-type {
         margin-top: 0;
     }
@@ -34,5 +35,11 @@
                 }
             }
         }
+    }
+}
+
+@include breakpoint-sm {
+    .links {
+        margin-top: 0;
     }
 }

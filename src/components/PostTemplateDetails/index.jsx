@@ -17,9 +17,11 @@ class PostTemplateDetails extends React.Component {
     const post = this.props.data.markdownRemark;
     const tags = post.fields.tagSlugs;
     const { location } = this.props;
-    const applauseButton = <div className="applause">
-      <applause-button multiclap="true"/>
-    </div>;
+    const applauseButton = (
+      <div className="applause">
+        <applause-button multiclap="true"/>
+      </div>
+    );
 
     const homeBlock = (
       <div>
@@ -73,7 +75,8 @@ class PostTemplateDetails extends React.Component {
             <div style={{
               textAlign: 'center',
               fontSize: 'larger',
-            }}>
+            }}
+            >
               {`${formatReadingTime(post.timeToRead)}`}
             </div>
             <div

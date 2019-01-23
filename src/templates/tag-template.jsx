@@ -11,13 +11,21 @@ class TagTemplate extends React.Component {
     const { tag } = this.props.pageContext;
 
     return (
-      <Layout>
-        <div>
-          <Helmet title={`All Posts tagged as "${tag}" - ${title}`} />
-          <Sidebar {...this.props} />
-          <TagTemplateDetails {...this.props} />
-        </div>
-      </Layout>
+      <div style={{
+        color: 'var(--textNormal)',
+        background: 'var(--bg)',
+        transition: 'color 0.2s ease-out, background 0.2s ease-out',
+        minHeight: '100vh',
+      }}
+      >
+        <Layout>
+          <div>
+            <Helmet title={`All Posts tagged as "${tag}" - ${title}`}/>
+            <Sidebar {...this.props} />
+            <TagTemplateDetails {...this.props} />
+          </div>
+        </Layout>
+      </div>
     );
   }
 }

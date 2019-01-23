@@ -11,13 +11,21 @@ class CategoryTemplate extends React.Component {
     const { category } = this.props.pageContext;
 
     return (
-      <Layout>
-        <div>
-          <Helmet title={`${category} - ${title}`} />
-          <Sidebar {...this.props} />
-          <CategoryTemplateDetails {...this.props} />
-        </div>
-      </Layout>
+      <div style={{
+        color: 'var(--textNormal)',
+        background: 'var(--bg)',
+        transition: 'color 0.2s ease-out, background 0.2s ease-out',
+        minHeight: '100vh',
+      }}
+      >
+        <Layout>
+          <div>
+            <Helmet title={`${category} - ${title}`}/>
+            <Sidebar {...this.props} />
+            <CategoryTemplateDetails {...this.props} />
+          </div>
+        </Layout>
+      </div>
     );
   }
 }
