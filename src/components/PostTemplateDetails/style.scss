@@ -130,6 +130,10 @@ applause-button {
     @include margin-top(1);
 }
 
+applause-button .count-container {
+    color: var(--textNormal);
+}
+
 .applause {
     animation: popout 1s ease;
     -webkit-animation: popout 1s ease;

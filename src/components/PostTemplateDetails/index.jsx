@@ -19,7 +19,10 @@ class PostTemplateDetails extends React.Component {
     const { location } = this.props;
     const applauseButton = (
       <div className="applause">
-        <applause-button multiclap="true"/>
+        <applause-button
+          multiclap="true"
+          color="var(--applause-button)"
+        />
       </div>
     );
 
