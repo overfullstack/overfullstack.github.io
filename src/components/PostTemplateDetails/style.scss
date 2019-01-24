@@ -28,7 +28,7 @@
                 @include padding(1, 0);
                 & p {
                     max-width: $layout-post-single-width;
-                    font-size: $typographic-base-font-size * 1.6817;
+                    font-size: $typographic-base-font-size;
                     margin-top: 0;
                     @include margin-bottom(1);
                     @include line-height(1.5);
@@ -187,11 +187,11 @@ applause-button .count-container {
             @include margin-bottom(1.5);
         }
         &__body {
-            font-size: $typographic-base-font-size * 1.125;
+            font-size: $typographic-base-font-size;
             @include line-height(1.125);
             @include margin-bottom(1.125);
             & p {
-                font-size: $typographic-base-font-size * 1.125;
+                font-size: $typographic-base-font-size;
                 @include line-height(1.125);
                 @include margin-bottom(1.125);
             }

@@ -8,7 +8,7 @@ html {
 }
 
 body {
-    font-family: $typographic-font-family;
+    font-family: $typographic-font-family-body;
     color: $typographic-base-font-color;
     line-height: $typographic-base-line-height;
     font-size: $typographic-base-font-size;
@@ -51,7 +51,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: $typographic-font-family;
+    font-family: $typographic-font-family-heading;
     font-weight: 500;
 }
 
@@ -136,7 +136,10 @@ strong {
 }
 
 ul {
-    list-style: square;
+    margin-right: 0;
+    margin-top: 0;
+    padding-left: 1rem;
+    list-style: disc outside none;
     @include margin-bottom(1);
     & li {
         padding: 0 5px;
@@ -150,9 +153,16 @@ p {
 }
 
 blockquote {
-    padding: 0;
     font-style: italic;
     text-align: center;
+    padding: 0 0 0 1.42188rem;
+    margin: 0 1.75rem 1.75rem -1.75rem;
+    font-size: 1.20112rem;
+    line-height: 1.75rem;
+    color: inherit;
+    border-left: 0.32813rem solid hsla(0,0%,0%,0.9);
+    border-left-color: inherit;
+    opacity: 0.8;
 }
 
 figure {
