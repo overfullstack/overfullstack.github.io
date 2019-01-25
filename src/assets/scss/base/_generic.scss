@@ -106,7 +106,9 @@ img {
 
 .anchor {
     box-shadow: none;
-    margin-left: -20px !important;
+    padding-right: 0.25rem;
+    margin-left: -1.25rem !important;
+    fill: var(--textLink);
 }
 
 hr {
@@ -191,6 +193,11 @@ figcaption {
     }
 }
 
+h3,
+h4 {
+  margin-left: 0.25rem !important;
+}
+
 @include breakpoint-sm {
     figure.float-left,
     figure.float-right {
@@ -209,6 +216,10 @@ figcaption {
             padding: 30px 20px;
         }
     }
+    h3,
+    h4 {
+        margin-left: auto !important;
+    }
 }
 
 @include breakpoint-md {
@@ -217,5 +228,9 @@ figcaption {
         &__inner {
             padding: 40px 35px;
         }
+    }
+    h3,
+    h4 {
+        margin-left: auto !important;
     }
 }
