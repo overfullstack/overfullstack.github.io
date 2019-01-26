@@ -7,7 +7,10 @@ Please Visit the Blog @ https://overfullstack.github.io
 - Integration with Travis CI for auto deployment to github pages.
 - Google Analytics integration.
 - Claps (like Medium).
-
+- Dark and Light mode.
+- SEO for blog and Individual Posts.
+- Code highlighting with Night Owl theme.
+- Mail Chimp integration for Subscription.
 
 ## Content License
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">

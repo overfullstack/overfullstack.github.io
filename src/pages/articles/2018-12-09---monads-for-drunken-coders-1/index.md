@@ -117,16 +117,16 @@ public class OmegaEggValidator {
 ### Imperative vs Functional Chatter
 - If a right Paradigm isn't chosen, you literally have to stab and cut-open the Open-Closed principle every time you get a new requirement. 
 - Every Software architectural problem can be seen like a block of objects doing functions or functions doing (I mean, processing) objects. There you go! I just metaphored OOPs vs FP.
-- Eggs aren't doing anything here, they are being done. This clearly is a Functional programming problem. Eggs should not be juggled around validation functions, but validations should be *applied* on eggs.
-- In OOPs, we build classes with state and have functions exposed to operate on that state. How can you build a class which lets you provide functions dynamically at run time, to operate on its state. This is fundamental premises on which Functional style is built.
+- Eggs aren't doing anything here, they are being done. This clearly is a Functional programming problem. Eggs should NOT be juggled around validation functions, but validations should be *applied* on eggs.
+- In OOPs, we build classes with state and have functions exposed to operate on that state. But, how can you build a class which lets you provide functions dynamically at run time, to operate on its state. This is fundamental premises on which Functional style is built.
 - Of-course, Functional thinking doesn't solve all the problems, neither is Object oriented thinking. However, in this problem FP is not fighting with OOPs, but with **Imperative Programming**.
 - Our friend here is clearly suffering from trying to do too much of administration, dealing with the eggs.
 - Like any other problem, this too has multiple sub-problems.
 
 ### Problem.split()
-- One master function which loops and calls all validation functions and passes around the results to other functions. That's like doing all the **Administrative-Orchestration-Imperatively** (That's how you use 3 adjectives 😎). 
+- One master function which loops and calls all validation functions and passes around the results to other functions. That's like doing all the **Administrative-Orchestration-Imperatively** (That's how you use 3 adjectives 😎). Such functions are so difficult to Unit test, which indicates, they are difficult to reason-out as well.
 - Validations should be **Streamlined**, in a way that they can be plugged in and out of anywhere in between (like the bars in Jenga).
-- The Streamline should let different types of data (The Good, the Bad and the Ugly), to co-exist as they flow. One bucket per type won't scale, need an alternative to hold **Heterogenous-Data**.
+- The Streamline should let different types of data (The Good, the Bad and the Ugly), to co-exist as they flow. One bucket per type won't scale, need an alternative to hold **Heterogeneous-Data**.
 - It's 2k18, please don't use **`if` to null check while Streaming**. Especially when you have nested objects, you end-up in an if-else hell. The code-flow should not be like a Trigonometric curve, but should be like a Linear equation.
 - Mutation is sin, especially when you are mutating a global state. **Immutability** should be enforced, while the data is streamed across multiple functions, or predicting who-changed-what can kill a lot of your time while debugging.
 - **Exceptions are Evil**, they are camouflaged gotos. Never throw them with your own hands and interrupt your stream and code flow.

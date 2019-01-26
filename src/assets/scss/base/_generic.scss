@@ -18,6 +18,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     --pink: rgb(255, 167, 196);
+    background-color: var(--bg);
 }
 
 body.light {
@@ -104,11 +105,14 @@ img {
     margin: inherit auto;
 }
 
-.anchor {
+a.anchor {
     box-shadow: none;
     padding-right: 0.25rem;
     margin-left: -1.25rem !important;
-    fill: var(--textLink);
+}
+
+a.anchor svg[aria-hidden="true"] {
+    stroke: var(--textLink)
 }
 
 hr {
