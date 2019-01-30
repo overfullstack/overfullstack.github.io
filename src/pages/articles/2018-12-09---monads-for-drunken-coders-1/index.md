@@ -141,7 +141,7 @@ public class OmegaEggValidator {
 - In our problem, it is even trying to handle the coupling between Validation method and Validation failure. That surely is not its responsibility. Validation method should be responsible to communicate that to the orchestrator.
 - This simple function is just trying to append all last-words in List of Strings with `&`, with a lot of do-this-do-that imperative administration. It might be clear to the computer, but not very intuitive to another developer (or the same dev after sometime). 
 
-```java:title=ImperativeLastWord.java
+```java{4}:title=ImperativeLastWord.java
 private static String summarizeLastWords(List<String> descriptions) {
   StringBuffer output = new StringBuffer();
   boolean isFirst = true;
@@ -183,7 +183,7 @@ private static String lastWord(final String d) {
 - Simply, make the shit of a function be the food for another.
 - To do that, above Imperative Program can be transformed into **Declarative Style** like this:
 
-```java:title=FunctionalLastWord.java
+```java{2,8}:title=FunctionalLastWord.java
 private static String summarize(List<String> descriptions) {
   return descriptions.stream() // Internal Iteration
     .filter(s -> !s.isEmpty())

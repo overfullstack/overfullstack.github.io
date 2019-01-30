@@ -199,12 +199,11 @@ applause-button .count-container {
         &__home-button {
             position: fixed;
             margin: 0;
-            top: 30px;
-            left: 30px;
+            top: 1.875rem;
         }
         &__theme-toggle {
             float: none;
-            right: 0;
+            right: 20%;
             position: fixed;
         }
     }
@@ -212,7 +211,6 @@ applause-button .count-container {
     .applause {
         position: fixed;
         top: 50%;
-        left: 3.125rem;
     }
 
     .mobile-footer-clap {
