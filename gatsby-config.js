@@ -143,6 +143,13 @@ module.exports = {
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants',
           {
+            resolve: 'gatsby-remark-external-links',
+            options: {
+              target: '_blank',
+              rel: 'noopener noreferrer',
+            },
+          },
+          {
             resolve: 'gatsby-plugin-mailchimp',
             options: {
               endpoint: 'https://github.us7.list-manage.com/subscribe/post?u=ab6b858fe942240463c3a5ab5&amp;id=8851ab5056',
@@ -244,6 +251,7 @@ module.exports = {
         theme_color: '#663399',
         display: 'minimal-ui',
         icon: 'src/assets/favicon.png',
+        theme_color_in_head: false,
       },
     },
     {
