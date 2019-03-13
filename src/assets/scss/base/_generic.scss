@@ -3,47 +3,47 @@
  */
 
 html {
-    font-size: $typographic-root-font-size;
-    height: 100%;
+  font-size: $typographic-root-font-size;
+  height: 100%;
 }
 
 body {
-    font-family: $typographic-font-family-body;
-    color: $typographic-base-font-color;
-    line-height: $typographic-base-line-height;
-    font-size: $typographic-base-font-size;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    --pink: rgb(255, 167, 196);
-    background-color: var(--bg);
+  font-family: $typographic-font-family-body;
+  color: $typographic-base-font-color;
+  line-height: $typographic-base-line-height;
+  font-size: $typographic-base-font-size;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --pink: rgb(255, 167, 196);
+  background-color: var(--bg);
 }
 
 body.light {
-    --bg: #ffffff;
-    --header: var(--pink);
-    --textNormal: #222;
-    --textTitle: #222;
-    --textLink: #d23669;
-    --hr: hsla(0, 0%, 0%, 0.2);
-    --inlineCode-bg: rgba(255, 229, 100, 0.2);
-    --inlineCode-text: #1a1a1a;
-    --applause-button: green;
+  --bg: #ffffff;
+  --header: var(--pink);
+  --textNormal: #222;
+  --textTitle: #222;
+  --textLink: #d23669;
+  --hr: hsla(0, 0%, 0%, 0.2);
+  --inlineCode-bg: rgba(255, 229, 100, 0.2);
+  --inlineCode-text: #1a1a1a;
+  --applause-button: green;
 }
 
 body.dark {
-    -webkit-font-smoothing: antialiased;
-    --bg: #282c35;
-    --header: #ffffff;
-    --textNormal: rgba(255, 255, 255, 0.88);
-    --textTitle: #ffffff;
-    --textLink: var(--pink);
-    --hr: hsla(0, 0%, 100%, 0.2);
-    --inlineCode-bg: hsl(222, 14%, 25%);
-    --inlineCode-text: #e6e6e6;
-    --applause-button: #03bb85;
+  -webkit-font-smoothing: antialiased;
+  --bg: #282c35;
+  --header: #ffffff;
+  --textNormal: rgba(255, 255, 255, 0.88);
+  --textTitle: #ffffff;
+  --textLink: var(--pink);
+  --hr: hsla(0, 0%, 100%, 0.2);
+  --inlineCode-bg: hsl(222, 14%, 25%);
+  --inlineCode-text: #e6e6e6;
+  --applause-button: #03bb85;
 }
 
 h1,
@@ -52,149 +52,151 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: $typographic-font-family-heading;
-    font-weight: 500;
+  font-family: $typographic-font-family-heading;
+  font-weight: 500;
 }
 
 h1 {
-    font-size: $typographic-base-font-size * 2.5;
-    @include line-height(2);
-    @include margin-top(4);
-    @include margin-bottom(1);
+  font-size: $typographic-base-font-size * 2.5;
+  @include line-height(2);
+  @include margin-top(4);
+  @include margin-bottom(1);
 }
 
 h2 {
-    font-size: $typographic-base-font-size * 1.6875;
-    @include line-height(1.5);
-    @include margin-top(2);
-    @include margin-bottom(.5);
+  font-size: $typographic-base-font-size * 1.6875;
+  @include line-height(1.5);
+  @include margin-top(2);
+  @include margin-bottom(.5);
 }
 
 h3 {
-    font-size: $typographic-base-font-size * 1.375;
-    @include line-height(1);
-    @include margin-top(2);
-    @include margin-bottom(.5);
+  font-size: $typographic-base-font-size * 1.375;
+  @include line-height(1);
+  @include margin-top(2);
+  @include margin-bottom(.5);
 }
 
 h4 {
-    font-size: $typographic-base-font-size * 1.2;
-    @include line-height(1);
-    @include margin-top(1.5);
-    @include margin-bottom(.5);
+  font-size: $typographic-base-font-size * 1.2;
+  @include line-height(1);
+  @include margin-top(1.5);
+  @include margin-bottom(.5);
 }
 
 h5 {
-    font-size: $typographic-base-font-size;
-    @include line-height(1);
-    @include margin-top(2.5);
-    @include margin-bottom(.5);
+  font-size: $typographic-base-font-size;
+  @include line-height(1);
+  @include margin-top(2.5);
+  @include margin-bottom(.5);
 }
 
 h6 {
-    font-size: $typographic-base-font-size;
-    @include line-height(1);
-    @include margin-top(2.5);
-    @include margin-bottom(.5);
+  font-size: $typographic-base-font-size;
+  @include line-height(1);
+  @include margin-top(2.5);
+  @include margin-bottom(.5);
 }
 
 img {
-    border: 0;
-    max-width: 100%;
-    display: block;
-    margin: inherit auto;
+  border: 0;
+  max-width: 100%;
+  display: block;
+  margin: inherit;
 }
 
 a.anchor {
-    box-shadow: none;
-    padding-right: 0.25rem;
-    margin-left: -1.25rem !important;
+  box-shadow: none;
+  padding-right: 0.25rem;
+  margin-left: -1.25rem !important;
 }
 
 a.anchor svg[aria-hidden="true"] {
-    stroke: var(--textLink)
+  stroke: var(--textLink)
 }
 
 hr {
-    border: 0;
-    color: $color-base;
-    display: block;
-    height: 26px;
-    margin: auto;
-    background-size: 100% 26px;
-    background-image: linear-gradient(to bottom, transparent 1px, transparent 11px, $color-base 11px, $color-base 15px, transparent 15px, transparent 26px);
-    width: 100px;
+  border: 0;
+  color: var(--textNormal);
+  display: block;
+  height: 26px;
+  margin: auto;
+  background-size: 100% 26px;
+  background-image: linear-gradient(to bottom, transparent 1px, transparent 11px,
+          var(--textNormal) 11px, var(--textNormal) 15px, transparent 15px, transparent 26px);
+  width: 100px;
 }
 
 a {
-    color: $typographic-link-p-font-color;
-    text-decoration: none;
-    &:hover,
-    &:focus,
-    &:active {
-        color: $typographic-link-s-font-color;
-    }
+  color: $typographic-link-p-font-color;
+  text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $typographic-link-s-font-color;
+  }
 }
 
-b,
-strong {
-    font-weight: 500;
+b {
+  font-weight: 500;
 }
 
 ul {
-    margin-right: 0;
-    margin-top: 0;
-    padding-left: 1rem;
-    list-style: disc outside none;
-    @include margin-bottom(1);
-    & li {
-        padding: 0 5px;
-        margin-bottom: 10px;
-    }
+  margin-right: 0;
+  margin-top: 0;
+  padding-left: 1rem;
+  list-style: disc outside none;
+  @include margin-bottom(1);
+
+  & li {
+    padding: 0 5px;
+    margin-bottom: 10px;
+  }
 }
 
 p {
-    @include line-height(1);
-    @include margin-bottom(1);
+  @include line-height(1);
+  @include margin-bottom(1);
 }
 
 blockquote {
-    font-style: italic;
-    text-align: center;
-    padding: 0 0 0 1.42188rem;
-    margin: 0 1.75rem 1.75rem -1.75rem;
-    font-size: 1.20112rem;
-    line-height: 1.75rem;
-    color: inherit;
-    border-left: 0.32813rem solid hsla(0,0%,0%,0.9);
-    border-left-color: inherit;
-    opacity: 0.8;
+  font-style: italic;
+  text-align: center;
+  padding: 0 0 0 1.42188rem;
+  margin: 0 1.75rem 1.75rem -1.75rem;
+  font-size: 1.20112rem;
+  line-height: 1.75rem;
+  color: inherit;
+  border-left: 0.32813rem solid hsla(0, 0%, 0%, 0.9);
+  border-left-color: inherit;
+  opacity: 0.8;
 }
 
 figure {
-    display: block;
-    width: 100%;
-    height: auto;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 figcaption {
-    @include line-height(.75);
-    @include margin-top(.25);
-    color: $color-base;
-    font-size: $typographic-small-font-size;
-    font-style: italic;
-    margin-bottom: 0;
-    text-align: center;
+  @include line-height(.75);
+  @include margin-top(.25);
+  color: $color-base;
+  font-size: $typographic-small-font-size;
+  font-style: italic;
+  margin-bottom: 0;
+  text-align: center;
 }
 
 .layout {
-    lost-center: $layout-width;
+  lost-center: $layout-width;
 }
 
 .content {
-    &__inner {
-        padding: 25px 20px;
-    }
+  &__inner {
+    padding: 25px 20px;
+  }
 }
 
 h3,
@@ -203,38 +205,40 @@ h4 {
 }
 
 @include breakpoint-sm {
-    figure.float-left,
-    figure.float-right {
-        max-width: 310px;
-        @include padding(0, 1, 0, 1);
+  figure.float-left,
+  figure.float-right {
+    max-width: 310px;
+    @include padding(0, 1, 0, 1);
+  }
+  .float-right {
+    float: right;
+  }
+  .float-left {
+    float: left;
+  }
+  .content {
+    lost-column: 7/12;
+
+    &__inner {
+      padding: 30px 20px;
     }
-    .float-right {
-        float: right;
-    }
-    .float-left {
-        float: left;
-    }
-    .content {
-        lost-column: 7/12;
-        &__inner {
-            padding: 30px 20px;
-        }
-    }
-    h3,
-    h4 {
-        margin-left: auto !important;
-    }
+  }
+  h3,
+  h4 {
+    margin-left: auto !important;
+  }
 }
 
 @include breakpoint-md {
-    .content {
-        lost-column: 2/3;
-        &__inner {
-            padding: 40px 35px;
-        }
+  .content {
+    lost-column: 2/3;
+
+    &__inner {
+      padding: 40px 35px;
     }
-    h3,
-    h4 {
-        margin-left: auto !important;
-    }
+  }
+  h3,
+  h4 {
+    margin-left: auto !important;
+  }
 }

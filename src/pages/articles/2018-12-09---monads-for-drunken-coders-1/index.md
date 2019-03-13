@@ -205,7 +205,7 @@ private static Function<String,String> lastWord =
 
 ### Flow Heterogeneous data Fluently
 - Streamlining of functions is easier said than done when dealing with Heterogeneous data.
-- Unidirectional flow demands uniform data structure for the entire stream-per-step. A pipeline can have different types of stream, but how can a stream/collection have different data types?
+- Unidirectional flow demands uniform data structure for the entire stream-per-step. A pipeline can have different types of streams, but how can a stream/collection have different data types?
 <img class="post-gif" src="https://media.giphy.com/media/OeX0obPwKJ0OI/giphy.gif">
 - Flowing through a function, Data inside a stream/collection of one type can metamorphose into various life forms of all shapes and sizes as it comes out, may be due to invalidations or exceptions or some eggs hatch into chickens or dinosaurs or your database just gets struck by a lightning.
 - The dichotomy of Data metamorphism with Stream Uniformity can be seen in our current problem. 
@@ -241,7 +241,7 @@ private <what-should-I-return?> validate(Egg egg) {
 - In valid case, you need to return something like `ValidationFailureType.NONE`. But, that means you can't pipe this function, with other validation functions (without the octopus orchestrator), as the valid egg is now lost in the oblivion of if-else labyrinth.
 - If you return a `null` in valid case, you know what happens if caller doesn't know about that. A blast of NPE!  
 - **Data Containerization** solves this. 
-- Not those plain-old-java-wrappers, but **Containers**. Ship your heterogeneous data inside these containers. 
+- Ship your heterogeneous data inside these containers. Not those plain-old-java-wrappers, but **Containers**. 
 
 Let's take a fork here and visit the Monad-Land to understand Containerization.
 
