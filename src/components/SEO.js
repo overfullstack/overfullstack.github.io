@@ -27,8 +27,8 @@ const SEO = ({
     render={data => {
       const { siteMetadata } = data.site;
       const metaDescription = description || siteMetadata.subtitle;
-      const metaImage = image ? `${siteMetadata.siteurl}/${image}` : null;
-      const url = `${siteMetadata.siteurl}${slug}`;
+      const metaImage = image ? `${siteMetadata.siteUrl}/${image}` : null;
+      const url = `${siteMetadata.siteUrl}${slug}`;
       return (
         <Helmet
           htmlAttributes={{ lang: 'en' }}

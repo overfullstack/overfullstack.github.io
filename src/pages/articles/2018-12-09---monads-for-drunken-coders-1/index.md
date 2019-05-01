@@ -123,7 +123,7 @@ public class OmegaEggValidator {
 - Our friend here is clearly suffering from trying to do too much of administration, dealing with the eggs.
 - Like any other problem, this too has multiple sub-problems.
 
-### Problem.split()
+### Problem`.split()`
 - One master function which loops and calls all validation functions and passes around the results to other functions. That's like doing all the **Administrative-Orchestration-Imperatively** (That's how you use 3 adjectives 😎). Such functions are so difficult to Unit test, which indicates, they are difficult to reason-out as well.
 - Validations should be **Streamlined**, in a way that they can be plugged in and out of anywhere in between (like the bars in Jenga).
 - The Streamline should let different types of data (The Good, the Bad and the Ugly), to co-exist as they flow. One bucket per type won't scale, need an alternative to hold **Heterogeneous-Data**.
@@ -262,7 +262,7 @@ public class Functor<T> {
   }
 }
 ```
-### The Siblings - map(), flatMap()
+### The Siblings - `map()`, `flatMap()`
 <img class="post-gif" src="./media/minions.gif">
 
 - Both `map()` and `flatMap()` are Higher-Order functions, which take first-class functions as parameters.
@@ -302,11 +302,11 @@ public class Monad<T> {
 - Monad's anatomy needs 3 basic organs:
     - A Parameterized type: `Monad<T>`
     - A Unit function: `new Monad()`
-    - A Binding function: `Monad.flatMap()` 
+    - A Bind function: `flatMap()` 
 
 Enough of Theory! how can this help the problem at hand?
 
-### Problems.split().stream()<br/>.map(problem -> solve(problem))
+### Problems`.split().stream()`<br/>`.map(this::solve(problem))`
 - You would have got a hint by now. Monads are the data containers you need. The problem is solved by one container-type (which can be the unit for uniformity through-out the pipeline) and a variable-value-type contained inside (which can be morphed from type to type).
 - Now every function can speak the same language, by passing around these Monad boxes and operate on them with functions, without worrying much about what it contains. Uniform boxes with Heterogenous data.
 - Like, validation functions can ship either a goodEgg or a validation failure to the orchestration function, and it doesn't even care what's in the box. Now, Orchestrator only has one job to do, just pump the data inside the pipeline ahead.
