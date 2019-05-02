@@ -10,7 +10,7 @@ const query = graphql`
         title
         subtitle
         caption
-        siteurl
+        siteUrl
         author {
           aboutme
         }
