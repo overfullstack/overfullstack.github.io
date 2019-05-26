@@ -33,7 +33,7 @@ module.exports = {
       telegram: 'https://t.me/gopalakshintala',
       twitter: 'http://bit.ly/agstwtr',
       github: 'http://bit.ly/agsgithub',
-      resume: 'http://bit.ly/agsresu',
+      resume: 'http://bit.ly/ags-resume',
       linkedin: 'http://bit.ly/agslnkd',
       stackoverflow: 'http://bit.ly/agsso',
       aboutme: 'http://bit.ly/agsabtme',
