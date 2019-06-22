@@ -220,13 +220,13 @@ private <what-should-I-return?> validate(Egg egg) {
   if (!egg.isRotten()) {
     if (egg.getYellow() != null) {
       try {
-        makeHalfBoiledOmelette(egg); // My Fav
+        makeHalfBoiledOmelette(egg); // My Fav Omlet
         isValid = true;
       } catch (EggException e) { 
-        return <How-to-return-exception?>; // case 1
+        return <How-to-return-exception?>; // case 1 exception
       }
     } else if (egg.getEggWhite() != null) {
-      eggWhiteDefect = examineEggWhite(egg); // case 2
+      eggWhiteDefect = examineEggWhite(egg); // case 2 inter-dependent validation fails
       isValid = (eggWhiteDefect == null);
     } else {
       return <not-an-egg>; // case 3

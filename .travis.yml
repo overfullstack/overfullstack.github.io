@@ -9,7 +9,7 @@ notifications:
     on_success: always
     on_failure: always
 node_js:
-  - '11.3.0'
+  - node
 git:
   depth: 3
 script:
