@@ -62,20 +62,20 @@ I think, I'm too drunk. My head is spinning! 🤯
 The code ended-up like an Alien plant 👽
 
 ```java{8,9,10,18,23,26}:title=CyclomaticEggValidator.java
-void omegaEggValidation() {
+void cyclomaticCode() {
   var eggList = Egg.getEggCarton();
   Map<Integer, ValidationFailure> badEggFailureBucketMap = new HashMap<>();
   var eggIndex = 0;
   for (var iterator = eggList.iterator(); iterator.hasNext(); eggIndex++) {
     var eggTobeValidated = iterator.next();
-    if (!Validations.simpleValidation1(eggTobeValidated)) {
+    if (!Operations.simpleOperation1(eggTobeValidated)) {
       iterator.remove(); // Mutation
       // How can you cleanly map validation-failure to which validation-method failed?
       badEggFailureBucketMap.put(eggIndex, VALIDATION_FAILURE_1);
       continue;
     }
     try {
-      if (!Validations.throwableValidation2(eggTobeValidated)) {
+      if (!Operations.throwableOperation2(eggTobeValidated)) {
         iterator.remove();
         badEggFailureBucketMap.put(eggIndex, VALIDATION_FAILURE_2);
       }
@@ -85,11 +85,11 @@ void omegaEggValidation() {
       continue;
     }
     try { // Inter-dependent validations
-      if (Validations.throwableValidation31(eggTobeValidated)) {
-        var yellowTobeValidated = eggTobeValidated.getYellow();
+      if (Operations.throwableOperation31(eggTobeValidated)) {
+        var yellowTobeValidated = eggTobeValidated.getYolk();
         if (yellowTobeValidated != null) { // Nested-if for null checking nested objects
           try {
-            if (!Validations.throwableAndNestedValidation32(yellowTobeValidated)) {
+            if (!Operations.throwableAndNestedOperation32(yellowTobeValidated)) {
               iterator.remove();
               badEggFailureBucketMap.put(eggIndex, VALIDATION_FAILURE_32);
             }
@@ -128,16 +128,18 @@ void omegaEggValidation() {
 - It's 2k18, please don't use **`if` to null check while Streaming**. Especially when you have nested objects, you end-up in an if-else hell. The code-flow should not be like a Trigonometric curve, but should be like a Linear equation.
 - Mutation is sin, especially when you are mutating a global state. **Immutability** should be enforced, while the data is streamed across multiple functions, or predicting who-changed-what can kill a lot of your time while debugging.
 - **Exceptions are Evil**, they are camouflaged gotos. Never throw them with your own hands and interrupt your stream and code flow.
+- The `ValidationFailure` and validation method are loosely coupled, this makes it way harder to reason-out.
+- It is so difficult to unit-test a function like this.
 - Finally, we need to find a way to compose our algorithm without worrying about the parameter type, basically abstract away the parameter type on which this algo is being run. 
 
 > But rather than solving them one-by-one, it's important to find a paradigm, which can solve these problems as a group. 
 
 ### Octopus Functions
-- It's been told since my Grandfather, that functions need to be small and do only one thing and do it well, nothing new.
-- But there is one Octopus function administrating all these function calls, which in itself is a monster. Our `OmegaEggValidator` above is one such. 
+- It's been told since my Grandfather, that functions need to be small and do only one thing and do it well, nothing new. We don't achieve much by splitting the above alien plan into separate functions.
+- Coz, there should be an **Octopus function** administrating all these function calls, which in itself is a monster. 
 - State being pin-balled among imperative control statements, function calls and try-catches, is a horror show, when trying to reason-out the code flow or debug it.
 <img class="post-gif" src="./media/octopus.gif">
-- In our problem, it is even trying to handle the coupling between Validation method and Validation failure, through a `badEggFailureBucketMap`. That surely is not its responsibility. The Validation method should be responsible to communicate that to the orchestrator.
+- In our problem, it is even trying to handle the coupling between Validation method and Validation failure, through a `badEggFailureBucketMap`. That surely is not its responsibility. The Validation method should be responsible to communicate its corresponding validation failure to the orchestrator.
 
 ### Imperative Responsibility
 - Let's take a break from our Monster-Validation-Octopus and look at this simple function, which is just trying to append all last-words in List of Strings with `&`, with a lot of do-this-do-that imperative administration. It might be clear to the computer, but not very intuitive to another developer (or the same dev after sometime). 
