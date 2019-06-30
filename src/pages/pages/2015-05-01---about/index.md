@@ -6,4 +6,4 @@ path: "/about"
 
 [About-me](http://bit.ly/agsabtme)
 
-[My Résumé](http://bit.ly/agsres)
+[My Résumé](http://bit.ly/ags-resume)
