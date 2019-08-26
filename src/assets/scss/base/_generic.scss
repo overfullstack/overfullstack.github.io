@@ -4,11 +4,6 @@
 @import "../variables";
 @import "../mixins";
 
-html {
-  font-size: $typographic-root-font-size;
-  height: 100%;
-}
-
 body {
   font-family: $typographic-font-family-body;
   color: $typographic-base-font-color;
@@ -21,6 +16,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   --pink: rgb(255, 167, 196);
   background-color: var(--bg);
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 body.light {
@@ -125,7 +122,7 @@ hr {
   margin: auto;
   background-size: 100% 26px;
   background-image: linear-gradient(to bottom, transparent 1px, transparent 11px,
-          var(--textNormal) 11px, var(--textNormal) 15px, transparent 15px, transparent 26px);
+      var(--textNormal) 11px, var(--textNormal) 15px, transparent 15px, transparent 26px);
   width: 100px;
 }
 
@@ -207,21 +204,25 @@ h4 {
 }
 
 @include breakpoint-xsm {
-  
+
 }
 
 @include breakpoint-sm {
+
   figure.float-left,
   figure.float-right {
     max-width: 310px;
     @include padding(0, 1, 0, 1);
   }
+
   .float-right {
     float: right;
   }
+
   .float-left {
     float: left;
   }
+
   .content {
     lost-column: 7/12;
 
@@ -229,6 +230,7 @@ h4 {
       padding: 30px 20px;
     }
   }
+
   h3,
   h4 {
     margin-left: auto !important;
@@ -243,6 +245,7 @@ h4 {
       padding: 40px 35px;
     }
   }
+
   h3,
   h4 {
     margin-left: auto !important;

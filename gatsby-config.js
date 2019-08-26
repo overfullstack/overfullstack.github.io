@@ -98,6 +98,7 @@ module.exports = {
               }
             `,
             output: '/rss.xml',
+            title: "Overfullstack's RSS",
           },
         ],
       },
