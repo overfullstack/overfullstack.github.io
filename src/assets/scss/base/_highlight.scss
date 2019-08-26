@@ -1,3 +1,5 @@
+@import "../variables";
+@import "../mixins";
 /**
  * Based on copypasta from Remy Bach and Sarah Drasner
  */
@@ -209,8 +211,19 @@ pre[data-line] {
     border-right: none !important;
 }
 
-@include breakpoint-md {
+pre[class*=language-].line-numbers {
+    padding-left: 2.5rem;
+}
+
+@include breakpoint-xsm {
+    .gatsby-code-title,
+    .gatsby-highlight {
+        margin-right: -1.3125rem;
+        margin-left: -1.3125rem;
+    }
+    
     .gatsby-highlight pre[class*='language-']::before {
         left: 36rem;
     }
+    
 }

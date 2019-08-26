@@ -1,6 +1,8 @@
 /**
  * Generic
  */
+@import "../variables";
+@import "../mixins";
 
 html {
   font-size: $typographic-root-font-size;
@@ -202,6 +204,10 @@ figcaption {
 h3,
 h4 {
   margin-left: 0.25rem !important;
+}
+
+@include breakpoint-xsm {
+  
 }
 
 @include breakpoint-sm {
