@@ -20,11 +20,11 @@ module.exports = {
       },
       {
         label: 'About me',
-        path: '/about/',
+        path: '/about-me/',
       },
       {
         label: 'Contact me',
-        path: '/contact/',
+        path: '/contact-me/',
       },
     ],
     author: {
@@ -36,7 +36,7 @@ module.exports = {
       resume: 'http://bit.ly/ags-resume',
       linkedin: 'http://bit.ly/agslnkd',
       stackoverflow: 'http://bit.ly/agsso',
-      aboutme: 'http://bit.ly/agsabtme',
+      aboutme: '/about-me',
     },
   },
   plugins: [

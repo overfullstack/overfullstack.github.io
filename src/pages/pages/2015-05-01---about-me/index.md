@@ -1,7 +1,7 @@
 ---
 title: "About me"
 layout: page
-path: "/about"
+path: "/about-me"
 ---
 
 Decent at Math and loves Physics, a right-brainer who loves being creative and that ended-him-up choosing 'Programming' as his day-job. He loves what he does.
