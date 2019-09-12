@@ -142,7 +142,7 @@ void cyclomaticCode() {
 - In our problem, it is even trying to handle the coupling between Validation method and Validation failure, through a `badEggFailureBucketMap`. That surely is not its responsibility. The Validation method should be responsible to communicate its corresponding validation failure to the orchestrator.
 
 ### Imperative Responsibility
-- Let's take a break from our Monster-Validation-Octopus and look at this simple function, which is just trying to append all last-name in List of Names with `&`, with a lot of do-this-do-that imperative administration. It might be clear to the computer, but not very intuitive to another developer (or the same dev after sometime). 
+- Let's take a break from our Monster-Validation-Octopus and look at this simple function, which is just trying to append all last-names from a List of Names with `&`, with a lot of do-this-do-that imperative administration. It might be clear to the computer, but not very intuitive to another developer (or the same dev after sometime). 
 
 ```java{3,4,5,6,7,10,11}:title=ImperativeLastName.java
 public static String concatLastNames(List<String> team) {
@@ -186,15 +186,13 @@ private static String extractLastName(String fullName) {
 private static final UnaryOperator<String> GET_LAST_NAME =
   fullName -> fullName.substring(fullName.lastIndexOf(" ") + 1);
             
-void testLastNameFinderWithStream() {
+void lastNameCollectorWithStream() {
   final var expected = TEAM.stream()
     .filter(Objects::nonNull) // Catch-11: Deal with nulls.
     .map(String::trim) // Catch-12: Deal with only white space strings.
     .filter(not(String::isEmpty)) // Catch-13: Deal with empty strings.
     .map(GET_LAST_NAME)
     .collect(Collectors.joining(DELIMITER));
-  System.out.println(expected);
-  assertEquals(expected, RESULT);
 }
 ```
 - This might not be familiar to many Java devs, but sure is more readable, even for someone unfamiliar with code, if feels like reading an English sentence. **Familiarity is different from Readability**.
