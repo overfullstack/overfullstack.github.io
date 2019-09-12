@@ -181,7 +181,7 @@ pre[data-line] {
 .gatsby-highlight pre[class*='language-']::before {
     position: absolute;
     top: 0;
-    left: 20rem;
+    left: 36rem;
     padding: 3px 10px;
     font-size: 12px;
     text-align: right;
@@ -222,5 +222,8 @@ pre[class*=language-].line-numbers {
         margin-left: -1.3125rem;
         border-radius: 0;
         max-width: 40rem;
+    }
+    .gatsby-highlight pre[class*='language-']::before {
+        left: 20rem
     }
 }
