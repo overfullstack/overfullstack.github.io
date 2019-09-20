@@ -104,14 +104,14 @@
         line-height: 35px;
         text-align: center;
         color: lighten($color-base, 20%);
-        background: $color-gray-bg;
+        background: $color-funk-bg;
         font-weight: 400;
         border-radius: 3px;
         @include margin-top(1);
         &:hover,
         &:focus {
             color: $color-base;
-            background: darken($color-gray-bg, 5%);
+            background: lighten($color-funk-bg, 5%);
             border: 0;
         }
     }
