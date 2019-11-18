@@ -64,13 +64,16 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => allMarkdownRemark
-              .edges.map(edge => Object.assign({}, edge.node.frontmatter, {
-                description: edge.node.frontmatter.description,
-                date: edge.node.frontmatter.date,
-                url: site.siteMetadata.site_url + edge.node.fields.slug,
-                guid: site.siteMetadata.site_url + edge.node.fields.slug,
-                custom_elements: [{ 'content:encoded': edge.node.html }],
-              })
+              .edges.map(edge => {
+                return {
+                  ...edge.node.frontmatter,
+                  description: edge.node.frontmatter.description,
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.site_url + edge.node.fields.slug,
+                  guid: site.siteMetadata.site_url + edge.node.fields.slug,
+                  custom_elements: [{ 'content:encoded': edge.node.html }],
+                };
+              },
               ),
             query: `
               {
@@ -98,7 +101,7 @@ module.exports = {
               }
             `,
             output: '/rss.xml',
-            title: "Overfullstack's RSS",
+            title: 'Overfullstack\'s RSS',
           },
         ],
       },
@@ -107,32 +110,29 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          'gatsby-remark-code-titles',
           {
-            resolve: 'gatsby-remark-embed-gist',
+            resolve: 'gatsby-remark-embed-video',
             options: {
-              // Optional:
-
-              // the github handler whose gists are to be accessed
-              username: 'overfullstack',
-
-              // a flag indicating whether the github default gist css should be included or not
-              // default: true
-              includeDefaultCss: true,
+              maxWidth: 800,
+              ratio: 1.77,
+              height: 400,
+              related: false,
+              noIframerder: true,
             },
           },
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 640,
-              showCaptions: true,
-              wrapperStyle: 'width: 100%',
+              maxWidth: 590,
             },
           },
           {
             resolve: 'gatsby-remark-responsive-iframe',
-            options: { wrapperStyle: 'margin-bottom: 1.0725rem' },
+            options: {
+              wrapperStyle: 'margin-bottom: 1.0725rem',
+            },
           },
+          'gatsby-remark-code-titles',
           'gatsby-remark-autolink-headers',
           {
             resolve: 'gatsby-remark-prismjs',
@@ -154,6 +154,19 @@ module.exports = {
             resolve: 'gatsby-plugin-mailchimp',
             options: {
               endpoint: 'https://github.us7.list-manage.com/subscribe/post?u=ab6b858fe942240463c3a5ab5&amp;id=8851ab5056',
+            },
+          },
+          {
+            resolve: 'gatsby-remark-embed-gist',
+            options: {
+              // Optional:
+
+              // the github handler whose gists are to be accessed
+              username: 'overfullstack',
+
+              // a flag indicating whether the github default gist css should be included or not
+              // default: true
+              includeDefaultCss: true,
             },
           },
         ],

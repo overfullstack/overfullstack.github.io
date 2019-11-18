@@ -326,3 +326,6 @@ The sequel brings-in some new names like Immutability, Parallelism, Memoization 
 
 Let's cook a Monad.
 
+Well, I couldn't find time to prepare a pint-2, but this talk I gave covers everything about what is discussed till now and further:
+
+`youtube: https://www.youtube.com/embed/l9jJ7m7_VpM`

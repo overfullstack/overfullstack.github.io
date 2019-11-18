@@ -162,6 +162,7 @@ applause-button .count-container {
     margin: 1.625rem 0 1.625rem 0;
 }
 
+
 @include breakpoint-sm {
     .post-single {
         &__footer {
@@ -174,6 +175,9 @@ applause-button .count-container {
                 margin-right: auto;
             }
         }
+    }
+    .gatsby-resp-iframe-wrapper {
+        margin-left: 9rem
     }
 }
 
@@ -223,6 +227,10 @@ applause-button .count-container {
         width: 60px;
         height: 60px;
         margin: 0;
+    }
+
+    .gatsby-resp-iframe-wrapper {
+        margin-left: 9rem
     }
 
 }
