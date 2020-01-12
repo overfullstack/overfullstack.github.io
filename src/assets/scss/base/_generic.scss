@@ -22,6 +22,7 @@ body {
 
 body.light {
   --bg: #ffffff;
+  --bg-secondary: rgb(249, 250, 251);
   --header: var(--pink);
   --textNormal: #222;
   --textTitle: #222;
@@ -30,19 +31,22 @@ body.light {
   --inlineCode-bg: rgba(255, 229, 100, 0.2);
   --inlineCode-text: #1a1a1a;
   --applause-button: green;
+  --form-shadow: 0 2px 15px 0 rgba(210, 214, 220, 0.5);
 }
 
 body.dark {
   -webkit-font-smoothing: antialiased;
   --bg: #282c35;
+  --bg-secondary: rgb(54, 60, 72);
   --header: #ffffff;
   --textNormal: rgba(255, 255, 255, 0.88);
   --textTitle: #ffffff;
   --textLink: var(--pink);
   --hr: hsla(0, 0%, 100%, 0.2);
-  --inlineCode-bg: hsl(222, 14%, 25%);
+  --inlineCode-bg: rgba(115, 124, 153, 0.2);
   --inlineCode-text: #e6e6e6;
   --applause-button: #03bb85;
+  --form-shadow: 0 2px 15px 0 rgba(26, 26, 27, 0.637);
 }
 
 h1,

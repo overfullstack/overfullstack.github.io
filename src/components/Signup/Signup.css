@@ -1,5 +1,4 @@
 .formkit-form * {
-  font-family: 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
   box-sizing: border-box;
 }
 .formkit-form legend {
@@ -127,13 +126,11 @@
   color: #333333;
   line-height: 1.4;
   margin-bottom: 0;
-  padding: 0 6px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   font-size: 15px;
-  padding: 12px;
-  padding-right: 25px;
+  padding: 12px 25px 12px 12px;
   border: 1px solid #e3e3e3;
   background: #ffffff;
 }
@@ -272,7 +269,6 @@
   top: 0;
   left: 0;
   right: 0;
-  width: 0;
   overflow: hidden;
   text-align: center;
   -webkit-transition: all 300ms ease-in-out;
@@ -352,6 +348,7 @@
 .formkit-form .formkit-header {
   margin-top: 0;
   margin-bottom: 20px;
+  font-family: inherit;
 }
 .formkit-form .formkit-subheader {
   margin: 15px 0;
@@ -392,8 +389,7 @@
 }
 .formkit-form[min-width~='600'] [data-style='full'],
 .formkit-form[min-width~='700'] [data-style='full'],
-.formkit-form[min-width~='800'] [data-style='full'],
-.formkit-form [data-style='full'] {
+.formkit-form[min-width~='800'] [data-style='full'] {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
@@ -407,11 +403,8 @@
 .formkit-form[min-width~='800'] .formkit-column {
   padding: 40px;
 }
-.formkit-form[min-width~='600']
-  .formkit-column:nth-child(2),
-.formkit-form[min-width~='700']
-  .formkit-column:nth-child(2),
-.formkit-form[min-width~='800']
-  .formkit-column:nth-child(2) {
+.formkit-form[min-width~='600'] .formkit-column:nth-child(2),
+.formkit-form[min-width~='700'] .formkit-column:nth-child(2),
+.formkit-form[min-width~='800'] .formkit-column:nth-child(2) {
   border-top: none;
 }

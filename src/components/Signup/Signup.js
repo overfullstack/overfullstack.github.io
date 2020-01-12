@@ -43,20 +43,24 @@ class Signup extends React.Component {
       <form
         className="seva-form formkit-form"
         method="post"
-        style={{ backgroundColor: 'rgb(255, 255, 255)', borderRadius: '6px' }}
+        style={{
+          boxShadow: 'var(--form-shadow)',
+          backgroundColor: 'var(--bg)',
+          borderRadius: '6px',
+        }}
         onSubmit={this.handleSubmit}
       >
         <div data-style="full">
           <div
             data-element="column"
             className="formkit-column"
-            style={{ backgroundColor: 'rgb(249, 250, 251)' }}
+            style={{ backgroundColor: 'var(--bg-secondary)' }}
           >
             <h1
               className="formkit-header"
               data-element="header"
               style={{
-                color: 'rgb(77, 77, 77)',
+                color: 'var(--textTitle)',
                 fontSize: '20px',
                 fontWeight: 700,
               }}
@@ -66,7 +70,7 @@ class Signup extends React.Component {
             <div
               data-element="subheader"
               className="formkit-subheader"
-              style={{ color: 'rgb(104, 104, 104)', fontsize: '15px' }}
+              style={{ color: 'var(--textNormal)', fontsize: '15px' }}
             >
               <p>Subscribe to get my latest content by email.</p>
             </div>
@@ -140,7 +144,7 @@ class Signup extends React.Component {
               data-element="guarantee"
               className="formkit-guarantee"
               style={{
-                color: 'rgb(77, 77, 77)',
+                color: 'var(--textNormal)',
                 fontSize: '13px',
                 fontWeight: 400,
               }}
