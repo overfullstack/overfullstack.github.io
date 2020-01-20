@@ -47,7 +47,7 @@
     "gist-syntax-themes": "^1.1.0",
     "lodash": "^4.17.15",
     "moment": "latest",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "prismjs": "^1.18.0",
     "prop-types": "latest",
     "react": "^16.12.0",
