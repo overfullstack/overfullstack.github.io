@@ -176,12 +176,19 @@ pre[data-line] {
     content: 'java';
     background: #4383a4;
     color: #ff9400;
+    left: 36rem;
+}
+
+.gatsby-highlight pre[class='language-kotlin line-numbers']::before {
+    content: 'kotlin';
+    background: #4383a4;
+    color: #ff9400;
+    left: 35rem;
 }
 
 .gatsby-highlight pre[class*='language-']::before {
     position: absolute;
     top: 0;
-    left: 36rem;
     padding: 3px 10px;
     font-size: 12px;
     text-align: right;
