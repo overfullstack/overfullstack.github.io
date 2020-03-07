@@ -10,14 +10,13 @@ category: "Design"
 tags: 
     - "Kotlin"
     - "Arrow"
-description: "Template-Oriented-Programming (TOP) with Ad-Hoc Polymorphism"
+description: "Top-up the Polymorphism"
 ---
 ## Abstract
 
 With the advent of B2C products, the same product can have use-cases (or Services) with varied traffic and scaling needs. The trend is to split them into Microservices built on different paradigms/tech-stacks (blocking or non-blocking [1]). In domains like Payments, many such heterogeneous services are parallel as well (having most of the domain business logic in common e.g., Purchases and Refunds). Although the business logic is common, it cannot be reused among these parallel services, as the code is written specifically to that paradigm.
 
 This paper attempts to overcome this challenge and make such common logic **reusable**, turning the `Monomorphic` common code to `Polymorphic` templates, using an innovative design technique called `Ad-hoc Polymorphism`.
-
 
 ## Things to know before reading
 
@@ -78,6 +77,7 @@ interface RepoTC<F> : Async<F> {
     fun User.get(): Kind<F, User?>
 }
 ```
+
 This code may look alien at first, but if we get into the details it all makes sense.
 
 - The operation `get()` has a return type `Kind<F, User?>`, which is synonymous to `F<User?>`. This indicates our operations are agnostic of `Effect`.
@@ -102,14 +102,15 @@ val nonBlockingReactiveRepo = object : RepoTC<ForMonoK>, Async<ForMonoK> by Mono
     override fun User.get(): Kind<ForMonoK, User?> = forMono { userReactiveRepo.findOne(loginId) }
 }
 ```
+
 - For blocking operations, `IO.async()` instance is supplied as implementation for `Async<F>` and for non-blocking operations, `MonoK.async()` is supplied. These concrete instances effect the `effect{..}` method's behavior and supplies it with superpowers to handle a specified effect (`Mono` or `IO`).
 - The return types of `userRepo.findOne(loginId)` is `User?` and `userReactiveRepo.findOne(loginId)` is `Mono<User?>`, both these are mapped to generic function `User.get()` whose return type is a higher-kind `Kind<F, User?>` where `F` is represented by `ForMonK` and `ForIO` in their respective concrete entities.
 
-## How the pieces fit?
+## How the pieces fit'?'
 
 - This typeClass `RepoTC<F>` is the bridge between the service and common module (In the GitHub repo, this common module is named as `validation-fx`).
 - `RepoTC<F>` has all the common business logic template (refer `validateUserForUpsert` function [here](https://github.com/overfullstack/ad-hoc-poly/blob/master/validation-fx/src/main/kotlin/com/validation/RepoTC.kt#L32)). Arrow's `fx` blocks are used to write this code, which shall be briefly explained in the talk.
-- These templates depend on the TypeClass's abstract functions (like `get()`) to weave their business logic. As shown in [this code](https://github.com/overfullstack/ad-hoc-poly/blob/master/validation-fx/src/main/kotlin/com/validation/RepoTC.kt#L13), the `RepoTC<F>` can be extended with more DB operations to be used inside our templates.
+- These templates depend on the TypeClass's abstract functions (like `get()`) to weave their business logic. As shown in [this code](https://github.com/overfullstack/ad-hoc-poly/blob/master/validation-fx/src/main/kotlin/com/validation/RepoTC.kt#L13), the `RepoTC<F>` can be extended with more operations to be used inside our templates.
 - On the service side, we supply concrete implementation of TypeClasses as a dependency (Refer [this](https://github.com/overfullstack/ad-hoc-poly/blob/master/kofu-mvc-validation/src/main/kotlin/com/sample/Configurations.kt#L29) and [this](https://github.com/overfullstack/ad-hoc-poly/blob/master/kofu-reactive-validation/src/main/kotlin/com/sample/Configurations.kt#L20)).
 - Now both services can consume the common business logic through these concrete entities (Refer [this](https://github.com/overfullstack/ad-hoc-poly/blob/master/kofu-mvc-validation/src/main/kotlin/com/sample/Handlers.kt#L84) and [this](https://github.com/overfullstack/ad-hoc-poly/blob/master/kofu-reactive-validation/src/main/kotlin/com/sample/Handlers.kt#L97)).
 

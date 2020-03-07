@@ -43,6 +43,7 @@
             @include margin-bottom(1);
         }
         & :not(div) {
+            width: 100%;
             max-width: $layout-post-single-width;
             margin-left: auto;
             margin-right: auto;

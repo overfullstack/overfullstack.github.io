@@ -1,12 +1,13 @@
 ---
 title: "About me"
 layout: page
+cover: "./me.jpg"
 path: "/about-me"
 ---
 
 Decent at Math and loves Physics, a right-brainer who loves being creative and that ended-him-up choosing 'Programming' as his day-job. He loves what he does.
 
-<img src="./its-me.jpg" alt="">
+![It's Me](me.jpg)
 
 Started as an Android Developer and he switched to server-side as a Full-Stack Developer (Java for Backend, React Js for Frontend). Wearing multiple hats, aided him to perceive Patterns, Solutions and Trade-offs.
 

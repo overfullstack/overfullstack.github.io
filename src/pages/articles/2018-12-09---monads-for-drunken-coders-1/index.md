@@ -14,7 +14,7 @@ description: "A chilled introduction to the Dreaded Monad, using Java 8"
 ---
 
 ## Story of an Egg validator 
-<img class="post-gif" src="./media/introduction.gif">
+![Intro](media/introduction.gif)
 
 ### Sol 1: One egg - One validation
 Life is so simple. Pass that one egg through that one validator. Results in good or bad.
@@ -138,7 +138,7 @@ void cyclomaticCode() {
 - It's been told since my Grandfather, that functions need to be small and do only one thing and do it well, nothing new. We don't achieve much by splitting the above alien plan into separate functions.
 - Coz, there should be an **Octopus function** administrating all these function calls, which in itself is a monster. 
 - State being pin-balled among imperative control statements, function calls and try-catches, is a horror show, when trying to reason-out the code flow or debug it.
-<img class="post-gif" src="./media/octopus.gif">
+![octopus](media/octopus.gif)
 - In our problem, it is even trying to handle the coupling between Validation method and Validation failure, through a `badEggFailureBucketMap`. That surely is not its responsibility. The Validation method should be responsible to communicate its corresponding validation failure to the orchestrator.
 
 ### Imperative Responsibility
@@ -171,13 +171,13 @@ private static String extractLastName(String fullName) {
 - Imagine how complicated it becomes, if we require more conditions and exception handling.
 - In the age of Java 8, I can say this developer is trying too hard, using low-level stuff like dry if-else and for-each.
 - He is taking too much of control over iterating and filtering stuff, and as Uncle Ben says, **With great Power comes great Responsibility**.
- <img class="post-gif" src="./media/uncle-ben.gif">
+ ![uncle-ben](media/uncle-ben.gif)
 - You sure don't have to take this responsibility. Pass that to the Collections library itself, they know how to iterate and filter and much more. Just pass them the **Criteria**.
 - If you get too serious into functional programming, you shall think twice every-time before writing any for-loop or if-else condition. (But don't take it too serious 😉, for-loops are good for small iterations).
 
 ### Behead the Octopus, Lego the Focussed Functions
 - State should always march **Unidirectional**, like an unstoppable army of zombies.
-<img class="post-gif" src="./media/zombies.gif">
+![zombies](media/zombies.gif)
 - I ain't copying this from the [Flux](https://facebook.github.io/flux/) guys at Facebook. This is seen ever since there are pipes in Unix, since 1978.
 - Simply, make the shit of a function be the food for another.
 - To do that, above Imperative Program can be transformed into **Declarative Style** like this:
@@ -199,13 +199,13 @@ void lastNameCollectorWithStream() {
 - **Separation of Concerns** made it clear and concise, like an SQL Query.
 - This way functions can be fitted into each other to create a smooth pipeline, aiding unidirectional flow of data. 
 - This is flexible to restructure, and it's easy to hire and fire these criterion functions, without thinking too much.
-<img class="post-gif" src="./media/lego.gif">
+![lego](media/lego.gif)
 
 ### Flow Heterogeneous data Fluently
 - Now that we saw Functional Lego, can we do the same with our validations functions? Can we nicely pipe them and flow our eggs stream through it and expect to see both good eggs and bad eggs at the end of our pipeline?
 - Streamlining of functions is easier said than done when dealing with Heterogeneous data.
 - Unidirectional flow demands uniform data structure for the entire stream-per-step. A pipeline can have different types of streams, but how can a stream/collection have different data types?
-<img class="post-gif" src="https://media.giphy.com/media/OeX0obPwKJ0OI/giphy.gif">
+![color-eggs](media/color-eggs.gif)
 - Flowing through a function, Data inside a stream/collection of one type can metamorphose into various life forms of all shapes and sizes as it comes out, may be due to invalidations or exceptions or some eggs hatch into chickens or dinosaurs or your database just gets struck by a lightning.
 - The dichotomy of Data metamorphism with Stream Uniformity can be seen in our current problem. 
 - We have two categories of data, Good eggs and Bad eggs. But who needs bad eggs, what you really interested are, the Validation failures for bad eggs. 
@@ -262,7 +262,7 @@ public class Functor<T> {
 }
 ```
 ### The Siblings - `map()`, `flatMap()`
-<img class="post-gif" src="./media/minions.gif">
+![minions](media/minions.gif)
 
 - Both `map()` and `flatMap()` are Higher-Order functions, which take first-class functions as parameters.
 - `map` applies the mapper-function on wrapped value and returns a new Functor instance, wrapping the result value. Say, if the return value of the mapper-function is a `Functor<T>`, then the return value of `map` ends up being `Functor<Functor<T>>`
@@ -272,7 +272,7 @@ public class Functor<T> {
 
 #### The Monad
 - Finally! the Dawn of Monad (Introducing the title lead with a BGM)
-<img class="post-gif" src="./media/dawn-of-justice.gif">
+![dawn-of-justice](media/dawn-of-justice.gif)
 
 > The curse of the monad is that once you get the epiphany, once you understand - "oh that's what it is" - you lose the ability to explain it to anybody.
 > \- Douglas Crockford
@@ -311,12 +311,12 @@ Enough of Theory! how can this help the problem at hand?
 - Now every function can speak the same language, by passing around these Monad boxes and operate on them with functions, without worrying much about what it contains. Uniform boxes with Heterogenous data.
 - Like, validation functions can ship either a goodEgg or a validation failure to the orchestration function by wrapping them in a Monad box, and it doesn't even care what's in the box. 
 - Now, Orchestrator only has one job to do, just pump the data inside the pipeline ahead to the next validation function.
-<img class="post-gif" src="./media/wow.gif">
+![wow](media/wow.gif)
 - Now, both the Parameter type and Algorithm are cleanly separate, and algo can be reused on multiple parameter types, which solves our last problem.
 
 ### Post credits scene: Making of a Monad
 Now you see it? Now you don't? 
-<img class="post-gif" src="./media/now-you-see-me.gif">
+![now-you-see-me](media/now-you-see-me.gif)
 - This blog post is already too long and so I left the part on how these problems are solved with Monads for the sequel.
 - Chances are you already worked with lot of Monads, if you started adapting Java 8 or above.
 - Java guys took 3 years between Java 7 and 8 and packed Java 8 with bunch of functional toys, and alongside came some Monads like Optional, Stream etc.,.

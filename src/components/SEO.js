@@ -38,7 +38,7 @@ const SEO = ({
               title: siteMetadata.title,
             }
             : {
-              title: `A blog by Gopal S Akshintala - ${siteMetadata.title}`,
+              title: `Gopal S Akshintala - ${siteMetadata.title}`,
             })}
           meta={[
             {

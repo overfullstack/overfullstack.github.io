@@ -7,7 +7,7 @@ module.exports = {
     siteUrl: 'https://overfullstack.github.io',
     title: 'It\'s All Over full-stack',
     subtitle: 'So excited about this Craft that, I can\'t keep myself from blogging about it.',
-    caption: 'A blog by Gopal S Akshintala',
+    caption: 'Gopal S Akshintala',
     copyright: '© All rights reserved.',
     declaration: 'I built this blog with React.js',
     disqusShortname: 'gopal',
@@ -123,7 +123,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 590,
+              maxWidth: 640,
             },
           },
           {
@@ -133,12 +133,21 @@ module.exports = {
             },
           },
           'gatsby-remark-code-titles',
-          'gatsby-remark-autolink-headers',
           {
             resolve: 'gatsby-remark-prismjs',
             options: {
               inlineCodeMarker: '>',
               showLineNumbers: true,
+            },
+          },
+          {
+            resolve: 'gatsby-remark-autolink-headers',
+            options: {
+              offsetY: '100',
+              className: 'anchor',
+              maintainCase: true,
+              removeAccents: true,
+              isIconAfterHeader: true,
             },
           },
           'gatsby-remark-copy-linked-files',
