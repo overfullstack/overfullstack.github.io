@@ -43,7 +43,6 @@
             @include margin-bottom(1);
         }
         & :not(div) {
-            width: 100%;
             max-width: $layout-post-single-width;
             margin-left: auto;
             margin-right: auto;
@@ -105,14 +104,14 @@
         line-height: 35px;
         text-align: center;
         color: lighten($color-base, 20%);
-        background: $color-funk-bg;
+        background: $color-primary-bg;
         font-weight: 400;
         border-radius: 3px;
         @include margin-top(1);
         &:hover,
         &:focus {
             color: $color-base;
-            background: lighten($color-funk-bg, 5%);
+            background: lighten($color-primary-bg, 5%);
             border: 0;
         }
     }

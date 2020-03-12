@@ -11,6 +11,7 @@ body {
   font-size: $typographic-base-font-size;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  -webkit-font-feature-settings: "liga" on, "calt" on;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -29,7 +30,7 @@ body.light {
   --textLink: #d23669;
   --hr: hsla(0, 0%, 0%, 0.2);
   --inlineCode-bg: rgba(255, 229, 100, 0.2);
-  --inlineCode-text: #1a1a1a;
+  --inlineCode-text: #ffa7c4; // referring $color_primary not working here.
   --applause-button: green;
   --form-shadow: 0 2px 15px 0 rgba(210, 214, 220, 0.5);
 }
@@ -44,7 +45,7 @@ body.dark {
   --textLink: var(--pink);
   --hr: hsla(0, 0%, 100%, 0.2);
   --inlineCode-bg: rgba(115, 124, 153, 0.2);
-  --inlineCode-text: #e6e6e6;
+  --inlineCode-text: #ffa7c4;
   --applause-button: #03bb85;
   --form-shadow: 0 2px 15px 0 rgba(26, 26, 27, 0.637);
 }

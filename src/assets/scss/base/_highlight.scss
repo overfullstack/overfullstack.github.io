@@ -7,7 +7,7 @@ code[class*="language-"],
 pre[class*="language-"] {
     color: white;
     background: none;
-    font-family: "Fira Code", Consolas,Menlo,Monaco,source-code-pro,"Courier New",monospace;
+    font-family: "JetBrains Mono", Consolas,Menlo,Monaco,source-code-pro,"Courier New",monospace;
     font-feature-settings: normal;
     text-align: left;
     white-space: pre;
@@ -108,7 +108,7 @@ pre[class*="language-"]::selection, pre[class*="language-"] ::selection {
 .token.tag,
 .token.operator,
 .token.keyword {
-    color: #ffa7c4;
+    color: $color-primary;
 }
 
 .token.boolean {
@@ -136,11 +136,11 @@ pre[data-line] {
     max-width: none !important;
     padding-right: 1em;
     padding-left: 0.75em;
-    border-left: 0.25em solid #ffa7c4;
+    border-left: 0.25em solid $color-primary;
 }
 
 .gatsby-highlight {
-    font-size: 0.75rem;
+    font-size: 0.813rem;
     margin-bottom: 1.75rem;
     border-radius: 10px;
     background: #011627;
@@ -162,7 +162,7 @@ pre[data-line] {
     margin-right: auto;
     padding-bottom: 0.5em;
     padding-left: 1rem;
-    font-family: "Fira Code", Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+    font-family: "JetBrains Mono", Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
     font-size: 1rem;
     background: #687a86;
     color: white;

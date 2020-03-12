@@ -16,19 +16,19 @@ description: "Top-up the Polymorphism"
 
 With the advent of B2C products, the same product can have use-cases (or Services) with varied traffic and scaling needs. The trend is to split them into Microservices built on different paradigms/tech-stacks (blocking or non-blocking [1]). In domains like Payments, many such heterogeneous services are parallel as well (having most of the domain business logic in common e.g., Purchases and Refunds). Although the business logic is common, it cannot be reused among these parallel services, as the code is written specifically to that paradigm.
 
-This paper attempts to overcome this challenge and make such common logic **reusable**, turning the `Monomorphic` common code to `Polymorphic` templates, using an innovative design technique called `Ad-hoc Polymorphism`.
+This article attempts to overcome this challenge and make such common logic **reusable**, turning the `Monomorphic` common code to `Polymorphic` templates, using an innovative design technique called `Ad-hoc Polymorphism`.
 
 ## Things to know before reading
 
-A good understanding of generics and exposure to blocking/non-blocking paradigms. This is language-agnostic, but the I will use **Kotlin** (a modern JVM language) for demonstration along with **Arrow** (An upcoming Functional Programming library for Kotlin).
+A good understanding of generics and exposure to blocking/non-blocking paradigms. This is language-agnostic, but then I will use **Kotlin** (a modern JVM language) for demonstration along with **Arrow** (An upcoming Functional Programming library for Kotlin).
 
 ## The Case for Heterogeneous services
 
 Taking the example from Payments domain, **Purchases** tend to have high traffic (especially during Black Fridays, Flash sales, etc), and it's common to model them with an Asynchronous non-blocking paradigm like **Reactive Stack** [2]. Whereas, **Refunds** tend to have relatively low traffic and its scaling needs can easily be catered with a simple blocking stack.
 
-## Problem of Reusability among Heterogeneous services
+## Problem of Re-usability among Heterogeneous services
 
-Despite being heterogenous, these services have a lot of commonality in their Domain logic - like Authentication, Request-Validation, Idempotency, external integrations (like gateway interaction), logging, etc. In the case of homogeneous services, this reusable code can be placed in a different module and be added as a dependency in all services. But in heterogeneous case, blocking code can't be reused for non-blocking service or vice-versa, because:
+Despite being heterogeneous, these services have a lot of commonality in their Domain logic - like Authentication, Request-Validation, Idempotency, external integrations (like gateway interaction), logging, etc. In the case of homogeneous services, this reusable code can be placed in a different module and be added as a dependency in all services. But in heterogeneous case, blocking code can't be reused for non-blocking service or vice-versa, because:
 
 - Their styles of programming are different (Functional in non-blocking vs Imperative in blocking).
 - Non-Blocking code is filled with callbacks while the blocking code is sequential.
