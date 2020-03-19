@@ -7,7 +7,7 @@ path: "/posts/top-with-ad-hoc-polymorphism/"
 image: "https://i.imgur.com/ff0QYbi.jpg"
 cover: "./cover.jpeg"
 category: "Design"
-tags: 
+tags:
     - "Kotlin"
     - "Arrow"
 description: "Top-up the Polymorphism"
@@ -16,30 +16,30 @@ description: "Top-up the Polymorphism"
 
 With the advent of B2C products, the same product can have use-cases (or Services) with varied traffic and scaling needs. The trend is to split them into Microservices built on different paradigms/tech-stacks (blocking or non-blocking [1]). In domains like Payments, many such heterogeneous services are parallel as well (having most of the domain business logic in common e.g., Purchases and Refunds). Although the business logic is common, it cannot be reused among these parallel services, as the code is written specifically to that paradigm.
 
-This article attempts to overcome this challenge and make such common logic **reusable**, turning the `Monomorphic` common code to `Polymorphic` templates, using an innovative design technique called `Ad-hoc Polymorphism`.
+This paper attempts to overcome this challenge and make such common logic **reusable**, turning the `Monomorphic` common code to `Polymorphic` templates, using an innovative design technique called `Ad-hoc Polymorphism`.
 
 ## Things to know before reading
 
-A good understanding of generics and exposure to blocking/non-blocking paradigms. This is language-agnostic, but then I will use **Kotlin** (a modern JVM language) for demonstration along with **Arrow** (An upcoming Functional Programming library for Kotlin).
+A good understanding of generics and exposure to blocking/non-blocking paradigms. This is language-agnostic, but I will use **Kotlin** (a modern JVM language) for demonstration along with **[Arrow](http://arrow-kt.io/)** (An upcoming Functional Programming library for Kotlin).
 
 ## The Case for Heterogeneous services
 
-Taking the example from Payments domain, **Purchases** tend to have high traffic (especially during Black Fridays, Flash sales, etc), and it's common to model them with an Asynchronous non-blocking paradigm like **Reactive Stack** [2]. Whereas, **Refunds** tend to have relatively low traffic and its scaling needs can easily be catered with a simple blocking stack.
+Taking the example from the Payments domain, Purchases tend to have high traffic (especially during Black Fridays, Flash sales, etc), and it's common to model them with an Asynchronous non-blocking paradigm like Reactive Stack [2]. Whereas, Refunds tend to have relatively low traffic and its scaling needs can easily be catered with a simple blocking stack.
 
 ## Problem of Re-usability among Heterogeneous services
 
-Despite being heterogeneous, these services have a lot of commonality in their Domain logic - like Authentication, Request-Validation, Idempotency, external integrations (like gateway interaction), logging, etc. In the case of homogeneous services, this reusable code can be placed in a different module and be added as a dependency in all services. But in heterogeneous case, blocking code can't be reused for non-blocking service or vice-versa, because:
+Despite being heterogenous, these services have a lot of commonality in their Domain logic - like Authentication, Request-Validation, Idempotency, external integrations (like gateway interaction), logging, etc. In the case of homogeneous services, this reusable code can be placed in a common module and be added as a dependency in all services. But in heterogeneous case, blocking code can't be reused for non-blocking service or vice-versa, because:
 
 - Their styles of programming are different (Functional in non-blocking vs Imperative in blocking).
 - Non-Blocking code is filled with callbacks while the blocking code is sequential.
 - The DB APIs are different, as non-blocking services use non-blocking DBs.
 - Each paradigm has specific `Effect (or Container)` it operates on, e.g - Non-blocking paradigms operate on reactive containers like `Mono<A>/Flux<A> or Observable<A>`, contrary to blocking paradigms which may (or need not) use simple containers like `Option/Either`.
 
-Due to this problem, the code is rewritten or duplicated for common use-cases, which eventually leads to maintenance overhead. This also applies to services that have future plans to migrate to async non-blocking as their business increases, in which case, the entire service needs to be rewritten although the domain business logic remains the same.
+Due to this problem, the code is rewritten or duplicated for common use-cases, which eventually leads to maintenance overhead. This also applies to services that have plans to migrate to async non-blocking as their business increases, in which case, the entire service needs to be rewritten although the domain business logic remains the same.
 
 ## Monomorphic to Polymorphic
 
-Monomorphic code is written specifically to the `Effect (or Container)`. If the Effect is abstracted out as a *Generic*, the domain logic turns reusable for any type of service, and it can be called **Polymorphic**. But to achieve that, we need to understand concepts like **TypeClasses** and **Higher-Kinds**.
+Monomorphic code is written specifically to the `Effect (or Container)`. If the Effect is abstracted out as a *Generic*, the domain logic turns reusable for any type of service, and it can be called **Polymorphic**. But to achieve that, we need to understand concepts like **Typeclasses** and **Higher-Kinds**.
 
 But let's briefly touch upon types of Polymorphism:
 
@@ -53,70 +53,58 @@ Simply put, this style uses generics (like `<T>`), to generate templates of reus
 
 ### Ad-hoc Polymorphism (Type Classes) [5]
 
-The term **Ad-hoc polymorphism** refers to polymorphic functions that can be applied to arguments of different types, but that behave differently depending on the type of the argument to which they are applied. To achieve this, we use **TypeClasses**. `Comparator<T>` in JDK is a simple typeClass. TypeClasses are just generic interfaces that are parametric on a Type `T`. 
+The term **Ad-hoc polymorphism** refers to polymorphic functions that can be applied to arguments of different types, but that behave differently depending on the type of the argument to which they are applied. To achieve this, we use **Typeclasses**. `Comparator<T>` in JDK is a simple typeclass. Typeclasses are just generic interfaces that are parametric on a Type `T`.
 
-## TypeClass
+## Typeclass
+
+It's a generic interface that is parametric on a Type `T`. `Comparator<T>` in JDK is a simple typeclass. `Comparator<T>` has one operation `fun compare(a: T?, b: T?): Int`. Now for a type `Apple` to be a member of this typeclass, prepare a concrete `Comparator<Apple>` implementing its `fun compare(a: Apple?, b: Apple?): Int`. That's it! Now the JDK's `Collections.sort()` can make use of this concrete implementation to compare apples.
 
 A type class `C` defines some behavior in the form of operations that must be supported by a type `T` for it to be a member of type class `C`. A type can be a member of a type class simply by providing implementations of the operations the type must support. Once `T` is made a member of the type class `C`, functions that have constrained one or more of their parameters to be members of `C` can be called with arguments of type `T`.
-`Comparator<T>` has one operation `fun compare(a: T?, b: T?): Int`. Now for a type `Apple` to be a member of this TypeClass, prepare a concrete `Comparator<Apple>` implementing its `fun compare(a: Apple?, b: Apple?): Int`. That's it! Now the JDK's `Collections.sort()` can make use of this concrete implementation to compare apples.
 The code that relies on type classes is open for extension. Just like how `Comparator<T>` can be extended to compare any type.
 
 ### Need for Higher-Kinded Types [6]
 
-Effects are of the form `F<A>` (e.g. `Mono<A>`), where `F` is the container type and `A` is the value type. The problem is, most JVM languages only support parametricity on the value type `A` but not on the Container type `F`. So to represent it, we need **Higher-Kinded Types**, which are represented by `Kind<F, A>` which is synonymous to `F<A>`
+Effects are of the form `F<A>` (e.g. `Mono<A>`), where `F` is the *Effect (or Container)* type and `A` is the value type. The problem is, most JVM languages only support parametricity on the value type `A` but not on the Container type `F`. So, we need **Higher-Kinded Types**, to represent `F<A>` as `Kind<F, A>`.
 
 ## Ad-hoc Polymorphism by example
 
-Now that we have both the tools (TypeClasses and Higher-Kinded Types), let’s make a polymorphic template for our reusable domain logic. A POC working sample can be found in this [GitHub repo](https://github.com/overfullstack/ad-hoc-poly). I shall be using references from this code to explain the subsequent examples, where we have two identical services, one built with `Spring-WebFlux` (non-blocking reactive stack) [7] and another built with `Spring-WebMVC` (blocking servlet stack) [8]. We shall take-up the *user validate-and-upsert* as our example use-case (where a request to upsert a user is validated and either inserted or updated based on the user's existence in the DB). We shall attempt to abstract this into a common module so that both the services can consume it.
+Now that we have both the tools (typeclasses and Higher-Kinded Types), let’s make a polymorphic template for our reusable domain logic. The samples used in the rest of this post can be seen in action in a fully working POC - [GitHub](https://github.com/overfullstack/ad-hoc-poly). This has 3 modules:
 
-- `Spring-WebFlux` works with `Mono<A>/Flux<A>` while `Spring-WebMVC` doesn't. Also, we shall see how the difference in paradigms prevents reusability.
-- The first step, is to abstract the DB behavior in both these stacks to a generic TypeClass interface, `RepoTC<F>`, where `F` represents the Effect-type on which the DB works in their respective stacks. This is how the simplest version of it looks like:
+- `kofu-mvc-validation` - Blocking Service built with `Spring-WebMVC` [8]
+- `kofu-reactive-validation` - Reactive Service built with `Spring-WebFlux` [7]
+- `validation-templates` - Common module for both the services, holding templates.
+We shall take-up the ***user validate-and-upsert*** as our example use-case, where a request to upsert a user is ***validated***, followed by ***insert or update*** based on the user's existence in the DB.
 
-```kotlin:title=RepoTC.kt
-interface RepoTC<F> : Async<F> {
-    fun User.get(): Kind<F, User?>
+`Spring-WebFlux` works with `Mono<A>/Flux<A>` while `Spring-WebMVC` doesn't. As discussed before, the difference in paradigms prevents reusability of common code. Observe, the differences in `upsert` functions in both the services - [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/6b151be233e45e45632fd38518f9133a267e843d/kofu-mvc-validation/src/main/kotlin/com/sample/Handlers.kt#L24-L43) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/6b151be233e45e45632fd38518f9133a267e843d/kofu-reactive-validation/src/main/kotlin/com/sample/Handlers.kt#L26-L52).
+
+The goal is to abstract this use-case domain logic into a generic reusable template. We shall achieve it by creating some typeclasses and making use of some typeclasses from the Arrow library. These heterogeneous services can inflate these templates by supplying concrete instances of those typeclasses. Let's get started!
+
+### The Repo typeclass
+
+Let's abstract the DB behavior in both these stacks to a generic typeclass interface, `Repo<F>`, where `F` represents the Effect-type on which the DB works in their respective stacks.
+
+```kotlin:title=Repo.kt
+interface Repo<F> : Async<F> {
+    fun User.update(): Kind<F, Unit>
+    fun User.insert(): Kind<F, Unit>
+    fun User.doesUserLoginExist(): Kind<F, Boolean>
+    fun User.isUserCityValid(): Kind<F, Boolean>
 }
 ```
 
-This code may look alien at first, but if we get into the details it all makes sense.
+- These operations has return type of `Kind<F, A>`(=`F<Boolean>`), which is generic and agnostic of `Effect`.
+- Our services implement this typeclass with their respective effect types. The service repository functions are mapped to `Repo` operations, using `IO` and `MonoK` from Arrow Library - [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/e1a7586ed82765830cef03f3c797095ccb0a716e/kofu-mvc-validation/src/main/kotlin/com/sample/Configurations.kt#L38-L41) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/e1a7586ed82765830cef03f3c797095ccb0a716e/kofu-reactive-validation/src/main/kotlin/com/sample/Configurations.kt#L29-L32).
 
-- The operation `get()` has a return type `Kind<F, User?>`, which is synonymous to `F<User?>`. This indicates our operations are agnostic of `Effect`.
-- Our `RepoTC<F>` extends from `Async<F>` which is TypeClass from *Arrow* library.
-- Our Services are supposed to supply concrete instances of this `RepoTC<F>` and provide implementation for its operation `get()`.
-- We can help our services to map their *Effect-full* operations to generic operations, for which we can write two utility functions, which are extension functions on `Async<F>` as below:
+## Templates using Typeclasses
 
-```kotlin:title=RepoUtils
-fun <R> forMono(thunk: () -> Mono<R>): Kind<F, R?> = effect { thunk().k().suspended() }
-fun <R> forIO(thunk: () -> R): Kind<F, R> = effect { thunk() }
-```
-
-- The `Async<F>` typeClass has an important method called `effect{..}`, which wraps a function with an *Effect* return type (like `Mono<F>`) and returns a generic effect type `Kind<F, A>`.
-- Utilizing these utilities, Just like `Comparator<T>` example we discussed, we can create two concrete instances of our `Repo<TC>` - `blockingRepo`, `nonBlockingReactiveRepo`.
-
-```kotlin:title=ConcreteInstances
-val blockingRepo = object : RepoTC<ForIO>, Async<ForIO> by IO.async() {
-    override fun User.get(): Kind<ForIO, User?> = forIO { userRepo.findOne(loginId) }
-}
-
-val nonBlockingReactiveRepo = object : RepoTC<ForMonoK>, Async<ForMonoK> by MonoK.async() {
-    override fun User.get(): Kind<ForMonoK, User?> = forMono { userReactiveRepo.findOne(loginId) }
-}
-```
-
-- For blocking operations, `IO.async()` instance is supplied as implementation for `Async<F>` and for non-blocking operations, `MonoK.async()` is supplied. These concrete instances effect the `effect{..}` method's behavior and supplies it with superpowers to handle a specified effect (`Mono` or `IO`).
-- The return types of `userRepo.findOne(loginId)` is `User?` and `userReactiveRepo.findOne(loginId)` is `Mono<User?>`, both these are mapped to generic function `User.get()` whose return type is a higher-kind `Kind<F, User?>` where `F` is represented by `ForMonK` and `ForIO` in their respective concrete entities.
-
-## How the pieces fit'?'
-
-- This typeClass `RepoTC<F>` is the bridge between the service and common module (In the GitHub repo, this common module is named as `validation-fx`).
-- `RepoTC<F>` has all the common business logic template (refer `validateUserForUpsert` function [here](https://github.com/overfullstack/ad-hoc-poly/blob/master/validation-fx/src/main/kotlin/com/validation/RepoTC.kt#L32)). Arrow's `fx` blocks are used to write this code, which shall be briefly explained in the talk.
-- These templates depend on the TypeClass's abstract functions (like `get()`) to weave their business logic. As shown in [this code](https://github.com/overfullstack/ad-hoc-poly/blob/master/validation-fx/src/main/kotlin/com/validation/RepoTC.kt#L13), the `RepoTC<F>` can be extended with more operations to be used inside our templates.
-- On the service side, we supply concrete implementation of TypeClasses as a dependency (Refer [this](https://github.com/overfullstack/ad-hoc-poly/blob/master/kofu-mvc-validation/src/main/kotlin/com/sample/Configurations.kt#L29) and [this](https://github.com/overfullstack/ad-hoc-poly/blob/master/kofu-reactive-validation/src/main/kotlin/com/sample/Configurations.kt#L20)).
-- Now both services can consume the common business logic through these concrete entities (Refer [this](https://github.com/overfullstack/ad-hoc-poly/blob/master/kofu-mvc-validation/src/main/kotlin/com/sample/Handlers.kt#L84) and [this](https://github.com/overfullstack/ad-hoc-poly/blob/master/kofu-reactive-validation/src/main/kotlin/com/sample/Handlers.kt#L97)).
+- Now we can weave our business-logic into generic templates depending on the generic operations of the typeclass `Repo<F>`.
+- Templates are generic functions and they depend on Typeclasses. This dependency can be achieved by passing typeclass as a function parameter or declaring the template functions as extensions to a typeclass. I used the latter in my POC - [Ref](https://github.com/overfullstack/ad-hoc-poly/blob/e1a7586ed82765830cef03f3c797095ccb0a716e/validation-fx/src/main/kotlin/com/validation/rules/UserRules.kt)
+- Typeclass is the bridge between services and templates. Services supply concrete implementation of the typeclass and using those concrete instances, they can consume all the templates for free! [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/6b151be233e45e45632fd38518f9133a267e843d/kofu-mvc-validation/src/main/kotlin/com/sample/HandlersX.kt#L22-L30) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/6b151be233e45e45632fd38518f9133a267e843d/kofu-reactive-validation/src/main/kotlin/com/sample/HandlersX.kt#L20-L27)
+- Moreover, the typeclass is completely extendable to support more operations, in turn to extend our template base.
 
 ## Outcomes and Conclusions
 
-We achieved reusable domain logic using Ad-hoc Polymorphism, abstracting out the effect using TypeClasses and Higher-Kinded Types, migrating our Monomorphic code to Polymorphic. This is very powerful to model B2C-services and to-be-scalable services. This **zeros-down the cost and effort** to rewrite and maintain common business logic across all parallel services and future service migrations, speeding-up the feature development.
+We achieved reusable domain logic using Ad-hoc Polymorphism, abstracting out the effect using typeclasses and Higher-Kinded Types, migrating our Monomorphic code to Polymorphic. This is very powerful to model B2C-services and to-be-scalable services. This **zeros-down the cost and effort** to rewrite and maintain common business logic across all parallel services and future service migrations, speeding-up the feature development.
 
 ## References
 
