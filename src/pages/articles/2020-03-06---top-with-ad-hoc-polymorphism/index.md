@@ -14,7 +14,7 @@ description: "Top-up the Polymorphism"
 ---
 ## Abstract
 
-With the advent of B2C products, the same product can have use-cases (or Services) with varied traffic and scaling needs. The trend is to split them into Microservices built on different paradigms/tech-stacks (blocking or non-blocking [1]). In domains like Payments, many such heterogeneous services are parallel as well (having most of the domain business logic in common e.g., Purchases and Refunds). Although the business logic is common, it cannot be reused among these parallel services, as the code is written specifically to that paradigm.
+With the advent of **B2C products**, the same product can have use-cases (or Services) with varied traffic and scaling needs. The trend is to split them into Microservices built on different paradigms/tech-stacks (blocking or non-blocking [1]). In domains like Payments, many such heterogeneous services are parallel as well (having most of the domain business logic in common e.g., Purchases and Refunds). Although the business logic is common, it cannot be reused among these parallel services, as the code is written specifically to that paradigm.
 
 This paper attempts to overcome this challenge and make such common logic **reusable**, turning the `Monomorphic` common code to `Polymorphic` templates, using an innovative design technique called `Ad-hoc Polymorphism`.
 
