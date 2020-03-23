@@ -20,14 +20,14 @@ const query = graphql`
 `;
 
 const SEO = ({
-  meta, image, title, caption, description, slug,
+  meta, cover, title, caption, description, slug,
 }) => (
   <StaticQuery
     query={query}
     render={data => {
       const { siteMetadata } = data.site;
       const metaDescription = description || siteMetadata.subtitle;
-      const metaImage = image ? `${siteMetadata.siteUrl}/${image}` : null;
+      const metaImage = cover ? `${siteMetadata.siteUrl}/${cover}` : null;
       const url = `${siteMetadata.siteUrl}${slug}`;
       return (
         <Helmet

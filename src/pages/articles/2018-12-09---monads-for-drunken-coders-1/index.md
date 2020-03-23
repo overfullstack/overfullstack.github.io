@@ -4,16 +4,15 @@ date: "2018-12-09T00:00:00.000Z"
 layout: post
 draft: false
 path: "/posts/monads-for-drunken-coders-pint-1/"
-image: "https://i.imgur.com/ff0QYbi.jpg"
 cover: "./cover.jpg"
 category: "Functional Programming"
-tags: 
+tags:
     - "Java 8"
     - "Monads"
 description: "A chilled introduction to the Dreaded Monad, using Java 8"
 ---
 
-## Story of an Egg validator 
+## Story of an Egg validator
 ![Intro](media/introduction.gif)
 
 ### Sol 1: One egg - One validation
@@ -36,11 +35,11 @@ eggs.stream()
 ```
 Yay! I'm a Functional programmer! Let me have a 🍺
 
-- But what if at the end of validation pipeline, I need both good and bad eggs? Hmm, placing the 🍺 mug back on table. 
-- How can I make all of them pass through every validator and accumulate the results? 
-- Probably, ditch that FP, let me just use the all-friendly for-each loop to iterate through all the eggs, call validator on each egg, store bad eggs separately in a bucket as and when I find one. 
+- But what if at the end of validation pipeline, I need both good and bad eggs? Hmm, placing the 🍺 mug back on table.
+- How can I make all of them pass through every validator and accumulate the results?
+- Probably, ditch that FP, let me just use the all-friendly for-each loop to iterate through all the eggs, call validator on each egg, store bad eggs separately in a bucket as and when I find one.
 - Bad! I couldn't use those Streams and Lambdas. Anyways, they are just fancy syntactic-sugar. May be next time! Let me go ahead with this if-else ladder for now. Let me take a sip! 🍺
-- Wait, what if I also need to know the reason why an egg is bad? 
+- Wait, what if I also need to know the reason why an egg is bad?
 - Let me use a global badEggFailureBucketMap and put eggIndex to validation failure.
 - But! how can I tightly map validation-failure-TO-failed-validation-method? Hmm... it's ok to not tightly map them, I just know which failure is-to what.
 
@@ -50,7 +49,7 @@ Suddenly, the cute sprout turned into a tree🎋, with multiple if-else-break-co
 - Seriously, how many validators should I write? One per every egg type? Repeat this entire algo for each and every type, just changing the parameter types!?
 - Also, there can be some **exceptional** eggs, that blow-off while going through the validator, how am I supposed to deal with all those exceptions?
 - How am I gonna jenga new validations in the middle of this chaos!?
-- By the way, notice, I kept mutating egg list while iterating, removing bad ones. It's totally confusing to reason-out, how is the state changing. 
+- By the way, notice, I kept mutating egg list while iterating, removing bad ones. It's totally confusing to reason-out, how is the state changing.
 - Now, don't ask me to add inter-dependent validations. If they throw exceptions as well, the if-else-try-catch nest crosses all margins and overflows out of my screen.
 - Again, don't ask me to unit-test this shit!
 
@@ -113,7 +112,7 @@ void cyclomaticCode() {
 }
 ```
 ### Imperative vs Functional Chatter
-- If a right Paradigm isn't chosen, you literally have to stab and cut-open the Open-Closed principle every time you get a new requirement. 
+- If a right Paradigm isn't chosen, you literally have to stab and cut-open the Open-Closed principle every time you get a new requirement.
 - Every Software design problem can be seen like a block of objects doing functions or functions doing (I mean, processing) objects. There you go! I just metaphored OOPs vs FP.
 - Eggs aren't doing anything here, they are being done. This clearly is a Functional programming problem. Eggs should NOT be juggled around validation functions, but validations should be *applied* on eggs.
 - In OOPs, we build classes with state and have functions exposed to operate on that state. But, how can you build a class which lets you provide functions dynamically at run time, to operate on its state. This is fundamental premises on which Functional style is built.
@@ -130,19 +129,19 @@ void cyclomaticCode() {
 - **Exceptions are Evil**, they are camouflaged gotos. Never throw them with your own hands and interrupt your stream and code flow.
 - The `ValidationFailure` and validation method are loosely coupled, this makes it way harder to reason-out.
 - It is so difficult to unit-test a function like this.
-- Finally, we need to find a way to compose our algorithm without worrying about the parameter type, basically abstract away the parameter type on which this algo is being run. 
+- Finally, we need to find a way to compose our algorithm without worrying about the parameter type, basically abstract away the parameter type on which this algo is being run.
 
-> But rather than solving them one-by-one, it's important to find a paradigm, which can solve these problems as a group. 
+> But rather than solving them one-by-one, it's important to find a paradigm, which can solve these problems as a group.
 
 ### Octopus Functions
 - It's been told since my Grandfather, that functions need to be small and do only one thing and do it well, nothing new. We don't achieve much by splitting the above alien plan into separate functions.
-- Coz, there should be an **Octopus function** administrating all these function calls, which in itself is a monster. 
+- Coz, there should be an **Octopus function** administrating all these function calls, which in itself is a monster.
 - State being pin-balled among imperative control statements, function calls and try-catches, is a horror show, when trying to reason-out the code flow or debug it.
 ![octopus](media/octopus.gif)
 - In our problem, it is even trying to handle the coupling between Validation method and Validation failure, through a `badEggFailureBucketMap`. That surely is not its responsibility. The Validation method should be responsible to communicate its corresponding validation failure to the orchestrator.
 
 ### Imperative Responsibility
-- Let's take a break from our Monster-Validation-Octopus and look at this simple function, which is just trying to append all last-names from a List of Names with `&`, with a lot of do-this-do-that imperative administration. It might be clear to the computer, but not very intuitive to another developer (or the same dev after sometime). 
+- Let's take a break from our Monster-Validation-Octopus and look at this simple function, which is just trying to append all last-names from a List of Names with `&`, with a lot of do-this-do-that imperative administration. It might be clear to the computer, but not very intuitive to another developer (or the same dev after sometime).
 
 ```java{3,4,5,6,7,10,11}:title=ImperativeLastName.java
 public static String concatLastNames(List<String> team) {
@@ -152,7 +151,7 @@ public static String concatLastNames(List<String> team) {
     if (teamMemberName != null) { // Catch-1: Deal with nulls
       teamMemberName = teamMemberName.trim(); // Catch-2: Deal with only white space names
       if (!teamMemberName.isEmpty()) { // Catch-3: Deal with empty names
-        if (!isFirst) { // Catch-4: Should not prepend delimiter for first entry. 
+        if (!isFirst) { // Catch-4: Should not prepend delimiter for first entry.
           output.append(DELIMITER);
         }
         var lastName = extractLastName(teamMemberName); // Concern-2: Extracting last name
@@ -185,7 +184,7 @@ private static String extractLastName(String fullName) {
 ```java{6,7,8}:title=FunctionalLastName.java
 private static final UnaryOperator<String> GET_LAST_NAME =
   fullName -> fullName.substring(fullName.lastIndexOf(" ") + 1);
-            
+
 void lastNameCollectorWithStream() {
   final var expected = TEAM.stream()
     .filter(Objects::nonNull) // Catch-11: Deal with nulls.
@@ -197,7 +196,7 @@ void lastNameCollectorWithStream() {
 ```
 - This might not be familiar to many Java devs, but sure is more readable, even for someone unfamiliar with code, if feels like reading an English sentence. **Familiarity is different from Readability**.
 - **Separation of Concerns** made it clear and concise, like an SQL Query.
-- This way functions can be fitted into each other to create a smooth pipeline, aiding unidirectional flow of data. 
+- This way functions can be fitted into each other to create a smooth pipeline, aiding unidirectional flow of data.
 - This is flexible to restructure, and it's easy to hire and fire these criterion functions, without thinking too much.
 ![lego](media/lego.gif)
 
@@ -207,8 +206,8 @@ void lastNameCollectorWithStream() {
 - Unidirectional flow demands uniform data structure for the entire stream-per-step. A pipeline can have different types of streams, but how can a stream/collection have different data types?
 ![color-eggs](media/color-eggs.gif)
 - Flowing through a function, Data inside a stream/collection of one type can metamorphose into various life forms of all shapes and sizes as it comes out, may be due to invalidations or exceptions or some eggs hatch into chickens or dinosaurs or your database just gets struck by a lightning.
-- The dichotomy of Data metamorphism with Stream Uniformity can be seen in our current problem. 
-- We have two categories of data, Good eggs and Bad eggs. But who needs bad eggs, what you really interested are, the Validation failures for bad eggs. 
+- The dichotomy of Data metamorphism with Stream Uniformity can be seen in our current problem.
+- We have two categories of data, Good eggs and Bad eggs. But who needs bad eggs, what you really interested are, the Validation failures for bad eggs.
 - So two categories here, demand two totally disparate data types (Good-eggs), (Validation-failures due to (invalidations) and (exceptions)) to co-exist, inside a stream, as they flow through the pipeline. Check-out these cases in this pseudo code:
 
 ```java{11,14,17,20}:title=PseudoValidator.java
@@ -221,7 +220,7 @@ private <what-should-I-return?> validate(Egg egg) {
       try {
         makeHalfBoiledOmelette(egg); // My Fav Omlet
         isValid = true;
-      } catch (EggException e) { 
+      } catch (EggException e) {
         return <How-to-return-exception?>; // case 1 exception
       }
     } else if (egg.getEggWhite() != null) {
@@ -236,11 +235,11 @@ private <what-should-I-return?> validate(Egg egg) {
 ```
 - This poor function is not sure how to communicate back to its caller with multiple possibilities. Unfortunately, Strongly-typed languages are strict about return type.
 - Had it been a Dynamically-typed-language like Javascript, this is not a problem at all. This is one of the reasons why Dynamically typed languages got popular for. Of-course, that makes them very difficult to debug. It's difficult to build even a proper IDE around them.
-- A dirty solution in a Strongly-typed-language like Java can be, have some Enum `ValidationFailureType` as the return type which has all failure types listed, and in all these cases just return that specific failure accordingly. 
+- A dirty solution in a Strongly-typed-language like Java can be, have some Enum `ValidationFailureType` as the return type which has all failure types listed, and in all these cases just return that specific failure accordingly.
 - In valid case, you need to return something like `ValidationFailureType.NONE`. But, that means you can't pipe this function, with other validation functions (without the octopus orchestrator), as the valid egg is now lost in the oblivion of if-else labyrinth.
-- If you return a `null` in valid case, you know what happens if caller doesn't know about that. A blast of NPE!  
-- **Data Containerization** solves this. 
-- Ship your heterogeneous data inside these containers. Not those plain-old-java-wrappers, but **Containers**. 
+- If you return a `null` in valid case, you know what happens if caller doesn't know about that. A blast of NPE!
+- **Data Containerization** solves this.
+- Ship your heterogeneous data inside these containers. Not those plain-old-java-wrappers, but **Containers**.
 
 Let's take a fork here and visit the Monad-Land to understand Containerization.
 
@@ -277,7 +276,7 @@ public class Functor<T> {
 > The curse of the monad is that once you get the epiphany, once you understand - "oh that's what it is" - you lose the ability to explain it to anybody.
 > \- Douglas Crockford
 
-- Douglas is right in a way, but here is what my understanding (although not an epiphany), in its most simplistic form: 
+- Douglas is right in a way, but here is what my understanding (although not an epiphany), in its most simplistic form:
 
 > Monads are Functors, which also implement `flatmap` and abide by some Monad laws.
 
@@ -302,26 +301,26 @@ public class Monad<T> {
 - Monad's anatomy needs 3 basic organs:
     - A Parameterized type: `Monad<T>`
     - A Unit function: `new Monad()`
-    - A Bind function: `flatMap()` 
+    - A Bind function: `flatMap()`
 
 Enough of Theory! how can this help the problem at hand?
 
 ### Problems`.split().stream()`<br/>`.map(this::solve(problem))`
 - You would have got a hint by now. Monads are the data containers you need. The problem is solved by one container-type (which can be the unit for uniformity through-out the pipeline) and a variable-value-type contained inside (which can be morphed from type to type).
 - Now every function can speak the same language, by passing around these Monad boxes and operate on them with functions, without worrying much about what it contains. Uniform boxes with Heterogenous data.
-- Like, validation functions can ship either a goodEgg or a validation failure to the orchestration function by wrapping them in a Monad box, and it doesn't even care what's in the box. 
+- Like, validation functions can ship either a goodEgg or a validation failure to the orchestration function by wrapping them in a Monad box, and it doesn't even care what's in the box.
 - Now, Orchestrator only has one job to do, just pump the data inside the pipeline ahead to the next validation function.
 ![wow](media/wow.gif)
 - Now, both the Parameter type and Algorithm are cleanly separate, and algo can be reused on multiple parameter types, which solves our last problem.
 
 ### Post credits scene: Making of a Monad
-Now you see it? Now you don't? 
+Now you see it? Now you don't?
 ![now-you-see-me](media/now-you-see-me.gif)
 - This blog post is already too long and so I left the part on how these problems are solved with Monads for the sequel.
 - Chances are you already worked with lot of Monads, if you started adapting Java 8 or above.
 - Java guys took 3 years between Java 7 and 8 and packed Java 8 with bunch of functional toys, and alongside came some Monads like Optional, Stream etc.,.
 
-Wanna see how the entire pipeline works seamlessly with the Monad, even with some exceptional eggs blown in-between? 
+Wanna see how the entire pipeline works seamlessly with the Monad, even with some exceptional eggs blown in-between?
 The sequel brings-in some new names like Immutability, Parallelism, Memoization and X-Men evolution (Just kidding!)
 
 Let's cook a Monad.

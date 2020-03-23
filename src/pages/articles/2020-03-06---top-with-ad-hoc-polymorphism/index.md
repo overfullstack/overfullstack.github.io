@@ -4,7 +4,6 @@ date: "2020-03-06T00:00:00.000Z"
 layout: post
 draft: false
 path: "/posts/top-with-ad-hoc-polymorphism/"
-image: "https://i.imgur.com/ff0QYbi.jpg"
 cover: "./cover.jpeg"
 category: "Design"
 tags:
