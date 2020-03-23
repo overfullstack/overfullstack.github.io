@@ -108,12 +108,12 @@ We achieved reusable domain logic using Ad-hoc Polymorphism, abstracting out the
 
 ## References
 
-1. [https://community.oracle.com/docs/DOC-918126](https://community.oracle.com/docs/DOC-918126)
-2. [https://www.reactivemanifesto.org/](https://www.reactivemanifesto.org/)
-3. [https://en.wikipedia.org/wiki/Subtyping](https://en.wikipedia.org/wiki/Subtyping)
-4. [https://en.wikipedia.org/wiki/Parametric_polymorphism](https://en.wikipedia.org/wiki/Parametric_polymorphism)
-5. [https://en.wikipedia.org/wiki/Ad_hoc_polymorphism](https://en.wikipedia.org/wiki/Ad_hoc_polymorphism)
-6. [https://www.cl.cam.ac.uk/~jdy22/papers/lightweight-higher-kinded-polymorphism.pdf](https://www.cl.cam.ac.uk/~jdy22/papers/lightweight-higher-kinded-polymorphism.pdf)
-7. [https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html)
-8. [https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#spring-web](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#spring-web)
-9. [https://danielwestheide.com/blog/the-neophytes-guide-to-scala-part-12-type-classes/](https://danielwestheide.com/blog/the-neophytes-guide-to-scala-part-12-type-classes/)
+1. <https://community.oracle.com/docs/DOC-918126>
+2. <https://www.reactivemanifesto.org/>
+3. <https://en.wikipedia.org/wiki/Subtyping>
+4. <https://en.wikipedia.org/wiki/Parametric_polymorphism>
+5. <https://en.wikipedia.org/wiki/Ad_hoc_polymorphism>
+6. <https://www.cl.cam.ac.uk/~jdy22/papers/lightweight-higher-kinded-polymorphism.pdf>
+7. <https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html>
+8. <https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#spring-web>
+9. <https://danielwestheide.com/blog/the-neophytes-guide-to-scala-part-12-type-classes/>

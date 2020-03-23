@@ -184,6 +184,12 @@ pre[data-line] {
     color: #ff9400;
 }
 
+.gatsby-highlight pre[class='language-json line-numbers']::before {
+    content: 'json';
+    background: #4383a4;
+    color: #ff9400;
+}
+
 .gatsby-highlight pre[class*='language-']::before {
     font-size: 0.75rem;
     font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
