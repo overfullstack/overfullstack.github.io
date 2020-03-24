@@ -172,22 +172,23 @@ pre[data-line] {
     border-top-right-radius: 0.3em;
 }
 
+.gatsby-highlight pre[class='language-java line-numbers']::before,
+.gatsby-highlight pre[class='language-kotlin line-numbers']::before,
+.gatsby-highlight pre[class='language-json line-numbers']::before {
+  background: #4383a4;
+  color: #ff9400;
+}
+
 .gatsby-highlight pre[class='language-java line-numbers']::before {
     content: 'java';
-    background: #4383a4;
-    color: #ff9400;
 }
 
 .gatsby-highlight pre[class='language-kotlin line-numbers']::before {
     content: 'kotlin';
-    background: #4383a4;
-    color: #ff9400;
 }
 
 .gatsby-highlight pre[class='language-json line-numbers']::before {
     content: 'json';
-    background: #4383a4;
-    color: #ff9400;
 }
 
 .gatsby-highlight pre[class*='language-']::before {
