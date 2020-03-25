@@ -25,13 +25,13 @@ class PostTemplate extends React.Component {
           <SEO
             title={actualPostTitle}
             description={description}
-            image={cover.childImageSharp.original.src}
+            cover={cover.childImageSharp.original.src}
             slug={post.fields.slug}
           />
           <div>
             <Helmet>
               <title>{actualPostTitle}</title>
-              <meta name="description" content={description}/>
+              <meta name="description" content={description} />
             </Helmet>
             <PostTemplateDetails {...this.props} />
           </div>
@@ -88,4 +88,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`
