@@ -12,7 +12,7 @@ module.exports = {
     declaration: 'I built this blog with React.js',
     disqusShortname: 'gopal',
     pathPrefix: '/overfullstack.github.io',
-    logo: '',
+    logo: 'src/assets/logo.png',
     menu: [
       {
         label: 'Articles',
