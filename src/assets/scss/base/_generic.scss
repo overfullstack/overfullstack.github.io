@@ -70,7 +70,7 @@ h1 {
 h2 {
   font-size: $typographic-base-font-size * 1.6875;
   @include line-height(1.5);
-  @include margin-top(1.5);
+  @include margin-top(1.25);
   @include margin-bottom(.5);
 }
 
@@ -153,7 +153,7 @@ ul {
 
   & li {
     padding: 0 5px;
-    margin-bottom: 10px;
+    @include margin-bottom(0.25);
   }
 }
 

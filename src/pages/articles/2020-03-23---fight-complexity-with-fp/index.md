@@ -82,7 +82,7 @@ Our current imperative approach records **high** values for both these metrics. 
 
 ### The 3D design problem
 
-This problem is a 3-dimensional design problem stretching among - Sub-requests, service routes (sharing common fields & nodes), and Validations. In the above imperative approach, we entangled all 3, which lead to chaos. We need a design, which treats all of these separately, let them extend independently and abstract out validation sequencing and orchestration. We need to separate *What-to-do* from *How-to-do.*
+This problem is a 3-dimensional design problem stretching among - Sub-requests, service routes (sharing common fields & nodes), and Validations. In the above imperative approach, we entangled all 3, which lead to chaos. We need a design, which treats all of these separately, let them extend independently and abstracts out validation sequencing and orchestration. We need to separate *What-to-do* from *How-to-do.*
 
 ### Dichotomous Data
 
@@ -100,7 +100,7 @@ I used Java 8 Functional interfaces to represent the validation functions as val
 
 In the talk, I shall introduce Monad with a crash course and contextually explain the application of various monads, such as `Option`, `Either`, `Try`, `Stream`.
 
-Let's start with `Either` Monad - It is a data type container that represents the data it contains in 2 states `left` and `right`. We can leverage this *Effect* to represent our Dichotomous Data, where `left: Validation Failure` and `right: Valid sub-request`. Either Monad has operations [API ref] like `map` and `flatMap`, which perform operations on the contained value, only if Monad is in `right` state. This property helps developers write _linear programs_, without worrying about the state of Monad. [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/5a8565e02c09c18f9a776041ead745c0ea9414d5/src/main/java/declarative/RailwayValidation2.java#L38-L43).
+Let's start with `Either` Monad - It is a data type container that represents the data it contains in 2 states `left` and `right`. We can leverage this *Effect* to represent our Dichotomous Data, where `left: Validation Failure` and `right: Valid sub-request`. Either Monad has operations [API ref] like `map` and `flatMap`, which perform operations on the contained value, only if Monad is in `right` state. This property helps developers write _linear programs_, without worrying about the state of Monad - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/5a8565e02c09c18f9a776041ead745c0ea9414d5/src/main/java/declarative/RailwayValidation2.java#L38-L43).
 
 ### Validations exchange Monad Currency
 
@@ -126,7 +126,7 @@ As pointed, we can compare [Imperative approach](https://github.com/overfullstac
 
 ## Conclusion
 
-Functional Programming is not Complex, but it fights complexity. The solution runs with the same time complexity (no perf impact), but minimum cognitive complexity. The framework is generic and agnostic of programming language and can be consumed by any Service with a similar requirement, with minor modifications.
+Functional Programming is not Complex, but it fights complexity. The solution runs with the same time complexity (no perf impact), but minimum cognitive complexity. The framework is generic and agnostic of programming language and can be consumed by any Service with a similar requirements, with minor modifications.
 
 ## My Talk on this
 
