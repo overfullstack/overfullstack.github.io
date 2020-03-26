@@ -14,11 +14,11 @@ description: "Skadooosh!"
 
 ## Abstract
 
-For teams suffering from high complexity code base, this paper offers a **metric driven approach** towards reducing complexity using Functional Programming (FP) principles.
+For teams suffering from a high complexity code base, this paper offers a **metric-driven approach** towards reducing complexity using Functional Programming (FP) principles.
 
 With the advent of **SaaS** and **Microservices**, software systems majorly communicate through the network, and **REST** is the predominant HTTP protocol used. To reduce network latency, these services resort to _Bulk-APIs_. One of the significant challenges of Bulk-APIs is **Request Validation**. With increasing request bulk size, service routes, and the number of validations, the validation orchestration can quickly get complex when done in traditional imperative style.
 
-This paper offers a *creative solution* - an extensible **Validation Framework** for REST services, using Functional Programming (FP) principles, which was successfully implemented by our Payments Platform Engineering in one of the world's largest SaaS companies, *Salesforce*.
+This paper offers a *creative solution* - an extensible **Validation Framework** for REST services, using FP, which was successfully implemented by our Payments Platform Engineering in one of the world's largest SaaS companies, *Salesforce*.
 
 ## Audience
 
@@ -55,9 +55,7 @@ Our Payment Platform service has parallel routes such as Authorization, Capture,
 ]
 ```
 
-Since all services deal with Payments, they have a lot of common fields like `amount`, as well as common child nodes like `paymentMethod` in their structure.
-
-Based on the type of field, they have different kinds of validations. E.g.:
+Since all services deal with Payments, they have a lot of common fields like `amount`, as well as common child nodes like `paymentMethod` in their structure. Based on the type of field, they have different kinds of validations. E.g.:
 
 - Common field like `amount` - needs *simple data validation* for non-negative integers.
 - Fields like `accountId` - needs a *stateful validation* which involves a DB read.
@@ -76,7 +74,7 @@ The service validation module has the following requirements:
 
 We have close to **100 validations** of various kinds and increasing. When the above requirements are dealt with traditional [Imperative Style](https://en.wikipedia.org/wiki/Imperative_programming), it can quickly get messy, as shown [here](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/test/java/imperative/ImperativeEggValidation.java). This code is mutation filled, non-extensible, non-sharable, non-unit-testable, and difficult to reason about.
 
-But to state that objectively, we can run **Cyclomatic Complexity** [6] and **Cognitive Complexity** [7] metrics on this code, using a popular tool called **SonarQube** [8].
+But to state that objectively, we can run **Cyclomatic Complexity** [6] and **Cognitive Complexity** [7] metrics on this code, using a popular Code Quality tool called **SonarQube™** [8].
 
 Our current imperative approach records **high** values for both these metrics. (Results to be run and explained during the talk).
 
