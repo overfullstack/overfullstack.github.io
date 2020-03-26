@@ -20,7 +20,7 @@ The trend in B2C world is to chop the use-cases with varied traffic-needs into *
 
 Despite being heterogenous, these services have many commonalities in their Domain logic - such as Authentication, Request-Validation, Idempotency, external integrations, logging. But the code for common logic, cannot be reused due to the _heterogeneity_. This leads to scrum teams duplicating the same logic in all the services, or a service needs to be rewritten entirely, when migrated to a different paradigm.
 
-I shall demonstrate (with a working POC) how to make such common logic **reusable**, turning the `Monomorphic` code to `Polymorphic` reusable templates.
+I shall demonstrate (with a working POC) how to make such common logic **reusable**, turning the `Monomorphic` code into `Polymorphic` reusable templates.
 
 ## Things to know before reading
 
@@ -28,7 +28,7 @@ Technical Level: Interesting to all, approachable for basic and up. Any Function
 
 This talk targets basic to intermediate senior developers with a good understanding of `generics` and some exposure/interest towards blocking and non-blocking/reactive paradigms. This talk is language-agnostic, but I use **Kotlin** (a modern JVM language) in combination with **[Arrow](http://arrow-kt.io/)** (A unique open-source library for Kotlin). Kotlin's syntax is very close Java, and all software design patterns discussed in this talk can be implemented in almost any language. Thanks to the concise syntax of Kotlin [10] and powerful tool-set provided by Arrow, implementing `Ad-hoc Polymorphism` turns more ergonomic. I have used `Spring-MVC`[7] and `Spring-WebFlux`[8] (popular backend frameworks) for demonstration of the POC, but no prior knowledge is required about these frameworks.
 
-The readers learn about an innovative design technique to create reusable templates called **Ad-hoc Polymorphism**, and how is it profitable and reduces the maintenance overhead of rewriting the same business logic across heterogeneous services and service migrations.
+The readers learn about an innovative design technique to create reusable templates called **Ad-hoc Polymorphism**[13], and how is it profitable and reduces the maintenance overhead of rewriting the same business logic across heterogeneous services and service migrations.
 
 ## Introduction
 
@@ -73,7 +73,8 @@ Now that we have both the tools (Higher-Kinded Types and Typeclasses), let’s m
 - `kofu-mvc-validation` - Blocking Service built with `Spring-WebMVC` [7]
 - `kofu-reactive-validation` - Reactive Service built with `Spring-WebFlux` [8]
 - `validation-templates` - Shared module for both the services, holding templates.
-  We shall take-up the **_user validate-and-upsert_** as our example use-case, where a request to upsert a user is **_validated_**, followed by **_insert or update_** based on the user's existence in the DB.
+
+We shall take-up the **_user validate-and-upsert_** as our example use-case, where a request to upsert a user is **_validated_**, followed by **_insert or update_** based on the user's existence in the DB.
 
 `Spring-WebFlux` works with `Mono<A>/Flux<A>` while `Spring-WebMVC` doesn't. As a proof for reusability problem discussed above, refer the `upsert` function in both the services - [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/b59bd89a7302035e3d72dfb75071a2d05c055443/kofu-mvc-validation/src/main/kotlin/com/sample/Handlers.kt#L24-L43) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/b59bd89a7302035e3d72dfb75071a2d05c055443/kofu-reactive-validation/src/main/kotlin/com/sample/Handlers.kt#L26-L52).
 
@@ -93,14 +94,14 @@ interface Repo<F> : Async<F> {
 ```
 
 - These operations have a return type of the form `Kind<F, A>`(=`F<A>`), which is generic and agnostic of `Effect`.
-- Our services implement this typeclass with their respective effect types. The service repository functions are mapped to `Repo` operations, using `IO` and `MonoK` from Arrow Library - [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/e1a7586ed82765830cef03f3c797095ccb0a716e/kofu-mvc-validation/src/main/kotlin/com/sample/Configurations.kt#L38-L41) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/e1a7586ed82765830cef03f3c797095ccb0a716e/kofu-reactive-validation/src/main/kotlin/com/sample/Configurations.kt#L29-L32).
+- Our services implement this typeclass with their respective effect types. In these concrete implementations, the service repository functions are mapped to `Repo` operations, using `IO` and `MonoK` from Arrow Library - [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/8a3aeb5c0f3137f74ac9b22ee128e45075e9f50d/kofu-mvc-validation/src/main/kotlin/com/sample/Configurations.kt#L38-L41) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/8a3aeb5c0f3137f74ac9b22ee128e45075e9f50d/kofu-reactive-validation/src/main/kotlin/com/sample/Configurations.kt#L29-L32).
 
 ### Templates using Typeclasses
 
 - Now we can weave our business-logic into generic templates depending on the generic operations of the typeclass `Repo<F>`.
-- Templates are generic functions and they depend on Typeclasses. This dependency can be achieved by passing typeclass as a function argument or declaring the template functions as extensions [11] to a typeclass. I used the latter in my POC - [Ref](https://github.com/overfullstack/ad-hoc-poly/blob/e1a7586ed82765830cef03f3c797095ccb0a716e/validation-fx/src/main/kotlin/com/validation/rules/UserRules.kt)
+- Templates are generic functions and they depend on Typeclasses. This dependency can be achieved by passing typeclass as a function argument or declaring the template functions as extensions [11] to a typeclass. I used the latter in my POC - [Ref](https://github.com/overfullstack/ad-hoc-poly/blob/8a3aeb5c0f3137f74ac9b22ee128e45075e9f50d/validation-fx/src/main/kotlin/com/validation/rules/UserRules.kt)
 - Typeclass is the bridge between services and templates. Services supply a concrete implementation of the typeclass, essentially filling in the blanks for the templates - [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/b59bd89a7302035e3d72dfb75071a2d05c055443/kofu-mvc-validation/src/main/kotlin/com/sample/Configurations.kt#L36-L43) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/b59bd89a7302035e3d72dfb75071a2d05c055443/kofu-reactive-validation/src/main/kotlin/com/sample/Configurations.kt#L27-L34).
-- Then the services can use those concrete instances to consume all the templates for free! - [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/b59bd89a7302035e3d72dfb75071a2d05c055443/kofu-mvc-validation/src/main/kotlin/com/sample/HandlersX.kt#L22-L30) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/b59bd89a7302035e3d72dfb75071a2d05c055443/kofu-reactive-validation/src/main/kotlin/com/sample/HandlersX.kt#L20-L27).
+- These templates work as shared logic, and the services can use those concrete instances to consume all these templates for free! - [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/b59bd89a7302035e3d72dfb75071a2d05c055443/kofu-mvc-validation/src/main/kotlin/com/sample/HandlersX.kt#L22-L30) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/b59bd89a7302035e3d72dfb75071a2d05c055443/kofu-reactive-validation/src/main/kotlin/com/sample/HandlersX.kt#L20-L27).
 - Moreover, the typeclass is entirely extensible to support more operations, in turn, to extend our template base.
 
 ## Outcomes and Conclusions
@@ -121,3 +122,4 @@ We achieved reusable domain logic using Ad-hoc Polymorphism, abstracting out the
 10. <https://www.intuit.com/blog/uncategorized/kotlin-development-plan/>
 11. <https://kotlinlang.org/docs/reference/extensions.html>
 12. <https://arrow-kt.io/docs/patterns/glossary/#typeclasses>
+13. <https://en.wikipedia.org/wiki/Ad_hoc_polymorphism>
