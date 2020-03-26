@@ -20,8 +20,8 @@ const query = graphql`
 `;
 
 const SEO = ({
-  meta, cover, title, caption, description, slug,
-}) => (
+               meta, cover, title, caption, description, slug,
+             }) => (
   <StaticQuery
     query={query}
     render={data => {
@@ -34,11 +34,11 @@ const SEO = ({
           htmlAttributes={{ lang: 'en' }}
           {...(caption
             ? {
-              titleTemplate: `${caption} - %s`,
+              titleTemplate: `${caption} | %s`,
               title: siteMetadata.title,
             }
             : {
-              title: `Gopal S Akshintala - ${siteMetadata.title}`,
+              title: `Gopal S Akshintala | ${siteMetadata.title}`,
             })}
           meta={[
             {
@@ -86,7 +86,7 @@ const SEO = ({
                     content: metaImage,
                   },
                 ]
-                : []
+                : [],
             )
             .concat(meta)}
         />
