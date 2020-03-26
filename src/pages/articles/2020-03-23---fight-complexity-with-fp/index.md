@@ -124,6 +124,7 @@ Individual validation functions are easily testable through unit-tests. The orch
 
 Thanks to the monad abstracting away all the branching complexity, our linear code has minimum complexity, which makes it easy to extend, debug and reason about. We can rerun the previous complexity metrics to prove it.
 ![complexity-compare](media/complexity-compare.png)
+As pointed, we can compare [Imperative approach](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/imperative/ImperativeValidation.java) with the [Declarative one](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/declarative/RailwayValidation2.java). Despite the declarative implementation having more validations, the _Cognitive Complexity_ remains minimum.
 
 ## Conclusion
 
