@@ -113,11 +113,10 @@ module.exports = {
           {
             resolve: 'gatsby-remark-embed-video',
             options: {
-              maxWidth: 800,
+              width: 560,
               ratio: 1.77,
-              height: 400,
               related: false,
-              noIframerder: true,
+              noIframeBorder: true,
             },
           },
           {

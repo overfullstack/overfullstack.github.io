@@ -1,7 +1,7 @@
 ---
 title: "About me"
 layout: page
-cover: "./me.jpg"
+cover: "./speaking-at-gdg.webp"
 path: "/about-me"
 ---
 
