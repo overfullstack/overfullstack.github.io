@@ -145,10 +145,10 @@ This talk was successfully presented and warmly received at:
 
 This talk is also selected for JBCN Conf - 2020 to be held in Barcelona this July.
 
-- Link for the Slide deck: <http://bit.ly/fcwfp-slides>
+- The [Slide deck](http://bit.ly/fcwfp-slides)
 - The code examples for this talk can be found here:
-  - <http://bit.ly/imp-vs-dec>
-  - <http://bit.ly/ro-validation>
+  - [Imperative vs. Declarative](http://bit.ly/imp-vs-dec)
+  - [Railway Oriented Validation](http://bit.ly/ro-validation)
 - The recording _(This is the first presentation of this talk, and there have been many enhancements in later editions)_.
 
 `youtube: https://www.youtube.com/embed/l9jJ7m7_VpM`
