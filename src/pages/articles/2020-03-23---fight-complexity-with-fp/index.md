@@ -22,9 +22,9 @@ This paper offers a *creative solution* - an extensible **Validation Framewor
 
 ## Audience
 
-Technical Level: Interesting to all, approachable for basic and up. Any Functional Programming enthusiast will love it.
+Technical Level: Interesting to all, approachable for basic and up. Any Functional Programming enthusiasts love it.
 
-This talk targets developers with basic knowledge of software design. The concepts are language agnostic. For broader outreach, I shall use **Java** for demonstration. Audience don't need any prior knowledge of FP. They are gradually ramped-up towards Intermediate FP Concepts such as Monads, Function Lifting in the context of the problem. The audience experience a mind-shift from a traditional imperative style to functional style and how it simplifies modeling and designing complex real-world problems. This talk adds new paradigm tool-set and vocabulary to any programmer's arsenal.
+This talk targets developers with basic knowledge of software design. The concepts are language agnostic. For broader outreach, I shall use **Java** for demonstration. The audience doesn't need any prior knowledge of FP. They are gradually ramped-up towards Intermediate FP Concepts such as Monads, Function Lifting in the context of the problem. The audience experiences a mind-shift from a traditional imperative style to functional style. This talk adds new paradigm tool-set and vocabulary to any programmer's arsenal and how to use it to simplify the modeling and designing complex real-world problems.
 
 As I cannot use the production code, I use code samples from my POC [Github repo](https://github.com/overfullstack/railway-oriented-validation) for the demonstration.
 
@@ -57,7 +57,7 @@ Our Payment Platform service has parallel routes such as Authorization, Capture,
 
 Since all services deal with Payments, they have a lot of common fields like `amount`, as well as common child nodes like `paymentMethod` in their structure. Based on the type of field, they have different kinds of validations. E.g.:
 
-- Common field like `amount` - needs *simple data validation* for non-negative integers.
+- Common fields like `amount` - needs *simple data validation* for non-negative integers.
 - Fields like `accountId` - needs a *stateful validation* which involves a DB read.
 - _Nested Validations_ for the common child nodes like `paymentMethod` as it is an independent child node inside a parent.
 
@@ -82,7 +82,7 @@ Our current imperative approach records **high** values for both these metrics. 
 
 ### The 3D design problem
 
-This problem is a 3-dimensional design problem stretching among - Sub-requests, service routes (sharing common fields & nodes), and Validations. In the above imperative approach, we entangled all 3, which lead to chaos. We need a design, which treats all of these separately, let them extend independently and abstracts out validation sequencing and orchestration. We need to separate *What-to-do* from *How-to-do.*
+This problem is a 3-dimensional design problem stretching among - Sub-requests, service routes (sharing common fields & nodes), and Validations. In the above imperative approach, we entangled all 3, which lead to chaos. We need a design, which treats all of these separately, let them extend independently, and abstracts out validation sequencing and orchestration. We need to separate *What-to-do* from *How-to-do.*
 
 ### Dichotomous Data
 
@@ -100,7 +100,7 @@ I used Java 8 Functional interfaces to represent the validation functions as val
 
 In the talk, I shall introduce Monad with a crash course and contextually explain the application of various monads, such as `Option`, `Either`, `Try`, `Stream`.
 
-Let's start with `Either` Monad - It is a data type container that represents the data it contains in 2 states `left` and `right`. We can leverage this *Effect* to represent our Dichotomous Data, where `left: Validation Failure` and `right: Valid sub-request`. Either Monad has operations [API ref] like `map` and `flatMap`, which perform operations on the contained value, only if Monad is in `right` state. This property helps developers write _linear programs_, without worrying about the state of Monad - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/5a8565e02c09c18f9a776041ead745c0ea9414d5/src/main/java/declarative/RailwayValidation2.java#L38-L43).
+Let's start with `Either` Monad - It is a data type container that represents the data it contains in 2 states `left` and `right`. We can leverage this *Effect* to represent our Dichotomous Data, where `left: Validation Failure` and `right: Valid sub-request`. Either Monad has operations [API ref] like `map` and `flatMap`, which perform operations on the contained value, only if Monad is in `right` state. This property helps developers write _linear programs_ without worrying about the state of Monad - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/5a8565e02c09c18f9a776041ead745c0ea9414d5/src/main/java/declarative/RailwayValidation2.java#L38-L43).
 
 ### Validations exchange Monad Currency
 
@@ -122,11 +122,11 @@ Individual validation functions are easily testable through unit-tests. The orch
 
 Thanks to the monad abstracting away all the branching complexity, our linear code has minimum complexity, which makes it easy to extend, debug and reason about. We can rerun the previous complexity metrics to prove it.
 ![complexity-compare](media/complexity-compare.png)
-As pointed, we can compare [Imperative approach](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/imperative/ImperativeValidation.java) with the [Declarative one](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/declarative/RailwayValidation2.java). Despite the declarative implementation having more validations, the _Cognitive Complexity_ remains minimum.
+As pointed, we can compare [Imperative approach](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/imperative/ImperativeValidation.java) with the [Declarative one](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/declarative/RailwayValidation2.java). Despite the declarative implementation having more validations than imperative implementation, the _Cognitive Complexity_ remains minimum.
 
 ## Conclusion
 
-Functional Programming is not Complex, but it fights complexity. The solution runs with the same time complexity (no perf impact), but minimum cognitive complexity. The framework is generic and agnostic of programming language and can be consumed by any Service with a similar requirements, with minor modifications.
+Functional Programming is not Complex, but it fights complexity. The solution runs with the same time complexity (no perf impact), but minimum cognitive complexity. The framework is generic and agnostic of programming language and can be consumed by any Service with similar requirements, with minor modifications.
 
 ## My Talk on this
 
@@ -142,6 +142,7 @@ This talk is also selected for JBCN Conf - 2020 to be held in Barcelona this Jul
 - The code examples for this talk can be found here:
   - <http://bit.ly/imp-vs-dec>
   - <http://bit.ly/ro-validation>
+- The recording _(This is the first presentation of this talk, and there have been many enhancements in later editions)_.
 
 `youtube: https://www.youtube.com/embed/l9jJ7m7_VpM`
 

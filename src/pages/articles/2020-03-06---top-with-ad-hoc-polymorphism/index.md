@@ -16,25 +16,25 @@ description: "Top-up with Ad-hoc Polymorphism"
 
 This paper is for Agile **B2C product development** teams, both in enterprises and startups, looking for ways to accelerate their feature development cycle.
 
-The trend in B2C world is to chop the use-cases with varied traffic-needs into **Microservices** managed by independent Scrum teams. These teams develop using Heterogeneous frameworks and tech-stacks, suitable for the traffic needs of their services. E.g., from Payments Domain - Purchases (high traffic Reactive service) and Refunds (low traffic blocking service) [1].
+The trend in the B2C world is to chop the use-cases with varied traffic-needs into **Microservices** managed by independent Scrum teams. These teams develop using Heterogeneous frameworks and tech-stacks, suitable for the traffic needs of their services. E.g., from Payments Domain - Purchases (high traffic Reactive service) and Refunds (low traffic blocking service) [1].
 
-Despite being heterogenous, these services have many commonalities in their Domain logic - such as Authentication, Request-Validation, Idempotency, external integrations, logging. But the code for common logic, cannot be reused due to the _heterogeneity_. This leads to scrum teams duplicating the same logic in all the services, or a service needs to be rewritten entirely, when migrated to a different paradigm.
+Despite being heterogenous, these services have many commonalities in their Domain logic - such as Authentication, Request-Validation, Idempotency, external integrations, logging. But the code for common logic, cannot be reused due to the _heterogeneity_. This leads to scrum teams duplicating the same logic in all the services, or service needs to be entirely rewritten when migrated to a different paradigm.
 
 I shall demonstrate (with a working POC) how to make such common logic **reusable**, turning the `Monomorphic` code into `Polymorphic` reusable templates.
 
-## Things to know before reading
+## Audience
 
-Technical Level: Interesting to all, approachable for basic and up. Any Functional Programming enthusiast will love it.
+Technical Level: Interesting to all, approachable for basic and up. Any Functional Programming enthusiasts love it.
 
-This talk targets basic to intermediate senior developers with a good understanding of `generics` and some exposure/interest towards blocking and non-blocking/reactive paradigms. This talk is language-agnostic, but I use **Kotlin** (a modern JVM language) in combination with **[Arrow](http://arrow-kt.io/)** (A unique open-source library for Kotlin). Kotlin's syntax is very close Java, and all software design patterns discussed in this talk can be implemented in almost any language. Thanks to the concise syntax of Kotlin [10] and powerful tool-set provided by Arrow, implementing `Ad-hoc Polymorphism` turns more ergonomic. I have used `Spring-MVC`[7] and `Spring-WebFlux`[8] (popular backend frameworks) for demonstration of the POC, but no prior knowledge is required about these frameworks.
+This talk targets basic to intermediate senior developers with a good understanding of `generics` and some exposure/interest towards blocking and non-blocking/reactive paradigms. This talk is language-agnostic, but I use **Kotlin** (a modern JVM language) in combination with **[Arrow](http://arrow-kt.io/)** (A unique open-source library for Kotlin). Kotlin's syntax is very close to Java, and all software design patterns discussed in this talk can be implemented in almost any language. Thanks to the concise syntax of Kotlin [10] and robust tool-set provided by Arrow, implementing `Ad-hoc Polymorphism` turns ergonomic. I have used `Spring-MVC`[7] and `Spring-WebFlux`[8] (popular backend frameworks) for demonstration of the POC, but no prior knowledge is required about these frameworks.
 
-The readers learn about an innovative design technique to create reusable templates called **Ad-hoc Polymorphism**[13], and how is it profitable and reduces the maintenance overhead of rewriting the same business logic across heterogeneous services and service migrations.
+The audience learn about an innovative design technique to create reusable templates called **Ad-hoc Polymorphism**[13], and how is it profitable and reduces the maintenance overhead of rewriting the same business logic across heterogeneous services and service migrations.
 
 ## Introduction
 
 ### The Case for Heterogeneous services
 
-Taking the example from the Payments domain, Purchases tend to have high traffic (especially during Black Fridays, Flash sales, etc.), and it's common to model them with an Asynchronous non-blocking paradigm like a Reactive Stack [2]. Whereas Refunds tend to have relatively low traffic, and a simple blocking stack can easily cater its scaling needs. Such use-cases can be found in many B2C products e.g., Reservations vs. Cancellations.
+Taking the example from the Payments domain, Purchases tend to have high traffic (especially during Black Fridays, Flash sales, etc.), and it's common to model them with an Asynchronous non-blocking paradigm like a Reactive Stack [2]. Whereas Refunds tend to have relatively low traffic, and a simple blocking stack can easily cater to its scaling needs. Such use-cases can be found in many B2C products, e.g., Reservations vs. Cancellations.
 
 ### The problem of Reusability among Heterogeneous services
 
@@ -58,13 +58,13 @@ Effects are of the form `F<A>` (e.g. `Mono<A>`), where `F` is the _Effect_ type 
 
 It's a generic interface that is parametric on a Type `T`. E.g., `Comparator<T>` in JDK is a simple typeclass. `Comparator<T>` has one operation `fun compare(a: T?, b: T?): Int`. Now for a type `String` to be a member of this typeclass, prepare a concrete `Comparator<String>` implementing its `fun compare(a: String?, b: String?): Int`. That's it! Now the `Collections.sort()` can make use of this concrete implementation to compare Strings.
 
-To put our above example into a formal definition - A type class defines some behavior in the form of operations that must be supported by a type. A type can be a member of a type class simply by providing implementations of the operations the type must support.
+To put our above example into a formal definition - A type class defines some behavior in the form of operations that must be supported by a type. A type can be a member of a type class by merely providing implementations of the operations the type must support.
 
 This principle can be used to define abstract interfaces like `Comparator<T>` and reusable templates like `Collections.sort()`, whose behavior is polymorphic to the type `T` being sorted. This is **Ad-hoc Polymorphism**.
 
 The term **Ad-hoc polymorphism** refers to polymorphic functions that can be applied to arguments of different types, but that behave differently depending on the type of the argument to which they are applied.
 
-The code that relies on type classes is open for extension. Just like how `Comparator<T>` can be extended to compare any type.
+The code that relies on type classes is open for extension, just like how `Comparator<T>` can be extended to compare any type.
 
 ## Template-Oriented-Programming with a POC
 
