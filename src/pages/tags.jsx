@@ -7,13 +7,13 @@ import Sidebar from '../components/Sidebar';
 
 class TagsRoute extends React.Component {
   render() {
-    const { title } = this.props.data.site.siteMetadata;
+    const { blogTitle } = this.props.data.site.siteMetadata;
     const tags = this.props.data.allMarkdownRemark.group;
 
     return (
       <Layout>
         <div>
-          <Helmet title={`All Tags - ${title}`} />
+          <Helmet title={`All Tags - ${blogTitle}`} />
           <Sidebar {...this.props} />
           <div className="content">
             <div className="content__inner">
@@ -54,7 +54,7 @@ export const pageQuery = graphql`
   query TagsQuery {
     site {
       siteMetadata {
-        title
+        blogTitle
         subtitle
         copyright
         declaration

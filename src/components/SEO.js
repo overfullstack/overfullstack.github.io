@@ -7,12 +7,15 @@ const query = graphql`
   query GetSiteMetadata {
     site {
       siteMetadata {
-        title
+        blogTitle
         subtitle
         caption
         siteUrl
         author {
-          aboutme
+          name
+        }
+        social {
+          twitter
         }
       }
     }
@@ -26,19 +29,19 @@ const SEO = ({
     query={query}
     render={data => {
       const { siteMetadata } = data.site;
-      const metaDescription = description || siteMetadata.subtitle;
+      const metaDescription = description || siteMetadata.description;
       const metaImage = cover ? `${siteMetadata.siteUrl}/${cover}` : null;
       const url = `${siteMetadata.siteUrl}${slug}`;
       return (
         <Helmet
-          htmlAttributes={{ lang: 'en' }}
-          {...(caption
+            htmlAttributes={{ lang: `en` }}
+            {...(title
             ? {
-              titleTemplate: `${caption} | %s`,
-              title: siteMetadata.title,
+                  titleTemplate: `%s | ${siteMetadata.author.name} | ${siteMetadata.blogTitle}`,
+                  title,
             }
             : {
-              title: `Gopal S Akshintala | ${siteMetadata.title}`,
+                  title: `${siteMetadata.author.name} | ${siteMetadata.blogTitle}`,
             })}
           meta={[
             {
@@ -63,7 +66,7 @@ const SEO = ({
             },
             {
               name: 'twitter:creator',
-              content: siteMetadata.author.aboutme,
+                content: siteMetadata.social.twitter,
             },
             {
               name: 'twitter:title',
@@ -105,7 +108,7 @@ SEO.propTypes = {
   cover: PropTypes.string.isRequired,
   meta: PropTypes.array,
   slug: PropTypes.string,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
 };
 
 export default SEO;

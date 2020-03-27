@@ -7,13 +7,13 @@ import Sidebar from '../components/Sidebar';
 
 class CategoriesRoute extends React.Component {
   render() {
-    const { title } = this.props.data.site.siteMetadata;
+    const { blogTitle } = this.props.data.site.siteMetadata;
     const categories = this.props.data.allMarkdownRemark.group;
 
     return (
       <Layout>
         <div>
-          <Helmet title={`All Categories - ${title}`} />
+          <Helmet title={`All Categories - ${blogTitle}`} />
           <Sidebar {...this.props} />
           <div className="content">
             <div className="content__inner">
@@ -59,7 +59,7 @@ export const pageQuery = graphql`
   query CategoryesQuery {
     site {
       siteMetadata {
-        title
+        blogTitle
         subtitle
         copyright
         declaration

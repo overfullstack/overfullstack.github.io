@@ -9,7 +9,7 @@ import SEO from '../components/SEO';
 class IndexRoute extends React.Component {
   render() {
     const items = [];
-    const { title, subtitle, caption, logo } = this.props.data.site.siteMetadata
+    const { blogTitle, subtitle, caption, logo, author } = this.props.data.site.siteMetadata
     const posts = this.props.data.allMarkdownRemark.edges;
     posts.forEach(post => {
       items.push(<Post data={post} key={post.node.fields.slug} />)
@@ -27,12 +27,11 @@ class IndexRoute extends React.Component {
           <SEO
             cover={logo}
             description={subtitle}
-            title={title}
             caption={caption}
           />
           <div>
             <Helmet>
-              <title>{title}</title>
+              <title>{`${author.name} | ${blogTitle}`}</title>
               <meta name="description" content={subtitle}/>
             </Helmet>
             <Sidebar {...this.props} />
@@ -52,7 +51,7 @@ export const pageQuery = graphql`
   query IndexQuery {
     site {
       siteMetadata {
-        title
+        blogTitle
         subtitle
         caption
         copyright

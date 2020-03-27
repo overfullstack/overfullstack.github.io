@@ -7,7 +7,7 @@ import TagTemplateDetails from '../components/TagTemplateDetails';
 
 class TagTemplate extends React.Component {
   render() {
-    const { title } = this.props.data.site.siteMetadata;
+    const { blogTitle } = this.props.data.site.siteMetadata;
     const { tag } = this.props.pageContext;
 
     return (
@@ -20,7 +20,7 @@ class TagTemplate extends React.Component {
       >
         <Layout>
           <div>
-            <Helmet title={`All Posts tagged as "${tag}" - ${title}`}/>
+            <Helmet title={`All Posts tagged as "${tag}" | ${blogTitle}`}/>
             <Sidebar {...this.props} />
             <TagTemplateDetails {...this.props} />
           </div>
@@ -36,7 +36,7 @@ export const pageQuery = graphql`
   query TagPage($tag: String) {
     site {
       siteMetadata {
-        title
+        blogTitle
         subtitle
         copyright
         declaration

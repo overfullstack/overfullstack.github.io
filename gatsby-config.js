@@ -5,9 +5,9 @@ module.exports = {
   siteMetadata: {
     url: 'https://github.com/overfullstack/overfullstack.github.io',
     siteUrl: 'https://overfullstack.github.io',
-    title: 'It\'s All Over full-stack',
+    blogTitle: 'Overfullstack',
     subtitle: 'So excited about this Craft that, I can\'t keep myself from blogging about it.',
-    caption: 'Gopal S Akshintala',
+    caption: 'It\'s All Over full-stack',
     copyright: '© All rights reserved.',
     declaration: 'I built this blog with React.js',
     disqusShortname: 'gopal',
@@ -38,6 +38,9 @@ module.exports = {
       stackoverflow: 'http://bit.ly/agsso',
       aboutme: '/about-me',
     },
+    social: {
+      twitter: '@GopalAkshintala',
+    },
   },
   plugins: [
     {
@@ -55,7 +58,7 @@ module.exports = {
             site {
               siteMetadata {
                 site_url: siteUrl
-                title
+                title: blogTitle
                 description: subtitle
               }
             }

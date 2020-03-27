@@ -7,7 +7,7 @@ import CategoryTemplateDetails from '../components/CategoryTemplateDetails';
 
 class CategoryTemplate extends React.Component {
   render() {
-    const { title } = this.props.data.site.siteMetadata;
+    const { blogTitle } = this.props.data.site.siteMetadata;
     const { category } = this.props.pageContext;
 
     return (
@@ -20,7 +20,7 @@ class CategoryTemplate extends React.Component {
       >
         <Layout>
           <div>
-            <Helmet title={`${category} - ${title}`}/>
+            <Helmet title={`${category} | ${blogTitle}`}/>
             <Sidebar {...this.props} />
             <CategoryTemplateDetails {...this.props} />
           </div>
@@ -36,7 +36,7 @@ export const pageQuery = graphql`
   query CategoryPage($category: String) {
     site {
       siteMetadata {
-        title
+        blogTitle
         subtitle
         copyright
         declaration

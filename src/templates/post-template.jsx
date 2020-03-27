@@ -7,12 +7,12 @@ import SEO from '../components/SEO';
 
 class PostTemplate extends React.Component {
   render() {
-    const { title, subtitle } = this.props.data.site.siteMetadata;
+    const { subtitle } = this.props.data.site.siteMetadata;
     const post = this.props.data.markdownRemark;
     const { title: postTitle, description: postDescription, cover } = post.frontmatter;
     const description = postDescription !== null ? postDescription : subtitle;
 
-    const actualPostTitle = `${postTitle} - ${title}`;
+    const actualPostTitle = `${postTitle}`;
     return (
       <div style={{
         color: 'var(--textNormal)',
@@ -47,7 +47,7 @@ export const pageQuery = graphql`
   query PostBySlug($slug: String!) {
     site {
       siteMetadata {
-        title
+        blogTitle
         subtitle
         copyright
         declaration
