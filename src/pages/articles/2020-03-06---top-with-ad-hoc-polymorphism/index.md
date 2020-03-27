@@ -10,6 +10,11 @@ tags:
   - "Kotlin"
   - "Arrow"
 description: "Top-up with Ad-hoc Polymorphism"
+keyTakeAways:
+    - Create magic by combining Spring Boot + Kotlin + Arrow library.
+    - Convert common use-cases among heterogeneous services into reusable code templates using **Ad-hoc Polymorphism**.
+    - Monomorphic vs. Polymorphic code.
+    - Agile **B2C product development** teams, both in enterprises and startups, can accelerate their feature development cycle.
 ---
 
 ## Abstract

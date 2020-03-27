@@ -13,9 +13,9 @@ Gopal S Akshintala is currently a Software Engineer at Salesforce, building a sc
 
 He started as an Android Developer and switched to the server-side as a Full-Stack Developer (Java for Backend, React Js for Frontend). Wearing multiple hats, aided him to perceive Patterns, Solutions, and Trade-offs.
 
-He is a practitioner of Domain Driven Design (DDD) and Clean Architecture. A huge fan of Test-Driven Development (TDD). He believes Expressive Code is fun and profitable, which enthused him towards Functional Programming. He's language geek, currently fluent at Kotlin, Java and dabbling with Scala and Javascript.
+He is a practitioner of Domain-Driven Design (DDD) and Clean Architecture. A massive fan of Test-Driven Development (TDD). He believes Expressive Code is fun and profitable, which enthused him towards Functional Programming. He’s a language geek, currently fluent at Kotlin, Java, and dabbling with Scala and Javascript.
 
-He enjoys open-source contribution and being active in Dev community. He loves being on Stage, as a [Singer](http://bit.ly/agssc) and a [Tech-Speaker](http://y2u.be/l9jJ7m7_VpM) and blogs about Nature & Life - ([Creative Blog](http://bit.ly/agslotw) & [Medium](http://bit.ly/agsmdm))
+He enjoys open-source contributions and being active in the Dev community. He loves being on Stage, as a [Singer](http://bit.ly/agssc) and a [Tech-Speaker](http://y2u.be/l9jJ7m7_VpM) and blogs about Nature & Life - ([Creative Blog](http://bit.ly/agslotw) & [Medium](http://bit.ly/agsmdm))
 
 ## Speaking
 

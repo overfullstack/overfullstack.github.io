@@ -10,21 +10,28 @@ tags:
   - "Java"
   - "Vavr"
 description: "Skadooosh!"
+keyTakeAways:
+    - A **Metric-driven approach** towards reducing cognitive complexity using Functional Programming (FP) principles.
+    - Modeling and designing complex real-world problems using Functional Programming constructs.
+    - Intermediate FP Concepts such as Monads, Function Lifting and their application in the context of a real-world problem.
+    - A mind-shift from a traditional imperative style to functional style.
 ---
 
 ## Abstract
 
-For teams suffering from a high complexity code base, this paper offers a **metric-driven approach** towards reducing complexity using Functional Programming (FP) principles.
+For teams suffering from a high complexity code base, this paper offers a **Metric-driven approach** towards reducing cognitive complexity using Functional Programming (FP) principles.
 
 With the advent of **SaaS** and **Microservices**, software systems majorly communicate through the network, and **REST** is the predominant HTTP protocol used. To reduce network latency, these services resort to _Bulk-APIs_. One of the significant challenges of Bulk-APIs is **Request Validation**. With increasing request bulk size, service routes, and the number of validations, the validation orchestration can quickly get complex when done in traditional imperative style.
 
-This paper offers a *creative solution* - an extensible **Validation Framework** for REST services, using FP, which was successfully implemented by our Payments Platform Engineering in one of the world's largest SaaS companies, *Salesforce*.
+This paper offers a *creative solution* in the form of an extensible **Validation Framework** for REST services, using FP, which was successfully implemented by our Payments Platform Engineering in one of the world's largest SaaS companies, *Salesforce*.
 
 ## Audience
 
 Technical Level: Interesting to all, approachable for basic and up. Any Functional Programming enthusiasts love it.
 
-This talk targets developers with basic knowledge of software design. The concepts are language agnostic. For broader outreach, I shall use **Java** for demonstration. The audience doesn't need any prior knowledge of FP. They are gradually ramped-up towards Intermediate FP Concepts such as Monads, Function Lifting in the context of the problem. The audience experiences a mind-shift from a traditional imperative style to functional style. This talk adds new paradigm tool-set and vocabulary to any programmer's arsenal and how to use it to simplify the modeling and designing complex real-world problems.
+This talk targets developers with basic knowledge of software design. The concepts are language agnostic. For broader outreach, I shall use **Java** for demonstration. The audience doesn't need any prior knowledge of FP. They are gradually ramped-up towards Intermediate FP Concepts such as Monads, Function Lifting in the context of the problem.
+
+The audience experiences a mind-shift from a traditional imperative style to functional style. This talk adds new paradigm tool-set and vocabulary to any programmer's arsenal and how to use it to simplify the modeling and designing complex real-world problems.
 
 As I cannot use the production code, I use code samples from my POC [Github repo](https://github.com/overfullstack/railway-oriented-validation) for the demonstration.
 
