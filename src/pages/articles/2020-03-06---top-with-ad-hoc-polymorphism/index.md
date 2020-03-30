@@ -31,9 +31,13 @@ I shall demonstrate (with a working POC) how to make such common logic **reusabl
 
 Technical Level: Interesting to all, approachable for basic and up. Any Functional Programming enthusiasts love it.
 
-This talk targets basic to intermediate senior developers with a good understanding of `generics` and some exposure/interest towards blocking and non-blocking/reactive paradigms. This talk is language-agnostic, but I use **Kotlin** (a modern JVM language) in combination with **[Arrow](http://arrow-kt.io/)** (A unique open-source library for Kotlin). Kotlin's syntax is very close to Java, and all software design patterns discussed in this talk can be implemented in almost any language. Thanks to the concise syntax of Kotlin [10] and robust tool-set provided by Arrow, implementing `Ad-hoc Polymorphism` turns ergonomic. I have used `Spring-MVC`[7] and `Spring-WebFlux`[8] (popular backend frameworks) for demonstration of the POC, but no prior knowledge is required about these frameworks.
+This talk targets basic to intermediate senior developers with a good understanding of `generics` and some exposure/interest towards blocking and non-blocking/reactive paradigms. This talk is language-agnostic, but I use **Kotlin** (a modern JVM language) in combination with **[Arrow](http://arrow-kt.io/)** (A unique open-source library for Kotlin).
 
-The audience learn about an innovative design technique to create reusable templates called **Ad-hoc Polymorphism**[13], and how is it profitable and reduces the maintenance overhead of rewriting the same business logic across heterogeneous services and service migrations.
+Kotlin's syntax is very close to Java, and all software design patterns discussed in this talk can be implemented in almost any language. Thanks to the concise syntax of Kotlin [10] and robust tool-set provided by Arrow, implementing `Ad-hoc Polymorphism` turns ergonomic. But Kotlin is just an implementation detail, and this paper has no intention to recommend Kotlin over any other language.
+
+I used `Spring-MVC`[7] and `Spring-WebFlux`[8] (popular backend frameworks) to demonstrate heterogeneity, in my POC. But no prior knowledge is required about these frameworks.
+
+The audience learn about an innovative design technique to create reusable templates called **Ad-hoc Polymorphism**[6], and how is it profitable and reduces the maintenance overhead of rewriting the same business logic across heterogeneous services and service migrations.
 
 ## Introduction
 
@@ -49,17 +53,17 @@ In the case of homogeneous services, the common code can be placed in a shared m
 - Their styles of programming are different (Functional in non-blocking vs. Imperative in blocking).
 - Non-Blocking code is filled with callbacks while the blocking code is sequential.
 - The DB APIs are different, as non-blocking services use non-blocking DBs.
-- Each paradigm has specific `Effect` it operates on, e.g., Non-blocking paradigms operate on reactive containers like `Mono<A>/Flux<A> or Observable<A>`, contrary to blocking paradigms which may (or need not) use simple Effect types like `Option/Either`.
+- Each paradigm has specific `Effect` it operates on, e.g., Non-blocking paradigms may operate on reactive Effect types like `Mono<A>/Flux<A> or Observable<A>`, contrary to blocking paradigms which may (or need not) use simple Effect types like `Option/Either`.
 
-## Monomorphic to Polymorphic
+## Monomorphic to Polymorphic [3]
 
 If the Effect is abstracted out as a _Generic_, the domain logic turns reusable for service of any type, and it can be called **Polymorphic**. But to achieve that, we need to understand the concepts - **Higher-Kinds** and **Typeclasses**.
 
-### Need for Higher-Kinded Types [6]
+### Need for Higher-Kinded Types [4]
 
-Effects are of the form `F<A>` (e.g. `Mono<A>`), where `F` is the _Effect_ type and `A` is the value type. The problem is, most JVM languages only support parametricity on the value type `A` but not on the Container type `F`. So, we need **Higher-Kinded Types**, to represent `F<A>` as `Kind<F, A>`.
+Effects are of the form `F<A>` (e.g. `Mono<A>`), where `F` is the _Effect_ type and `A` is the value type. The problem is, most JVM languages only support parametricity on the value type `A` but not on the Container/Effect type `F`. So, we need **Higher-Kinded Types**, to represent `F<A>` as `Kind<F, A>`.
 
-### Need for Typeclasses [12]
+### Need for Typeclasses [5]
 
 It's a generic interface that is parametric on a Type `T`. E.g., `Comparator<T>` in JDK is a simple typeclass. `Comparator<T>` has one operation `fun compare(a: T?, b: T?): Int`. Now for a type `String` to be a member of this typeclass, prepare a concrete `Comparator<String>` implementing its `fun compare(a: String?, b: String?): Int`. That's it! Now the `Collections.sort()` can make use of this concrete implementation to compare Strings.
 
@@ -81,7 +85,7 @@ Now that we have both the tools (Higher-Kinded Types and Typeclasses), let’s m
 
 We shall take-up the **_user validate-and-upsert_** as our example use-case, where a request to upsert a user is **_validated_**, followed by **_insert or update_** based on the user's existence in the DB.
 
-`Spring-WebFlux` works with `Mono<A>/Flux<A>` while `Spring-WebMVC` doesn't. As a proof for reusability problem discussed above, refer the `upsert` function in both the services - [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/b59bd89a7302035e3d72dfb75071a2d05c055443/kofu-mvc-validation/src/main/kotlin/com/sample/Handlers.kt#L24-L43) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/b59bd89a7302035e3d72dfb75071a2d05c055443/kofu-reactive-validation/src/main/kotlin/com/sample/Handlers.kt#L26-L52).
+`Spring-WebFlux` works with `Mono<A>/Flux<A>` while `Spring-WebMVC` doesn't. As a proof for reusability problem discussed above, refer the `upsert` function in both the services - [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/72f6e6c0ba6e64ca3327c2ef64e4406884404eca/kofu-mvc-validation/src/main/kotlin/com/sample/Handlers.kt#L24-L43) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/72f6e6c0ba6e64ca3327c2ef64e4406884404eca/kofu-reactive-validation/src/main/kotlin/com/sample/Handlers.kt#L26-L52).
 
 The goal is to abstract this use-case domain logic into a generic reusable template. We shall achieve it by creating some typeclasses and making use of some typeclasses from the Arrow library. These heterogeneous services can inflate these templates by supplying concrete instances of those typeclass interfaces. Let's get started!
 
@@ -105,8 +109,8 @@ interface Repo<F> : Async<F> {
 
 - Now we can weave our business-logic into generic templates depending on the generic operations of the typeclass `Repo<F>`.
 - Templates are generic functions and they depend on Typeclasses. This dependency can be achieved by passing typeclass as a function argument or declaring the template functions as extensions [11] to a typeclass. I used the latter in my POC - [Ref](https://github.com/overfullstack/ad-hoc-poly/blob/8a3aeb5c0f3137f74ac9b22ee128e45075e9f50d/validation-fx/src/main/kotlin/com/validation/rules/UserRules.kt)
-- Typeclass is the bridge between services and templates. Services supply a concrete implementation of the typeclass, essentially filling in the blanks for the templates - [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/b59bd89a7302035e3d72dfb75071a2d05c055443/kofu-mvc-validation/src/main/kotlin/com/sample/Configurations.kt#L36-L43) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/b59bd89a7302035e3d72dfb75071a2d05c055443/kofu-reactive-validation/src/main/kotlin/com/sample/Configurations.kt#L27-L34).
-- These templates work as shared logic, and the services can use those concrete instances to consume all these templates for free! - [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/b59bd89a7302035e3d72dfb75071a2d05c055443/kofu-mvc-validation/src/main/kotlin/com/sample/HandlersX.kt#L22-L30) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/b59bd89a7302035e3d72dfb75071a2d05c055443/kofu-reactive-validation/src/main/kotlin/com/sample/HandlersX.kt#L20-L27).
+- Typeclass is the bridge between services and templates. Services supply a concrete implementation of the typeclass, essentially filling in the blanks for the templates - [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/72f6e6c0ba6e64ca3327c2ef64e4406884404eca/kofu-mvc-validation/src/main/kotlin/com/sample/Configurations.kt#L36-L43) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/72f6e6c0ba6e64ca3327c2ef64e4406884404eca/kofu-reactive-validation/src/main/kotlin/com/sample/Configurations.kt#L27-L34).
+- These templates work as shared logic, and the services can use those concrete instances to consume all these templates for free! - [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/72f6e6c0ba6e64ca3327c2ef64e4406884404eca/kofu-mvc-validation/src/main/kotlin/com/sample/HandlersX.kt#L22-L30) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/72f6e6c0ba6e64ca3327c2ef64e4406884404eca/kofu-reactive-validation/src/main/kotlin/com/sample/HandlersX.kt#L20-L27).
 - Moreover, the typeclass is entirely extensible to support more operations, in turn, to extend our template base.
 
 ## Outcomes and Conclusions
@@ -117,14 +121,12 @@ We achieved reusable domain logic using Ad-hoc Polymorphism, abstracting out the
 
 1. <https://nodejs.org/en/docs/guides/blocking-vs-non-blocking/>
 2. <https://www.reactivemanifesto.org/>
-3. <https://en.wikipedia.org/wiki/Subtyping>
-4. <https://en.wikipedia.org/wiki/Parametric_polymorphism>
-5. <https://en.wikipedia.org/wiki/Ad_hoc_polymorphism>
-6. <https://www.cl.cam.ac.uk/~jdy22/papers/lightweight-higher-kinded-polymorphism.pdf>
+3. <https://arrow-kt.io/docs/fx/polymorphism/>
+4. <https://www.cl.cam.ac.uk/~jdy22/papers/lightweight-higher-kinded-polymorphism.pdf>
+5. <https://arrow-kt.io/docs/patterns/glossary/#typeclasses>
+6. <https://en.wikipedia.org/wiki/Ad_hoc_polymorphism>
 7. <https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#spring-web>
 8. <https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html>
 9. <https://danielwestheide.com/blog/the-neophytes-guide-to-scala-part-12-type-classes/>
 10. <https://www.intuit.com/blog/uncategorized/kotlin-development-plan/>
 11. <https://kotlinlang.org/docs/reference/extensions.html>
-12. <https://arrow-kt.io/docs/patterns/glossary/#typeclasses>
-13. <https://en.wikipedia.org/wiki/Ad_hoc_polymorphism>
