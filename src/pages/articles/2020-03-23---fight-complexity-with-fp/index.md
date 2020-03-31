@@ -81,7 +81,7 @@ The service validation module has the following requirements:
 
 We have close to **100 validations** of various kinds and increasing. When the above requirements are dealt with traditional [Imperative Style](https://en.wikipedia.org/wiki/Imperative_programming), it can quickly get messy, as shown [here](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/test/java/imperative/ImperativeEggValidation.java). This code is mutation filled, non-extensible, non-sharable, non-unit-testable, and difficult to reason about.
 
-But to state that objectively, we can run **Cyclomatic Complexity**[$_{[6]}$] and **Cognitive Complexity** [$_{[7]}$] metrics on this code, using a popular Code Quality tool called **SonarQube™**[$_{[8]}$].
+But to state that objectively, we can run **Cyclomatic Complexity**[$_{[1]}$](https://www.ibm.com/developerworks/java/library/j-cq03316/) and **Cognitive Complexity** [$_{[2]}$](https://www.sonarsource.com/docs/CognitiveComplexity.pdf) metrics on this code, using a popular Code Quality tool called **SonarQube™**[$_{[3]}$](https://docs.sonarqube.org/latest/user-guide/metric-definitions/).
 
 Our current imperative approach records **high** values for both these metrics. (Results to be run and explained during the talk).
 
@@ -103,7 +103,7 @@ We need an extensible framework to cater above design needs.
 
 I used Java 8 Functional interfaces to represent the validation functions as values - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/declarative/RailwayValidation2.java). This way Validation functions turn more cohesive than the imperative style, can be extended independently from each other and **shared** among various service routes.
 
-### Representing Effect with Either Monad [$_{[1]}$]
+### Representing Effect with Either Monad[$_{[4]}$](https://www.vavr.io/vavr-docs/#_either)
 
 In the talk, I shall introduce Monad with a crash course and contextually explain the application of various monads, such as `Option`, `Either`, `Try`, `Stream`.
 
@@ -139,28 +139,28 @@ Functional Programming is not Complex, but it fights complexity. The solution ru
 
 This talk was successfully presented and warmly received at:
 
-- Google Developer Group Devfest 2019 (https://devfest.gdghyderabad.in/speakers.html)
-- Java User Group Hyderabad (@JUGHyd) (https://www.meetup.com/en-AU/jughyderabad/events/264688807/)
-- Salesforce, Hyderabad, India.
+- [Google Developer Group Devfest 2019](https://devfest.gdghyderabad.in/speakers.html)
+- [Java User Group Hyderabad (@JUGHyd)](https://www.meetup.com/en-AU/jughyderabad/events/264688807/)
+- [Salesforce, Hyderabad, India](http://y2u.be/l9jJ7m7_VpM)
 
-This talk is also selected for JBCN Conf - 2020 to be held in Barcelona this July.
+This talk is also selected for a prestigious international conference **[JBCN Conf - 2020](https://www.jbcnconf.com/2020/)** to be held in Barcelona this July.
 
 - The [Slide deck](http://bit.ly/fcwfp-slides)
 - The code examples for this talk can be found here:
   - [Imperative vs. Declarative](http://bit.ly/imp-vs-dec)
   - [Railway Oriented Validation](http://bit.ly/ro-validation)
-- The recording _(This is the first presentation of this talk, and there have been many enhancements in later editions)_.
+- The recording _(This is only the first presentation of this talk, and there have been many enhancements in later editions)_.
 
 `youtube: https://www.youtube.com/embed/l9jJ7m7_VpM`
 
 ## References
 
-1. <https://en.wikipedia.org/wiki/Monad_(functional_programming)#An_example:_Maybe>
-2. <https://www.vavr.io/vavr-docs/>
-3. <https://fsharpforfunandprofit.com/rop/>
-4. <http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html#just-what-is-a-functor,-really>
-5. <https://codurance.com/2018/08/09/the-functional-style-part-1/>
-6. <https://www.ibm.com/developerworks/java/library/j-cq03316/>
-7. <https://www.sonarsource.com/docs/CognitiveComplexity.pdf>
-8. <https://docs.sonarqube.org/latest/user-guide/metric-definitions/>
-9. <http://docs.mipro-proceedings.com/4cows/01_4cows_5333.pdf>
+1. <https://www.ibm.com/developerworks/java/library/j-cq03316/>
+2. <https://www.sonarsource.com/docs/CognitiveComplexity.pdf>
+3. <https://docs.sonarqube.org/latest/user-guide/metric-definitions/>
+4. <https://www.vavr.io/vavr-docs/#_either>
+
+- <http://docs.mipro-proceedings.com/4cows/01_4cows_5333.pdf>
+- <https://fsharpforfunandprofit.com/rop/>
+- <http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html#just-what-is-a-functor,-really>
+- <https://codurance.com/2018/08/09/the-functional-style-part-1/>

@@ -28,6 +28,6 @@ His Tech-Talks were warmly received at:
 - [Salesforce, Hyderabad, India](http://y2u.be/l9jJ7m7_VpM)
 - GHC, India - 2019, Bangalore
 
-He is also invited to speak at **JBCN Conf - 2020**, to be held in Barcelona this July.
+He is also invited to speak at a prestigious international conference **[JBCN Conf - 2020](https://www.jbcnconf.com/2020/)**, to be held in Barcelona this July.
 
 [My Résumé](http://bit.ly/ags-resume)
