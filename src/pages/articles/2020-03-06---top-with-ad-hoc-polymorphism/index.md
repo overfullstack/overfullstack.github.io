@@ -43,7 +43,7 @@ The audience learn about an innovative design technique to create reusable templ
 
 ### The Case for Heterogeneous services
 
-Taking the example from the Payments domain, Purchases tend to have high traffic (especially during Black Fridays, Flash sales, etc.), and it's common to model them with an Asynchronous non-blocking paradigm like a Reactive Stack[$_{[6]}$](https://www.reactivemanifesto.org/). Whereas Refunds tend to have relatively low traffic, and a simple blocking stack can easily cater to its scaling needs. Such use-cases can be found in many B2C products, e.g., Reservations vs. Cancellations.
+Reactive/non-blocking stack[$_{[6]}$](https://www.reactivemanifesto.org/) should only be used for high traffic services, as it adds a lot of complexity to the application[$_{[7]}$](https://blog.pragmatists.com/unobvious-traps-of-spring-webflux-16924a0d76d5). Taking the example from the Payments domain, Purchases tend to have high traffic (especially during Black Fridays, Flash sales, etc.), and it's common to model them with an Asynchronous non-blocking paradigm like `Spring-WebFlux`. Whereas Refunds tend to have relatively low traffic, and a simple blocking stack like `Spring-MVC` can easily cater to its scaling needs. Such use-cases can be found in many B2C products, e.g., Reservations vs. Cancellations.
 
 ### The problem of Reusability among Heterogeneous services
 
@@ -55,15 +55,15 @@ In the case of homogeneous services, the common code can be placed in a shared m
 - The DB APIs are different, as non-blocking services use non-blocking DBs.
 - Each paradigm has specific `Effect` it operates on, e.g., Non-blocking paradigms may operate on reactive Effect types like `Mono<A>/Flux<A> or Observable<A>`, contrary to blocking paradigms which may (or need not) use simple Effect types like `Option/Either`.
 
-## Monomorphic to Polymorphic[$_{[7]}$](https://arrow-kt.io/docs/fx/polymorphism/)
+## Monomorphic to Polymorphic[$_{[8]}$](https://arrow-kt.io/docs/fx/polymorphism/)
 
 If the Effect is abstracted out as a _Generic_, the domain logic turns reusable for service of any type, and it can be called **Polymorphic**. But to achieve that, we need to understand the concepts - **Higher-Kinds** and **Typeclasses**.
 
-### Need for Higher-Kinded Types[$_{[8]}$](https://arrow-kt.io/docs/patterns/glossary/#higher-kinds)
+### Need for Higher-Kinded Types[$_{[9]}$](https://arrow-kt.io/docs/patterns/glossary/#higher-kinds)
 
 Effects are of the form `F<A>` (e.g. `Mono<A>`), where `F` is the _Effect_ type and `A` is the value type. The problem is, most JVM languages only support parametricity on the value type `A` but not on the Container/Effect type `F`. So, we need **Higher-Kinded Types**, to represent `F<A>` as `Kind<F, A>`.
 
-### Need for Typeclasses[$_{[9]}$](https://arrow-kt.io/docs/patterns/glossary/#typeclasses)
+### Need for Typeclasses[$_{[10]}$](https://arrow-kt.io/docs/patterns/glossary/#typeclasses)
 
 It's a generic interface that is parametric on a Type `T`. E.g., `Comparator<T>` in JDK is a simple typeclass. `Comparator<T>` has one operation `fun compare(a: T?, b: T?): Int`. Now for a type `String` to be a member of this typeclass, prepare a concrete `Comparator<String>` implementing its `fun compare(a: String?, b: String?): Int`. That's it! Now the `Collections.sort()` can make use of this concrete implementation to compare Strings.
 
@@ -126,9 +126,10 @@ We achieved reusable domain logic using Ad-hoc Polymorphism, abstracting out the
 4. <https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html>
 5. <https://en.wikipedia.org/wiki/Ad_hoc_polymorphism>
 6. <https://www.reactivemanifesto.org/>
-7. <https://arrow-kt.io/docs/fx/polymorphism/>
-8. <https://arrow-kt.io/docs/patterns/glossary/#higher-kinds>
-9. <https://arrow-kt.io/docs/patterns/glossary/#typeclasses>
+7. <https://blog.pragmatists.com/unobvious-traps-of-spring-webflux-16924a0d76d5>
+8. <https://arrow-kt.io/docs/fx/polymorphism/>
+9. <https://arrow-kt.io/docs/patterns/glossary/#higher-kinds>
+10. <https://arrow-kt.io/docs/patterns/glossary/#typeclasses>
 
 - <https://danielwestheide.com/blog/the-neophytes-guide-to-scala-part-12-type-classes/>
 - <https://www.cl.cam.ac.uk/~jdy22/papers/lightweight-higher-kinded-polymorphism.pdf>
