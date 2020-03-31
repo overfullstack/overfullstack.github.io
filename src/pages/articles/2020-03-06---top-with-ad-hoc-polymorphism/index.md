@@ -35,7 +35,7 @@ This talk targets basic to intermediate senior developers with a good understand
 
 Kotlin's syntax is very close to Java, and all software design patterns discussed in this talk can be implemented in almost any language. Thanks to the concise syntax of Kotlin [10] and robust tool-set provided by Arrow, implementing `Ad-hoc Polymorphism` turns ergonomic. But Kotlin is just an implementation detail, and this paper has no intention to recommend Kotlin over any other language.
 
-I used `Spring-MVC`[7] and `Spring-WebFlux`[8] (popular backend frameworks) to demonstrate heterogeneity, in my POC. But no prior knowledge is required about these frameworks.
+I used `Spring-MVC`[$_{[7]}$](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#spring-web) and `Spring-WebFlux`[<sub>[8]</sub>](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html) (popular backend frameworks) to demonstrate heterogeneity, in my POC. But no prior knowledge is required about these frameworks.
 
 The audience learn about an innovative design technique to create reusable templates called **Ad-hoc Polymorphism**[6], and how is it profitable and reduces the maintenance overhead of rewriting the same business logic across heterogeneous services and service migrations.
 

@@ -163,3 +163,4 @@ This talk is also selected for JBCN Conf - 2020 to be held in Barcelona this Jul
 6. <https://www.ibm.com/developerworks/java/library/j-cq03316/>
 7. <https://www.sonarsource.com/docs/CognitiveComplexity.pdf>
 8. <https://docs.sonarqube.org/latest/user-guide/metric-definitions/>
+9. <http://docs.mipro-proceedings.com/4cows/01_4cows_5333.pdf>
