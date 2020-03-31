@@ -81,7 +81,7 @@ The service validation module has the following requirements:
 
 We have close to **100 validations** of various kinds and increasing. When the above requirements are dealt with traditional [Imperative Style](https://en.wikipedia.org/wiki/Imperative_programming), it can quickly get messy, as shown [here](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/test/java/imperative/ImperativeEggValidation.java). This code is mutation filled, non-extensible, non-sharable, non-unit-testable, and difficult to reason about.
 
-But to state that objectively, we can run **Cyclomatic Complexity** [6] and **Cognitive Complexity** [7] metrics on this code, using a popular Code Quality tool called **SonarQube™** [8].
+But to state that objectively, we can run **Cyclomatic Complexity**[$_{[6]}$] and **Cognitive Complexity** [$_{[7]}$] metrics on this code, using a popular Code Quality tool called **SonarQube™**[$_{[8]}$].
 
 Our current imperative approach records **high** values for both these metrics. (Results to be run and explained during the talk).
 
@@ -103,7 +103,7 @@ We need an extensible framework to cater above design needs.
 
 I used Java 8 Functional interfaces to represent the validation functions as values - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/declarative/RailwayValidation2.java). This way Validation functions turn more cohesive than the imperative style, can be extended independently from each other and **shared** among various service routes.
 
-### Representing Effect with Either Monad [1]
+### Representing Effect with Either Monad [$_{[1]}$]
 
 In the talk, I shall introduce Monad with a crash course and contextually explain the application of various monads, such as `Option`, `Either`, `Try`, `Stream`.
 
