@@ -11,31 +11,29 @@ tags:
   - "Vavr"
 description: "Skadooosh!"
 keyTakeAways:
-    - A **Metric-driven approach** towards reducing cognitive complexity using Functional Programming (FP) principles.
-    - Modeling and designing complex real-world problems using Functional Programming constructs.
-    - Intermediate FP Concepts such as Monads, Function Lifting and their application in the context of a real-world problem.
-    - A mind-shift from a traditional imperative style to functional style.
+  - A **Metric-driven approach** towards reducing Cognitive Complexity using Functional Programming (FP) principles.
+  - Modeling and designing of complex real-world problems using Functional Programming constructs.
+  - Intermediate FP Concepts such as Monads, Function Lifting and their application in the context of a real-world problem.
+  - A mind-shift from a traditional imperative style to functional style.
 ---
 
 ## Abstract
 
-For teams suffering from a high complexity code base, this paper offers a **Metric-driven approach** towards reducing cognitive complexity using Functional Programming (FP) principles.
-
-With the advent of **SaaS** and **Microservices**, software systems majorly communicate through the network, and **REST** is the predominant HTTP protocol used. To reduce network latency, these services resort to _Bulk-APIs_. One of the significant challenges of Bulk-APIs is **Request Validation**. With increasing request bulk size, service routes, and the number of validations, the validation orchestration can quickly get complex when done in traditional imperative style.
-
-This paper offers a *creative solution* in the form of an extensible **Validation Framework** for REST services, using FP, which was successfully implemented by our Payments Platform Engineering in one of the world's largest SaaS companies, *Salesforce*.
+A Metric-driven approach to reduce Cognitive Complexity in a code base, using Functional Programming, demoed by solving a complex real-world ubiquitous design challenge - REST API Bulk Request Validation, with an extensible Framework that separates what-to-do (Validations) from how-to-do (Validation Orchestration). It was successfully done by our team in the world's largest SaaS org, *Salesforce*.
 
 ## Audience
 
-Technical Level: Interesting to all, approachable for basic and up. Any Functional Programming enthusiasts love it.
+Technical Level: Interesting to all, approachable for basic and up. Any Functional Programming (FP) enthusiasts love it.
 
-This talk targets developers with basic knowledge of software design. The concepts are language agnostic. For broader outreach, I shall use **Java** for demonstration. The audience doesn't need any prior knowledge of FP. They are gradually ramped-up towards Intermediate FP Concepts such as Monads, Function Lifting in the context of the problem.
+This talk targets developers with basic knowledge of software design. The concepts are language agnostic. For broader outreach, I shall use **Java** for demonstration. The audience doesn't need any prior knowledge of FP. They are gradually ramped-up towards Intermediate FP concepts such as Monads, Function Lifting in the context of the problem.
 
-The audience experiences a mind-shift from a traditional imperative style to functional style. This talk adds new paradigm tool-set and vocabulary to any programmer's arsenal and how to use it to simplify the modeling and designing complex real-world problems.
+The audience experiences a mind-shift from a traditional imperative style to functional style. This talk adds new paradigm tool-set and vocabulary to any programmer's arsenal and how to use it to simplify the modeling and designing of complex real-world problems.
 
 As I cannot use the production code, I use code samples from my POC [Github repo](https://github.com/overfullstack/railway-oriented-validation) for the demonstration.
 
 ## Introduction
+
+With the advent of **SaaS** and **Microservices**, software systems majorly communicate through the network, and **REST** is the predominant HTTP protocol used. To reduce network latency, these services resort to _Bulk-APIs_. One of the significant challenges of Bulk-APIs is **Request Validation**. With increasing request bulk size, service routes, and the number of validations, the validation orchestration can quickly get complex when done in traditional imperative style.
 
 Our Payment Platform service has parallel routes such as Authorization, Capture, Refund, Void. All of these are REST-APIs. They have JSON request payloads that accept sub-requests in bulk (list of JSON nodes). A simplified version of payload for one of the routes - Authorization:
 
@@ -89,7 +87,7 @@ Our current imperative approach records **high** values for both these metrics. 
 
 ### The 3D design problem
 
-This problem is a 3-dimensional design problem stretching among - Sub-requests, service routes (sharing common fields & nodes), and Validations. In the above imperative approach, we entangled all 3, which lead to chaos. We need a design, which treats all of these separately, let them extend independently, and abstracts out validation sequencing and orchestration. We need to separate *What-to-do* from *How-to-do.*
+This problem is a 3-dimensional design problem stretching among - Sub-requests, service routes (sharing common fields & nodes), and Validation count. In the above imperative approach, we entangled all 3, which lead to chaos. We need a design, which treats all of these separately, let them extend independently, and abstracts out validation sequencing and orchestration. We need to separate *What-to-do* from *How-to-do.*
 
 ### Dichotomous Data
 
