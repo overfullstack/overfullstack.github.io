@@ -121,6 +121,13 @@ That means, any new service or service migration can borrow all those well-teste
 
 We achieved reusable domain logic using Ad-hoc Polymorphism, abstracting out the Effect using Typeclasses and Higher-Kinded Types, turing our Monomorphic code to Polymorphic. This is very powerful to model and migrate B2C-services. This **zeros-down the cost and effort** to rewrite and maintain common business logic across all services and service migrations. This can save a release cycle amount of work, bringing in real agility among scrum teams and startups to ship features faster.
 
+## My Talk on this
+
+This talk was successfully presented and warmly received at [@Kotlin User Group, Hyderabad](https://twitter.com/kotlinhyderabad)
+<https://www.meetup.com/en-AU/kotlinhyderabad/events/269763753/>
+
+`youtube: _QBlKtUY6ac`
+
 ## References
 
 1. <https://nodejs.org/en/docs/guides/blocking-vs-non-blocking/>

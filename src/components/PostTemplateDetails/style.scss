@@ -176,8 +176,8 @@ applause-button .count-container {
             }
         }
     }
-    .gatsby-resp-iframe-wrapper {
-        margin-left: 9rem
+    .embedVideo-iframe {
+        display: block;
     }
 }
 
@@ -229,8 +229,8 @@ applause-button .count-container {
         margin: 0;
     }
 
-    .gatsby-resp-iframe-wrapper {
-        margin-left: 9rem
+    .embedVideo-iframe {
+        display: block;
     }
 
 }

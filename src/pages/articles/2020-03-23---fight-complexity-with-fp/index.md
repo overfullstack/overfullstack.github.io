@@ -149,7 +149,7 @@ This talk is also selected for a prestigious international conference **[JBCN Co
   - [Railway Oriented Validation](http://bit.ly/ro-validation)
 - The recording _(This is only the first presentation of this talk, and there have been many enhancements in later editions)_.
 
-`youtube: https://www.youtube.com/embed/l9jJ7m7_VpM`
+`youtube: l9jJ7m7_VpM`
 
 ## References
 

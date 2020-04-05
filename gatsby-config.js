@@ -122,7 +122,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-embed-video',
             options: {
-              width: 560,
+              width: 640,
               ratio: 1.77,
               related: false,
               noIframeBorder: true,
@@ -132,12 +132,6 @@ module.exports = {
             resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 640,
-            },
-          },
-          {
-            resolve: 'gatsby-remark-responsive-iframe',
-            options: {
-              wrapperStyle: 'margin-bottom: 1.0725rem',
             },
           },
           'gatsby-remark-code-titles',
