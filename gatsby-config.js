@@ -23,6 +23,10 @@ module.exports = {
         path: '/about-me/',
       },
       {
+        label: 'My Talks',
+        path: '/my-talks/',
+      },
+      {
         label: 'Contact me',
         path: '/contact-me/',
       },

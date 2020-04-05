@@ -123,7 +123,7 @@ We achieved reusable domain logic using Ad-hoc Polymorphism, abstracting out the
 
 ## My Talk on this
 
-This talk was successfully presented and warmly received at [@Kotlin User Group, Hyderabad](https://twitter.com/kotlinhyderabad)
+This talk was successfully presented and warmly received at [Kotlin User Group, Hyderabad](https://twitter.com/kotlinhyderabad)
 <https://www.meetup.com/en-AU/kotlinhyderabad/events/269763753/>
 
 `youtube: _QBlKtUY6ac`
