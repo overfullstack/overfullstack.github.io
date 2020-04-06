@@ -1,11 +1,11 @@
 ---
 title: "My Talks"
 layout: page
-cover: "./speaking-at-sf-hyd.webp"
+cover: "./speaking-at-sf-hyd.jpg"
 path: "/my-talks"
 ---
 
-![Speaking at GDG-2019](speaking-at-sf-hyd.webp)
+![Speaking at GDG-2019](speaking-at-sf-hyd.jpg)
 
 His Tech-Talks were warmly received at:
 
