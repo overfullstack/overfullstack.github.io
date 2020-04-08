@@ -31,4 +31,6 @@ His Tech-Talks were warmly received at:
 
 He is also invited to speak at a prestigious international conference **[JBCN Conf - 2020](https://www.jbcnconf.com/2020/)**, to be held in Barcelona this July.
 
+[Talk Recordings](/my-talks/#Recorded-Talks)
+
 [My Résumé](http://bit.ly/ags-resume)
