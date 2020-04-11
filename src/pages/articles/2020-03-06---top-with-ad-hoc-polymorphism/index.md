@@ -10,30 +10,32 @@ tags:
   - "Kotlin"
   - "Arrow"
 description: "Top-up with Ad-hoc Polymorphism"
-keyTakeAways:
-  - Create magic by combining Spring Boot + Kotlin + Arrow library.
-  - Convert common use-cases among heterogeneous services into reusable code templates using **Ad-hoc Polymorphism**.
-  - Monomorphic vs. Polymorphic code.
-  - Agile **B2C product development** teams, both in enterprises and startups, can accelerate their feature development cycle.
+keyTakeaways:
+  - Create magic by the hot combination of Spring Boot + Kotlin + Arrow library.
+  - The _Why, How & What_ of Monomorphic vs. Polymorphic code.
+  - Agile **B2C product development** teams, both in enterprises and startups, can learn ways to accelerate their feature development cycle, by converting large & common & well-tested features among heterogeneous services into reusable code templates using **Ad-hoc Polymorphism**[$_{[5]}$](https://en.wikipedia.org/wiki/Ad_hoc_polymorphism), and how is it profitable and reduces the maintenance overhead of rewriting the same business logic across heterogeneous services and service migrations.
+largeAbstract: The trend in the B2C world is to chop the use-cases with varied traffic-needs into _Microservices/Macroservices_ managed by independent Scrum teams. These teams develop using Heterogeneous frameworks and tech-stacks (blocking/reactive), as per the traffic needs of their services. Despite being heterogenous, these services have many commonalities in their Domain logic, ranging from small features such as Authentication, Logging, to large features such as Request-Validation, Idempotency, External-Integrations. But the code for these features can't be shared/reused due to paradigm contrast. This leads to scrum teams duplicating the same logic in all the services. Or if a service is migrated to a different paradigm to scale better for increasing traffic, it needs to be entirely rewritten. Let’s see (with a hands-on demo), how to make such common logic reusable/sharable, turning the Monomorphic code into Polymorphic **Templates**, which enables scrum teams to share well-tested small & large features across their services.
 ---
 
 ## Abstract
 
-B2C microservices are built on heterogeneous tech-stacks (blocking/reactive) as per their traffic and can have common use-cases E.g. Validation, Idempotency. But code can't be shared/reused due to paradigm contrast. So it's rewritten everywhere. With a POC, we demo how to hasten feature development, by templatizing code for large common well-tested features for reuse across heterogeneous services.
+B2C microservices are built on heterogeneous tech-stacks (blocking/reactive) as per their traffic and can have common use-cases E.g. Validation, Idempotency. But code can't be shared/reused due to paradigm contrast. So it's rewritten everywhere. With a hands-on demo, let's see how to hasten feature development, by **Templatizing** code for large & common & well-tested features, to be _shared/reused_ across heterogeneous services, using a design technique called **Ad-hoc Polymorphism**.
 
-## Audience
+## Audience and Takeaways
 
 Technical Level: Interesting to all, approachable for intermediate and up. Any Functional Programming enthusiasts love it.
 
-This talk targets intermediate to expert senior developers with a good understanding of `generics` and some exposure/interest towards blocking and non-blocking/reactive paradigms. This talk is language-agnostic, but I use **Kotlin** (a modern JVM language) in combination with **[Arrow](http://arrow-kt.io/)** (A unique open-source library for Kotlin).
+This talk targets intermediate to expert senior developers with a good understanding of `generics` and some exposure/interest towards blocking and non-blocking/reactive paradigms. This talk is language-agnostic, but I use **[Kotlin](https://kotlinlang.org/) (a Modern Open-source JVM language)** in combination with **[Arrow](http://arrow-kt.io/) (A Trending open-source functional companion for Kotlin)**.
 
-Kotlin's syntax is very close to Java, and all software design patterns discussed in this talk can be implemented in almost any language. Thanks to the concise syntax of Kotlin[$_{[2]}$](https://www.intuit.com/blog/uncategorized/kotlin-development-plan/) and robust tool-set provided by Arrow, implementing `Ad-hoc Polymorphism` turns ergonomic.
+Kotlin's syntax is very close to Java, and all software design patterns discussed in this talk can be implemented in almost any language. Thanks to the concise syntax of Kotlin[$_{[2]}$](https://www.intuit.com/blog/uncategorized/kotlin-development-plan/) and robust tool-set provided by Arrow, implementing Ad-hoc Polymorphism turns ergonomic.
 
 I used `Spring-MVC`[$_{[3]}$](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#spring-web) and `Spring-WebFlux`[$_{[4]}$](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html) (popular backend frameworks) to demonstrate heterogeneity, in my POC.
 
-No prior knowledge about these frameworks or kotlin is required, all the nuances required for this problem are contextually explained in the talk.
+No prior knowledge about these frameworks or kotlin is required, all the nuances required for this problem are contextually explained in the talk. The key takeaways for the audience are:
 
-The audience learn about an innovative design technique to create reusable templates called **Ad-hoc Polymorphism**[$_{[5]}$](https://en.wikipedia.org/wiki/Ad_hoc_polymorphism), and how is it profitable and reduces the maintenance overhead of rewriting the same business logic across heterogeneous services and service migrations.
+- How to Create magic with the hot combination of _Spring Boot + Kotlin + Arrow_.
+- The _Why, How & What_ of Monomorphic vs. Polymorphic code.
+- Agile **B2C product development** teams, both in enterprises and startups, can learn ways to accelerate their feature development cycle, by converting large & common & well-tested features among heterogeneous services into reusable code templates using **Ad-hoc Polymorphism**[$_{[5]}$](https://en.wikipedia.org/wiki/Ad_hoc_polymorphism), and how is it profitable and reduces the maintenance overhead of rewriting the same business logic across heterogeneous services and service migrations.
 
 ## Introduction
 
@@ -41,12 +43,13 @@ This paper is for Agile B2C product development teams, both in enterprises and s
 
 ### The Case for Heterogeneous services
 
-The trend in the B2C world is to chop the use-cases with varied traffic-needs into Microservices managed by independent Scrum teams. These teams develop using Heterogeneous frameworks and tech-stacks, suitable for the traffic needs of their services.
-Reactive/non-blocking stack[6] should only be used for high traffic services, as it adds a lot of complexity to the application[7] . Taking the example from the Payments domain, Purchases tend to have high traffic (especially during Black Fridays, Flash sales, etc.), and it's common to model them with an Asynchronous non-blocking paradigm like Spring-WebFlux. Whereas Refunds tend to have relatively low traffic, and a simple blocking stack like Spring-MVC can easily cater to its scaling needs. Such use-cases can be found in many B2C products, E.g. Reservations vs. Cancellations.
+The trend in the B2C world is to chop the use-cases with varied traffic-needs into _Microservices/Macroservices_ managed by independent Scrum teams. These teams develop using Heterogeneous frameworks and tech-stacks, suitable for the traffic needs of their services.
+
+Reactive/non-blocking stack[$_{[6]}$](https://www.reactivemanifesto.org/) should only be used for high traffic services, as it adds a lot of complexity to the application[$_{[7]}$](https://blog.pragmatists.com/unobvious-traps-of-spring-webflux-16924a0d76d5). Taking an example from the Payments domain, Purchases tend to have high traffic (especially during Black Fridays, Flash sales, etc.), and it's common to model them with an Asynchronous non-blocking paradigm like _Spring-WebFlux_. Whereas Refunds tend to have relatively low traffic, and a simple blocking stack like _Spring-MVC_ can easily cater to its scaling needs. Such use-cases can be found in many B2C products, E.g. Reservations vs. Cancellations.
 
 ### The problem of Reusability among Heterogeneous services
 
-Despite being heterogenous, these services have many commonalities in their Domain logic, ranging from small features such as Authentication, Logging to large features such as Request-Validation, Idempotency, External-Integrations. In the case of homogeneous services, the common code can be placed in a shared module and be added as a dependency in all services. But in heterogeneous case, blocking code can't be shared/reused for non-blocking service or vice-versa, because:
+Despite being heterogenous, these services have many commonalities in their Domain logic, ranging from small features such as Authentication, Logging, to large features such as Request-Validation, Idempotency, External-Integrations. In the case of homogeneous services, the common code can be placed in a shared module and be added as a dependency in all services. But in heterogeneous case, blocking code can't be shared/reused for non-blocking service or vice-versa, because:
 
 - It's extremely dangerous to mix both paradigms, as it can lead to untraceable performance issues.
 - Their styles of programming are different (Functional in non-blocking vs. Imperative in blocking).
@@ -56,7 +59,7 @@ Despite being heterogenous, these services have many commonalities in their Doma
 
 This leads to scrum teams duplicating the same logic in all the services. Also, a service may be migrated, E.g. from `Spring-MVC` to `Spring-WebFlux` to scale better for increasing traffic, it needs to be entirely rewritten.
 
-Let’s see (with a working POC) how to make such common logic reusable/sharable, turning the Monomorphic code into Polymorphic templates, which enables scrum teams to share well-tested small and large features across their services.
+Let’s see (with a working POC) how to make such common logic reusable/sharable, turning the Monomorphic code into Polymorphic templates, which enables scrum teams to share well-tested small & large features across their services.
 
 ## Monomorphic to Polymorphic[$_{[8]}$](https://arrow-kt.io/docs/fx/polymorphism/)
 

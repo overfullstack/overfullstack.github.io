@@ -10,32 +10,36 @@ tags:
   - "Java"
   - "Vavr"
 description: "Skadooosh!"
-keyTakeAways:
+keyTakeaways:
   - A **Metric-driven approach** towards reducing Cognitive Complexity using Functional Programming (FP) principles.
   - Modeling and designing of complex real-world problems using Functional Programming constructs.
-  - Intermediate FP Concepts such as Monads, Function Lifting and their application in the context of a real-world problem.
+  - Intermediate FP Concepts such as *Monads*, _First-Class Functions_, _Higher-Order Functions_, *Function-Lifting* and their application in the context of a real-world problem.
   - A mind-shift from a traditional imperative style to functional style.
 ---
 
 ## Abstract
 
-A Metric-driven approach to reduce Cognitive Complexity in a code base, using Functional Programming, demoed by solving a complex real-world ubiquitous design challenge - REST API Bulk Request Validation, with an extensible Framework that separates what-to-do (Validations) from how-to-do (Validation Orchestration). It was successfully done by our team in the world's largest SaaS org, *Salesforce*.
+A Metric-driven approach to reduce Cognitive Complexity in a code base, using Functional Programming, demoed hands-on, by solving a complex real-world ubiquitous design challenge - REST API Bulk Request Validation, with an extensible Framework that separates what-to-do (Validations) from how-to-do (Validation Orchestration). Let's case-study a successful implementation done by our team in the world's largest SaaS org, *Salesforce*.
 
-## Audience
+## Audience and Takeaways
 
 Technical Level: Interesting to all, approachable for basic and up. Any Functional Programming (FP) enthusiasts love it.
 
-This talk targets developers with basic knowledge of software design. The concepts are language agnostic. For broader outreach, I shall use **Java** for demonstration. The audience doesn't need any prior knowledge of FP. They are gradually ramped-up towards Intermediate FP concepts such as Monads, Function Lifting in the context of the problem.
+This talk targets developers with basic knowledge of software design. The concepts are language agnostic. For broader outreach, I can use of either of these two for a hands-on demo -- **[Kotlin](https://kotlinlang.org/)** (a Modern Open-source JVM language) + **[Arrow](https://arrow-kt.io/)** (a Trending Open-source functional companion for Kotlin) _(or)_ **Java** + **[Vavr](https://www.vavr.io/)** (an Open-source functional library for Java)
 
-The audience experiences a mind-shift from a traditional imperative style to functional style. This talk adds new paradigm tool-set and vocabulary to any programmer's arsenal and how to use it to simplify the modeling and designing of complex real-world problems.
+- The audience doesn't need any prior knowledge of FP. They are gradually ramped-up towards Intermediate FP concepts such as *Monads*, _First-Class Functions_, _Higher-Order Functions_, *Function-Lifting* in the context of the problem.
+- The audience experiences a mind-shift from a traditional imperative style to functional style. This talk adds new paradigm tool-set and vocabulary to any programmer's arsenal and how to use it to simplify the modeling and designing of complex _real-world_ problems.
+- The audience learn how to objectively perceive complexity in any codebase through metrics (measured using popular static analysis tools), and how to methodically reduce cognitive complexity.
 
-As I cannot use the production code, I use code samples from my POC [Github repo](https://github.com/overfullstack/railway-oriented-validation) for the demonstration.
+As I cannot use the production code, I use code samples from my POC for the demonstration -- [Github repo for Java](https://github.com/overfullstack/railway-oriented-validation) or [Github repo for Kotlin](https://github.com/overfullstack/railway-oriented-validation-kotlin).
+
+The code references in this point to Java repo, but they can be correlated by name with the Kotlin repo.
 
 ## Introduction
 
-With the advent of **SaaS** and **Microservices**, software systems majorly communicate through the network, and **REST** is the predominant HTTP protocol used. To reduce network latency, these services resort to _Bulk-APIs_. One of the significant challenges of Bulk-APIs is **Request Validation**. With increasing request bulk size, service routes, and the number of validations, the validation orchestration can quickly get complex when done in traditional imperative style.
+With the advent of **SaaS** and **Microservices/Macroservices**, software systems majorly communicate through the network, and **REST** is the predominant HTTP protocol used. To reduce network latency, these services resort to _Bulk-APIs_. One of the significant challenges of Bulk-APIs is **Request Validation**. With increasing request bulk size, service routes, and the number of validations, the validation orchestration can quickly get complex when done in traditional imperative style.
 
-Our Payment Platform service has parallel routes such as Authorization, Capture, Refund, Void. All of these are REST-APIs. They have JSON request payloads that accept sub-requests in bulk (list of JSON nodes). A simplified version of payload for one of the routes - Authorization:
+Let's take-up a real-world problem. Our Payment Platform service has parallel routes such as Authorization, Capture, Refund, Void. All of these are REST-APIs. They have JSON request payloads that accept sub-requests in bulk (list of JSON nodes). A simplified version of payload for one of the routes - Authorization:
 
 ```json
 [
@@ -62,22 +66,23 @@ Our Payment Platform service has parallel routes such as Authorization, Capture,
 
 Since all services deal with Payments, they have a lot of common fields like `amount`, as well as common child nodes like `paymentMethod` in their structure. Based on the type of field, they have different kinds of validations. E.g.:
 
-- Common fields like `amount` - needs *simple data validation* for non-negative integers.
-- Fields like `accountId` - needs a *stateful validation* which involves a DB read.
-- _Nested Validations_ for the common child nodes like `paymentMethod` as it is an independent child node inside a parent.
+- _Simple data validations_ - to validate data integrity for fields like `amount`.
+- _Stateful validations_ - for fields like `accountId`, which involves a DB read and is exception prone.
+- _Common Validations_ - for common fields such as `amount`, `accountId`, which are common across all service routes.
+- _Nested Validations_ for the common child nodes like `paymentMethod`, as it's an independent child node inside a parent.
 
 ### The Requirements
 
 The service validation module has the following requirements:
 
-- Share common and Nested Validations.
-- Configure Validation sequence- Cheaper first and Costlier later.
+- Share Common and Nested Validations.
+- Configure Validation sequence - Cheaper first and Costlier later.
 - Fail-Fast for each sub-request.
 - Partial failures - An aggregated error response for failed sub-requests can only be sent after valid requests are processed through multiple layers of the application. We have to hold on to the invalid sub-requests till the end and skip them from processing.
 
 ## Imperative treatment
 
-We have close to **100 validations** of various kinds and increasing. When the above requirements are dealt with traditional [Imperative Style](https://en.wikipedia.org/wiki/Imperative_programming), it can quickly get messy, as shown [here](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/test/java/imperative/ImperativeEggValidation.java). This code is mutation filled, non-extensible, non-sharable, non-unit-testable, and difficult to reason about.
+We have close to **100 validations** of various kinds and increasing. When the above requirements are dealt with traditional [Imperative Style](https://en.wikipedia.org/wiki/Imperative_programming), it can quickly get messy, as shown [here](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/imperative/ImperativeValidation.java). This code is mutation filled, non-extensible, non-sharable, non-unit-testable, and difficult to reason about.
 
 But to state that objectively, we can run **Cyclomatic Complexity**[$_{[1]}$](https://www.ibm.com/developerworks/java/library/j-cq03316/) and **Cognitive Complexity** [$_{[2]}$](https://www.sonarsource.com/docs/CognitiveComplexity.pdf) metrics on this code, using a popular Code Quality tool called **SonarQube™**[$_{[3]}$](https://docs.sonarqube.org/latest/user-guide/metric-definitions/).
 
@@ -105,7 +110,7 @@ I used Java 8 Functional interfaces to represent the validation functions as val
 
 In the talk, I shall introduce Monad with a crash course and contextually explain the application of various monads, such as `Option`, `Either`, `Try`, `Stream`.
 
-Let's start with `Either` Monad - It is a data type container that represents the data it contains in 2 states `left` and `right`. We can leverage this *Effect* to represent our Dichotomous Data, where `left: Validation Failure` and `right: Valid sub-request`. Either Monad has operations [API ref] like `map` and `flatMap`, which perform operations on the contained value, only if Monad is in `right` state. This property helps developers write _linear programs_ without worrying about the state of Monad - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/5a8565e02c09c18f9a776041ead745c0ea9414d5/src/main/java/declarative/RailwayValidation2.java#L38-L43).
+Let's start with `Either` Monad - It is a data type container that represents the data it contains in 2 states `left` and `right`. We can leverage this *Effect* to represent our Dichotomous Data, where `left: Validation Failure` and `right: Valid sub-request`. Either Monad has operations [API ref] like `map` and `flatMap`, which perform operations on the contained value, only if Monad is in `right` state. This property helps developers write _linear programs_ without worrying about the state of Monad - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/declarative/RailwayValidation2.java#L40-L45).
 
 ### Validations exchange Monad Currency
 
@@ -113,7 +118,7 @@ This *Effect* can be used as a currency to be exchanged as input-output for our
 
 ### Validation Orchestration
 
-Since functions are values, all you need is an Ordered List (like `java.util.list`) to maintain the sequence of validations. We can compose all the validation functions, in the order of preference. This order is easily **configurable** - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/5a8565e02c09c18f9a776041ead745c0ea9414d5/src/main/java/common/Config.java#L25-L36).
+Since functions are values, all you need is an Ordered List (like `java.util.list`) to maintain the sequence of validations. We can compose all the validation functions, in the order of preference. This order is easily **configurable** - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/22d6370c5689b4b5737134613ffcc4a5397cfaf8/src/main/java/common/Config.java#L32-L43).
 
 Now we have 2 lists to intertwine - List of sub-requests to be validated against List of Validations. This orchestration can be easily achieved in many ways due to the virtue of loose coupling between What-to-do(validations) and How-to-do(Orchestration). We can switch orchestration strategies (like fail-fast strategy to error-accumulation) without effecting validations code - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/declarative/ValidationStrategies.java).
 
