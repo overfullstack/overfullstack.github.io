@@ -67,7 +67,7 @@ Let's take-up a real-world problem. Our Payment Platform service has parallel ro
 Since all services deal with Payments, they have a lot of common fields like `amount`, as well as common child nodes like `paymentMethod` in their structure. Based on the type of field, they have different kinds of validations. E.g.:
 
 - _Simple data validations_ - to validate data integrity for fields like `amount`.
-- _Stateful validations_ - for fields like `accountId`, which involves a DB read and is exception prone.
+- _Effectful validations_ - for fields like `accountId`, which involves a DB read and is exception prone.
 - _Common Validations_ - for common fields such as `amount`, `accountId`, which are common across all service routes.
 - _Nested Validations_ for the common child nodes like `paymentMethod`, as it's an independent child node inside a parent.
 
@@ -143,6 +143,7 @@ Functional Programming is not Complex, but it fights complexity. The solution ru
 This talk was successfully presented and warmly received at:
 
 - [Google Developer Group Devfest 2019](https://devfest.gdghyderabad.in/speakers.html)
+- [Kotlin User Group, Berlin](https://youtu.be/uGxx01yYAgk)
 - [Java User Group Hyderabad (@JUGHyd)](https://www.meetup.com/en-AU/jughyderabad/events/264688807/)
 - [Salesforce, Hyderabad, India](http://y2u.be/l9jJ7m7_VpM)
 
@@ -154,7 +155,13 @@ This talk is also selected for a prestigious international conference **[JBCN Co
   - [Railway Oriented Validation](http://bit.ly/ro-validation)
 - The recording _(This is only the first presentation of this talk, and there have been many enhancements in later editions)_.
 
+### The Java Version
+
 `youtube: l9jJ7m7_VpM`
+
+### The Kotlin Version
+
+`youtube: uGxx01yYAgk`
 
 ## References
 
