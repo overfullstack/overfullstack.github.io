@@ -14,7 +14,7 @@ keyTakeaways:
   - Create magic by the hot combination of Spring Boot + Kotlin + Arrow library.
   - The _Why, How & What_ of Monomorphic vs. Polymorphic code.
   - Agile **B2C product development** teams, both in enterprises and startups, can learn ways to accelerate their feature development cycle, by converting large & common & well-tested features among heterogeneous services into reusable code templates using **Ad-hoc Polymorphism**[$_{[5]}$](https://en.wikipedia.org/wiki/Ad_hoc_polymorphism), and how is it profitable and reduces the maintenance overhead of rewriting the same business logic across heterogeneous services and service migrations.
-largeAbstract: The trend in the B2C world is to chop the use-cases with varied traffic-needs into _Microservices/Macroservices_ managed by independent Scrum teams. These teams develop using Heterogeneous frameworks and tech-stacks (blocking/reactive), as per the traffic needs of their services. Despite being heterogenous, these services have many commonalities in their Domain logic, ranging from small features such as Authentication, Logging, to large features such as Request-Validation, Idempotency, External-Integrations. But the code for these features can't be shared/reused due to paradigm contrast. This leads to scrum teams duplicating the same logic in all the services. Or if a service is migrated to a different paradigm to scale better for increasing traffic, it needs to be entirely rewritten. Let’s see (with a hands-on demo), how to make such common logic reusable/sharable, turning the Monomorphic code into Polymorphic **Templates**, which enables scrum teams to share well-tested small & large features across their services.
+largeAbstract: The trend in the B2C world is to chop the use-cases with varied traffic-needs into _Microservices/Macroservices_ managed by independent Scrum teams. These teams develop using Heterogeneous frameworks and tech-stacks (blocking/reactive), as per the traffic needs of their services. Despite being heterogenous, these services have many commonalities in their Domain logic, ranging from small features such as Authentication, Logging, to large features such as Request-Validation, Idempotency, External-Integrations. But the code for these features can't be shared/reused due to paradigm contrast. This leads to scrum teams duplicating the same logic in all the services. Or, if a service is migrated to a different paradigm to scale better for increasing traffic, it needs to be entirely rewritten. Let’s see (with a hands-on demo), how to make such common logic reusable/sharable, turning the Monomorphic code into Polymorphic **Templates**, which enables scrum teams to share well-tested small & large features across their services.
 ---
 
 ## Abstract
@@ -27,7 +27,7 @@ Technical Level: Interesting to all, approachable for intermediate and up. Any F
 
 This talk targets intermediate to expert senior developers with a good understanding of `generics` and some exposure/interest towards blocking and non-blocking/reactive paradigms. This talk is language-agnostic, but I use **[Kotlin](https://kotlinlang.org/) (a Modern Open-source JVM language)** in combination with **[Arrow](http://arrow-kt.io/) (A Trending open-source functional companion for Kotlin)**.
 
-Kotlin's syntax is very close to Java, and all software design patterns discussed in this talk can be implemented in almost any language. Thanks to the concise syntax of Kotlin[$_{[2]}$](https://www.intuit.com/blog/uncategorized/kotlin-development-plan/) and robust tool-set provided by Arrow, implementing Ad-hoc Polymorphism turns ergonomic.
+Kotlin's syntax is very close to Java, and all software design patterns discussed in this talk can be implemented in almost any language. Thanks to the concise syntax of Kotlin[$_{[2]}$](https://www.intuit.com/blog/uncategorized/kotlin-development-plan/) and robust tool-set provided by Arrow, implementing this technique turns ergonomic.
 
 I used `Spring-MVC`[$_{[3]}$](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#spring-web) and `Spring-WebFlux`[$_{[4]}$](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html) (popular backend frameworks) to demonstrate heterogeneity, in my POC.
 
@@ -35,7 +35,7 @@ No prior knowledge about these frameworks or kotlin is required, all the nuances
 
 - How to Create magic with the hot combination of _Spring Boot + Kotlin + Arrow_.
 - The _Why, How & What_ of Monomorphic vs. Polymorphic code.
-- Agile **B2C product development** teams, both in enterprises and startups, can learn ways to accelerate their feature development cycle, by converting large & common & well-tested features among heterogeneous services into reusable code templates using **Ad-hoc Polymorphism**[$_{[5]}$](https://en.wikipedia.org/wiki/Ad_hoc_polymorphism), and how is it profitable and reduces the maintenance overhead of rewriting the same business logic across heterogeneous services and service migrations.
+- Agile **B2C product development** teams, both in enterprises and startups, can learn ways to accelerate their feature development cycle, by converting large & common & well-tested features into reusable code templates, and how it is profitable and reduces the maintenance overhead of rewriting the same business logic across heterogeneous services and service migrations.
 
 ## Introduction
 
@@ -75,7 +75,7 @@ It's a generic interface that is parametric on a Type `T`. E.g. `Comparator<T>` 
 
 To put our above example into a formal definition - A type class defines some behavior in the form of operations that must be supported by a type. A type can be a member of a typeclass by merely providing implementations of the operations the type must support.
 
-This principle can be used to define abstract interfaces like `Comparator<T>` and reusable templates like `Collections.sort()`, whose behavior is polymorphic to the type `T` being sorted. This is **Ad-hoc Polymorphism**.
+This principle can be used to define abstract interfaces like `Comparator<T>` and reusable templates like `Collections.sort()`, whose behavior is polymorphic to the type `T` being sorted. This is called **Ad-hoc Polymorphism**.
 
 The term **Ad-hoc polymorphism** refers to polymorphic functions that can be applied to arguments of different types, but that behave differently depending on the type of the argument to which they are applied.
 
