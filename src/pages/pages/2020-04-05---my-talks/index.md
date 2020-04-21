@@ -20,8 +20,27 @@ He is also invited to speak at a prestigious international conference **[JBCN Co
 
 ## Recorded Talks
 
+### Fight Complexity with Functional Programming (Kotlin)
+
+- The [Slide-deck](https://speakerdeck.com/gopalakshintala/fight-complexity-with-functional-programming-31a15b3d-878e-4b59-94d4-a706c23caadf)
+- Source-code links:
+  - [imperative-vs-declarative](http://bit.ly/imp-vs-dec)
+  - [railway-oriented-validation-kotlin](https://bit.ly/ro-validation-kt)
+
 `youtube: uGxx01yYAgk`
 
+### Template-Oriented-Programming to Ship Faster, Part-1
+
+- The [Slide-deck](https://speakerdeck.com/gopalakshintala/template-oriented-programming-top-to-ship-faster)
+- Source-code links: [ad-hoc-poly](https://github.com/overfullstack/ad-hoc-poly/)
+
 `youtube: l9jJ7m7_VpM`
+
+### Fight Complexity with Functional Programming (Java)
+
+- The [Slide-deck](https://speakerdeck.com/gopalakshintala/fight-complexity-with-functional-programming)
+- Source-code links:
+  - [imperative-vs-declarative](http://bit.ly/imp-vs-dec)
+  - [railway-oriented-validation](https://bit.ly/ro-validation)
 
 `youtube: _QBlKtUY6ac`
