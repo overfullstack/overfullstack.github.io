@@ -14,32 +14,30 @@ keyTakeaways:
   - Create magic by the hot combination of Spring Boot + Kotlin + Arrow library.
   - The _Why, How & What_ of Monomorphic vs. Polymorphic code.
   - Agile **B2C product development** teams, both in enterprises and startups, can learn ways to accelerate their feature development cycle, by converting large & common & well-tested features among heterogeneous services into reusable code templates using **Ad-hoc Polymorphism**[$_{[5]}$](https://en.wikipedia.org/wiki/Ad_hoc_polymorphism), and how is it profitable and reduces the maintenance overhead of rewriting the same business logic across heterogeneous services and service migrations.
-largeAbstract: The trend in the B2C world is to chop the use-cases with varied traffic-needs into _Microservices/Macroservices_ managed by independent Scrum teams. These teams develop using Heterogeneous frameworks and tech-stacks (blocking/reactive), as per the traffic needs of their services. Despite being heterogenous, these services have many commonalities in their Domain logic, ranging from small features such as Authentication, Logging, to large features such as Request-Validation, Idempotency, External-Integrations. But the code for these features can't be shared/reused due to paradigm contrast. This leads to scrum teams duplicating the same logic in all the services. Or, if a service is migrated to a different paradigm to scale better for increasing traffic, it needs to be entirely rewritten. Let’s see (with a hands-on demo), how to make such common logic reusable/sharable, turning the Monomorphic code into Polymorphic **Templates**, which enables scrum teams to share well-tested small & large features across their services.
+largeAbstract: The trend in the B2C world is to chop the use-cases with varied traffic-needs into _Microservices/Macroservices_ managed by independent Scrum teams. These teams develop using Heterogeneous frameworks and tech-stacks (blocking/reactive), as per the traffic needs of their services. Despite being heterogenous, these services have many commonalities in their Domain logic, ranging from small features such as Authentication, Logging, to large features such as Request-Validation, Idempotency, External-Integrations. But the code for these features can't be shared/reused due to paradigm contrast. This leads to scrum teams duplicating the same logic in all the services. Or, if a service is migrated to a different paradigm to scale better for increasing traffic, it needs to be entirely rewritten. Let’s see (with a hands-on demo), how to make such common logic reusable/sharable, turning the Monomorphic code into Polymorphic **Templates**, using open-source technologies, which enables scrum teams to share well-tested small & large features across their services.
 ---
 
 ## Abstract
 
-B2C microservices are built on heterogeneous tech-stacks (blocking/reactive) as per their traffic and can have common use-cases E.g. Validation, Idempotency. But code can't be shared/reused due to paradigm contrast. So it's rewritten everywhere. With a hands-on demo, let's see how to hasten feature development, by **Templatizing** code for large & common & well-tested features, to be _shared/reused_ across heterogeneous services, using a design technique called **Ad-hoc Polymorphism**.
+B2C microservices are built on heterogeneous tech-stacks (blocking/reactive) as per their traffic and can have common use-cases E.g. Validation, Idempotency. But code can't be shared/reused due to paradigm contrast. So it's rewritten everywhere. With a hands-on demo, let's see how to hasten feature development, by **Templatizing** code for large & common & well-tested features, to be _shared/reused_ across heterogeneous services, using **Open-Source** technologies.
 
 ## Audience and Takeaways
 
 Technical Level: Interesting to all, approachable for intermediate and up. Any Functional Programming enthusiasts love it.
 
-This talk targets intermediate to expert senior developers with a good understanding of `generics` and some exposure/interest towards blocking and non-blocking/reactive paradigms. This talk is language-agnostic, but I use **[Kotlin](https://kotlinlang.org/) (a Modern Open-source JVM language)** in combination with **[Arrow](http://arrow-kt.io/) (A Trending open-source functional companion for Kotlin)**.
+This talk targets intermediate to expert senior developers with a good understanding of `generics` and some exposure/interest towards blocking and non-blocking/reactive paradigms. This talk is language-agnostic, but I use **[Kotlin](https://kotlinlang.org/) (a Modern Open-source JVM language)** in combination with **[Arrow](http://arrow-kt.io/) (A Trending Open-source functional companion for Kotlin)**.
 
 Kotlin's syntax is very close to Java, and all software design patterns discussed in this talk can be implemented in almost any language. Thanks to the concise syntax of Kotlin[$_{[2]}$](https://www.intuit.com/blog/uncategorized/kotlin-development-plan/) and robust tool-set provided by Arrow, implementing this technique turns ergonomic.
 
-I used `Spring-MVC`[$_{[3]}$](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#spring-web) and `Spring-WebFlux`[$_{[4]}$](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html) (popular backend frameworks) to demonstrate heterogeneity, in my POC.
+I used popular _open-source_ backend frameworks -- `Spring-MVC`[$_{[3]}$](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#spring-web) and `Spring-WebFlux`[$_{[4]}$](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html) to demonstrate heterogeneity, in my POC.
 
 No prior knowledge about these frameworks or kotlin is required, all the nuances required for this problem are contextually explained in the talk. The key takeaways for the audience are:
 
-- How to Create magic with the hot combination of _Spring Boot + Kotlin + Arrow_.
+- How to create magic with the hot combination of open-source technologies -- _Spring Boot + Kotlin + Arrow_.
 - The _Why, How & What_ of Monomorphic vs. Polymorphic code.
 - Agile **B2C product development** teams, both in enterprises and startups, can learn ways to accelerate their feature development cycle, by converting large & common & well-tested features into reusable code templates, and how it is profitable and reduces the maintenance overhead of rewriting the same business logic across heterogeneous services and service migrations.
 
 ## Introduction
-
-This paper is for Agile B2C product development teams, both in enterprises and startups, looking for ways to accelerate their feature development cycle.
 
 ### The Case for Heterogeneous services
 
@@ -109,24 +107,28 @@ interface Repo<F> : Async<F> {
 ```
 
 - These operations have a return type of the form `Kind<F, A>`(=`F<A>`), which is generic and agnostic of the `Effect`.
-- Our services implement this typeclass with their respective Effect types. In these concrete implementations, the service repository functions are mapped to `Repo` operations, using `IO` and `MonoK` from Arrow Library - [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/85ce3b819a/kofu-mvc-validation/src/main/kotlin/mvc/Configurations.kt#L36-L45) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/72f6e6c0ba/kofu-reactive-validation/src/main/kotlin/com/sample/Configurations.kt#L29-L32).
+- The `Repo<F>` inherits from `Async<F>`, which is a typeclass from Arrow Library to represent Effectful Operations.
+- Our services implement `Repo<F>` typeclass with their respective Effect types.
+- In these concrete implementations, `IO` and `MonoK` supply concrete instances for `Async<F>`, and the service repository functions are mapped to `Repo` operations, using `IO` and `MonoK` from Arrow Library - [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/85ce3b819a/kofu-mvc-validation/src/main/kotlin/mvc/Configurations.kt#L36-L51) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/85ce3b819a/kofu-reactive-validation/src/main/kotlin/reactive/Configurations.kt#L27-L42).
 
 ### Templates using Typeclasses
 
 - Now we can weave our business-logic into generic templates depending on the generic operations of the typeclass `Repo<F>`.
-- **Templates** are generic functions and they depend on Typeclasses. This dependency can be achieved by passing typeclass as a function argument or declaring the template functions as extensions to a typeclass. I used the latter in my POC - [Ref](https://github.com/overfullstack/ad-hoc-poly/blob/85ce3b819a/validation-templates/src/main/kotlin/top/rules/UserRules.kt)
-- Typeclass is the bridge between services and templates. The concrete implementations of the typeclass supplied by Services, essentially fill in the blanks for the templates.
-- These templates work as shared logic, and the services can use those concrete instances to consume all these templates. - [WebMVC Ref](- [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/72f6e6c0ba/kofu-mvc-validation/src/main/kotlin/com/sample/Configurations.kt#L36-L43) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/72f6e6c0ba/kofu-reactive-validation/src/main/kotlin/com/sample/Configurations.kt#L27-L34) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/85ce3b819a/kofu-reactive-validation/src/main/kotlin/reactive/HandlersX.kt#L22-L36).
+- **Templates** are generic functions and they depend on Typeclasses. This dependency can be achieved by passing typeclass as a function argument or declaring the template functions as extensions to a typeclass. I used the latter in my POC - [Ref](https://github.com/overfullstack/ad-hoc-poly/blob/85ce3b819a/validation-templates/src/main/kotlin/top/rules/UserRules.kt). This file has all the validation rules for a user and the order in which these validations should run.
+- However, these rules are generic functions aka Templates, which are agnostic of validation orchestration strategy (Fail-fast/Error-Accumulation) and the paradigm in which these are triggered (blocking/reactive).
+- To consume these templates, the `Repo<F>` typeclass acts as the bridge between services and templates. The concrete implementations of the typeclass supplied by Services, essentially fill in the blanks for the templates.
+- These templates work as shared logic, and the services can use those concrete instances to consume all these templates.
+- Refer how both the services are able to seamlessly call the validation templates using the concrete instances without rewriting the rules and orchestration - [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/85ce3b819a/kofu-mvc-validation/src/main/kotlin/mvc/HandlersX.kt#L23-L34) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/85ce3b819a/kofu-reactive-validation/src/main/kotlin/reactive/HandlersX.kt#L22-L36).
 
 That means, any new service or service migration can borrow all those well-tested small and large features for _free_ with minor efforts! Moreover, the typeclass is entirely extensible to support more operations, in turn, to extend and expand our template base.
 
 ## Outcomes and Conclusions
 
-We achieved reusable domain logic using Ad-hoc Polymorphism, abstracting out the Effect using Typeclasses and Higher-Kinded Types, turing our Monomorphic code to Polymorphic. This is very powerful to model and migrate B2C-services. This **zeros-down the cost and effort** to rewrite and maintain common business logic across all services and service migrations. This can save a release cycle amount of work, bringing in real agility among scrum teams and startups to ship features faster.
+We achieved reusable domain logic using Ad-hoc Polymorphism, abstracting out the Effect using Typeclasses and Higher-Kinded Types, turing our Monomorphic code to Polymorphic. This is very powerful to model and migrate B2C-services. This **zeros-down the cost and effort** to rewrite and maintain common business logic across all services and service migrations. This can save a release cycle amount of work, bringing in real agility among scrum teams and startups to ship features faster. All of this is achieved with **Free & Open-Source** technologies.
 
 ## My Talk on this
 
-This talk was successfully presented and warmly received at [Kotlin User Group, Hyderabad](https://twitter.com/kotlinhyderabad)
+This is only an intro to explain prerequisites for the talk in this post. It that was successfully presented and warmly received at [Kotlin User Group, Hyderabad](https://twitter.com/kotlinhyderabad)
 <https://www.meetup.com/en-AU/kotlinhyderabad/events/269763753/>
 
 The [Slide deck](https://speakerdeck.com/gopalakshintala/template-oriented-programming-top-to-ship-faster)
