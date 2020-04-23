@@ -1,19 +1,8 @@
 language: node_js
-cache:
-  directories:
-    - ~/.npm
-notifications:
-  email:
-    recipients:
-      - gopalakshintala@gmail.com
-    on_success: always
-    on_failure: always
-node_js:
-  - node
+node_js: node
+cache: yarn
 git:
   depth: 3
-script:
-  - yarn build
 deploy:
   provider: pages
   skip-cleanup: true
@@ -23,4 +12,9 @@ deploy:
   target-branch: master
   on:
     branch: source-v2
-
+notifications:
+  slack:
+    rooms:
+      - overfullstack:PD0LA2Ru0fnlvSPVQFXFookN
+    on_success: change
+    on_failure: always

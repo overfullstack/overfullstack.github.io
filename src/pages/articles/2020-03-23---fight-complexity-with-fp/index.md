@@ -131,9 +131,9 @@ This *Effect* can be used as a currency to be exchanged as input-output for our
 
 ### Validation Configuration
 
-Since functions are values, all we need is an Ordered List (like `java.util.list`) to maintain the sequence of validations. We can compose all the validation functions, in the order of preference. This order is easily **configurable** - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/28eec51549411baa6e18174ae180b91cee28cac0/src/main/java/app/declarative/Config.java#L38-L51).
+Since functions are values, all we need is an Ordered List (like `java.util.list`) to maintain the sequence of validations. We can compose all the validation functions, in the order of preference. This order is easily **configurable** - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/28eec51549/src/main/java/app/declarative/Config.java#L38-L51).
 
-However, there is a complexity. List of Validations for a parent node consists of a mix of parent node and child node validations. But they can't be put under one `List`, as they are functions on different Data Types. As we can refer in the code, `liftAllToParentValidationType`, which is a **Higher-Order Function** that takes list of child validation functions and **lifts** them to parent validation type - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/28eec51549411baa6e18174ae180b91cee28cac0/src/main/java/algebra/ConfigDsl.java#L18-L38).
+However, there is a complexity. List of Validations for a parent node consists of a mix of parent node and child node validations. But they can't be put under one `List`, as they are functions on different Data Types. As we can refer in the code, `liftAllToParentValidationType`, which is a **Higher-Order Function** that takes list of child validation functions and **lifts** them to parent validation type - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/28eec51549/src/main/java/algebra/ConfigDsl.java#L18-L38).
 
 This is a powerful technique, which enables us to see the code through the lens of **Algebra**. This way, we can configure a **Chain** of validations in-order, sorting out all the parent-child dependencies. This is nothing but the most popular **Chain of Responsibility** Design pattern, with a functional touch.
 
