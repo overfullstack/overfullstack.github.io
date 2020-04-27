@@ -2,7 +2,7 @@ import React from 'react';
 import moon from '../../assets/theme/moon.png';
 import sun from '../../assets/theme/sun.png';
 import Toggle from './Toggle';
-import Helmet from 'react-helmet/es/Helmet';
+import { Helmet } from 'react-helmet/es/Helmet';
 
 class ThemeToggle extends React.Component {
   state = {

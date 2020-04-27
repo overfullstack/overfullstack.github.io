@@ -125,8 +125,8 @@
 applause-button {
     margin-left: auto;
     margin-right: auto;
-    width: 60px;
-    height: 60px;
+    width: 3.75rem;
+    height: 3.75rem;
     @include margin-top(1);
 }
 
@@ -162,6 +162,11 @@ applause-button .count-container {
     margin: 1.625rem 0 1.625rem 0;
 }
 
+.embedVideo-iframe {
+  display: block;
+  width: 21rem;
+  height: 12rem;
+}
 
 @include breakpoint-sm {
     .post-single {
@@ -175,9 +180,6 @@ applause-button .count-container {
                 margin-right: auto;
             }
         }
-    }
-    .embedVideo-iframe {
-        display: block;
     }
 }
 
@@ -231,6 +233,9 @@ applause-button .count-container {
 
     .embedVideo-iframe {
         display: block;
+
+      width: 40rem;
+      height: 22.6rem;
     }
 
 }

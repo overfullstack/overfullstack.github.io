@@ -1,7 +1,7 @@
 import kebabCase from 'lodash/kebabCase';
 import React from 'react';
 import { Link, graphql } from 'gatsby';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
 

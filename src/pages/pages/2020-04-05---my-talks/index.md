@@ -5,7 +5,7 @@ cover: "./speaking-at-sf-hyd.jpg"
 path: "/my-talks"
 ---
 
-![Speaking at GDG-2019](speaking-at-sf-hyd.jpg)
+![Speaking at SF_Hyd](speaking-at-sf-hyd.jpg)
 
 He's an International Speaker and his Tech-Talks were warmly received at:
 
