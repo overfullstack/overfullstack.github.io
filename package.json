@@ -8,7 +8,7 @@
     "clean:public": "rm -rf public",
     "clean": "npm run clean:public",
     "lint": "eslint --cache --ext .js,.jsx --ignore-pattern public .",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "test --passWithNoTests",
     "format": "prettier --write './*.js' 'src/**/*.js' 'src/**/*.jsx'",
     "build": "rm -rf public && rm -rf .cache && gatsby build",
     "deploy": "gatsby build && gh-pages -d public -b master"
@@ -17,7 +17,7 @@
   "author": "Gopal S Akshintala <gopal.akshintala@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "applause-button": "^3.3.1",
+    "applause-button": "^3.3.2",
     "bluebird": "^3.7.2",
     "gatsby": "^2.21.0",
     "gatsby-plugin-catch-links": "^2.3.0",
@@ -60,8 +60,8 @@
   "devDependencies": {
     "@babel/plugin-transform-typescript": "^7.9.4",
     "@types/eslint": "^6.8.0",
-    "@typescript-eslint/eslint-plugin": "^2.29.0",
-    "@typescript-eslint/parser": "^2.29.0",
+    "@typescript-eslint/eslint-plugin": "^2.30.0",
+    "@typescript-eslint/parser": "^2.30.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
