@@ -61,6 +61,7 @@ export const pageQuery = graphql`
           email
           stackoverflow
           aboutme
+          resume
         }
         disqusShortname
         url
