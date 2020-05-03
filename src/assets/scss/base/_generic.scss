@@ -19,7 +19,7 @@ body {
   --pink-thick: #d23669;
   background-color: var(--bg);
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 body.light {

@@ -107,16 +107,23 @@ interface Repo<F> : Async<F> {
 ```
 
 - These operations have a return type of the form `Kind<F, A>`(=`F<A>`), which is generic and agnostic of the `Effect`.
-- The `Repo<F>` inherits from `Async<F>`, which is a typeclass from Arrow Library to represent Effectful Operations.
+- The `Repo<F>` inherits from `Async<F>`, which is a typeclass from Arrow Library to represent _Effectful Operations_.
 - Our services implement `Repo<F>` typeclass with their respective Effect types.
 - In these concrete implementations, `IO` and `MonoK` supply concrete instances for `Async<F>`, and the service repository functions are mapped to `Repo` operations, using `IO` and `MonoK` from Arrow Library - [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/85ce3b819a/kofu-mvc-validation/src/main/kotlin/mvc/Configurations.kt#L36-L51) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/85ce3b819a/kofu-reactive-validation/src/main/kotlin/reactive/Configurations.kt#L27-L42).
 
 ### Templates using Typeclasses
 
-- Now we can weave our business-logic into generic templates depending on the generic operations of the typeclass `Repo<F>`.
-- **Templates** are generic functions and they depend on Typeclasses. This dependency can be achieved by passing typeclass as a function argument or declaring the template functions as extensions to a typeclass. I used the latter in my POC - [Ref](https://github.com/overfullstack/ad-hoc-poly/blob/85ce3b819a/validation-templates/src/main/kotlin/top/rules/UserRules.kt). This file has all the validation rules for a user and the order in which these validations should run.
-- However, these rules are generic functions aka Templates, which are agnostic of validation orchestration strategy (Fail-fast/Error-Accumulation) and the paradigm in which these are triggered (blocking/reactive).
-- To consume these templates, the `Repo<F>` typeclass acts as the bridge between services and templates. The concrete implementations of the typeclass supplied by Services, essentially fill in the blanks for the templates.
+Now we can weave our business-logic into generic templates depending on the generic operations of the typeclass `Repo<F>`. **Templates** are generic functions and they depend on Typeclasses. This dependency can be achieved by passing typeclass as a function argument or declaring the template functions as extensions to a typeclass. I used the latter in my POC - [Ref](https://github.com/overfullstack/ad-hoc-poly/blob/85ce3b819a/validation-templates/src/main/kotlin/top/rules/UserRules.kt). This file has all the validation rules for a user and the order in which these validations should run. The typeclass here is `EffectValidator<F, S, ValidationError>`, which in-turn is composed of two typeclasses `ValidatorAE<S, E>` (abstracts Validation Strategies) and `Repo<F>` (Discussed above). The generics in these typeclasses stand for:
+
+- F : Effect type - Used by `Repo<F>` to signify the effect in which the DB operates.
+- S : Strategy type - Used to decide the strategy in which validations should run (e.g. Fail-Fast or Error-Accumulation).
+
+However, these rules are generic functions aka Templates, which are agnostic of validation orchestration strategy (`S`) and the paradigm Effect (`F`) in which these are triggered (blocking/reactive). This can also be seen from the return types of these functions - `Kind<F, Kind<S, Unit>>`
+
+### How services consume templates
+
+- To consume these templates, the `EffectValidator<F, S, ValidationError>` typeclass acts as the bridge between services and templates.
+- The concrete implementations of the typeclass supplied by Services, essentially fill in the blanks for the templates.
 - These templates work as shared logic, and the services can use those concrete instances to consume all these templates.
 - Refer how both the services are able to seamlessly call the validation templates using the concrete instances without rewriting the rules and orchestration - [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/85ce3b819a/kofu-mvc-validation/src/main/kotlin/mvc/HandlersX.kt#L23-L34) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/85ce3b819a/kofu-reactive-validation/src/main/kotlin/reactive/HandlersX.kt#L22-L36).
 
