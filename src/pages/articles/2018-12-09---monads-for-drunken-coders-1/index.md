@@ -21,6 +21,7 @@ description: "A chilled introduction to the Dreaded Monad, using Java 8"
 Life is so simple. Pass that one egg through that one validator. Results in good or bad.
 
 ### Sol 23: Many eggs - One validation
+
 Not difficult at all, simply pass them through validator, one after the other and collect the results for each one, in order. With simple if-else condition, this code looks like a Cute Sprout! 🌱
 
 ### Sol 97: Many eggs - Many validations
@@ -49,6 +50,7 @@ Yay! I'm a Functional programmer! Let me have a 🍺
 Suddenly, the cute sprout turned into a tree🎋, with multiple if-else-break-continue branches of execution.
 
 ### Sol 179: Many Types of eggs - Many validations
+
 - Seriously, how many validators should I write? One per every egg type? Repeat this entire algo for each and every type, just changing the parameter types!?
 - Also, there can be some **exceptional** eggs, that blow-off while going through the validator, how am I supposed to deal with all those exceptions?
 - How am I gonna jenga new validations in the middle of this chaos!?
@@ -115,6 +117,7 @@ void cyclomaticCode() {
   }
 }
 ```
+
 ### Imperative vs Functional Chatter
 
 - If a right Paradigm isn't chosen, you literally have to stab and cut-open the Open-Closed principle every time you get a new requirement.
@@ -175,6 +178,7 @@ private static String extractLastName(String fullName) {
   return fullName.substring(fullName.lastIndexOf(" ") + 1);
 }
 ```
+
 - Imagine how complicated it becomes, if we require more conditions and exception handling.
 - In the age of Java 8, I can say this developer is trying too hard, using low-level stuff like dry if-else and for-each.
 - He is taking too much of control over iterating and filtering stuff, and as Uncle Ben says, **With great Power comes great Responsibility**.
@@ -284,7 +288,7 @@ public class Functor<T> {
 - So, the difference is, the return value of the mapper-function should be a `Functor<T>` and `flatMap` returns it as is.
 - But why am I speaking about `flatMap()` ?
 
-#### The Monad
+#### The Dawn of the Monad
 
 - Finally! the Dawn of Monad (Introducing the title lead with a BGM)
 ![dawn-of-justice](media/dawn-of-justice.gif)
@@ -322,7 +326,7 @@ public class Monad<T> {
 
 Enough of Theory! how can this help the problem at hand?
 
-### Problems`.split().stream()`<br/>`.map(this::solve(problem))`
+### Problems`.split().stream()`<br/>`.map(this::solve)`
 
 - You would have got a hint by now. Monads are the data containers you need. The problem is solved by one container-type (which can be the unit for uniformity through-out the pipeline) and a variable-value-type contained inside (which can be morphed from type to type).
 - Now every function can speak the same language, by passing around these Monad boxes and operate on them with functions, without worrying much about what it contains. Uniform boxes with Heterogenous data.
