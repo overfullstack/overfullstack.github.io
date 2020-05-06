@@ -10,18 +10,13 @@ tags:
   - "Java"
   - "Vavr"
 description: "Skadooosh!"
-keyTakeaways:
-  - A **Metric-driven approach** towards reducing Cognitive Complexity using Functional Programming (FP) principles.
-  - A mind-shift from the traditional mutation-heavy _Imperative style_ to _Functional style_ -- with Immutable Objects (Using Java 14 preview feature `Records`) and Pure-Functions (replacing Mutation with Transformation).
-  - Modeling and designing of complex real-world problems using Functional Programming constructs.
-  - Intermediate FP Concepts such as *Monads*, _First-Class Functions_, _Higher-Order Functions_, *Function-Lifting* and their application in the context of a real-world problem.
 ---
 
 ## Abstract
 
 A Metric-driven approach to reduce Cognitive Complexity in a code base, using Functional Programming, demoed **hands-on**, by solving a complex real-world ubiquitous design challenge - REST API Bulk Request Validation, with an extensible Framework that separates what-to-do (Validations) from how-to-do (Validation Orchestration). Let's do a case-study of a successful implementation done by our team in the world's largest SaaS org, _Salesforce_.
 
-## Audience and Takeaways
+## Audience & Takeaways
 
 Technical Level: Interesting to all, approachable for basic and up. Any Functional Programming (FP) enthusiasts love it.
 

@@ -10,10 +10,6 @@ tags:
   - "Kotlin"
   - "Arrow"
 description: "Top-up with Ad-hoc Polymorphism"
-keyTakeaways:
-  - Create magic by the hot combination of Spring Boot + Kotlin + Arrow library.
-  - The _Why, How & What_ of Monomorphic vs. Polymorphic code.
-  - Agile **B2C product development** teams, both in enterprises and startups, can learn ways to accelerate their feature development cycle, by converting large & common & well-tested features among heterogeneous services into reusable code templates using **Ad-hoc Polymorphism**[$_{[5]}$](https://en.wikipedia.org/wiki/Ad_hoc_polymorphism), and how is it profitable and reduces the maintenance overhead of rewriting the same business logic across heterogeneous services and service migrations.
 largeAbstract: The trend in the B2C world is to chop the use-cases with varied traffic-needs into _Microservices/Macroservices_ managed by independent Scrum teams. These teams develop using Heterogeneous frameworks and tech-stacks (blocking/reactive), as per the traffic needs of their services. Despite being heterogenous, these services have many commonalities in their Domain logic, ranging from small features such as Authentication, Logging, to large features such as Request-Validation, Idempotency, External-Integrations. But the code for these features can't be shared/reused due to paradigm contrast. This leads to scrum teams duplicating the same logic in all the services. Or, if a service is migrated to a different paradigm to scale better for increasing traffic, it needs to be entirely rewritten. Let’s see (with a hands-on demo), how to make such common logic reusable/sharable, turning the Monomorphic code into Polymorphic **Templates**, using open-source technologies, which enables scrum teams to share well-tested small & large features across their services.
 ---
 
@@ -21,7 +17,7 @@ largeAbstract: The trend in the B2C world is to chop the use-cases with varied t
 
 B2C microservices are built on heterogeneous tech-stacks (blocking/reactive) as per their traffic and can have common use-cases E.g. Validation, Idempotency. But code can't be shared/reused due to paradigm contrast. So it's rewritten everywhere. With a hands-on demo, let's see how to hasten feature development, by **Templatizing** code for large & common & well-tested features, to be _shared/reused_ across heterogeneous services, using **Open-Source** technologies.
 
-## Audience and Takeaways
+## Audience & Takeaways
 
 Technical Level: Interesting to all, approachable for intermediate and up. Any Functional Programming enthusiasts love it.
 
@@ -127,11 +123,13 @@ However, these rules are generic functions aka Templates, which are agnostic of 
 - These templates work as shared logic, and the services can use those concrete instances to consume all these templates.
 - Refer how both the services are able to seamlessly call the validation templates using the concrete instances without rewriting the rules and orchestration - [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/85ce3b819a/kofu-mvc-validation/src/main/kotlin/mvc/HandlersX.kt#L23-L34) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/85ce3b819a/kofu-reactive-validation/src/main/kotlin/reactive/HandlersX.kt#L22-L36).
 
-That means, any new service or service migration can borrow all those well-tested small and large features for _free_ with minor efforts! Moreover, the typeclass is entirely extensible to support more operations, in turn, to extend and expand our template base.
+### Loose Coupling
+
+Sharing code among micro-services is seen as an anti-pattern as it cause tight coupling. But, this is a loose-coupled sharing. As discussed above, these templates are "extensions" of typeclass and services (consumers) are the ones, which breathe life into them. That means, any new service or service migration can pick and borrow and extend those well-tested small and large features for _free_ with minor efforts! Moreover, typeclasses are entirely extensible to support more operations, in turn, to extend and expand our template base.
 
 ## Outcomes and Conclusions
 
-We achieved reusable domain logic using Ad-hoc Polymorphism, abstracting out the Effect using Typeclasses and Higher-Kinded Types, turing our Monomorphic code to Polymorphic. This is very powerful to model and migrate B2C-services. This **zeros-down the cost and effort** to rewrite and maintain common business logic across all services and service migrations. This can save a release cycle amount of work, bringing in real agility among scrum teams and startups to ship features faster. All of this is achieved with **Free & Open-Source** technologies.
+We achieved reusable domain logic using Ad-hoc Polymorphism, abstracting out the Effect using Typeclasses and Higher-Kinded Types, turing our Monomorphic code to Polymorphic. This is very powerful to model and migrate B2C-services. This **zeros-down the cost and effort** to rewrite and maintain common business logic across all services and service migrations. This can save a release cycle amount of work, increases project stability, bringing in real agility among scrum teams and startups to ship features faster. All of this is achieved with **Free & Open-Source** technologies.
 
 ## My Talk on this
 
