@@ -158,6 +158,7 @@ This talk was successfully presented and warmly received at:
 
 - [Kotlin User Group, Berlin](https://youtu.be/uGxx01yYAgk)
 - [Google Developer Group Devfest 2019](https://devfest.gdghyderabad.in/speakers.html)
+- [Kotlin User Group, Hyderabad](https://youtu.be/LGABy9qdB44)
 - [Java User Group Hyderabad (@JUGHyd)](https://www.meetup.com/en-AU/jughyderabad/events/264688807/)
 - [Salesforce, Hyderabad, India](http://y2u.be/l9jJ7m7_VpM)
 
