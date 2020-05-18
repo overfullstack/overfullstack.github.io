@@ -1,11 +1,11 @@
 ---
 title: "My Talks"
 layout: page
-cover: "./speaking-at-sf-hyd.jpg"
+cover: "./hyd.jpg"
 path: "/my-talks"
 ---
 
-![Speaking at SF_Hyd](speaking-at-sf-hyd.jpg)
+![Speaking at Salesforce Hyd](hyd.jpg)
 
 He's an International Speaker and his Tech-Talks were warmly received at:
 
@@ -20,28 +20,18 @@ He is also invited to speak at a prestigious international conference **[JBCN Co
 
 ## Recorded Talks
 
-### Fight Complexity with Functional Programming (Kotlin, 04-2020)
+### Fight Complexity with Functional Programming (Kotlin)
 
 - The [Slide-deck](https://speakerdeck.com/gopalakshintala/fight-complexity-with-functional-programming-31a15b3d-878e-4b59-94d4-a706c23caadf)
 - Source-code links:
   - [imperative-vs-declarative](http://bit.ly/imp-vs-dec)
   - [railway-oriented-validation-kotlin](https://bit.ly/ro-validation-kt)
 
+#### 04-2020
+
 `youtube: uGxx01yYAgk`
 
-### Template-Oriented-Programming to Ship Faster, Part-1
-
-- The [Slide-deck](https://speakerdeck.com/gopalakshintala/template-oriented-programming-top-to-ship-faster)
-- Source-code links: [ad-hoc-poly](https://github.com/overfullstack/ad-hoc-poly/)
-
-`youtube: _QBlKtUY6ac`
-
-### Fight Complexity with Functional Programming (Kotlin, 05-2020)
-
-- The [Slide-deck](https://speakerdeck.com/gopalakshintala/fight-complexity-with-functional-programming)
-- Source-code links:
-  - [imperative-vs-declarative](http://bit.ly/imp-vs-dec)
-  - [railway-oriented-validation](https://bit.ly/ro-validation)
+#### 05-2020
 
 `youtube: LGABy9qdB44`
 
@@ -53,3 +43,10 @@ He is also invited to speak at a prestigious international conference **[JBCN Co
   - [railway-oriented-validation](https://bit.ly/ro-validation)
 
 `youtube: l9jJ7m7_VpM`
+
+### Template-Oriented-Programming to Ship Faster, Part-1
+
+- The [Slide-deck](https://speakerdeck.com/gopalakshintala/template-oriented-programming-top-to-ship-faster)
+- Source-code links: [ad-hoc-poly](https://github.com/overfullstack/ad-hoc-poly/)
+
+`youtube: _QBlKtUY6ac`

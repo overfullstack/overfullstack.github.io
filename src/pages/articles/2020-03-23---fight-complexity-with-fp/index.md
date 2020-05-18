@@ -164,16 +164,27 @@ This talk was successfully presented and warmly received at:
 
 This talk is also selected for a prestigious international conference **[JBCN Conf - 2020](https://www.jbcnconf.com/2020/)** to be held in Barcelona this September.
 
-- The [Slide deck](http://bit.ly/fcwfp-slides)
-- The code examples for this talk can be found here:
-  - [Imperative vs. Declarative](http://bit.ly/imp-vs-dec)
-  - [Railway Oriented Validation](http://bit.ly/ro-validation)
+### Kotlin Version
 
-### The Kotlin Version
+- The [Slide-deck](https://speakerdeck.com/gopalakshintala/fight-complexity-with-functional-programming-31a15b3d-878e-4b59-94d4-a706c23caadf)
+- Source-code links:
+  - [imperative-vs-declarative](http://bit.ly/imp-vs-dec)
+  - [railway-oriented-validation-kotlin](https://bit.ly/ro-validation-kt)
+
+#### 04-2020
 
 `youtube: uGxx01yYAgk`
 
-### The Java Version
+#### 05-2020
+
+`youtube: LGABy9qdB44`
+
+### Java Version
+
+- The [Slide-deck](https://speakerdeck.com/gopalakshintala/fight-complexity-with-functional-programming)
+- Source-code links:
+  - [imperative-vs-declarative](http://bit.ly/imp-vs-dec)
+  - [railway-oriented-validation](https://bit.ly/ro-validation)
 
 _(This is only the first presentation of this talk, and there have been many enhancements in later editions)_.
 

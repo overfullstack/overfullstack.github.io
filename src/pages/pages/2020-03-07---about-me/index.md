@@ -1,13 +1,13 @@
 ---
 title: "About me"
 layout: page
-cover: "./speaking-at-gdg.jpg"
+cover: "./gdg.jpg"
 path: "/about-me"
 ---
 
 Decent at Math and loves Physics, a right-brainer who loves being creative and that ended-him-up choosing 'Programming' as his day-job. He loves what he does.
 
-![Speaking at GDG-2019](speaking-at-gdg.jpg)
+![Speaking at GDG Dev Fest, 2019](gdg.jpg)
 
 Gopal S Akshintala is currently a Senior Software Engineer at Salesforce, building a highly scalable B2C Payments Platform.
 

@@ -40,7 +40,7 @@
         }
         & .gatsby-highlight {
             max-width: $layout-post-single-width;
-            @include margin-bottom(1);
+            @include margin-bottom(0.25);
         }
         & :not(div) {
             max-width: $layout-post-single-width;
@@ -201,7 +201,7 @@ applause-button .count-container {
             & p {
                 font-size: $typographic-base-font-size;
                 @include line-height(1.125);
-                @include margin-bottom(1.125);
+                @include margin-bottom(0.5);
             }
         }
         &__home-button {
