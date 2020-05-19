@@ -18,18 +18,32 @@ A Metric-driven approach to reduce Cognitive Complexity in a code base, using Fu
 
 ## Audience & Takeaways
 
-Technical Level: Interesting to all, approachable for basic and up. Any Functional Programming (FP) enthusiasts love it.
-
-This talk targets developers with basic knowledge of software design. The concepts are language agnostic. For broader outreach, I can use of either of these two for a hands-on demo -- **[Kotlin](https://kotlinlang.org/)** (a Modern Open-source JVM language) + **[Arrow](https://arrow-kt.io/)** (a Trending Open-source functional companion for Kotlin) _(or)_ **Java** + **[Vavr](https://www.vavr.io/)** (an Open-source functional library for Java)
-
-- The audience doesn't need any prior knowledge of FP. They are gradually ramped-up towards Intermediate FP concepts such as _Monads_, _First-Class Functions_, _Higher-Order Functions_, _Function-Lifting_, _Dozen FP Operations for daily Programming like `foldLeft`_ in the context of the problem. They are also provided with appropriate pointers wherever needed, to go back and refer.
+- The [USP](https://en.wikipedia.org/wiki/Unique_selling_proposition) for this talk is, unlike majority FP talks in Java/Kotlin space, which are introductory, this has something for all levels of the audience.
+  - This talk starts with basic FP concepts like _Imperative vs. Declarative_ style using Java **Streams** or Kotlin **Sequences**.
+  - Then the audience is gradually ramped-up towards Intermediate FP concepts such as _Monads_, _First-Class Functions_, _Higher-Order Functions_
+  - Towards the end, we touch-upon concepts for an advanced audience like _Function-Lifting_, _Dozen FP Operations for daily Programming like `foldLeft`_ in the context of the problem, with pictures and simple examples. They are also provided with appropriate pointers wherever needed, to go back and refer.
 - The audience experiences a mind-shift from the traditional mutation-heavy _Imperative style_ to _Functional style_ -- with Immutable Objects (Using Java 14 preview feature `Records` or Kotlin's `Data classes`) and Pure-Functions (replacing Mutation with Transformation).
-- With Hands-on demos, this talk adds a powerful paradigm tool-set and vocabulary to a programmer's arsenal and how to use them to simplify the modeling and designing of complex _real-world_ problems.
-- The audience learns how to objectively perceive complexity in any codebase through metrics (measured using popular static analysis tools), and how to methodically reduce cognitive complexity.
+- With Hands-on demos, this talk adds a robust paradigm tool-set and vocabulary to a programmer's arsenal and how to apply them to simplify the modeling and designing of complex _real-world_ problems.
+- The audience learns how to objectively perceive complexity in any codebase through metrics (measured using popular static analysis tools), and how to reduce cognitive complexity methodically.
+
+## Source-Code
+
+The concepts are language agnostic. For broader outreach, I can use of either of these two for a hands-on demo -- **[Kotlin](https://kotlinlang.org/)** (a Modern Open-source JVM language) + **[Arrow](https://arrow-kt.io/)** (a Trending Open-source functional companion for Kotlin) _(or)_ **Java** + **[Vavr](https://www.vavr.io/)** (an Open-source functional library for Java)
 
 As I cannot use the production code, I use code samples from my POC for the demonstration -- [Github repo for Java](https://github.com/overfullstack/railway-oriented-validation) or [Github repo for Kotlin](https://github.com/overfullstack/railway-oriented-validation-kotlin).
 
 The code references in this post point to Java repo, but they can be correlated by name with the Kotlin repo.
+
+## Talk Outline
+
+- This talk has 2 stories embedded. The first part explains the differences between Imperative and Declarative styles and demonstrates the **Core:Context** philosophy behind the declarative style, which helps in separating **How-to-do** from **What-to-do**, using Java Streams or Kotlin Sequences.
+- Then the talk transitions to the second part with a crash course on **Monads** and Functional Composition.
+- The second part takes the Core:Context philosophy to the next level, by applying it to solve a real-world design problem, which is common across many _REST-service Domains_ - **Batch-Validation**.
+- The talk demonstrates how batch-validation can quickly get complex when done imperatively, mixing _what-to-do(Validations)_, with _how-to-do(Validation Orchestration)_ and how it's NOT extensible in any of these three dimensions - Request Batch size, Validation count and No.of Services.
+- Then the talk offers a Functional Programming (FP) solution, using Monads and Lambdas, which **Minimizes the accidental complexity without compromising Time complexity (Perf)**, and can seamlessly extend across all three dimensions.
+- Throughout this talk, various types of Simple Monads (like `Option`, `Either`, `Try`, `IO` (Kotlin) etc.,) are introduced and how they fit in the context of the problem.
+- This talk attempts to ramp-up the audience on functional programming gradually, and towards the end, we touch upon advanced concepts like Higher-Order Functions, Function Lifting, Dozen FP Operations for daily Programming like `foldLeft` etc.
+- This talk is a fun-filled, code-driven, and without getting into definitions (which can be read through books), the attempt is to portray hands-on experience about how FP can help us become better developers and in-turn.
 
 ## Introduction
 
@@ -96,6 +110,14 @@ We have two types of data floating around throughout our validation program - Va
 
 ## The Bulk Validation Framework
 
+### Components
+
+The framework mainly consists of 3 decoupled parts:
+
+- Validations (what-to-do)
+- Configuration (how-to-do)
+- Orchestration (how-to-do)
+
 ### Why FP
 
 We need an extensible framework to cater above design needs. But why is FP the best fit for solving problems like these? Every Software design problem can be seen like a block of objects doing functions or functions processing objects. We have the latter situation, where the sub-requests are being processed (validated) by various validation functions. Whenever there is a situation, where we got to apply a set of operations or transformations on a collection, where output of a function happens to be the input for the subsequent, that's when we should identify it's a FP problem. Please mind, these are transformations and not Mutations.
@@ -106,9 +128,9 @@ FP is the best fit to model domains with rich business logic, filled with comput
 
 Making POJOs immutable helps us take out a lot of cognitive load while reasoning about programs. Especially, when our objects are passing through an array of functions, Immutability gives a guarantee that the objects are only being _Transformed_ and not _Mutated_.
 
-With _Java 14 preview_ feature **Records**(https://openjdk.java.net/jeps/359), I shall demo how a class can be easily made immutable - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/domain/ImmutableEgg.java)
+With _Java 14 preview_ feature **[Records](https://openjdk.java.net/jeps/359)**, I shall demo how a class can be easily made immutable - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/domain/ImmutableEgg.java)
 
-### Functions as Values
+### Validations as Values
 
 I used Java 8 Functional interfaces to represent the validation functions as values - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/declarative/RailwayValidation2.java). This way Validation functions turn more cohesive than the imperative style, can be extended independently from each other and **shared** among various service routes.
 
@@ -116,7 +138,7 @@ I used Java 8 Functional interfaces to represent the validation functions as val
 
 In the talk, I shall introduce Monad with a crash course and contextually explain the application of various monads, such as `Option`, `Either`, `Try`, `Stream`.
 
-Let's start with `Either` Monad - It is a data type container that represents the data it contains in 2 states `left` and `right`. We can leverage this *Effect* to represent our Dichotomous Data, where `left: Validation Failure` and `right: Valid sub-request`. Either Monad has operations [API ref] like `map` and `flatMap`, which perform operations on the contained value, only if Monad is in `right` state. This property helps developers write _linear programs_ without worrying about the state of Monad - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/declarative/RailwayValidation2.java#L43-L48).
+Let's start with `Either` Monad - It is a data type container that represents the data it contains in 2 states `left` and `right`. We can leverage this *Effect* to represent our Dichotomous Data, where `left: Validation Failure` and `right: Valid sub-request`. Either Monad has operations ((API ref)[https://www.javadoc.io/doc/io.vavr/vavr/0.10.3/io/vavr/control/Either.html]) like `map` and `flatMap`, which perform operations on the contained value, only if Monad is in `right` state. This property helps developers write _linear programs_ without worrying about the state of Monad - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/declarative/RailwayValidation2.java#L43-L48).
 
 This is a popular technique called **Railway-Oriented-Programming**[$_{[5]}$](https://fsharpforfunandprofit.com/rop/).
 
@@ -124,15 +146,15 @@ This is a popular technique called **Railway-Oriented-Programming**[$_{[5]}$](ht
 
 This *Effect* can be used as a currency to be exchanged as input-output for our independent validation functions. A validation function takes Either monad as input. If the input is in the `right` state, validation is performed using its API functions `map` or `flatMap`, and if the validation fails, the monad is set to the `left` state. Otherwise, return the `right` state received.
 
-### Validation Configuration
+### The Configuration
 
 Since functions are values, all we need is an Ordered List (like `java.util.list`) to maintain the sequence of validations. We can compose all the validation functions, in the order of preference. This order is easily **configurable** - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/28eec51549/src/main/java/app/declarative/Config.java#L38-L51).
 
-However, there is a complexity. List of Validations for a parent node consists of a mix of parent node and child node validations. But they can't be put under one `List`, as they are functions on different Data Types. As we can refer in the code, `liftAllToParentValidationType`, which is a **Higher-Order Function** that takes list of child validation functions and **lifts** them to parent validation type - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/28eec51549/src/main/java/algebra/ConfigDsl.java#L18-L38).
+However, there is a complexity. List of Validations for a parent node consists of a mix of parent node and child node validations. But they can't be put under one `List`, as they are functions on different Data Types. As we can refer in the code, `liftAllToParentValidationType`, which is a **Higher-Order Function** that takes list of child validation functions and **lifts** them to parent validation type - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/28eec51549/src/main/java/algebra/ConfigDsl.java#L24-L44).
 
 This is a powerful technique, which enables us to see the code through the lens of **Algebra**. This way, we can configure a **Chain** of validations in-order, sorting out all the parent-child dependencies. This is nothing but the most popular **Chain of Responsibility** Design pattern, with a functional touch.
 
-### Validation Orchestration
+### The Orchestration
 
 Now we have 2 lists to intertwine - List of sub-requests to be validated against List of Validations. This orchestration can be easily achieved in many ways due to the virtue of loose coupling between What-to-do(validations) and How-to-do(Orchestration). We can switch orchestration strategies (like fail-fast strategy to error-accumulation or running validations in parallel) without effecting validations code - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/algebra/Strategies.java).
 
