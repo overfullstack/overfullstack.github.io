@@ -9,6 +9,7 @@ path: "/my-talks"
 
 He's an International Speaker and his Tech-Talks were warmly received at:
 
+- [JavaBin, Norway](https://youtu.be/tnpL1O8kTbM)
 - [Kotlin User Group, Berlin](https://youtu.be/uGxx01yYAgk)
 - [Google Developer Group Devfest 2019](https://devfest.gdghyderabad.in/speakers.html)
 - [Java User Group Hyderabad (@JUGHyd)](https://www.meetup.com/en-AU/jughyderabad/events/264688807/)
@@ -27,11 +28,11 @@ He is also invited to speak at a prestigious international conference **[JBCN Co
   - [imperative-vs-declarative](http://bit.ly/imp-vs-dec)
   - [railway-oriented-validation-kotlin](https://bit.ly/ro-validation-kt)
 
-#### 04-2020
+#### 04-2020 (Kotlin User Group, Berlin)
 
 `youtube: uGxx01yYAgk`
 
-#### 05-2020
+#### 05-2020 (Kotlin User Group, Hyderabad)
 
 `youtube: LGABy9qdB44`
 
@@ -41,6 +42,12 @@ He is also invited to speak at a prestigious international conference **[JBCN Co
 - Source-code links:
   - [imperative-vs-declarative](http://bit.ly/imp-vs-dec)
   - [railway-oriented-validation](https://bit.ly/ro-validation)
+
+#### 05-2020 (JavaBin, Norway)
+
+`youtube: tnpL1O8kTbM`
+
+### 08-2019 (Salesforce, Hyderabad)
 
 `youtube: l9jJ7m7_VpM`
 

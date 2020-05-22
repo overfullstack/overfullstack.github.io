@@ -14,7 +14,7 @@ description: "Skadooosh!"
 
 ## Abstract
 
-A Metric-driven approach to reduce Cognitive Complexity in a code base, using Functional Programming, demoed **hands-on**, by solving a complex real-world ubiquitous design challenge - REST API Bulk Request Validation, with an extensible Framework that separates what-to-do (Validations) from how-to-do (Validation Orchestration). Let's do a case-study of a successful implementation done by our team in the world's largest SaaS org, _Salesforce_.
+A Metric-driven approach to reduce Cognitive Complexity in a code base, using Functional Programming, demoed **hands-on**, by solving a complex real-world ubiquitous design challenge - REST API Bulk Request Validation, with an extensible Framework that separates what-to-do (Validations) from how-to-do (Validation Orchestration). Let's do a case study of a successful implementation done by our team in the world's largest SaaS org, _Salesforce_.
 
 ## Audience & Takeaways
 
@@ -178,6 +178,7 @@ Functional Programming is not Complex, but it fights complexity. The solution ru
 
 This talk was successfully presented and warmly received at:
 
+- [JavaBin, Norway](https://youtu.be/tnpL1O8kTbM)
 - [Kotlin User Group, Berlin](https://youtu.be/uGxx01yYAgk)
 - [Google Developer Group Devfest 2019](https://devfest.gdghyderabad.in/speakers.html)
 - [Kotlin User Group, Hyderabad](https://youtu.be/LGABy9qdB44)
@@ -193,11 +194,11 @@ This talk is also selected for a prestigious international conference **[JBCN Co
   - [imperative-vs-declarative](http://bit.ly/imp-vs-dec)
   - [railway-oriented-validation-kotlin](https://bit.ly/ro-validation-kt)
 
-#### 04-2020
+#### 04-2020 (Kotlin User Group, Berlin)
 
 `youtube: uGxx01yYAgk`
 
-#### 05-2020
+#### 05-2020 (Kotlin User Group, Hyderabad)
 
 `youtube: LGABy9qdB44`
 
@@ -208,7 +209,11 @@ This talk is also selected for a prestigious international conference **[JBCN Co
   - [imperative-vs-declarative](http://bit.ly/imp-vs-dec)
   - [railway-oriented-validation](https://bit.ly/ro-validation)
 
-_(This is only the first presentation of this talk, and there have been many enhancements in later editions)_.
+#### 05-2020 (JavaBin, Norway)
+
+`youtube: tnpL1O8kTbM`
+
+### 08-2019 (Salesforce, Hyderabad)
 
 `youtube: l9jJ7m7_VpM`
 

@@ -23,6 +23,7 @@ In addition to his Software Engineering experience, he gains more _experiences-p
 
 He's an International Speaker and his Tech-Talks were warmly received at:
 
+- [JavaBin, Norway](https://youtu.be/tnpL1O8kTbM)
 - [Kotlin User Group, Berlin](https://youtu.be/uGxx01yYAgk)
 - [Google Developer Group Devfest 2019](https://devfest.gdghyderabad.in/speakers.html)
 - [Java User Group Hyderabad (@JUGHyd)](https://www.meetup.com/en-AU/jughyderabad/events/264688807/)
