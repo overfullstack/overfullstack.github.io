@@ -35,4 +35,4 @@ He is also invited to speak at a prestigious international conference **[JBCN Co
 
 [Talk Recordings](/my-talks/#Recorded-Talks)
 
-[My Résumé](http://bit.ly/ags-resume)
+[My Résumé](http://bit.ly/ags-my-resume)

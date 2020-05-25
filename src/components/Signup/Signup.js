@@ -1,6 +1,6 @@
 import React from 'react';
 
-import addToMailchimp from 'gatsby-plugin-mailchimp/src';
+import addToMailchimp from 'gatsby-plugin-mailchimp';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Signup.css';
@@ -78,7 +78,7 @@ class Signup extends React.Component {
               <img
                 alt=""
                 src={newsLetterLogo}
-                style={{ maxWidth: '100%' }}
+                style={{ maxWidth: '100%', width: 'auto' }}
               />
             </div>
           </div>

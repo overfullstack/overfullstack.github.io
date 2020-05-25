@@ -38,7 +38,7 @@ module.exports = {
       telegram: "https://t.me/gopalakshintala",
       twitter: "http://bit.ly/agstwtr",
       github: "http://bit.ly/agsgithub",
-      resume: "http://bit.ly/ags-resume",
+      resume: "http://bit.ly/ags-my-resume",
       linkedin: "http://bit.ly/agslnkd",
       stackoverflow: "http://bit.ly/agsso",
       aboutme: "/about-me",
