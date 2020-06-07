@@ -138,7 +138,7 @@ I used Java 8 Functional interfaces to represent the validation functions as val
 
 In the talk, I shall introduce Monad with a crash course and contextually explain the application of various monads, such as `Option`, `Either`, `Try`, `Stream`.
 
-Let's start with `Either` Monad - It is a data type container that represents the data it contains in 2 states `left` and `right`. We can leverage this *Effect* to represent our Dichotomous Data, where `left: Validation Failure` and `right: Valid sub-request`. Either Monad has operations ((API ref)[https://www.javadoc.io/doc/io.vavr/vavr/0.10.3/io/vavr/control/Either.html]) like `map` and `flatMap`, which perform operations on the contained value, only if Monad is in `right` state. This property helps developers write _linear programs_ without worrying about the state of Monad - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/declarative/RailwayValidation2.java#L43-L48).
+Let's start with `Either` Monad - It is a data type container that represents the data it contains in 2 states `left` and `right`. We can leverage this *Effect* to represent our Dichotomous Data, where `left: Validation Failure` and `right: Valid sub-request`. Either Monad has operations ([API ref](https://www.javadoc.io/doc/io.vavr/vavr/0.10.3/io/vavr/control/Either.html)) like `map` and `flatMap`, which perform operations on the contained value, only if Monad is in `right` state. This property helps developers write _linear programs_ without worrying about the state of Monad - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/declarative/RailwayValidation2.java#L37-L51).
 
 This is a popular technique called **Railway-Oriented-Programming**[$_{[5]}$](https://fsharpforfunandprofit.com/rop/).
 
@@ -148,9 +148,9 @@ This *Effect* can be used as a currency to be exchanged as input-output for our
 
 ### The Configuration
 
-Since functions are values, all we need is an Ordered List (like `java.util.list`) to maintain the sequence of validations. We can compose all the validation functions, in the order of preference. This order is easily **configurable** - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/28eec51549/src/main/java/app/declarative/Config.java#L38-L51).
+Since functions are values, all we need is an Ordered List (like `java.util.list`) to maintain the sequence of validations. We can compose all the validation functions, in the order of preference. This order is easily **configurable** - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/declarative/Config.java#L37-L50).
 
-However, there is a complexity. List of Validations for a parent node consists of a mix of parent node and child node validations. But they can't be put under one `List`, as they are functions on different Data Types. As we can refer in the code, `liftAllToParentValidationType`, which is a **Higher-Order Function** that takes list of child validation functions and **lifts** them to parent validation type - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/28eec51549/src/main/java/algebra/ConfigDsl.java#L24-L44).
+However, there is a complexity. List of Validations for a parent node consists of a mix of parent node and child node validations. But they can't be put under one `List`, as they are functions on different Data Types. We can achieve this with **Higher-Order Function**, which act as DSL to **lifts** one type of a function to another - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/algebra/ConfigDsl.java).
 
 This is a powerful technique, which enables us to see the code through the lens of **Algebra**. This way, we can configure a **Chain** of validations in-order, sorting out all the parent-child dependencies. This is nothing but the most popular **Chain of Responsibility** Design pattern, with a functional touch.
 

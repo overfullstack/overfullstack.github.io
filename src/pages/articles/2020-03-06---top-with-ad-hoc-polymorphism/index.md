@@ -23,7 +23,7 @@ Technical Level: Interesting to all, approachable for intermediate and up. Any F
 
 This talk targets intermediate to expert senior developers with a good understanding of `generics` and some exposure/interest towards blocking and non-blocking/reactive paradigms. This talk is language-agnostic, but I use **[Kotlin](https://kotlinlang.org/) (a Modern Open-source JVM language)** in combination with **[Arrow](http://arrow-kt.io/) (A Trending Open-source functional companion for Kotlin)**.
 
-Kotlin's syntax is very close to Java, and all software design patterns discussed in this talk can be implemented in almost any language. Thanks to the concise syntax of Kotlin[$_{[2]}$](https://www.intuit.com/blog/uncategorized/kotlin-development-plan/) and robust tool-set provided by Arrow, implementing this technique turns ergonomic.
+Kotlin's syntax is very close to Java, and all software design patterns discussed in this talk can be implemented in almost any language. Thanks to the concise syntax of Kotlin[$_{[2]}$](https://www.intuit.com/blog/uncategorized/kotlin-development-plan/) and robust toolset provided by Arrow, implementing this technique turns ergonomic.
 
 I used popular _open-source_ backend frameworks -- `Spring-MVC`[$_{[3]}$](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#spring-web) and `Spring-WebFlux`[$_{[4]}$](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html) to demonstrate heterogeneity, in my POC.
 
@@ -80,12 +80,12 @@ The code that relies on type classes is open for extension, just like how `Compa
 Now that we have both the tools (Higher-Kinded Types and Typeclasses), let’s make a polymorphic template for our reusable domain logic. The samples used in the rest of this paper can be seen in action in a fully working POC - [GitHub](https://github.com/overfullstack/ad-hoc-poly). It has 3 modules:
 
 - `kofu-mvc-validation` - Blocking Service built with `Spring-WebMVC`[$_{[3]}$](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#spring-web)
-- `kofu-reactive-validation` - Reactive Service `built with `Spring-WebFlux`[$_{[4]}$](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html)
+- `kofu-reactive-validation` - Reactive Service built with `Spring-WebFlux`[$_{[4]}$](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html)
 - `validation-templates` - Shared module for both the services, holding templates.
 
 We shall take-up the **_user validate-and-upsert_** as our example use-case, where a request to upsert a user is **_validated_**, followed by **_insert or update_** based on the user's existence in the DB.
 
-`Spring-WebFlux` works with `Mono<A>/Flux<A>` while `Spring-WebMVC` doesn't. As a proof for reusability problem discussed above, refer the `upsert` function in both the services - [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/85ce3b819a/kofu-mvc-validation/src/main/kotlin/mvc/Handlers.kt#L24-L43) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/85ce3b819a/kofu-reactive-validation/src/main/kotlin/reactive/Handlers.kt#L25-L51).
+`Spring-WebFlux` works with `Mono<A>/Flux<A>` while `Spring-WebMVC` doesn't. As a proof for lack-of reusability problem discussed above, notice how `upsert` function is different in both the services, although doing the same functionality - [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/4a4b674ec88179d25202d21df670e2fd758c808a/kofu-mvc-validation/src/main/kotlin/mvc/Handlers.kt#L24-L43) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/4a4b674ec88179d25202d21df670e2fd758c808a/kofu-reactive-validation/src/main/kotlin/reactive/Handlers.kt#L25-L51).
 
 The goal is to abstract this use-case domain logic into a generic reusable template. We shall achieve it by creating some typeclasses and making use of some typeclasses from the Arrow library. These heterogeneous services can inflate and consume these templates by supplying concrete instances of those typeclass interfaces. I coined this technique as **Template-Oriented-Programming!**
 
@@ -105,27 +105,29 @@ interface Repo<F> : Async<F> {
 - These operations have a return type of the form `Kind<F, A>`(=`F<A>`), which is generic and agnostic of the `Effect`.
 - The `Repo<F>` inherits from `Async<F>`, which is a typeclass from Arrow Library to represent _Effectful Operations_.
 - Our services implement `Repo<F>` typeclass with their respective Effect types.
-- In these concrete implementations, `IO` and `MonoK` supply concrete instances for `Async<F>`, and the service repository functions are mapped to `Repo` operations, using `IO` and `MonoK` from Arrow Library - [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/85ce3b819a/kofu-mvc-validation/src/main/kotlin/mvc/Configurations.kt#L36-L51) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/85ce3b819a/kofu-reactive-validation/src/main/kotlin/reactive/Configurations.kt#L27-L42).
+- In these concrete implementations, `IO` and `MonoK` supply concrete instances for `Async<F>`, and the service repository functions are mapped to `Repo` operations - [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/4a4b674ec88179d25202d21df670e2fd758c808a/kofu-mvc-validation/src/main/kotlin/mvc/Configurations.kt#L34-L43) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/4a4b674ec88179d25202d21df670e2fd758c808a/kofu-reactive-validation/src/main/kotlin/reactive/Configurations.kt#L24-L33).
 
 ### Templates using Typeclasses
 
-Now we can weave our business-logic into generic templates depending on the generic operations of the typeclass `Repo<F>`. **Templates** are generic functions and they depend on Typeclasses. This dependency can be achieved by passing typeclass as a function argument or declaring the template functions as extensions to a typeclass. I used the latter in my POC - [Ref](https://github.com/overfullstack/ad-hoc-poly/blob/85ce3b819a/validation-templates/src/main/kotlin/top/rules/UserRules.kt). This file has all the validation rules for a user and the order in which these validations should run. The typeclass here is `EffectValidator<F, S, ValidationError>`, which in-turn is composed of two typeclasses `ValidatorAE<S, E>` (abstracts Validation Strategies) and `Repo<F>` (Discussed above). The generics in these typeclasses stand for:
+Now we can weave our business-logic into generic templates depending on the generic operations of the typeclass `Repo<F>`. **Templates** are generic functions and they depend on Typeclasses. This dependency can be achieved by passing typeclass as a function argument or declaring the template functions as extensions to a typeclass. I used the latter in my POC - [Ref](https://github.com/overfullstack/ad-hoc-poly/blob/4a4b674ec88179d25202d21df670e2fd758c808a/validation-templates/src/main/kotlin/top/rules/UserRules.kt). This file has all the validation rules for a user. The typeclass here is `EffectValidator<F, S, ValidationError>`, which in-turn is composed of two typeclasses `ValidatorAE<S, E>` (abstracts Validation Strategies) and `Repo<F>` (Discussed above). The generics in these typeclasses stand for:
 
 - F : Effect type - Used by `Repo<F>` to signify the effect in which the DB operates.
 - S : Strategy type - Used to decide the strategy in which validations should run (e.g. Fail-Fast or Error-Accumulation).
 
-However, these rules are generic functions aka Templates, which are agnostic of validation orchestration strategy (`S`) and the paradigm Effect (`F`) in which these are triggered (blocking/reactive). This can also be seen from the return types of these functions - `Kind<F, Kind<S, Unit>>`
+However, these User-rules are generic functions aka _Templates_, which are agnostic of validation orchestration strategy (`S`) and the paradigm Effect (`F`) in which these are triggered (blocking/reactive). This can also be seen from the return types of these functions - `Kind<F, Kind<S, Boolean>>`.
 
 ### How services consume templates
 
 - To consume these templates, the `EffectValidator<F, S, ValidationError>` typeclass acts as the bridge between services and templates.
 - The concrete implementations of the typeclass supplied by Services, essentially fill in the blanks for the templates.
 - These templates work as shared logic, and the services can use those concrete instances to consume all these templates.
-- Refer how both the services are able to seamlessly call the validation templates using the concrete instances without rewriting the rules and orchestration - [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/85ce3b819a/kofu-mvc-validation/src/main/kotlin/mvc/HandlersX.kt#L23-L34) and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/85ce3b819a/kofu-reactive-validation/src/main/kotlin/reactive/HandlersX.kt#L22-L36).
+- Refer how both the services are able to seamlessly call the validation templates using the concrete instances without rewriting the rules and orchestration:
+  - WebMVC Ref - [This](https://github.com/overfullstack/ad-hoc-poly/blob/4a4b674ec88179d25202d21df670e2fd758c808a/kofu-mvc-validation/src/main/kotlin/mvc/Handlers.kt#L24-L55) is replaced with [This](https://github.com/overfullstack/ad-hoc-poly/blob/4a4b674ec88179d25202d21df670e2fd758c808a/kofu-mvc-validation/src/main/kotlin/mvc/HandlersX.kt#L18-L31)
+  - WebFlux Ref - [This](https://github.com/overfullstack/ad-hoc-poly/blob/4a4b674ec88179d25202d21df670e2fd758c808a/kofu-reactive-validation/src/main/kotlin/reactive/Handlers.kt#L18-L63) is replaced with [This](https://github.com/overfullstack/ad-hoc-poly/blob/4a4b674ec88179d25202d21df670e2fd758c808a/kofu-reactive-validation/src/main/kotlin/reactive/HandlersX.kt#L19-L35).
 
 ### Loose Coupling
 
-Sharing code among micro-services is seen as an anti-pattern as it cause tight coupling. But, this is a loose-coupled sharing. As discussed above, these templates are "extensions" of typeclass and services (consumers) are the ones, which breathe life into them. That means, any new service or service migration can pick and borrow and extend those well-tested small and large features for _free_ with minor efforts! Moreover, typeclasses are entirely extensible to support more operations, in turn, to extend and expand our template base.
+Sharing code among micro-services is seen as an anti-pattern as it causes tight coupling. But, this is a loose-coupled sharing. As discussed above, these templates are **Extensions** of typeclass and services (consumers) are the ones, which breathe life into them. That means, any new service or service migration can pick and borrow and extend at granular level, all those well-tested small and large features for _free_ with minor efforts! Moreover, typeclasses are entirely extensible to support more operations, in turn, to extend and expand our template base.
 
 ## Outcomes and Conclusions
 
