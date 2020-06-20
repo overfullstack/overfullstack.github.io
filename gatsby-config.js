@@ -37,7 +37,7 @@ module.exports = {
       email: "gopal.akshintala@gmail.com",
       telegram: "https://t.me/gopalakshintala",
       twitter: "http://bit.ly/agstwtr",
-      github: "http://bit.ly/agsgithub",
+      github: "http://bit.ly/agsgithubp",
       resume: "http://bit.ly/ags-my-resume",
       linkedin: "http://bit.ly/agslnkd",
       stackoverflow: "http://bit.ly/agsso",
