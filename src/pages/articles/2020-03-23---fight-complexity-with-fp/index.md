@@ -20,10 +20,10 @@ A Metric-driven approach to reduce Cognitive Complexity in a code base, using Fu
 
 - The [USP](https://en.wikipedia.org/wiki/Unique_selling_proposition) for this talk is, unlike majority FP talks in Java/Kotlin space, which are introductory, this has something for all levels of the audience.
   - This talk starts with basic FP concepts like _Imperative vs. Declarative_ style using Java **Streams** or Kotlin **Sequences**.
-  - Then the audience is gradually ramped-up towards Intermediate FP concepts such as _Monads_, _First-Class Functions_, _Higher-Order Functions_
+  - Then the audience is gradually ramped-up towards intermediate FP concepts such as _Monads_, _First-Class Functions_, _Higher-Order Functions_.
   - Towards the end, we touch-upon concepts for an advanced audience like _Function-Lifting_, _Dozen FP Operations for daily Programming like `foldLeft`_ in the context of the problem, with pictures and simple examples. They are also provided with appropriate pointers wherever needed, to go back and refer.
 - The audience experiences a mind-shift from the traditional mutation-heavy _Imperative style_ to _Functional style_ -- with Immutable Objects (Using Java 14 preview feature `Records` or Kotlin's `Data classes`) and Pure-Functions (replacing Mutation with Transformation).
-- With Hands-on demos, this talk adds a robust paradigm tool-set and vocabulary to a programmer's arsenal and how to apply them to simplify the modeling and designing of complex _real-world_ problems.
+- With Hands-on demos, this talk adds a robust paradigm tool-set and vocabulary to a programmer's arsenal and how to apply them to simplify the modelling and designing of complex _real-world_ problems.
 - The audience learns how to objectively perceive complexity in any codebase through metrics (measured using popular static analysis tools), and how to reduce cognitive complexity methodically.
 
 ## Source-Code
@@ -185,7 +185,10 @@ This talk was successfully presented and warmly received at:
 - [Java User Group Hyderabad (@JUGHyd)](https://www.meetup.com/en-AU/jughyderabad/events/264688807/)
 - [Salesforce, Hyderabad, India](http://y2u.be/l9jJ7m7_VpM)
 
-This talk is also selected for a prestigious international conference **[JBCN Conf - 2020](https://www.jbcnconf.com/2020/)** to be held in Barcelona this September.
+This talk is also selected for prestigious international conferences:
+
+- **[JBCN Conf - 2020](https://www.jbcnconf.com/2020/)**, 7-9 September 2020, Barcelona, Spain.
+- **[All Things Open - 2020](https://2020.allthingsopen.org/)**, 18-20 October, 2020, Raleigh, NC.
 
 ### Kotlin Version
 

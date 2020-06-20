@@ -17,7 +17,10 @@ He's an International Speaker and his Tech-Talks were warmly received at:
 - [Kotlin User Group, Hyderabad](https://youtu.be/_QBlKtUY6ac)
 - GHC, India - 2019, Bangalore
 
-He is also invited to speak at a prestigious international conference **[JBCN Conf - 2020](https://www.jbcnconf.com/2020/)**, to be held in Barcelona this September.
+He is also invited to speak at prestigious international conferences:
+
+- **[JBCN Conf - 2020](https://www.jbcnconf.com/2020/)**, 7-9 September 2020, Barcelona, Spain.
+- **[All Things Open - 2020](https://2020.allthingsopen.org/)**, 18-20 October, 2020, Raleigh, NC.
 
 ## Recorded Talks
 
