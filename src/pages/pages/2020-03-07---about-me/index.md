@@ -19,20 +19,4 @@ He is a practitioner of Domain-Driven Design (DDD) and Clean Architecture. A mas
 
 In addition to his Software Engineering experience, he gains more _experiences-per-year_ by open-source collaborations & contributions, active participation in the Dev discussions, and Speaking at User Groups and Conferences. He loves being on Stage, as a [Singer](http://bit.ly/agssc) and a [Tech-Speaker](https://overfullstack.github.io/about-me#Speaking) and writes about Nature & Life - ([Creative Blog](http://bit.ly/agslotw) & [Medium](http://bit.ly/agsmdm))
 
-## Speaking
-
-He's an International Speaker and his Tech-Talks were warmly received at:
-
-- [JavaBin, Norway](https://youtu.be/tnpL1O8kTbM)
-- [Kotlin User Group, Berlin](https://youtu.be/uGxx01yYAgk)
-- [Google Developer Group Devfest 2019](https://devfest.gdghyderabad.in/speakers.html)
-- [Java User Group Hyderabad (@JUGHyd)](https://www.meetup.com/en-AU/jughyderabad/events/264688807/)
-- [Salesforce, Hyderabad, India](http://y2u.be/l9jJ7m7_VpM)
-- [Kotlin User Group, Hyderabad](https://youtu.be/_QBlKtUY6ac, https://youtu.be/LGABy9qdB44)
-- GHC, India - 2019, Bangalore
-
-He is also invited to speak at a prestigious international conference **[JBCN Conf - 2020](https://www.jbcnconf.com/2020/)**, to be held in Barcelona this September.
-
-[Talk Recordings](/my-talks/#Recorded-Talks)
-
 [My Résumé](http://bit.ly/ags-my-resume)

@@ -23,7 +23,7 @@ A Metric-driven approach to reduce Cognitive Complexity in a code base, using Fu
   - Then the audience is gradually ramped-up towards intermediate FP concepts such as _Monads_, _First-Class Functions_, _Higher-Order Functions_.
   - Towards the end, we touch-upon concepts for an advanced audience like _Function-Lifting_, _Dozen FP Operations for daily Programming like `foldLeft`_ in the context of the problem, with pictures and simple examples. They are also provided with appropriate pointers wherever needed, to go back and refer.
 - The audience experiences a mind-shift from the traditional mutation-heavy _Imperative style_ to _Functional style_ -- with Immutable Objects (Using Java 14 preview feature `Records` or Kotlin's `Data classes`) and Pure-Functions (replacing Mutation with Transformation).
-- With Hands-on demos, this talk adds a robust paradigm tool-set and vocabulary to a programmer's arsenal and how to apply them to simplify the modelling and designing of complex _real-world_ problems.
+- With Hands-on demos, this talk adds a robust paradigm tool-set and vocabulary to a programmer's arsenal and how to apply them to simplify the modeling and designing of complex _real-world_ problems.
 - The audience learns how to objectively perceive complexity in any codebase through metrics (measured using popular static analysis tools), and how to reduce cognitive complexity methodically.
 
 ## Source-Code
@@ -178,6 +178,7 @@ Functional Programming is not Complex, but it fights complexity. The solution ru
 
 This talk was successfully presented and warmly received at:
 
+- [Berlin Functional Programming Group](https://youtu.be/DBDTNmLbU2Y)
 - [JavaBin, Norway](https://youtu.be/tnpL1O8kTbM)
 - [Kotlin User Group, Berlin](https://youtu.be/uGxx01yYAgk)
 - [Google Developer Group Devfest 2019](https://devfest.gdghyderabad.in/speakers.html)
@@ -187,8 +188,27 @@ This talk was successfully presented and warmly received at:
 
 This talk is also selected for prestigious international conferences:
 
-- **[JBCN Conf - 2020](https://www.jbcnconf.com/2020/)**, 7-9 September 2020, Barcelona, Spain.
 - **[All Things Open - 2020](https://2020.allthingsopen.org/)**, 18-20 October, 2020, Raleigh, NC.
+- **[JBCN Conf - 2020](https://www.jbcnconf.com/2020/)**, 7-9 September 2020, Barcelona, Spain (This event got cancelled due to COVID-19).
+
+### Java Version
+
+- The [Slide-deck](https://speakerdeck.com/gopalakshintala/fight-complexity-with-functional-programming)
+- Source-code links:
+  - [imperative-vs-declarative](https://bit.ly/imp-vs-dec)
+  - [railway-oriented-validation](https://bit.ly/ro-validation)
+
+### 06-2020 (Berlin FP Group, Germany)
+
+`youtube: DBDTNmLbU2Y`
+
+#### 05-2020 (JavaBin, Norway)
+
+`youtube: tnpL1O8kTbM`
+
+### 08-2019 (Salesforce, Hyderabad)
+
+`youtube: l9jJ7m7_VpM`
 
 ### Kotlin Version
 
@@ -204,21 +224,6 @@ This talk is also selected for prestigious international conferences:
 #### 05-2020 (Kotlin User Group, Hyderabad)
 
 `youtube: LGABy9qdB44`
-
-### Java Version
-
-- The [Slide-deck](https://speakerdeck.com/gopalakshintala/fight-complexity-with-functional-programming)
-- Source-code links:
-  - [imperative-vs-declarative](http://bit.ly/imp-vs-dec)
-  - [railway-oriented-validation](https://bit.ly/ro-validation)
-
-#### 05-2020 (JavaBin, Norway)
-
-`youtube: tnpL1O8kTbM`
-
-### 08-2019 (Salesforce, Hyderabad)
-
-`youtube: l9jJ7m7_VpM`
 
 ## References
 

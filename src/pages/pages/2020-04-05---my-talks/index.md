@@ -9,6 +9,7 @@ path: "/my-talks"
 
 He's an International Speaker and his Tech-Talks were warmly received at:
 
+- [Berlin Functional Programming Group](https://youtu.be/DBDTNmLbU2Y)
 - [JavaBin, Norway](https://youtu.be/tnpL1O8kTbM)
 - [Kotlin User Group, Berlin](https://youtu.be/uGxx01yYAgk)
 - [Google Developer Group Devfest 2019](https://devfest.gdghyderabad.in/speakers.html)
@@ -19,10 +20,29 @@ He's an International Speaker and his Tech-Talks were warmly received at:
 
 He is also invited to speak at prestigious international conferences:
 
-- **[JBCN Conf - 2020](https://www.jbcnconf.com/2020/)**, 7-9 September 2020, Barcelona, Spain.
 - **[All Things Open - 2020](https://2020.allthingsopen.org/)**, 18-20 October, 2020, Raleigh, NC.
+- **[JBCN Conf - 2020](https://www.jbcnconf.com/2020/)**, 7-9 September 2020, Barcelona, Spain (This event got cancelled due to COVID-19).
 
 ## Recorded Talks
+
+### Fight Complexity with Functional Programming (Java)
+
+- The [Slide-deck](https://speakerdeck.com/gopalakshintala/fight-complexity-with-functional-programming)
+- Source-code links:
+  - [imperative-vs-declarative](https://bit.ly/imp-vs-dec)
+  - [railway-oriented-validation](https://bit.ly/ro-validation)
+
+### 06-2020 (Berlin FP Group, Germany)
+
+`youtube: DBDTNmLbU2Y`
+
+#### 05-2020 (JavaBin, Norway)
+
+`youtube: tnpL1O8kTbM`
+
+### 08-2019 (Salesforce, Hyderabad)
+
+`youtube: l9jJ7m7_VpM`
 
 ### Fight Complexity with Functional Programming (Kotlin)
 
@@ -38,21 +58,6 @@ He is also invited to speak at prestigious international conferences:
 #### 05-2020 (Kotlin User Group, Hyderabad)
 
 `youtube: LGABy9qdB44`
-
-### Fight Complexity with Functional Programming (Java)
-
-- The [Slide-deck](https://speakerdeck.com/gopalakshintala/fight-complexity-with-functional-programming)
-- Source-code links:
-  - [imperative-vs-declarative](http://bit.ly/imp-vs-dec)
-  - [railway-oriented-validation](https://bit.ly/ro-validation)
-
-#### 05-2020 (JavaBin, Norway)
-
-`youtube: tnpL1O8kTbM`
-
-### 08-2019 (Salesforce, Hyderabad)
-
-`youtube: l9jJ7m7_VpM`
 
 ### Template-Oriented-Programming to Ship Faster, Part-1
 
