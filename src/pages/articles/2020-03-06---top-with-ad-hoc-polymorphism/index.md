@@ -127,11 +127,13 @@ However, these User-rules are generic functions aka _Templates_, which are agnos
 
 ### Loose Coupling
 
-Sharing code among micro-services is seen as an anti-pattern as it causes tight coupling. But, this is a loose-coupled sharing. As discussed above, these templates are **Extensions** of typeclass and services (consumers) are the ones, which breathe life into them. That means, any new service or service migration can pick and borrow and extend at granular level, all those well-tested small and large features for _free_ with minor efforts! Moreover, typeclasses are entirely extensible to support more operations, in turn, to extend and expand our template base.
+Sharing code among micro-services is seen as an anti-pattern as it causes tight-coupling and eager-abstractions. But, this is specific to *Parallel* services like Payments-Refunds, Reservations-Cancellations etc., which share a lot of domain logic and is not bound to change. Plus, this is sharing at granular level. As discussed above, these templates are **Extensions** of typeclass and services (consumers) are the ones, which breathe life into them. That means, any new service or service migration can pick and borrow and extend at granular level, all those well-tested small and large features for _free_ with minor efforts! Moreover, typeclasses are entirely extensible to support more operations, in turn, to extend and expand our template base.
+
+> ⚠️ A word of caution, this technique should **NOT** be misused on the name of DRY to tightly couple unrelated service just because they have some duplicate code.
 
 ## Outcomes and Conclusions
 
-We achieved reusable domain logic using Ad-hoc Polymorphism, abstracting out the Effect using Typeclasses and Higher-Kinded Types, turing our Monomorphic code to Polymorphic. This is very powerful to model and migrate B2C-services. This **zeros-down the cost and effort** to rewrite and maintain common business logic across all services and service migrations. This can save a release cycle amount of work, increases project stability, bringing in real agility among scrum teams and startups to ship features faster. All of this is achieved with **Free & Open-Source** technologies.
+We achieved reusable domain logic using Ad-hoc Polymorphism, abstracting out the Effect using Typeclasses and Higher-Kinded Types, turing our Monomorphic code to Polymorphic. This is very powerful to model and migrate Parallel B2C-services. This **zeros-down the cost and effort** to rewrite and maintain common business logic across all services and service migrations. This can save a release cycle amount of work, increases project stability, bringing in real agility among scrum teams and startups to ship features faster. All of this is achieved with **Free & Open-Source** technologies.
 
 ## My Talk on this
 

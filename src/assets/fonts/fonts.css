@@ -63,6 +63,27 @@
 }
 
 @font-face {
+    font-family: 'JetBrains Mono';
+    src: url('./files/JetBrainsMono-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('./files/JetBrainsMono-Bold-Italic.woff2') format('woff2');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('./files/JetBrainsMono-Italic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
     font-family: 'SF Mono Regular';
     font-style: normal;
     font-weight: normal;
