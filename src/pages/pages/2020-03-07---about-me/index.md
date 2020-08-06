@@ -5,13 +5,13 @@ cover: "./gdg.jpg"
 path: "/about-me"
 ---
 
-Decent at Math and loves Physics, a right-brainer who loves being creative and that ended-him-up choosing 'Programming' as his day-job. He loves what he does.
+Decent at Math and loves Physics, a right-brainer who loves being creative and that ended-him-up choosing *Programming* as his day-job. He loves what he does.
 
 ![Speaking at GDG Dev Fest, 2019](gdg.jpg)
 
-Gopal S Akshintala is currently a Senior Software Engineer at Microsoft OneNote team.
+Gopal S Akshintala is currently a Senior Software Engineer at the Microsoft OneNote team.
 
-He is a passionate developer and loves being an **Influencer & Mentor** in the dev community through Blog-posts, Tech-Talks and Social-media.
+He is a passionate developer and loves being an **Influencer & Mentor** in the dev community through Blog-posts, [Tech-Talks](https://overfullstack.github.io/about-me#Speaking), and Social-media.
 
 He started as an Android Developer and switched to the server-side as a Full-Stack Developer (Kotlin, Java for Backend, React Js for Frontend). Wearing multiple hats, aided him to perceive Patterns, Solutions, and Trade-offs.
 
