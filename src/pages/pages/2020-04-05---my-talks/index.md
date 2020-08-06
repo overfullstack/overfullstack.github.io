@@ -20,10 +20,12 @@ He's an International Speaker and his Tech-Talks were warmly received at:
 
 He is also invited to speak at prestigious international conferences:
 
-- **[All Things Open - 2020](https://2020.allthingsopen.org/)**, 18-20 October, 2020, Raleigh, NC.
-- **[JBCN Conf - 2020](https://www.jbcnconf.com/2020/)**, 7-9 September 2020, Barcelona, Spain (This event got cancelled due to COVID-19).
+- **[All Things Open](https://2020.allthingsopen.org/speakers/gopal-s-akshintala/)**, 18-20 October, 2020, Raleigh, NC.
+- **[JBCN Conf](https://www.jbcnconf.com/2020/)**, 7-9 September 2020, Barcelona, Spain (This event got cancelled due to COVID-19).
 
 ## Recorded Talks
+
+_**Note:** Although these talks have the same titles, there have been significant enhancements in the ideas and code in the recent versions of the talk._
 
 ### Fight Complexity with Functional Programming (Java)
 
