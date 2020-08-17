@@ -49,7 +49,7 @@
     "gatsby-transformer-sharp": "^2.5.3",
     "gist-syntax-themes": "^1.1.0",
     "katex": "^0.11.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.20",
     "moment": "^2.26.0",
     "node-sass": "^4.14.1",
     "prismjs": "^1.20.0",
