@@ -9,6 +9,7 @@ path: "/my-talks"
 
 He's an International Speaker and his Tech-Talks were warmly received at:
 
+- [Kotlin User Group, London](https://youtu.be/QVuMSsIUw6M)
 - [Berlin Functional Programming Group](https://youtu.be/DBDTNmLbU2Y)
 - [JavaBin, Norway](https://youtu.be/tnpL1O8kTbM)
 - [Kotlin User Group, Berlin](https://youtu.be/uGxx01yYAgk)
@@ -26,6 +27,32 @@ He is also invited to speak at prestigious international conferences:
 ## Recorded Talks
 
 _**Note:** Although these talks have the same titles, there have been significant enhancements in the ideas and code in the recent versions of the talk._
+
+### Fight Complexity with Functional Programming (Kotlin)
+
+- The [Slide-deck](https://speakerdeck.com/gopalakshintala/fight-complexity-with-functional-programming-31a15b3d-878e-4b59-94d4-a706c23caadf)
+- Source-code links:
+  - [imperative-vs-declarative](http://bit.ly/imp-vs-dec)
+  - [railway-oriented-validation-kotlin](https://bit.ly/ro-validation-kt)
+
+#### 09-2020 (Kotlin User Group, London)
+
+`youtube: QVuMSsIUw6M`
+
+#### 04-2020 (Kotlin User Group, Berlin)
+
+`youtube: uGxx01yYAgk`
+
+#### 05-2020 (Kotlin User Group, Hyderabad)
+
+`youtube: LGABy9qdB44`
+
+### Template-Oriented-Programming (TOP) to Ship Faster, Part-1
+
+- The [Slide-deck](https://speakerdeck.com/gopalakshintala/template-oriented-programming-top-to-ship-faster)
+- Source-code links: [ad-hoc-poly](https://github.com/overfullstack/ad-hoc-poly/)
+
+`youtube: _QBlKtUY6ac`
 
 ### Fight Complexity with Functional Programming (Java)
 
@@ -45,25 +72,3 @@ _**Note:** Although these talks have the same titles, there have been significan
 ### 08-2019 (Salesforce, Hyderabad)
 
 `youtube: l9jJ7m7_VpM`
-
-### Fight Complexity with Functional Programming (Kotlin)
-
-- The [Slide-deck](https://speakerdeck.com/gopalakshintala/fight-complexity-with-functional-programming-31a15b3d-878e-4b59-94d4-a706c23caadf)
-- Source-code links:
-  - [imperative-vs-declarative](http://bit.ly/imp-vs-dec)
-  - [railway-oriented-validation-kotlin](https://bit.ly/ro-validation-kt)
-
-#### 04-2020 (Kotlin User Group, Berlin)
-
-`youtube: uGxx01yYAgk`
-
-#### 05-2020 (Kotlin User Group, Hyderabad)
-
-`youtube: LGABy9qdB44`
-
-### Template-Oriented-Programming to Ship Faster, Part-1
-
-- The [Slide-deck](https://speakerdeck.com/gopalakshintala/template-oriented-programming-top-to-ship-faster)
-- Source-code links: [ad-hoc-poly](https://github.com/overfullstack/ad-hoc-poly/)
-
-`youtube: _QBlKtUY6ac`
