@@ -9,6 +9,7 @@ path: "/my-talks"
 
 He's an International Speaker and his Tech-Talks were warmly received at:
 
+- **[All Things Open](https://2020.allthingsopen.org/speakers/gopal-s-akshintala/)**, 2020, Raleigh, USA.
 - [Kotlin User Group, London](https://youtu.be/QVuMSsIUw6M)
 - [Berlin Functional Programming Group](https://youtu.be/DBDTNmLbU2Y)
 - [JavaBin, Norway](https://youtu.be/tnpL1O8kTbM)
@@ -21,7 +22,6 @@ He's an International Speaker and his Tech-Talks were warmly received at:
 
 He is also invited to speak at prestigious international conferences:
 
-- **[All Things Open](https://2020.allthingsopen.org/speakers/gopal-s-akshintala/)**, 18-20 October, 2020, Raleigh, NC.
 - **[JBCN Conf](https://www.jbcnconf.com/2020/)**, 7-9 September 2020, Barcelona, Spain (This event got cancelled due to COVID-19).
 
 ## Recorded Talks
@@ -30,7 +30,7 @@ _**Note:** Although these talks have the same titles, there have been significan
 
 ### Fight Complexity with Functional Programming (Kotlin)
 
-- The [Slide-deck](https://speakerdeck.com/gopalakshintala/fight-complexity-with-functional-programming-31a15b3d-878e-4b59-94d4-a706c23caadf)
+- The [Slide-deck](http://bit.ly/fcwfp-kt-slides)
 - Source-code links:
   - [imperative-vs-declarative](http://bit.ly/imp-vs-dec)
   - [railway-oriented-validation-kotlin](https://bit.ly/ro-validation-kt)
@@ -56,7 +56,7 @@ _**Note:** Although these talks have the same titles, there have been significan
 
 ### Fight Complexity with Functional Programming (Java)
 
-- The [Slide-deck](https://speakerdeck.com/gopalakshintala/fight-complexity-with-functional-programming)
+- The [Slide-deck](http://bit.ly/fcwfp-slides)
 - Source-code links:
   - [imperative-vs-declarative](https://bit.ly/imp-vs-dec)
   - [railway-oriented-validation](https://bit.ly/ro-validation)

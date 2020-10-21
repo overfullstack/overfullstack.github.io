@@ -180,6 +180,8 @@ Functional Programming is not Complex, but it fights complexity. The solution ru
 
 This talk was successfully presented and warmly received at:
 
+- **[All Things Open](https://2020.allthingsopen.org/speakers/gopal-s-akshintala/)**, 2020, Raleigh, USA.
+- [Kotlin User Group, London](https://youtu.be/QVuMSsIUw6M)
 - [Berlin Functional Programming Group](https://youtu.be/DBDTNmLbU2Y)
 - [JavaBin, Norway](https://youtu.be/tnpL1O8kTbM)
 - [Kotlin User Group, Berlin](https://youtu.be/uGxx01yYAgk)
@@ -195,7 +197,7 @@ This talk is also selected for prestigious international conferences:
 
 ### Java Version
 
-- The [Slide-deck](https://speakerdeck.com/gopalakshintala/fight-complexity-with-functional-programming)
+- The [Slide-deck](http://bit.ly/fcwfp-slides)
 - Source-code links:
   - [imperative-vs-declarative](https://bit.ly/imp-vs-dec)
   - [railway-oriented-validation](https://bit.ly/ro-validation)
@@ -214,10 +216,14 @@ This talk is also selected for prestigious international conferences:
 
 ### Kotlin Version
 
-- The [Slide-deck](https://speakerdeck.com/gopalakshintala/fight-complexity-with-functional-programming-31a15b3d-878e-4b59-94d4-a706c23caadf)
+- The [Slide-deck](http://bit.ly/fcwfp-kt-slides)
 - Source-code links:
   - [imperative-vs-declarative](http://bit.ly/imp-vs-dec)
   - [railway-oriented-validation-kotlin](https://bit.ly/ro-validation-kt)
+
+#### 09-2020 (Kotlin User Group, London)
+
+`youtube: QVuMSsIUw6M`
 
 #### 04-2020 (Kotlin User Group, Berlin)
 
