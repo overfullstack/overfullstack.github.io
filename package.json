@@ -59,7 +59,7 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
     "react-toastify": "^6.0.5",
-    "snyk": "^1.327.0"
+    "snyk": "^1.425.4"
   },
   "devDependencies": {
     "@babel/plugin-transform-typescript": "^7.9.6",
