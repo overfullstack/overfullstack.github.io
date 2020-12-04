@@ -197,10 +197,6 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     {
-      resolve: "gatsby-plugin-google-analytics",
-      options: { trackingId: "UA-73379983-2" },
-    },
-    {
       resolve: "gatsby-plugin-google-fonts",
       options: {
         fonts: ["roboto:400,400i,500,700"],
@@ -295,9 +291,7 @@ module.exports = {
       resolve: "gatsby-plugin-google-analytics",
       options: {
         trackingId: "UA-131255680-1",
-        // Puts tracking script in the head instead of the body
         head: true,
-        // Any additional create only fields (optional)
       },
     },
   ],

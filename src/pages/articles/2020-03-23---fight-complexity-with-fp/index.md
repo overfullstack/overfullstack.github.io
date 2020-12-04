@@ -192,8 +192,30 @@ This talk was successfully presented and warmly received at:
 
 This talk is also selected for prestigious international conferences:
 
-- **[All Things Open - 2020](https://2020.allthingsopen.org/)**, 18-20 October, 2020, Raleigh, NC.
-- **[JBCN Conf - 2020](https://www.jbcnconf.com/2020/)**, 7-9 September 2020, Barcelona, Spain (This event got cancelled due to COVID-19).
+- **[JBCN Conf - 2020](https://www.jbcnconf.com/2020/)**, September 2020, Barcelona, Spain (This event got cancelled due to COVID-19).
+
+### Kotlin Version
+
+- The [Slide-deck](http://bit.ly/fcwfp-kt-slides)
+- Source-code links:
+  - [imperative-vs-declarative](http://bit.ly/imp-vs-dec)
+  - [railway-oriented-validation-kotlin](https://bit.ly/ro-validation-kt)
+
+#### 10-2020 (All Things Open, Raleigh, USA)
+
+`youtube: Dvr6gx4XaD8`
+
+#### 09-2020 (Kotlin User Group, London)
+
+`youtube: QVuMSsIUw6M`
+
+#### 04-2020 (Kotlin User Group, Berlin)
+
+`youtube: uGxx01yYAgk`
+
+#### 05-2020 (Kotlin User Group, Hyderabad)
+
+`youtube: LGABy9qdB44`
 
 ### Java Version
 
@@ -213,25 +235,6 @@ This talk is also selected for prestigious international conferences:
 ### 08-2019 (Salesforce, Hyderabad)
 
 `youtube: l9jJ7m7_VpM`
-
-### Kotlin Version
-
-- The [Slide-deck](http://bit.ly/fcwfp-kt-slides)
-- Source-code links:
-  - [imperative-vs-declarative](http://bit.ly/imp-vs-dec)
-  - [railway-oriented-validation-kotlin](https://bit.ly/ro-validation-kt)
-
-#### 09-2020 (Kotlin User Group, London)
-
-`youtube: QVuMSsIUw6M`
-
-#### 04-2020 (Kotlin User Group, Berlin)
-
-`youtube: uGxx01yYAgk`
-
-#### 05-2020 (Kotlin User Group, Hyderabad)
-
-`youtube: LGABy9qdB44`
 
 ## References
 

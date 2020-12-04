@@ -35,6 +35,10 @@ _**Note:** Although these talks have the same titles, there have been significan
   - [imperative-vs-declarative](http://bit.ly/imp-vs-dec)
   - [railway-oriented-validation-kotlin](https://bit.ly/ro-validation-kt)
 
+#### 10-2020 (All Things Open, Raleigh, USA)
+
+`youtube: Dvr6gx4XaD8`
+
 #### 09-2020 (Kotlin User Group, London)
 
 `youtube: QVuMSsIUw6M`
