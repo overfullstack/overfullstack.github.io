@@ -4,7 +4,7 @@ const pxtorem = require("postcss-pxtorem")
 module.exports = {
   siteMetadata: {
     url: "https://github.com/overfullstack/overfullstack.github.io",
-    siteUrl: "https://overfullstack.github.io",
+    siteUrl: "https://overfullstack.ga",
     blogTitle: "Overfullstack",
     subtitle:
       "So excited about this Craft that, I can't keep myself from blogging about it.",
@@ -12,7 +12,7 @@ module.exports = {
     copyright: "© All rights reserved.",
     declaration: "I built this blog with React.js",
     disqusShortname: "gopal",
-    pathPrefix: "/overfullstack.github.io",
+    pathPrefix: "/overfullstack.ga",
     logo: "src/assets/logo.png",
     menu: [
       {
