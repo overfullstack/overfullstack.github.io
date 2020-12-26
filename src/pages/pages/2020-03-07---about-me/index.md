@@ -11,7 +11,7 @@ Decent at Math and loves Physics, a right-brainer who loves being creative and t
 
 Gopal S Akshintala is currently a Senior Software Engineer at Microsoft, working with their flagship product OneNote.
 
-He is a passionate developer and loves being an **Influencer & Mentor** in the dev community through his Blog-posts, [Tech-Talks](https://overfullstack.ga/my-talks/), and Social-media.
+He is a passionate developer and loves being an **Influencer & Mentor** in the dev community through his Blog-posts, [Tech-Talks](./my-talks/), and Social-media.
 
 He started as an Android Developer and switched to the server-side as a Full-Stack Developer (Backend - Kotlin, Java | Frontend - React Js). Wearing multiple hats, aided him to perceive Patterns, Solutions, and Trade-offs.
 
