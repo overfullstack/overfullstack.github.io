@@ -1,7 +1,7 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import Sidebar from '../components/Sidebar';
-import Layout from '../components/Layout';
+import React from "react"
+import { graphql } from "gatsby"
+import Sidebar from "../components/Sidebar"
+import Layout from "../components/Layout"
 
 class NotFoundRoute extends React.Component {
   render() {
@@ -12,8 +12,16 @@ class NotFoundRoute extends React.Component {
           <div className="content">
             <div className="content__inner">
               <div className="page">
-                <h1 className="page__title">NOT FOUND</h1>
-                <div className="page__body">
+                <h1
+                  className="page__title"
+                  style={{ color: `var(--textNormal)` }}
+                >
+                  NOT FOUND
+                </h1>
+                <div
+                  className="page__body"
+                  style={{ color: `var(--textNormal)` }}
+                >
                   <p>
                     You just hit a route that doesn&#39;t exist... the sadness.
                   </p>
@@ -23,11 +31,11 @@ class NotFoundRoute extends React.Component {
           </div>
         </div>
       </Layout>
-    );
+    )
   }
 }
 
-export default NotFoundRoute;
+export default NotFoundRoute
 
 export const pageQuery = graphql`
   query NotFoundQuery {
@@ -53,4 +61,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

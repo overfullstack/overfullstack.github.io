@@ -1,36 +1,37 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
-import Sidebar from '../components/Sidebar';
-import CategoryTemplateDetails from '../components/CategoryTemplateDetails';
+import React from "react"
+import { Helmet } from "react-helmet"
+import { graphql } from "gatsby"
+import Layout from "../components/Layout"
+import Sidebar from "../components/Sidebar"
+import CategoryTemplateDetails from "../components/CategoryTemplateDetails"
 
 class CategoryTemplate extends React.Component {
   render() {
-    const { blogTitle } = this.props.data.site.siteMetadata;
-    const { category } = this.props.pageContext;
+    const { blogTitle } = this.props.data.site.siteMetadata
+    const { category } = this.props.pageContext
 
     return (
-      <div style={{
-        color: 'var(--textNormal)',
-        background: 'var(--bg)',
-        transition: 'color 0.2s ease-out, background 0.2s ease-out',
-        minHeight: '100vh',
-      }}
+      <div
+        style={{
+          color: `var(--textNormal)`,
+          background: `var(--bg)`,
+          transition: `color 0.2s ease-out, background 0.2s ease-out`,
+          minHeight: `100vh`,
+        }}
       >
         <Layout>
           <div>
-            <Helmet title={`${category} | ${blogTitle}`}/>
+            <Helmet title={`${category} | ${blogTitle}`} />
             <Sidebar {...this.props} />
             <CategoryTemplateDetails {...this.props} />
           </div>
         </Layout>
       </div>
-    );
+    )
   }
 }
 
-export default CategoryTemplate;
+export default CategoryTemplate
 
 export const pageQuery = graphql`
   query CategoryPage($category: String) {
@@ -84,4 +85,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

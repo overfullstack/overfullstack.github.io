@@ -1,14 +1,14 @@
-import kebabCase from 'lodash/kebabCase';
-import React from 'react';
-import { Link, graphql } from 'gatsby';
-import { Helmet } from 'react-helmet';
-import Layout from '../components/Layout';
-import Sidebar from '../components/Sidebar';
+import kebabCase from "lodash/kebabCase"
+import React from "react"
+import { Link, graphql } from "gatsby"
+import { Helmet } from "react-helmet"
+import Layout from "../components/Layout"
+import Sidebar from "../components/Sidebar"
 
 class CategoriesRoute extends React.Component {
   render() {
-    const { blogTitle } = this.props.data.site.siteMetadata;
-    const categories = this.props.data.allMarkdownRemark.group;
+    const { blogTitle } = this.props.data.site.siteMetadata
+    const categories = this.props.data.allMarkdownRemark.group
 
     return (
       <Layout>
@@ -22,22 +22,16 @@ class CategoriesRoute extends React.Component {
                 <div className="page__body">
                   <div className="categories">
                     <ul className="categories__list">
-                      {categories.map(category => (
+                      {categories.map((category) => (
                         <li
-                          key={category.fieldValue}
+                          key={category.value}
                           className="categories__list-item"
                         >
                           <Link
-                            to={`/categories/${kebabCase(
-                              category.fieldValue
-                            )}/`}
+                            to={`/categories/${kebabCase(category.value)}/`}
                             className="categories__list-item-link"
                           >
-                            {category.fieldValue}
-                            {' '}
-(
-                            {category.totalCount}
-)
+                            {category.value} ({category.totalCount})
                           </Link>
                         </li>
                       ))}
@@ -49,11 +43,11 @@ class CategoriesRoute extends React.Component {
           </div>
         </div>
       </Layout>
-    );
+    )
   }
 }
 
-export default CategoriesRoute;
+export default CategoriesRoute
 
 export const pageQuery = graphql`
   query CategoryesQuery {
@@ -89,4 +83,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`
