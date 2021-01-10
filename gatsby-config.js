@@ -269,7 +269,9 @@ module.exports = {
             minPixelValue: 0,
           }),
         ],
-        precision: 8,
+        sassOptions: {
+          precision: 8,
+        },
       },
     },
     {
