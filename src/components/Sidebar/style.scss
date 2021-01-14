@@ -1,5 +1,6 @@
 @import "../../assets/scss/variables";
 @import "../../assets/scss/mixins";
+@import "../../assets/scss/base/generic";
 
 .sidebar {
     width: 100%;
@@ -25,8 +26,7 @@
         &__inner {
             padding: 30px 20px 0;
             &:after {
-                background: $color-gray-border;
-                background: linear-gradient(to bottom, $color-gray-border 0%, $color-gray-border 48%, $color-white 100%);
+                background: linear-gradient(to bottom, var(--bg-invert) 0%, var(--bg-invert) 48%, var(--bg) 100%);
                 position: absolute;
                 content: "";
                 width: 1px;
