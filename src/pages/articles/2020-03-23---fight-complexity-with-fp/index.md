@@ -160,7 +160,9 @@ If the inter-dependencies between Parent-Child happens to be more complex, we ma
 
 Now we have 2 lists to intertwine - List of sub-requests to be validated against List of Validations. This orchestration can be easily achieved in many ways due to the virtue of loose coupling between What-to-do(validations) and How-to-do(Orchestration). We can switch orchestration strategies (like fail-fast strategy to error-accumulation or running validations in parallel) without effecting validations code - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/algebra/Strategies.java).
 
-The partial failure sub-requests are captured as Either Monads in `left` state, which are passed to subsequent layers, where they are ignored, thanks to the Either Monad property we discussed above.
+### Partial failures
+
+The partial failure sub-requests are captured as Either Monads in `left` state, which are passed but skipped from processing in subsequent layers, thanks to the Either Monad property we discussed above. This way these failures are ignored till the end, where they can be conveniently written to the final response as errors.
 
 ### Testability
 
