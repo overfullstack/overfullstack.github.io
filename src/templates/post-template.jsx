@@ -1,26 +1,31 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
-import PostTemplateDetails from '../components/PostTemplateDetails';
-import SEO from '../components/SEO';
+import React from "react"
+import { Helmet } from "react-helmet"
+import { graphql } from "gatsby"
+import Layout from "../components/Layout"
+import PostTemplateDetails from "../components/PostTemplateDetails"
+import SEO from "../components/SEO"
 import "katex/dist/katex.min.css"
 
 class PostTemplate extends React.Component {
   render() {
-    const { subtitle } = this.props.data.site.siteMetadata;
-    const post = this.props.data.markdownRemark;
-    const { title: postTitle, description: postDescription, cover } = post.frontmatter;
-    const description = postDescription !== null ? postDescription : subtitle;
+    const { subtitle } = this.props.data.site.siteMetadata
+    const post = this.props.data.markdownRemark
+    const {
+      title: postTitle,
+      description: postDescription,
+      cover,
+    } = post.frontmatter
+    const description = postDescription !== null ? postDescription : subtitle
 
-    const actualPostTitle = `${postTitle}`;
+    const actualPostTitle = `${postTitle}`
     return (
-      <div style={{
-        color: 'var(--textNormal)',
-        background: 'var(--bg)',
-        transition: 'color 0.2s ease-out, background 0.2s ease-out',
-        minHeight: '100vh',
-      }}
+      <div
+        style={{
+          color: `var(--textNormal)`,
+          background: `var(--bg)`,
+          transition: `color 0.2s ease-out, background 0.2s ease-out`,
+          minHeight: `100vh`,
+        }}
       >
         <Layout>
           <SEO
@@ -38,11 +43,11 @@ class PostTemplate extends React.Component {
           </div>
         </Layout>
       </div>
-    );
+    )
   }
 }
 
-export default PostTemplate;
+export default PostTemplate
 
 export const pageQuery = graphql`
   query PostBySlug($slug: String!) {

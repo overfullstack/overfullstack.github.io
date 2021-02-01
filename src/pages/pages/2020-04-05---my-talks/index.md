@@ -20,7 +20,7 @@ He's an International Speaker and his Tech-Talks were warmly received at:
 - [Kotlin User Group, Hyderabad](https://youtu.be/_QBlKtUY6ac)
 - GHC, India - 2019, Bangalore
 
-He is also invited to speak at prestigious international conferences:
+He is also invited to speak at a prestigious international conference:
 
 - **[JBCN Conf](https://www.jbcnconf.com/2020/)**, 7-9 September 2020, Barcelona, Spain (This event got cancelled due to COVID-19).
 

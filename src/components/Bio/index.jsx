@@ -1,18 +1,20 @@
-import React from 'react';
-import { Link } from 'gatsby';
-import './style.scss';
-import profilePic from '../../assets/photo.jpg';
+import React from "react"
+import { Link } from "gatsby"
+import "./style.scss"
+import profilePic from "../../assets/photo.jpg"
 
 const Bio = ({ author, subtitle, path }) => (
   <div>
     <Link to={`${author.aboutme}`}>
       <img
         src={profilePic}
-        className={(path === 'posts') ? 'post-bio__author-photo' : 'bio__author-photo'}
+        className={
+          path === `posts` ? `post-bio__author-photo` : `bio__author-photo`
+        }
         alt={author.name}
       />
     </Link>
-    {(path === '/') ? (
+    {path === `/` ? (
       <h1 className="bio__author-title">
         <a
           className="bio__author-title-link"
@@ -20,9 +22,9 @@ const Bio = ({ author, subtitle, path }) => (
           target="_blank"
           rel="noopener noreferrer"
           style={{
-            boxShadow: 'none',
-            textDecoration: 'none',
-            color: 'var(--textLink)',
+            boxShadow: `none`,
+            textDecoration: `none`,
+            color: `var(--textLink)`,
           }}
         >
           {author.name}
@@ -36,17 +38,19 @@ const Bio = ({ author, subtitle, path }) => (
           target="_blank"
           rel="noopener noreferrer"
           style={{
-            boxShadow: 'none',
-            textDecoration: 'none',
-            color: 'var(--textLink)',
+            boxShadow: `none`,
+            textDecoration: `none`,
+            color: `var(--textLink)`,
           }}
         >
           {author.name}
         </a>
       </h2>
     )}
-    <p className="bio__author-subtitle" style={{ marginBottom: '0.625rem' }}>{subtitle}</p>
+    <p className="bio__author-subtitle" style={{ marginBottom: `0.625rem` }}>
+      {subtitle}
+    </p>
   </div>
-);
+)
 
-export default Bio;
+export default Bio

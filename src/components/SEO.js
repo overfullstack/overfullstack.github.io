@@ -1,7 +1,7 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import PropTypes from 'prop-types';
-import { StaticQuery, graphql } from 'gatsby';
+import React from "react"
+import { Helmet } from "react-helmet"
+import PropTypes from "prop-types"
+import { StaticQuery, graphql } from "gatsby"
 
 const query = graphql`
   query GetSiteMetadata {
@@ -20,88 +20,86 @@ const query = graphql`
       }
     }
   }
-`;
+`
 
-const SEO = ({
-               meta, cover, title, caption, description, slug,
-             }) => (
+const SEO = ({ meta, cover, title, caption, description, slug }) => (
   <StaticQuery
     query={query}
-    render={data => {
-      const { siteMetadata } = data.site;
-      const metaDescription = description || siteMetadata.description;
-      const metaImage = cover ? `${siteMetadata.siteUrl}/${cover}` : null;
-      const url = `${siteMetadata.siteUrl}${slug}`;
+    render={(data) => {
+      const { siteMetadata } = data.site
+      const metaDescription = description || siteMetadata.description
+      const metaImage = cover ? `${siteMetadata.siteUrl}/${cover}` : null
+      const url = `${siteMetadata.siteUrl}${slug}`
       return (
         <Helmet
-            htmlAttributes={{ lang: `en` }}
-            {...(title
+          htmlAttributes={{ lang: `en` }}
+          {...(title
             ? {
-                  titleTemplate: `%s | ${siteMetadata.author.name} | ${siteMetadata.blogTitle}`,
-                  title,
-            }
+                titleTemplate: `%s | ${siteMetadata.author.name} | ${siteMetadata.blogTitle}`,
+                title,
+              }
             : {
-                  title: `${siteMetadata.author.name} | ${siteMetadata.blogTitle}`,
-            })}
+                title: `${siteMetadata.author.name} | ${siteMetadata.blogTitle}`,
+              })}
           meta={[
             {
-              name: 'description',
+              name: `description`,
               content: metaDescription,
             },
             {
-              property: 'og:url',
+              property: `og:url`,
               content: url,
             },
             {
-              property: 'og:title',
+              property: `og:title`,
               content: title || siteMetadata.title,
             },
             {
-              property: 'og:description',
+              property: `og:description`,
               content: metaDescription,
             },
             {
-              name: 'twitter:card',
-              content: 'summary',
+              name: `twitter:card`,
+              content: `summary`,
             },
             {
-              name: 'twitter:creator',
-                content: siteMetadata.social.twitter,
+              name: `twitter:creator`,
+              content: siteMetadata.social.twitter,
             },
             {
-              name: 'twitter:title',
+              name: `twitter:title`,
               content: title || siteMetadata.title,
             },
             {
-              name: 'twitter:description',
+              name: `twitter:description`,
               content: metaDescription,
             },
           ]
             .concat(
               metaImage
                 ? [
-                  {
-                    property: 'og:image',
-                    content: metaImage,
-                  },
-                  {
-                    name: 'twitter:image',
-                    content: metaImage,
-                  },
-                ]
-                : [],
+                    {
+                      property: `og:image`,
+                      content: metaImage,
+                    },
+                    {
+                      name: `twitter:image`,
+                      content: metaImage,
+                    },
+                  ]
+                : []
             )
             .concat(meta)}
         />
-      );
+      )
     }}
   />
-);
+)
 
 SEO.defaultProps = {
   meta: [],
-  slug: '',
-};
+  slug: ``,
+}
 
 SEO.propTypes = {
   description: PropTypes.string.isRequired,
@@ -109,6 +107,6 @@ SEO.propTypes = {
   meta: PropTypes.array,
   slug: PropTypes.string,
   title: PropTypes.string,
-};
+}
 
-export default SEO;
+export default SEO

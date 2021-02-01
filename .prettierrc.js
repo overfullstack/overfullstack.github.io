@@ -16,10 +16,10 @@ module.exports = {
       },
     },
     {
-      "files": "docs/**/*.md",
-      "options": {
-        "parser": "mdx"
-      }
+      files: "docs/**/*.md",
+      options: {
+        parser: "mdx",
+      },
     },
   ],
 }

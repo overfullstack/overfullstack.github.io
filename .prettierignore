@@ -11,6 +11,7 @@ e2e-tests/**/public
 examples/**/public
 integration-tests/**/public
 www/public
+public
 
 # cache-dirs
 **/.cache

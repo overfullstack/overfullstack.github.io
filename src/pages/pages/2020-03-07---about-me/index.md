@@ -9,7 +9,7 @@ Decent at Math and loves Physics, a right-brainer who loves being creative and t
 
 ![Speaking at GDG Dev Fest, 2019](gdg.jpg)
 
-Gopal S Akshintala is currently a Senior Software Engineer at Microsoft, working with their flagship product OneNote.
+Gopal S Akshintala is currently a Senior Software Engineer at Salesforce, working on Scaling Backend Systems for Revenue Cloud.
 
 He is a passionate developer and loves being an **Influencer & Mentor** in the dev community through his Blog-posts, [Tech-Talks](https://overfullstack.ga/my-talks), and Social-media.
 
