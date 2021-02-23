@@ -51,7 +51,7 @@
     "gatsby-transformer-sharp": "^2.10.0",
     "gist-syntax-themes": "^1.1.0",
     "katex": "^0.12.0",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "prismjs": "^1.23.0",
     "prop-types": "^15.7.2",
