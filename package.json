@@ -47,7 +47,7 @@
     "gatsby-remark-prismjs": "^3.11.0",
     "gatsby-remark-smartypants": "^2.8.0",
     "gatsby-source-filesystem": "^2.9.0",
-    "gatsby-transformer-remark": "^2.14.0",
+    "gatsby-transformer-remark": "^4.0.0",
     "gatsby-transformer-sharp": "^2.10.0",
     "gist-syntax-themes": "^1.1.0",
     "katex": "^0.12.0",
