@@ -22,7 +22,7 @@
   "dependencies": {
     "applause-button": "^3.3.2",
     "bluebird": "^3.7.2",
-    "gatsby": "^2.30.1",
+    "gatsby": "^2.32.8",
     "gatsby-plugin-catch-links": "^2.8.0",
     "gatsby-plugin-cname": "^1.0.0",
     "gatsby-plugin-feed": "^2.11.0",
