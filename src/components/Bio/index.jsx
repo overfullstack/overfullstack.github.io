@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import "./style.scss"
-import profilePic from "../../assets/photo.jpg"
+import profilePic from "../../assets/my-pic.png"
 
 const Bio = ({ author, subtitle, path }) => (
   <div>
