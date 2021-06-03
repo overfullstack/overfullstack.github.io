@@ -55,7 +55,7 @@ The code references in this post point to Java repo, but they can be correlated 
 
 With the advent of **SaaS** and **Microservices/Macroservices**, software systems majorly communicate through the network, and **REST** is the predominant HTTP protocol used. To reduce network latency, these services resort to _Bulk-APIs_. One of the significant challenges of Bulk-APIs is **Request Validation**. With increasing request bulk size, service routes, and the number of validations, the validation orchestration can quickly get complex when done in traditional imperative style.
 
-Let's take-up a real-world problem. Our Payment Platform service has parallel routes such as Authorization, Capture, Refund, Void. All of these are REST-APIs. They have JSON request payloads that accept sub-requests in bulk (list of JSON nodes). A simplified version of payload for one of the routes - Authorization:
+Let's take-up a real-world problem. Our Payments-Platform domain has parallel services such as Authorization, Capture, Refund, Void. All of these are REST-APIs. They have JSON request payloads that accept sub-requests in bulk (list of JSON nodes). A simplified version of payload for one of the routes - Authorization:
 
 ```json
 [
@@ -83,17 +83,17 @@ Let's take-up a real-world problem. Our Payment Platform service has parallel ro
 This JSON structure gets marshalled into POJOs, which needs to validated at the entry point of our application layer. Since all services deal with Payments, they have a lot of common fields like `amount`, as well as common child nodes like `paymentMethod` in their structure. Based on the type of field, they have different kinds of validations. E.g.:
 
 - _Simple data validations_ - to validate data integrity for fields like `amount`.
-- _Effectful validations_ - for fields like `accountId`, which involves a DB read and is exception prone.
+- _Effectful validations_ - for fields like `accountId`, which involves a DB read to verify.
 - _Common Validations_ - for common fields such as `amount`, `accountId`, which are common across all service routes.
-- _Nested Validations_ for the common child nodes like `paymentMethod`, as it's an independent child node inside a parent.
+- _Nested Validations_ - for the common child nodes like `paymentMethod`, as it's an independent child node inside a parent.
 
 ### The Requirements
 
 The service validation module has the following requirements:
 
 - Share Common and Nested Validations.
-- Configure Validation sequence - Cheaper first and Costlier later.
 - Fail-Fast for each sub-request.
+- Configure Validation sequence - Cheaper first and Costlier later.
 - Partial failures - An aggregated error response for failed sub-requests can only be sent after valid requests are processed through multiple layers of the application. We have to hold on to the invalid sub-requests till the end and skip them from processing.
 
 ## Imperative treatment
@@ -108,7 +108,7 @@ Our current imperative approach records **high** values for both these metrics. 
 
 ### The 3D design problem
 
-This problem is a 3-dimensional design problem stretching among - Sub-requests, service routes (sharing common fields & nodes), and Validation count. In the above imperative approach, we entangled all 3, which lead to chaos. We need a design, which treats all of these separately, let them extend independently, and abstracts out validation sequencing and orchestration. We need to separate *What-to-do* from *How-to-do.*
+This problem is a 3-dimensional design problem stretching among - Sub-requests, Service routes (sharing common fields & nodes), and Validation count. In the above imperative approach, we entangled all 3, which lead to chaos. We need a design, which treats all of these separately, let them extend independently, and abstracts out validation sequencing and orchestration. We need to separate *What-to-do* from *How-to-do.*
 
 ### Dichotomous Data
 
