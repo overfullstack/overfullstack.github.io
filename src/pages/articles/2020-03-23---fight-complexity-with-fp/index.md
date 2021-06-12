@@ -211,19 +211,19 @@ This talk is also selected for a prestigious international conference:
 
 #### 10-2020 (All Things Open, Raleigh, USA)
 
-`youtube: Dvr6gx4XaD8`
+`youtube: https://www.youtube.com/watch?v=Dvr6gx4XaD8&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1`
 
 #### 09-2020 (Kotlin User Group, London)
 
-`youtube: QVuMSsIUw6M`
+`youtube: https://www.youtube.com/watch?v=QVuMSsIUw6M&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=2`
 
 #### 04-2020 (Kotlin User Group, Berlin)
 
-`youtube: uGxx01yYAgk`
+`youtube: https://www.youtube.com/watch?v=uGxx01yYAgk&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=6`
 
 #### 05-2020 (Kotlin User Group, Hyderabad)
 
-`youtube: LGABy9qdB44`
+`youtube: https://www.youtube.com/watch?v=LGABy9qdB44&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=5`
 
 ### Java Version
 
@@ -234,15 +234,15 @@ This talk is also selected for a prestigious international conference:
 
 ### 06-2020 (Berlin FP Group, Germany)
 
-`youtube: DBDTNmLbU2Y`
+`youtube: https://www.youtube.com/watch?v=DBDTNmLbU2Y&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=3`
 
 #### 05-2020 (JavaBin, Norway)
 
-`youtube: tnpL1O8kTbM`
+`youtube: https://www.youtube.com/watch?v=tnpL1O8kTbM&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=4`
 
 ### 08-2019 (Salesforce, Hyderabad)
 
-`youtube: l9jJ7m7_VpM`
+`youtube: https://www.youtube.com/watch?v=l9jJ7m7_VpM&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=7`
 
 ## References
 

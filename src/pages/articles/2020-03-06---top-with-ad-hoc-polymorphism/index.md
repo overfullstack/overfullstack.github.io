@@ -142,7 +142,7 @@ This is only an intro to explain prerequisites for the talk in this post. It tha
 
 The [Slide deck](https://speakerdeck.com/gopalakshintala/template-oriented-programming-top-to-ship-faster)
 
-`youtube: _QBlKtUY6ac`
+`youtube: https://www.youtube.com/watch?v=_QBlKtUY6ac&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=8`
 
 ## References
 
