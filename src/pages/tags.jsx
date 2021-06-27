@@ -1,19 +1,19 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-import { Helmet } from "react-helmet"
-import kebabCase from "lodash/kebabCase"
-import Layout from "../components/Layout"
-import Sidebar from "../components/Sidebar"
+import React from 'react';
+import { graphql, Link } from 'gatsby';
+import { Helmet } from 'react-helmet';
+import kebabCase from 'lodash/kebabCase';
+import Layout from '../components/Layout';
+import Sidebar from '../components/Sidebar';
 
 class TagsRoute extends React.Component {
   render() {
-    const { blogTitle } = this.props.data.site.siteMetadata
-    const tags = this.props.data.allMarkdownRemark.group
+    const { blogTitle } = this.props.data.site.siteMetadata;
+    const tags = this.props.data.allMarkdownRemark.group;
 
     return (
       <Layout>
         <div>
-          <Helmet title={`All Tags - ${blogTitle}`} />
+          <Helmet title={`All Tags - ${blogTitle}`}/>
           <Sidebar {...this.props} />
           <div className="content">
             <div className="content__inner">
@@ -40,11 +40,11 @@ class TagsRoute extends React.Component {
           </div>
         </div>
       </Layout>
-    )
+    );
   }
 }
 
-export default TagsRoute
+export default TagsRoute;
 
 export const pageQuery = graphql`
   query TagsQuery {
@@ -80,4 +80,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

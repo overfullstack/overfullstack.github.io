@@ -1,19 +1,19 @@
-import kebabCase from "lodash/kebabCase"
-import React from "react"
-import { Link, graphql } from "gatsby"
-import { Helmet } from "react-helmet"
-import Layout from "../components/Layout"
-import Sidebar from "../components/Sidebar"
+import kebabCase from 'lodash/kebabCase';
+import React from 'react';
+import { graphql, Link } from 'gatsby';
+import { Helmet } from 'react-helmet';
+import Layout from '../components/Layout';
+import Sidebar from '../components/Sidebar';
 
 class CategoriesRoute extends React.Component {
   render() {
-    const { blogTitle } = this.props.data.site.siteMetadata
-    const categories = this.props.data.allMarkdownRemark.group
+    const { blogTitle } = this.props.data.site.siteMetadata;
+    const categories = this.props.data.allMarkdownRemark.group;
 
     return (
       <Layout>
         <div>
-          <Helmet title={`All Categories - ${blogTitle}`} />
+          <Helmet title={`All Categories - ${blogTitle}`}/>
           <Sidebar {...this.props} />
           <div className="content">
             <div className="content__inner">
@@ -43,11 +43,11 @@ class CategoriesRoute extends React.Component {
           </div>
         </div>
       </Layout>
-    )
+    );
   }
 }
 
-export default CategoriesRoute
+export default CategoriesRoute;
 
 export const pageQuery = graphql`
   query CategoryesQuery {
@@ -83,4 +83,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

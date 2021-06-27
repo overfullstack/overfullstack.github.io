@@ -2,44 +2,50 @@
 @import "../../assets/scss/mixins";
 
 .links {
-    @include margin-bottom(1);
-    @include margin-top(0.5);
-    ul:first-of-type {
-        margin-top: 0;
-    }
-    &__list {
-        display: flex;
-        list-style: none;
-        padding: 0;
-        margin: 10px -3px;
-        &-item {
-            padding: 0;
-            margin: 0 3px;
-            height: 24px;
-            width: 24px;
-            line-height: 24px;
-            border-radius: 3px;
-            text-align: center;
-            background: $color-gray-bg;
-            & a {
-                border: 0;
-                & i {
-                    font-size: 14px;
-                    color: lighten($color-base, 20%);
-                }
-                &:hover,
-                &:focus {
-                    & i {
-                        color: $color-base;
-                    }
-                }
-            }
+  @include margin-bottom(1);
+  @include margin-top(0.5);
+
+  ul:first-of-type {
+    margin-top: 0;
+  }
+
+  &__list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 10px -3px;
+
+    &-item {
+      padding: 0;
+      margin: 0 3px;
+      height: 24px;
+      width: 24px;
+      line-height: 24px;
+      border-radius: 3px;
+      text-align: center;
+      background: $color-gray-bg;
+
+      & a {
+        border: 0;
+
+        & i {
+          font-size: 14px;
+          color: lighten($color-base, 20%);
         }
+
+        &:hover,
+        &:focus {
+          & i {
+            color: $color-base;
+          }
+        }
+      }
     }
+  }
 }
 
 @include breakpoint-sm {
-    .links {
-        margin-top: 0;
-    }
+  .links {
+    margin-top: 0;
+  }
 }

@@ -1,7 +1,6 @@
 ---
 title: "My Talks"
-layout: page
-cover: "./hyd.jpg"
+layout: page cover: "./hyd.jpg"
 path: "/my-talks"
 ---
 
@@ -9,6 +8,7 @@ path: "/my-talks"
 
 He's an International Speaker and his Tech-Talks were warmly received at:
 
+- **[jLove](https://embed.emamo.com/event/jlove-2021/r/speaker/gopal-s-akshintala)**, 2021, Europe.
 - **[All Things Open](https://2020.allthingsopen.org/speakers/gopal-s-akshintala/)**, 2020, Raleigh, USA.
 - [Kotlin User Group, London](https://youtu.be/QVuMSsIUw6M)
 - [Berlin Functional Programming Group](https://youtu.be/DBDTNmLbU2Y)
@@ -20,13 +20,12 @@ He's an International Speaker and his Tech-Talks were warmly received at:
 - [Kotlin User Group, Hyderabad](https://youtu.be/_QBlKtUY6ac)
 - GHC, India - 2019, Bangalore
 
-He is also invited to speak at a prestigious international conference:
+He is also invited to speak at these international conferences:
 
-- **[JBCN Conf](https://www.jbcnconf.com/2020/)**, 7-9 September 2020, Barcelona, Spain (This event got cancelled due to COVID-19).
+- **[JBCN Conf](https://www.jbcnconf.com/2021/)**, 2021, Barcelona, Spain.
+- **[JBCN Conf](https://www.jbcnconf.com/2020/)**, 2020, Barcelona, Spain (This event got cancelled due to COVID-19).
 
 ## Recorded Talks
-
-_**Note:** Although these talks have the same titles, there have been significant enhancements in the ideas and code in the recent versions of the talk._
 
 ### Fight Complexity with Functional Programming (Kotlin)
 

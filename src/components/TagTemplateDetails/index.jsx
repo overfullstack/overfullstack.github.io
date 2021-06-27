@@ -1,14 +1,14 @@
-import React from "react"
-import Post from "../Post"
+import React from 'react';
+import Post from '../Post';
 
 class TagTemplateDetails extends React.Component {
   render() {
-    const items = []
-    const tagTitle = this.props.pageContext.tag
-    const posts = this.props.data.allMarkdownRemark.edges
+    const items = [];
+    const tagTitle = this.props.pageContext.tag;
+    const posts = this.props.data.allMarkdownRemark.edges;
     posts.forEach((post) => {
-      items.push(<Post data={post} key={post.node.fields.slug} />)
-    })
+      items.push(<Post data={post} key={post.node.fields.slug}/>);
+    });
 
     return (
       <div className="content">
@@ -23,8 +23,8 @@ class TagTemplateDetails extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default TagTemplateDetails
+export default TagTemplateDetails;

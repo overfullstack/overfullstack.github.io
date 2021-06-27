@@ -1,42 +1,45 @@
-import React from "react"
+import React from 'react';
 
-import addToMailchimp from "gatsby-plugin-mailchimp"
-import { ToastContainer, toast } from "react-toastify"
-import "react-toastify/dist/ReactToastify.css"
-import "./Signup.css"
-import newsLetterLogo from "./newsletterLogo.svg"
+import addToMailchimp from 'gatsby-plugin-mailchimp';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import './Signup.css';
+import newsLetterLogo from './newsletterLogo.svg';
 
 class Signup extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       email: ``,
       listFields: { NAME: `` },
-    }
+    };
   }
 
   handleOnChangeEmail = (e) => {
-    this.setState({ email: e.target.value })
-  }
+    this.setState({ email: e.target.value });
+  };
 
   handleOnChangeName = (e) => {
-    this.setState({ listFields: { NAME: e.target.value } })
-  }
+    this.setState({ listFields: { NAME: e.target.value } });
+  };
 
   handleSubmit = async (e) => {
-    e.preventDefault()
-    const { email, listFields } = this.state
-    const result = await addToMailchimp(email, listFields)
+    e.preventDefault();
+    const {
+      email,
+      listFields,
+    } = this.state;
+    const result = await addToMailchimp(email, listFields);
     if (result.result === `error`) {
       toast.error(result.msg, {
         position: toast.POSITION.BOTTOM_CENTER,
-      })
+      });
     } else {
       toast.success(result.msg, {
         position: toast.POSITION.BOTTOM_CENTER,
-      })
+      });
     }
-  }
+  };
 
   render() {
     return (
@@ -70,7 +73,10 @@ class Signup extends React.Component {
             <div
               data-element="subheader"
               className="formkit-subheader"
-              style={{ color: `var(--textNormal)`, fontsize: `15px` }}
+              style={{
+                color: `var(--textNormal)`,
+                fontsize: `15px`,
+              }}
             >
               <p>Subscribe to get my latest content by email.</p>
             </div>
@@ -78,7 +84,10 @@ class Signup extends React.Component {
               <img
                 alt=""
                 src={newsLetterLogo}
-                style={{ maxWidth: `100%`, width: `auto` }}
+                style={{
+                  maxWidth: `100%`,
+                  width: `auto`,
+                }}
               />
             </div>
           </div>
@@ -136,7 +145,7 @@ class Signup extends React.Component {
                   fontWeight: 700,
                 }}
               >
-                <div className="formkit-spinner" />
+                <div className="formkit-spinner"/>
                 <span>Subscribe</span>
               </button>
             </div>
@@ -158,10 +167,10 @@ class Signup extends React.Component {
             </div>
           </div>
         </div>
-        <ToastContainer />
+        <ToastContainer/>
       </form>
-    )
+    );
   }
 }
 
-export default Signup
+export default Signup;

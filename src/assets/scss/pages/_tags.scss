@@ -3,15 +3,16 @@
  */
 
 .tags {
-    &__list {
-        &-item {
-            &-link {
-                color: $color-base;
-                &:hover,
-                &:focus {
-                    color: $color-primary;
-                }
-            }
+  &__list {
+    &-item {
+      &-link {
+        color: $color-base;
+
+        &:hover,
+        &:focus {
+          color: $color-primary;
         }
+      }
     }
+  }
 }

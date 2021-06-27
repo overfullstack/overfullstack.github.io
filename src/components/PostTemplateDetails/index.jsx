@@ -1,27 +1,33 @@
-import "gist-syntax-themes/stylesheets/idle-fingers.css"
-import React from "react"
-import { Link } from "gatsby"
-import moment from "moment"
-import Disqus from "../Disqus/Disqus"
-import "./style.scss"
-import Links from "../Links"
-import Bio from "../Bio"
-import { formatReadingTime, getCurrentPath } from "../utils"
-import Signup from "../Signup/Signup"
-import ThemeToggle from "../Toggle/ThemeToggle"
+import 'gist-syntax-themes/stylesheets/idle-fingers.css';
+import React from 'react';
+import { Link } from 'gatsby';
+import moment from 'moment';
+import Disqus from '../Disqus/Disqus';
+import './style.scss';
+import Links from '../Links';
+import Bio from '../Bio';
+import { formatReadingTime, getCurrentPath } from '../utils';
+import Signup from '../Signup/Signup';
+import ThemeToggle from '../Toggle/ThemeToggle';
 
 class PostTemplateDetails extends React.Component {
   render() {
-    const { subtitle, author } = this.props.data.site.siteMetadata
-    const { previous, next } = this.props.pageContext
-    const post = this.props.data.markdownRemark
-    const tags = post.fields.tagSlugs
-    const { location } = this.props
+    const {
+      subtitle,
+      author,
+    } = this.props.data.site.siteMetadata;
+    const {
+      previous,
+      next,
+    } = this.props.pageContext;
+    const post = this.props.data.markdownRemark;
+    const tags = post.fields.tagSlugs;
+    const { location } = this.props;
     const applauseButton = (
       <div className="applause">
-        <applause-button multiclap="true" color="var(--applause-button)" />
+        <applause-button multiclap="true" color="var(--applause-button)"/>
       </div>
-    )
+    );
 
     const homeBlock = (
       <div>
@@ -29,26 +35,26 @@ class PostTemplateDetails extends React.Component {
           All Articles
         </Link>
         <div className="post-single__theme-toggle">
-          <ThemeToggle />
+          <ThemeToggle/>
         </div>
         {applauseButton}
       </div>
-    )
+    );
 
     const tagsBlock = (
       <div className="post-single__tags">
         <ul className="post-single__tags-list">
           {tags &&
-            tags.map((tag, i) => (
-              <li className="post-single__tags-list-item" key={tag}>
-                <Link to={tag} className="post-single__tags-list-item-link">
-                  {post.frontmatter.tags[i]}
-                </Link>
-              </li>
-            ))}
+          tags.map((tag, i) => (
+            <li className="post-single__tags-list-item" key={tag}>
+              <Link to={tag} className="post-single__tags-list-item-link">
+                {post.frontmatter.tags[i]}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
-    )
+    );
 
     const commentsBlock = (
       <div>
@@ -57,7 +63,7 @@ class PostTemplateDetails extends React.Component {
           siteMetadata={this.props.data.site.siteMetadata}
         />
       </div>
-    )
+    );
 
     return (
       <div>
@@ -90,14 +96,15 @@ class PostTemplateDetails extends React.Component {
             <div className="post-single__date">
               <em>
                 Published&nbsp;
-                {moment(post.frontmatter.date).format(`D MMM YYYY`)}
+                {moment(post.frontmatter.date)
+                  .format(`D MMM YYYY`)}
               </em>
             </div>
           </div>
           <div className="post-single__footer">
             {tagsBlock}
             <div className="mobile-footer-clap">{applauseButton}</div>
-            <hr />
+            <hr/>
             <ul
               style={{
                 display: `flex`,
@@ -142,17 +149,17 @@ class PostTemplateDetails extends React.Component {
               </a>
             </div>
             <div className="post-single__footer-text">
-              <Links data={author} isFlat />
+              <Links data={author} isFlat/>
               <div style={{ marginBottom: `1.625rem` }}>
-                <Signup />
+                <Signup/>
               </div>
             </div>
             {commentsBlock}
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default PostTemplateDetails
+export default PostTemplateDetails;

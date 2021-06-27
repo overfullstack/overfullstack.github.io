@@ -1,19 +1,19 @@
-import React from "react"
-import moon from "../../assets/theme/moon.png"
-import sun from "../../assets/theme/sun.png"
-import Toggle from "./Toggle"
-import { Helmet } from "react-helmet/es/Helmet"
+import React from 'react';
+import moon from '../../assets/theme/moon.png';
+import sun from '../../assets/theme/sun.png';
+import Toggle from './Toggle';
+import { Helmet } from 'react-helmet/es/Helmet';
 
 class ThemeToggle extends React.Component {
   state = {
     theme: null,
-  }
+  };
 
   componentDidMount() {
-    this.setState({ theme: window.__theme })
+    this.setState({ theme: window.__theme });
     window.__onThemeChange = () => {
-      this.setState({ theme: window.__theme })
-    }
+      this.setState({ theme: window.__theme });
+    };
   }
 
   render() {
@@ -53,9 +53,9 @@ class ThemeToggle extends React.Component {
         />
       </div>
     ) : (
-      <div style={{ height: `24px` }} />
-    )
+      <div style={{ height: `24px` }}/>
+    );
   }
 }
 
-export default ThemeToggle
+export default ThemeToggle;

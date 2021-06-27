@@ -1,15 +1,15 @@
-import React from "react"
-import Post from "../Post"
-import "./style.scss"
+import React from 'react';
+import './style.scss';
+import Post from '../Post';
 
 class CategoryTemplateDetails extends React.Component {
   render() {
-    const items = []
-    const { category } = this.props.pageContext
-    const posts = this.props.data.allMarkdownRemark.edges
+    const items = [];
+    const { category } = this.props.pageContext;
+    const posts = this.props.data.allMarkdownRemark.edges;
     posts.forEach((post) => {
-      items.push(<Post data={post} key={post.node.fields.slug} />)
-    })
+      items.push(<Post data={post} key={post.node.fields.slug}/>);
+    });
 
     return (
       <div className="content">
@@ -20,8 +20,8 @@ class CategoryTemplateDetails extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default CategoryTemplateDetails
+export default CategoryTemplateDetails;

@@ -1,5 +1,5 @@
-const lost = require(`lost`)
-const pxtorem = require(`postcss-pxtorem`)
+const lost = require(`lost`);
+const pxtorem = require(`postcss-pxtorem`);
 
 module.exports = {
   siteMetadata: {
@@ -70,7 +70,12 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) =>
+            serialize: ({
+                          query: {
+                            site,
+                            allMarkdownRemark,
+                          },
+                        }) =>
               allMarkdownRemark.edges.map((edge) => {
                 return {
                   ...edge.node.frontmatter,
@@ -78,8 +83,8 @@ module.exports = {
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.site_url + edge.node.fields.slug,
                   guid: site.siteMetadata.site_url + edge.node.fields.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }],
-                }
+                  custom_elements: [{ 'content:encoded': edge.node.html }],
+                };
               }),
             query: `
               {
@@ -220,14 +225,17 @@ module.exports = {
         resolveSiteUrl: (data) => data.site.siteMetadata.siteUrl,
         resolvePages: ({ allSitePage: { nodes: allPages } }) => {
           return allPages.map((page) => {
-            return { ...page }
-          })
+            return { ...page };
+          });
         },
-        serialize: ({ path, modifiedGmt }) => {
+        serialize: ({
+                      path,
+                      modifiedGmt,
+                    }) => {
           return {
             url: path,
             lastmod: modifiedGmt,
-          }
+          };
         },
       },
     },
@@ -294,4 +302,4 @@ module.exports = {
     `gatsby-plugin-cname`,
     `gatsby-plugin-catch-links`,
   ],
-}
+};

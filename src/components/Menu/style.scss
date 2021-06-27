@@ -2,43 +2,49 @@
 @import "../../assets/scss/mixins";
 
 .menu {
-    @include margin-bottom(1);
-    display: inline-block;
+  @include margin-bottom(1);
+  display: inline-block;
+  float: left;
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     float: left;
-    &__list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        float: left;
-        display: inline-block;
-        &-item {
-            padding: 0;
-            margin: 10px 0;
-            &-link {
-                font-size: $typographic-base-font-size;
-                color: $typographic-base-font-color;
-                font-weight: 400;
-                border: 0;
-                &:hover,
-                &:focus {
-                    color: $color-primary;
-                }
-                &--active {
-                    color: $color-base;
-                }
-            }
+    display: inline-block;
+
+    &-item {
+      padding: 0;
+      margin: 10px 0;
+
+      &-link {
+        font-size: $typographic-base-font-size;
+        color: $typographic-base-font-color;
+        font-weight: 400;
+        border: 0;
+
+        &:hover,
+        &:focus {
+          color: $color-primary;
         }
+
+        &--active {
+          color: $color-base;
+        }
+      }
     }
+  }
 }
 
 @include breakpoint-md {
-    .menu {
-        float: none;
-        display: block;
-        &__list {
-            list-style: none;
-            margin: 0;
-            float: none;
-        }
+  .menu {
+    float: none;
+    display: block;
+
+    &__list {
+      list-style: none;
+      margin: 0;
+      float: none;
     }
+  }
 }
