@@ -1,13 +1,15 @@
 ---
-title: Fight Complexity with Functional Programming date: "2020-03-23T00:00:00.000Z"
-layout: post draft: false path: "/posts/fight-complexity-with-fp/"
+title: Fight Complexity with Functional Programming
+date: "2020-03-23T00:00:00.000Z"
+layout: post
+draft: false
+path: "/posts/fight-complexity-with-fp/"
 cover: "./cover.jpeg"
 category: "Design"
 tags:
-
 - "Java"
 - "Vavr"
-  description: "Skadooosh!"
+description: "Skadooosh!"
 
 ---
 
@@ -194,14 +196,16 @@ Transformed_ and not _Mutated_.
 
 With _Java 14 preview_ feature **[Records](https://openjdk.java.net/jeps/359)**, I shall demo how a class can be easily
 made immutable
+
 - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/domain/ImmutableEgg.java)
 
 ### Validations as Values
 
 I used Java 8 Functional interfaces to represent the validation functions as values
+
 - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/declarative/RailwayValidation2.java)
-. This way Validation functions turn more cohesive than the imperative style, can be extended independently from each
-other and **shared** among various service routes.
+  . This way Validation functions turn more cohesive than the imperative style, can be extended independently from each
+  other and **shared** among various service routes.
 
 ### Representing Effect with Either Monad[$_{[4]}$](https://www.vavr.io/vavr-docs/#_either)
 
@@ -214,8 +218,9 @@ and `right: Valid sub-request`. Either Monad has
 operations ([API ref](https://www.javadoc.io/doc/io.vavr/vavr/0.10.3/io/vavr/control/Either.html)) like `map`
 and `flatMap`, which perform operations on the contained value, only if Monad is in `right` state. This property helps
 developers write _linear programs_ without worrying about the state of the Monad
+
 - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/declarative/RailwayValidation2.java#L37-L51)
-.
+  .
 
 This is a popular technique called **Railway-Oriented-Programming**[$_{[5]}$](https://fsharpforfunandprofit.com/rop/).
 
@@ -226,21 +231,24 @@ validation function takes Either monad as input. If the input is in the `right` 
 API functions `map` or `flatMap`, and if the validation fails, the corresponding failure is set in the `left` state.
 Otherwise, return the monad in the right state. As long as the result of a validation is in the right state, it doesn't
 matter what the value it has. Thus a wild-card is used in the `Validator` Data type signature
+
 - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/0a2b47279ea2d76eb8a31d3c3f8ea0a05d64b6e9/src/main/java/algebra/types/Validator.java#L11)
-.
+  .
 
 ### The Configuration
 
 Since functions are values, all we need is an Ordered List (like `java.util.list`) to maintain the sequence of
 validations. We can compose all the validation functions, in the order of preference. This order is easily **
 Configurable**
+
 - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/declarative/Config.java#L37-L50)
-.
+  .
 
 However, there is a complexity. List of Validations for a parent node consists of a mix of parent node and child node
 validations. But they can't be put under one `List`, as they are functions on different Data Types. So child validations
 need to be ported to parent context. We can achieve this with **Higher-Order Functions**, which act as DSL to **lift**
 child validation to parent type
+
 - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/algebra/ConfigDsl.java).
 
 This is a powerful technique, which enables us to see the code through the lens of **Algebra**. This way, we can
@@ -256,6 +264,7 @@ Now we have 2 lists to intertwine - List of sub-requests to be validated against
 can be easily achieved in many ways due to the virtue of loose coupling between What-to-do(validations) and How-to-do(
 Orchestration). We can switch orchestration strategies (like fail-fast strategy to error-accumulation or running
 validations in parallel) without effecting validations code
+
 - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/algebra/Strategies.java).
 
 ### Partial failures

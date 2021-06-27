@@ -1,7 +1,7 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import PropTypes from 'prop-types';
-import { graphql, StaticQuery } from 'gatsby';
+import React from "react"
+import { Helmet } from "react-helmet"
+import PropTypes from "prop-types"
+import { graphql, StaticQuery } from "gatsby"
 
 const query = graphql`
   query GetSiteMetadata {
@@ -9,7 +9,6 @@ const query = graphql`
       siteMetadata {
         blogTitle
         subtitle
-        caption
         siteUrl
         author {
           name
@@ -20,34 +19,27 @@ const query = graphql`
       }
     }
   }
-`;
+`
 
-const SEO = ({
-               meta,
-               cover,
-               title,
-               caption,
-               description,
-               slug,
-             }) => (
+const SEO = ({ meta, cover, title, description, slug }) => (
   <StaticQuery
     query={query}
     render={(data) => {
-      const { siteMetadata } = data.site;
-      const metaDescription = description || siteMetadata.description;
-      const metaImage = cover ? `${siteMetadata.siteUrl}/${cover}` : null;
-      const url = `${siteMetadata.siteUrl}${slug}`;
+      const { siteMetadata } = data.site
+      const metaDescription = description || siteMetadata.description
+      const metaImage = cover ? `${siteMetadata.siteUrl}/${cover}` : null
+      const url = `${siteMetadata.siteUrl}${slug}`
       return (
         <Helmet
           htmlAttributes={{ lang: `en` }}
           {...(title
             ? {
-              titleTemplate: `%s | ${siteMetadata.author.name} | ${siteMetadata.blogTitle}`,
-              title,
-            }
+                titleTemplate: `%s | ${siteMetadata.author.name} | ${siteMetadata.blogTitle}`,
+                title,
+              }
             : {
-              title: `${siteMetadata.author.name} | ${siteMetadata.blogTitle}`,
-            })}
+                title: `${siteMetadata.author.name} | ${siteMetadata.blogTitle}`,
+              })}
           meta={[
             {
               name: `description`,
@@ -85,28 +77,28 @@ const SEO = ({
             .concat(
               metaImage
                 ? [
-                  {
-                    property: `og:image`,
-                    content: metaImage,
-                  },
-                  {
-                    name: `twitter:image`,
-                    content: metaImage,
-                  },
-                ]
-                : [],
+                    {
+                      property: `og:image`,
+                      content: metaImage,
+                    },
+                    {
+                      name: `twitter:image`,
+                      content: metaImage,
+                    },
+                  ]
+                : []
             )
             .concat(meta)}
         />
-      );
+      )
     }}
   />
-);
+)
 
 SEO.defaultProps = {
   meta: [],
   slug: ``,
-};
+}
 
 SEO.propTypes = {
   description: PropTypes.string.isRequired,
@@ -114,6 +106,6 @@ SEO.propTypes = {
   meta: PropTypes.array,
   slug: PropTypes.string,
   title: PropTypes.string,
-};
+}
 
-export default SEO;
+export default SEO

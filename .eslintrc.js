@@ -8,12 +8,10 @@ module.exports = {
     `plugin:flowtype/recommended`,
     `plugin:react/recommended`,
     `prettier`,
-    `prettier/flowtype`,
-    `prettier/react`,
   ],
   plugins: [`flowtype`, `prettier`, `react`, `filenames`],
   parserOptions: {
-    ecmaVersion: 2016,
+    ecmaVersion: 2020,
     sourceType: `module`,
     ecmaFeatures: {
       jsx: true,

@@ -1,12 +1,16 @@
 ---
-title: Monads for Drunken Coders, Pint-1🍺 date: "2018-12-09T00:00:00.000Z"
-layout: post draft: false path: "/posts/monads-for-drunken-coders-pint-1/"
+title: Monads for Drunken Coders, Pint-1🍺
+date: "2018-12-09T00:00:00.000Z"
+layout: post
+draft: false
+path: "/posts/monads-for-drunken-coders-pint-1/"
 cover: "./cover.jpg"
 category: "Functional Programming"
 tags:
 - "Java 8"
 - "Monads"
 description: "A chilled introduction to the Dreaded Monad, using Java 8"
+
 ---
 
 ## Story of an Egg validator

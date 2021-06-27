@@ -1,11 +1,15 @@
 ---
-title: Functional Terminology ⨐ date: "2018-12-07T00:00:00.000Z"
-layout: post draft: false path: "/posts/functional-terminology/"
+title: Functional Terminology ⨐
+date: "2018-12-07T00:00:00.000Z"
+layout: post
+draft: false
+path: "/posts/functional-terminology/"
 category: "Functional Programming"
 cover: "./cover.jpg"
 tags:
 - "Functional Programming"
 description: "Speak Functional language fluently"
+
 ---
 
 ## Pure Functions
@@ -20,7 +24,7 @@ description: "Speak Functional language fluently"
 
 ## First-Class Functions
 
-- First of all, a programming language must support first-class functions to support the functional programming
+- First, a programming language must support first-class functions to support the functional programming
   paradigm.
 - First-class functions can be stored as a variable, they can be passed as an argument, and also they can be returned as
   the result of a function call.

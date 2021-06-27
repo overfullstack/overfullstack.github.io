@@ -1,6 +1,7 @@
 ---
 title: "My Talks"
-layout: page cover: "./hyd.jpg"
+layout: page
+cover: "./hyd.jpg"
 path: "/my-talks"
 ---
 

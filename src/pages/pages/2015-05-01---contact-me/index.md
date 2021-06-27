@@ -1,6 +1,7 @@
 ---
 title: "Contact me"
-layout: page path: "/contact-me"
+layout: page
+path: "/contact-me"
 ---
 
 ### Email: gopalakshintala@gmail.com

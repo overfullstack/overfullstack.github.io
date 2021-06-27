@@ -1,14 +1,16 @@
 ---
-title: Template-Oriented-Programming (TOP) to Ship Faster date: "2020-03-06T00:00:00.000Z"
-layout: post draft: false path: "/posts/top-with-ad-hoc-polymorphism/"
+title: Template-Oriented-Programming (TOP) to Ship Faster
+date: "2020-03-06T00:00:00.000Z"
+layout: post
+draft: false
+path: "/posts/top-with-ad-hoc-polymorphism/"
 cover: "./cover.jpeg"
 category: "Design"
 tags:
-
 - "Kotlin"
 - "Arrow"
-  description: "Top-up with Ad-hoc Polymorphism"
-  largeAbstract: The trend in the B2C world is to chop the use-cases with varied traffic-needs into _
+description: "Top-up with Ad-hoc Polymorphism"
+largeAbstract: The trend in the B2C world is to chop the use-cases with varied traffic-needs into _
   Microservices/Macroservices_ managed by independent Scrum teams. These teams develop using Heterogeneous frameworks
   and tech-stacks (blocking/reactive), as per the traffic needs of their services. Despite being heterogenous, these
   services have many commonalities in their Domain logic, ranging from small features such as Authentication, Logging,
@@ -133,6 +135,7 @@ type.
 
 Now that we have both the tools (Higher-Kinded Types and Typeclasses), let’s make a polymorphic template for our
 reusable domain logic. The samples used in the rest of this paper can be seen in action in a fully working POC
+
 - [GitHub](https://github.com/overfullstack/ad-hoc-poly). It has 3 modules:
 
 - `kofu-mvc-validation` - Blocking Service built
@@ -146,9 +149,10 @@ validated_**, followed by **_insert or update_** based on the user's existence i
 
 `Spring-WebFlux` works with `Mono<A>/Flux<A>` while `Spring-WebMVC` doesn't. As a proof for lack-of reusability problem
 discussed above, notice how `upsert` function is different in both the services, although doing the same functionality
+
 - [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/f06b25a/kofu-mvc-validation/src/main/kotlin/mvc/Handlers.kt#L24-L43)
-and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/f06b25a/kofu-reactive-validation/src/main/kotlin/reactive/Handlers.kt#L25-L51)
-.
+  and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/f06b25a/kofu-reactive-validation/src/main/kotlin/reactive/Handlers.kt#L25-L51)
+  .
 
 The goal is to abstract this use-case domain logic into a generic reusable template. We shall achieve it by creating
 some typeclasses and making use of some typeclasses from the Arrow library. These heterogeneous services can inflate and
@@ -175,8 +179,8 @@ interface Repo<F> : Async<F> {
 - In these concrete implementations, `IO` and `MonoK` supply concrete instances for `Async<F>`, and the service
   repository functions are mapped to `Repo` operations
   - [WebMVC Ref](https://github.com/overfullstack/ad-hoc-poly/blob/f06b25a/kofu-mvc-validation/src/main/kotlin/mvc/Configurations.kt#L34-L43)
-  and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/f06b25a/kofu-reactive-validation/src/main/kotlin/reactive/Configurations.kt#L24-L33)
-  .
+    and [WebFlux Ref](https://github.com/overfullstack/ad-hoc-poly/blob/f06b25a/kofu-reactive-validation/src/main/kotlin/reactive/Configurations.kt#L24-L33)
+    .
 
 ### Templates using Typeclasses
 
@@ -184,10 +188,11 @@ Now we can weave our business-logic into generic templates depending on the gene
 typeclass `Repo<F>`. **Templates** are generic functions and they depend on Typeclasses. This dependency can be achieved
 by passing typeclass as a function argument or declaring the template functions as extensions to a typeclass. I used the
 latter in my POC
+
 - [Ref](https://github.com/overfullstack/ad-hoc-poly/blob/f06b25a/validation-templates/src/main/kotlin/top/rules/UserRules.kt)
-. This file has all the validation rules for a user. The typeclass here is `EffectValidator<F, S, ValidationError>`,
-which in-turn is composed of two typeclasses `ValidatorAE<S, E>` (abstracts Validation Strategies) and `Repo<F>` (
-Discussed above). The generics in these typeclasses stand for:
+  . This file has all the validation rules for a user. The typeclass here is `EffectValidator<F, S, ValidationError>`,
+  which in-turn is composed of two typeclasses `ValidatorAE<S, E>` (abstracts Validation Strategies) and `Repo<F>` (
+  Discussed above). The generics in these typeclasses stand for:
 
 - F : Effect type - Used by `Repo<F>` to signify the effect in which the DB operates.
 - S : Strategy type - Used to decide the strategy in which validations should run (e.g. Fail-Fast or Error-Accumulation)
@@ -208,13 +213,13 @@ from the return types of these functions - `Kind<F, Kind<S, Boolean>>`.
   rewriting the rules and orchestration:
   - WebMVC Ref
     - [This](https://github.com/overfullstack/ad-hoc-poly/blob/f06b25a/kofu-mvc-validation/src/main/kotlin/mvc/Handlers.kt#L24-L55)
-    is replaced
-    with [This](https://github.com/overfullstack/ad-hoc-poly/blob/f06b25a/kofu-mvc-validation/src/main/kotlin/mvc/HandlersX.kt#L18-L31)
+      is replaced
+      with [This](https://github.com/overfullstack/ad-hoc-poly/blob/f06b25a/kofu-mvc-validation/src/main/kotlin/mvc/HandlersX.kt#L18-L31)
   - WebFlux Ref
     - [This](https://github.com/overfullstack/ad-hoc-poly/blob/f06b25a/kofu-reactive-validation/src/main/kotlin/reactive/Handlers.kt#L18-L63)
-    is replaced
-    with [This](https://github.com/overfullstack/ad-hoc-poly/blob/f06b25a/kofu-reactive-validation/src/main/kotlin/reactive/HandlersX.kt#L19-L35)
-    .
+      is replaced
+      with [This](https://github.com/overfullstack/ad-hoc-poly/blob/f06b25a/kofu-reactive-validation/src/main/kotlin/reactive/HandlersX.kt#L19-L35)
+      .
 
 ### Loose Coupling
 

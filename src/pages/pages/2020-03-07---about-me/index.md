@@ -1,6 +1,7 @@
 ---
 title: "About me"
-layout: page cover: "./gdg.jpg"
+layout: page
+cover: "./gdg.jpg"
 path: "/about-me"
 ---
 

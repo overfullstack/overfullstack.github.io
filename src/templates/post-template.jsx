@@ -1,23 +1,23 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
-import PostTemplateDetails from '../components/PostTemplateDetails';
-import SEO from '../components/SEO';
-import 'katex/dist/katex.min.css';
+import React from "react"
+import { Helmet } from "react-helmet"
+import { graphql } from "gatsby"
+import Layout from "../components/Layout"
+import PostTemplateDetails from "../components/PostTemplateDetails"
+import SEO from "../components/SEO"
+import "katex/dist/katex.min.css"
 
 class PostTemplate extends React.Component {
   render() {
-    const { subtitle } = this.props.data.site.siteMetadata;
-    const post = this.props.data.markdownRemark;
+    const { subtitle } = this.props.data.site.siteMetadata
+    const post = this.props.data.markdownRemark
     const {
       title: postTitle,
       description: postDescription,
       cover,
-    } = post.frontmatter;
-    const description = postDescription !== null ? postDescription : subtitle;
+    } = post.frontmatter
+    const description = postDescription !== null ? postDescription : subtitle
 
-    const actualPostTitle = `${postTitle}`;
+    const actualPostTitle = `${postTitle}`
     return (
       <div
         style={{
@@ -37,17 +37,17 @@ class PostTemplate extends React.Component {
           <div>
             <Helmet>
               <title>{actualPostTitle}</title>
-              <meta name="description" content={description}/>
+              <meta name="description" content={description} />
             </Helmet>
             <PostTemplateDetails {...this.props} />
           </div>
         </Layout>
       </div>
-    );
+    )
   }
 }
 
-export default PostTemplate;
+export default PostTemplate
 
 export const pageQuery = graphql`
   query PostBySlug($slug: String!) {
@@ -95,4 +95,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

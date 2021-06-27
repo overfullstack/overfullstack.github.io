@@ -1,25 +1,20 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
-import Post from '../components/Post';
-import Sidebar from '../components/Sidebar';
-import SEO from '../components/SEO';
+import React from "react"
+import { Helmet } from "react-helmet"
+import { graphql } from "gatsby"
+import Layout from "../components/Layout"
+import Post from "../components/Post"
+import Sidebar from "../components/Sidebar"
+import SEO from "../components/SEO"
 
 class IndexRoute extends React.Component {
   render() {
-    const items = [];
-    const {
-      blogTitle,
-      subtitle,
-      caption,
-      logo,
-      author,
-    } = this.props.data.site.siteMetadata;
-    const posts = this.props.data.allMarkdownRemark.edges;
+    const items = []
+    const { blogTitle, subtitle, caption, logo } =
+      this.props.data.site.siteMetadata
+    const posts = this.props.data.allMarkdownRemark.edges
     posts.forEach((post) => {
-      items.push(<Post data={post} key={post.node.fields.slug}/>);
-    });
+      items.push(<Post data={post} key={post.node.fields.slug} />)
+    })
 
     return (
       <div
@@ -31,11 +26,11 @@ class IndexRoute extends React.Component {
         }}
       >
         <Layout>
-          <SEO cover={logo} description={subtitle} caption={caption}/>
+          <SEO cover={logo} description={subtitle} caption={caption} />
           <div>
             <Helmet>
-              <title>{`${author.name} | ${blogTitle}`}</title>
-              <meta name="description" content={subtitle}/>
+              <title>{`${blogTitle}`}</title>
+              <meta name="description" content={subtitle} />
             </Helmet>
             <Sidebar {...this.props} />
             <div className="content">
@@ -44,11 +39,11 @@ class IndexRoute extends React.Component {
           </div>
         </Layout>
       </div>
-    );
+    )
   }
 }
 
-export default IndexRoute;
+export default IndexRoute
 
 export const pageQuery = graphql`
   query IndexQuery {
@@ -105,4 +100,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

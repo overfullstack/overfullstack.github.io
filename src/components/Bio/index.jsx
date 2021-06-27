@@ -1,14 +1,10 @@
-import React from 'react';
-import './style.scss';
-import { Link } from 'gatsby';
-import profilePic from '../../assets/my-pic.png';
+import React from "react"
+import "./style.scss"
+import { Link } from "gatsby"
+import profilePic from "../../assets/my-pic.png"
 
-const Bio = ({
-               author,
-               subtitle,
-               path,
-             }) => (
-  <div>
+const Bio = ({ author, subtitle, path }) => (
+  <div style={{ height: `10rem` }}>
     <Link to={`${author.aboutme}`}>
       <img
         src={profilePic}
@@ -55,6 +51,6 @@ const Bio = ({
       {subtitle}
     </p>
   </div>
-);
+)
 
-export default Bio;
+export default Bio

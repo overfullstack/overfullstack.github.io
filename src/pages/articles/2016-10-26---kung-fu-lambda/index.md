@@ -1,11 +1,15 @@
 ---
-title: Kung fu Lambda ƛ date: "2016-10-26T00:00:00.000Z"
-layout: post draft: false path: "/posts/functional-programming-with-java-8/"
+title: Kung fu Lambda ƛ
+date: "2016-10-26T00:00:00.000Z"
+layout: post
+draft: false
+path: "/posts/functional-programming-with-java-8/"
 category: "Functional Programming"
 cover: "./cover.jpg"
 tags:
 - "Java 8"
 description: "Fun in Functional Programming with Java 8 and how it is competing with younger functional languages."
+
 ---
 
 ### FP vs OOP Simply:

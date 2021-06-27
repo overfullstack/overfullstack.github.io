@@ -1,22 +1,17 @@
-import React from 'react';
-import Menu from '../Menu';
-import Links from '../Links';
-import './style.scss';
-import Emoji from '../Emoji/Emoji';
-import Bio from '../Bio';
-import { getCurrentPath } from '../utils';
-import ThemeToggle from '../Toggle/ThemeToggle';
+import React from "react"
+import Menu from "../Menu"
+import Links from "../Links"
+import "./style.scss"
+import Emoji from "../Emoji/Emoji"
+import Bio from "../Bio"
+import { getCurrentPath } from "../utils"
+import ThemeToggle from "../Toggle/ThemeToggle"
 
 class Sidebar extends React.Component {
   render() {
-    const { location } = this.props;
-    const {
-      author,
-      subtitle,
-      copyright,
-      declaration,
-      menu,
-    } = this.props.data.site.siteMetadata;
+    const { location } = this.props
+    const { author, subtitle, copyright, declaration, menu } =
+      this.props.data.site.siteMetadata
 
     return (
       <div className="sidebar">
@@ -29,23 +24,23 @@ class Sidebar extends React.Component {
           />
 
           <div className="sidebar__inner-middle">
-            <Menu data={menu}/>
-            <Links data={author}/>
-            <ThemeToggle/>
+            <Menu data={menu} />
+            <Links data={author} />
+            <ThemeToggle />
           </div>
 
           <div>
             <p className="sidebar__copyright" style={{ marginTop: `0` }}>
               {declaration}
               &nbsp;
-              <Emoji symbol="⚛️"/>
+              <Emoji symbol="⚛️" />
             </p>
             <p className="sidebar__copyright">{copyright}</p>
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Sidebar;
+export default Sidebar

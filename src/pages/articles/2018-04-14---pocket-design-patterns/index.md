@@ -1,11 +1,15 @@
 ---
-title: Pocket Design Patterns 📋 date: "2018-04-14T00:00:00.000Z"
-layout: post draft: false path: "/posts/pocket-design-patterns/"
+title: Pocket Design Patterns 📋
+date: "2018-04-14T00:00:00.000Z"
+layout: post
+draft: false
+path: "/posts/pocket-design-patterns/"
 category: "Design Patterns"
 cover: "./cover.jpg"
 tags:
 - "Design"
 description: "All the popular Design Patterns abridged for quick revision, along with some tidbits."
+
 ---
 
 ## Creational Patterns
