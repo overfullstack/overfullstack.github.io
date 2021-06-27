@@ -1,10 +1,12 @@
+import "katex/dist/katex.min.css"
+
+import { graphql } from "gatsby"
 import React from "react"
 import { Helmet } from "react-helmet"
-import { graphql } from "gatsby"
+
 import Layout from "../components/Layout"
 import PostTemplateDetails from "../components/PostTemplateDetails"
 import SEO from "../components/SEO"
-import "katex/dist/katex.min.css"
 
 class PostTemplate extends React.Component {
   render() {

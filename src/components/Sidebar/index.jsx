@@ -1,11 +1,13 @@
-import React from "react"
-import Menu from "../Menu"
-import Links from "../Links"
 import "./style.scss"
-import Emoji from "../Emoji/Emoji"
+
+import React from "react"
+
 import Bio from "../Bio"
-import { getCurrentPath } from "../utils"
+import Emoji from "../Emoji/Emoji"
+import Links from "../Links"
+import Menu from "../Menu"
 import ThemeToggle from "../Toggle/ThemeToggle"
+import { getCurrentPath } from "../utils"
 
 class Sidebar extends React.Component {
   render() {

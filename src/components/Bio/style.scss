@@ -1,5 +1,5 @@
-@import "../../assets/scss/variables";
 @import "../../assets/scss/mixins";
+@import "../../assets/scss/variables";
 
 .bio, .post-bio {
   width: 100%;
@@ -11,8 +11,8 @@
       float: left;
       border-radius: 50%;
       background-clip: padding-box;
-      width: 11.5rem;
-      height: 11.5rem;
+      width: 9rem;
+      height: 9rem;
     }
 
     &-title {
@@ -37,6 +37,10 @@
       @include line-height(1);
       @include margin-bottom(1);
     }
+
+    &-section {
+      height: 10rem;
+    }
   }
 }
 
@@ -49,6 +53,9 @@
       &-photo {
         margin: 0 32px 12px 0;
         float: left;
+      }
+      &-section {
+        height: 10rem;
       }
     }
   }
@@ -64,6 +71,9 @@
       &-photo {
         margin: 0;
         float: none;
+      }
+      &-section {
+        height: 16rem;
       }
     }
   }

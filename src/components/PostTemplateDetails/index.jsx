@@ -1,14 +1,16 @@
 import "gist-syntax-themes/stylesheets/idle-fingers.css"
-import React from "react"
+import "./style.scss"
+
 import { Link } from "gatsby"
 import moment from "moment"
-import Disqus from "../Disqus/Disqus"
-import "./style.scss"
-import Links from "../Links"
+import React from "react"
+
 import Bio from "../Bio"
-import { formatReadingTime, getCurrentPath } from "../utils"
+import Disqus from "../Disqus/Disqus"
+import Links from "../Links"
 import Signup from "../Signup/Signup"
 import ThemeToggle from "../Toggle/ThemeToggle"
+import { formatReadingTime, getCurrentPath } from "../utils"
 
 class PostTemplateDetails extends React.Component {
   render() {

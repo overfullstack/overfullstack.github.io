@@ -1,12 +1,12 @@
-const lost = require(`lost`);
-const pxtorem = require(`postcss-pxtorem`);
+const lost = require(`lost`)
+const pxtorem = require(`postcss-pxtorem`)
 
 module.exports = {
   siteMetadata: {
     url: `https://github.com/overfullstack/overfullstack.github.io`,
     siteUrl: `https://overfullstack.ga`,
     blogTitle: `Overfullstack`,
-    subtitle: `So excited about this Craft that, I can't keep myself from blogging about it.`,
+    subtitle: `Writing & Speaking are Test-Driven-Learning`,
     caption: `It's All Over full-stack`,
     copyright: `© All rights reserved.`,
     declaration: `I built this blog with React.js`,
@@ -70,12 +70,7 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({
-                          query: {
-                            site,
-                            allMarkdownRemark,
-                          },
-                        }) =>
+            serialize: ({ query: { site, allMarkdownRemark } }) =>
               allMarkdownRemark.edges.map((edge) => {
                 return {
                   ...edge.node.frontmatter,
@@ -83,8 +78,8 @@ module.exports = {
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.site_url + edge.node.fields.slug,
                   guid: site.siteMetadata.site_url + edge.node.fields.slug,
-                  custom_elements: [{ 'content:encoded': edge.node.html }],
-                };
+                  custom_elements: [{ "content:encoded": edge.node.html }],
+                }
               }),
             query: `
               {
@@ -223,19 +218,15 @@ module.exports = {
           }`,
         output: `/sitemap.xml`,
         resolveSiteUrl: (data) => data.site.siteMetadata.siteUrl,
-        resolvePages: ({ allSitePage: { nodes: allPages } }) => {
-          return allPages.map((page) => {
-            return { ...page };
-          });
-        },
-        serialize: ({
-                      path,
-                      modifiedGmt,
-                    }) => {
+        resolvePages: ({ allSitePage: { nodes: allPages } }) =>
+          allPages.map((page) => {
+            return { ...page }
+          }),
+        serialize: ({ path, modifiedGmt }) => {
           return {
             url: path,
             lastmod: modifiedGmt,
-          };
+          }
         },
       },
     },
@@ -302,4 +293,4 @@ module.exports = {
     `gatsby-plugin-cname`,
     `gatsby-plugin-catch-links`,
   ],
-};
+}

@@ -4,8 +4,9 @@
  * + applied https://github.com/aaronshaf/react-toggle/pull/90
  * */
 
-import React, { PureComponent } from "react"
 import "./Toggle.css"
+
+import React, { PureComponent } from "react"
 
 // Copyright 2015-present Drifty Co.
 // http://drifty.com/
@@ -161,7 +162,7 @@ export default class Toggle extends PureComponent {
   }
 
   render() {
-    const { className, icons: _icons, ...inputProps } = this.props
+    const { className, ...inputProps } = this.props
     const classes =
       `react-toggle` +
       (this.state.checked ? ` react-toggle--checked` : ``) +

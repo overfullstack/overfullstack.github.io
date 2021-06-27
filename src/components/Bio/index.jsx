@@ -1,10 +1,12 @@
-import React from "react"
 import "./style.scss"
+
 import { Link } from "gatsby"
+import React from "react"
+
 import profilePic from "../../assets/my-pic.png"
 
 const Bio = ({ author, subtitle, path }) => (
-  <div style={{ height: `10rem` }}>
+  <div className="bio__author-section">
     <Link to={`${author.aboutme}`}>
       <img
         src={profilePic}

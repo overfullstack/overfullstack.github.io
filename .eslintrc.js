@@ -1,4 +1,4 @@
-const TSEslint = require(`@typescript-eslint/eslint-plugin`);
+const TSEslint = require(`@typescript-eslint/eslint-plugin`)
 
 module.exports = {
   parser: `babel-eslint`,
@@ -9,9 +9,15 @@ module.exports = {
     `plugin:react/recommended`,
     `prettier`,
   ],
-  plugins: [`flowtype`, `prettier`, `react`, `filenames`],
+  plugins: [
+    `flowtype`,
+    `prettier`,
+    `react`,
+    `filenames`,
+    `simple-import-sort`,
+    `babel`,
+  ],
   parserOptions: {
-    ecmaVersion: 2020,
     sourceType: `module`,
     ecmaFeatures: {
       jsx: true,
@@ -19,7 +25,7 @@ module.exports = {
   },
   env: {
     browser: true,
-    es6: true,
+    es2021: true,
     node: true,
     jest: true,
   },
@@ -32,29 +38,30 @@ module.exports = {
     __ASSET_PREFIX__: true,
   },
   rules: {
-    'arrow-body-style': [
+    "arrow-body-style": [
       `error`,
       `as-needed`,
       { requireReturnForObjectLiteral: true },
     ],
-    'no-unused-expressions': [
+    "no-unused-expressions": [
       `error`,
       {
         allowTaggedTemplates: true,
       },
     ],
-    'consistent-return': [`error`],
-    'filenames/match-regex': [`error`, `^[a-z-\\d\\.]+$`, true],
-    'no-console': `off`,
-    'no-inner-declarations': `off`,
-    'prettier/prettier': `error`,
+    "consistent-return": [`error`],
+    "filenames/match-regex": [`error`, `^[a-z-\\d\\.]+$`, true],
+    "no-console": `off`,
+    "no-inner-declarations": `off`,
+    "prettier/prettier": `error`,
     quotes: [`error`, `backtick`],
-    'react/display-name': `off`,
-    'react/jsx-key': `warn`,
-    'react/no-unescaped-entities': `off`,
-    'react/prop-types': `off`,
-    'require-jsdoc': `off`,
-    'valid-jsdoc': `off`,
+    "react/display-name": `off`,
+    "react/jsx-key": `warn`,
+    "react/no-unescaped-entities": `off`,
+    "react/prop-types": `off`,
+    "require-jsdoc": `off`,
+    "valid-jsdoc": `off`,
+    "simple-import-sort/imports": `error`,
   },
   overrides: [
     {
@@ -88,7 +95,7 @@ module.exports = {
         // problems in our tests where we often want this functionality for module
         // mocking. At this point it's easier to have it off and just encouarge
         // using top-level imports via code reviews.
-        '@typescript-eslint/no-var-requires': `off`,
+        "@typescript-eslint/no-var-requires": `off`,
         // This rule ensures that typescript types do not have semicolons
         // at the end of their lines, since our prettier setup is to have no semicolons
         // e.g.,
@@ -96,7 +103,7 @@ module.exports = {
         // -  baz: string;
         // +  baz: string
         // }
-        '@typescript-eslint/member-delimiter-style': [
+        "@typescript-eslint/member-delimiter-style": [
           `error`,
           {
             multiline: {
@@ -107,23 +114,23 @@ module.exports = {
         // This ensures all interfaces are named with an I as a prefix
         // e.g.,
         // interface IFoo {}
-        '@typescript-eslint/interface-name-prefix': [
+        "@typescript-eslint/interface-name-prefix": [
           `error`,
           { prefixWithI: `always` },
         ],
-        '@typescript-eslint/no-empty-function': `off`,
+        "@typescript-eslint/no-empty-function": `off`,
         // This ensures that we always type the return type of functions
         // a high level focus of our TS setup is typing fn inputs and outputs.
-        '@typescript-eslint/explicit-function-return-type': `error`,
+        "@typescript-eslint/explicit-function-return-type": `error`,
         // This forces us to use interfaces over types aliases for object defintions.
         // Type is still useful for opaque types
         // e.g.,
         // type UUID = string
-        '@typescript-eslint/consistent-type-definitions': [
+        "@typescript-eslint/consistent-type-definitions": [
           `error`,
           `interface`,
         ],
-        '@typescript-eslint/no-use-before-define': [
+        "@typescript-eslint/no-use-before-define": [
           `error`,
           { functions: false },
         ],
@@ -131,7 +138,7 @@ module.exports = {
         // otherwise eslint will want to switch the strings to backticks,
         // which then crashes the ts compiler
         quotes: `off`,
-        '@typescript-eslint/quotes': [
+        "@typescript-eslint/quotes": [
           2,
           `backtick`,
           {
@@ -140,7 +147,7 @@ module.exports = {
         ],
         // bump to @typescript-eslint/parser started showing Flow related errors in ts(x) files
         // so disabling them in .ts(x) files
-        'flowtype/no-types-missing-file-annotation': `off`,
+        "flowtype/no-types-missing-file-annotation": `off`,
       },
     },
   ],
@@ -149,4 +156,4 @@ module.exports = {
       version: `16.4.2`,
     },
   },
-};
+}

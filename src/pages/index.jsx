@@ -1,10 +1,11 @@
+import { graphql } from "gatsby"
 import React from "react"
 import { Helmet } from "react-helmet"
-import { graphql } from "gatsby"
+
 import Layout from "../components/Layout"
 import Post from "../components/Post"
-import Sidebar from "../components/Sidebar"
 import SEO from "../components/SEO"
+import Sidebar from "../components/Sidebar"
 
 class IndexRoute extends React.Component {
   render() {

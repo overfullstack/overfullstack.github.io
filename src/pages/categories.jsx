@@ -1,7 +1,8 @@
+import { graphql, Link } from "gatsby"
 import kebabCase from "lodash/kebabCase"
 import React from "react"
-import { graphql, Link } from "gatsby"
 import { Helmet } from "react-helmet"
+
 import Layout from "../components/Layout"
 import Sidebar from "../components/Sidebar"
 

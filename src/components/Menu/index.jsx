@@ -1,6 +1,7 @@
-import React from "react"
-import { Link } from "gatsby"
 import "./style.scss"
+
+import { Link } from "gatsby"
+import React from "react"
 
 class Menu extends React.Component {
   render() {

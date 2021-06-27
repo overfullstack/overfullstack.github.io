@@ -1,9 +1,10 @@
-import React from "react"
-
-import addToMailchimp from "gatsby-plugin-mailchimp"
-import { toast, ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import "./Signup.css"
+
+import addToMailchimp from "gatsby-plugin-mailchimp"
+import React from "react"
+import { toast, ToastContainer } from "react-toastify"
+
 import newsLetterLogo from "./newsletterLogo.svg"
 
 class Signup extends React.Component {
@@ -15,13 +16,10 @@ class Signup extends React.Component {
     }
   }
 
-  handleOnChangeEmail = (e) => {
-    this.setState({ email: e.target.value })
-  }
+  handleOnChangeEmail = (e) => this.setState({ email: e.target.value })
 
-  handleOnChangeName = (e) => {
+  handleOnChangeName = (e) =>
     this.setState({ listFields: { NAME: e.target.value } })
-  }
 
   handleSubmit = async (e) => {
     e.preventDefault()
