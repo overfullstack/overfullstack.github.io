@@ -81,8 +81,8 @@ The code references in this post point to Java repo, but they can be correlated 
 ## Introduction
 
 With the advent of **SaaS** and **Microservices/Macroservices**, software systems majorly communicate through the
-network, and **REST** is the predominant HTTP protocol used. To reduce network latency, these services resort to _
-Bulk-APIs_. One of the significant challenges of Bulk-APIs is **Request Validation**. With increasing request bulk size,
+network, and **REST** is the predominant HTTP protocol used. To reduce network latency, these services resort to _Bulk-APIs_.
+One of the significant challenges of Bulk-APIs is **Request Validation**. With increasing request bulk size,
 service routes, and the number of validations, the validation orchestration can quickly get complex when done in
 traditional imperative style.
 
@@ -117,34 +117,42 @@ This JSON structure gets marshalled into POJOs, which needs to validated at the 
 Since all services deal with Payments, they have a lot of common fields like `amount`, as well as common child nodes
 like `paymentMethod` in their structure. Based on the type of field, they have different kinds of validations. E.g.:
 
-- _Simple data validations_ - to validate data integrity for fields like `amount`.
+- _Data validations_ - to validate data integrity for fields like `amount`.
 - _Effectful validations_ - for fields like `accountId`, which involves a DB read to verify.
-- _Common Validations_ - for common fields such as `amount`, `accountId`, which are common across all service routes.
-- _Nested Validations_ - for the common child nodes like `paymentMethod`, as it's an independent child node inside a
-  parent.
+- _Common Validations_ - for common fields that exist across services, such as `amount`, `accountId`.
+- _Nested Validations_ - for the member nodes like `paymentMethod` . These nested members share an Aggregation/Composition
+  relationship with their container and have validations of their own. A service in the same domain may reuse this data-structure
+  in its payload. Such service, along with its own validations, needs to execute all the validations of this nested member.
 
-### The Requirements
+### Requirements for Validation Orchestration
 
-The service validation module has the following requirements:
+Now that we talked about types of validations, let's understand the requirements for validation orchestration (how to
+execute these validations).
 
-- Share Common and Nested Validations.
-- Fail-Fast for each sub-request.
-- Configure Validation sequence - Cheaper first and Costlier later.
-- Partial failures - An aggregated error response for failed sub-requests can only be sent after valid requests are
-  processed through multiple layers of the application. We have to hold on to the invalid sub-requests till the end and
-  skip them from processing.
+- **Share Validations:** Instead of rewriting, Share Common and Nested Validations among services that share payload
+  structure.
+- **2 Routes - 2 execution Strategies:** Our database entities can be CRUD through two routes e.g., **REST** and **
+  SObject**. They both need to be guarded with Validations. But the tricky part is - the Connect route needs to *fail-fast*,
+  while the SObject needs *error-accumulation*.
+- **Configure Validation Order for Fail-fast:** A way to configure Cheaper validations first and Costlier later. Costlier
+  validations can include Effectful validations, so we need to fail-fast and avoid unnecessary DB calls.
+- **Partial failures for Batch APIs:**  An aggregated error response for failed sub-requests can only be sent after
+  valid requests are processed through multiple layers of the application. We have to hold on to the invalid
+  sub-requests till the end and skip them from processing.
+- **Meta-requirements:**
+  - Accommodate a century of validations across a domain
+  - Unit testability for Validations
+  - No compromise on Performance
 
 ## Imperative treatment
 
 We have close to **100 validations** of various kinds and increasing. When the above requirements are dealt with
 traditional [Imperative Style](https://en.wikipedia.org/wiki/Imperative_programming), it can quickly get messy, as
-shown [here](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/imperative/ImperativeValidation.java)
-. This code is mutation filled, non-extensible, non-sharable, non-unit-testable, and difficult to reason about.
+shown [here](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/imperative/ImperativeValidation.java).
+This code is mutation filled, non-extensible, non-sharable, non-unit-testable, and difficult to reason-about.
 
-But to state that objectively, we can run **Cyclomatic
-Complexity**[$_{[1]}$](https://www.ibm.com/developerworks/java/library/j-cq03316/) and **Cognitive
-Complexity** [$_{[2]}$](https://www.sonarsource.com/docs/CognitiveComplexity.pdf) metrics on this code, using a popular
-Code Quality tool called **SonarQube™**[$_{[3]}$](https://docs.sonarqube.org/latest/user-guide/metric-definitions/).
+But to state that objectively, we can run **Cognitive Complexity** [$_{[2]}$](https://www.sonarsource.com/docs/CognitiveComplexity.pdf)
+metrics on this code, using a popular Code Quality tool called **SonarQube™**[$_{[3]}$](https://docs.sonarqube.org/latest/user-guide/metric-definitions/).
 
 Our current imperative approach records **high** values for both these metrics. (Results to be run and explained during
 the talk).
@@ -176,7 +184,7 @@ The framework mainly consists of 3 decoupled parts:
 - Configuration (how-to-do)
 - Orchestration (how-to-do)
 
-### Why FP
+### Why FP?
 
 We need an extensible framework to cater above design needs. But why is FP the best fit for solving problems like these?
 Every Software design problem can be seen like a block of objects doing functions or functions processing objects. We
@@ -191,36 +199,26 @@ reason, it is the first choice for Machine learning, AI, BigData, Reactive Progr
 ### Immutable POJOs
 
 Making POJOs immutable helps us take out a lot of cognitive load while reasoning about programs. Especially, when our
-objects are passing through an array of functions, Immutability gives a guarantee that the objects are only being _
-Transformed_ and not _Mutated_.
+objects are passing through an array of functions, Immutability gives a guarantee that the objects are only being _Transformed_ and not _Mutated_.
 
-With _Java 14 preview_ feature **[Records](https://openjdk.java.net/jeps/359)**, I shall demo how a class can be easily
-made immutable
+With the latest Java feature **Records**, I shall demo how a class can be easilymade immutable
 
 - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/domain/ImmutableEgg.java)
 
 ### Validations as Values
 
-I used Java 8 Functional interfaces to represent the validation functions as values
+I used Java 8 Functional interfaces to represent the validation functions as values. [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/declarative/RailwayValidation2.java). This way Validation functions turn more cohesive than the imperative style, can be extended independently from each other and **shared** among various service routes.
 
-- [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/declarative/RailwayValidation2.java)
-  . This way Validation functions turn more cohesive than the imperative style, can be extended independently from each
-  other and **shared** among various service routes.
-
-### Representing Effect with Either Monad[$_{[4]}$](https://www.vavr.io/vavr-docs/#_either)
+### Representing _Effect_ with Either Monad[$_{[4]}$](https://www.vavr.io/vavr-docs/#_either)
 
 In the talk, I shall introduce Monad with a crash course and contextually explain the application of various monads,
 such as `Option`, `Either`, `Try`, `Stream`.
 
-Let's start with `Either` Monad - It is a data type container that represents the data it contains in 2 states `left`
-and `right`. We can leverage this *Effect* to represent our Dichotomous Data, where `left: Validation Failure`
-and `right: Valid sub-request`. Either Monad has
-operations ([API ref](https://www.javadoc.io/doc/io.vavr/vavr/0.10.3/io/vavr/control/Either.html)) like `map`
+Let's start with `Either` Monad - It's a data-type container that represents the data it contains in 2 states `left`
+and `right`. We can leverage this _Effect_ to represent our Dichotomous Data, where `left: Validation Failure`
+and `right: Valid sub-request`. Either Monad has operations ([API ref](https://www.javadoc.io/doc/io.vavr/vavr/0.10.3/io/vavr/control/Either.html)) like `map`
 and `flatMap`, which perform operations on the contained value, only if Monad is in `right` state. This property helps
-developers write _linear programs_ without worrying about the state of the Monad
-
-- [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/declarative/RailwayValidation2.java#L37-L51)
-  .
+developers write _linear programs_ without worrying about the state of the Monad [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/declarative/RailwayValidation2.java#L37-L51).
 
 This is a popular technique called **Railway-Oriented-Programming**[$_{[5]}$](https://fsharpforfunandprofit.com/rop/).
 
@@ -230,19 +228,12 @@ This *Effect* can be used as a currency to be exchanged as input-output for our 
 validation function takes Either monad as input. If the input is in the `right` state, validation is performed using its
 API functions `map` or `flatMap`, and if the validation fails, the corresponding failure is set in the `left` state.
 Otherwise, return the monad in the right state. As long as the result of a validation is in the right state, it doesn't
-matter what the value it has. Thus a wild-card is used in the `Validator` Data type signature
-
-- [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/0a2b47279ea2d76eb8a31d3c3f8ea0a05d64b6e9/src/main/java/algebra/types/Validator.java#L11)
-  .
+matter what the value it has. Thus a wild-card is used in the `Validator` Data type signature. [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/0a2b47279ea2d76eb8a31d3c3f8ea0a05d64b6e9/src/main/java/algebra/types/Validator.java#L11).
 
 ### The Configuration
 
 Since functions are values, all we need is an Ordered List (like `java.util.list`) to maintain the sequence of
-validations. We can compose all the validation functions, in the order of preference. This order is easily **
-Configurable**
-
-- [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/declarative/Config.java#L37-L50)
-  .
+validations. We can compose all the validation functions, in the order of preference. This order is **Configurable** easily. [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/declarative/Config.java#L37-L50).
 
 However, there is a complexity. List of Validations for a parent node consists of a mix of parent node and child node
 validations. But they can't be put under one `List`, as they are functions on different Data Types. So child validations
@@ -263,7 +254,7 @@ but it can easily be *flatten* into a Chain with simple *Topological Sort*.
 Now we have 2 lists to intertwine - List of sub-requests to be validated against List of Validations. This orchestration
 can be easily achieved in many ways due to the virtue of loose coupling between What-to-do(validations) and How-to-do(
 Orchestration). We can switch orchestration strategies (like fail-fast strategy to error-accumulation or running
-validations in parallel) without effecting validations code
+validations in parallel) without affecting validations code
 
 - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/algebra/Strategies.java).
 
@@ -287,9 +278,8 @@ it easy to extend, debug and reason about. We can rerun the previous complexity 
 As pointed, we can
 compare [Imperative approach](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/imperative/ImperativeValidation.java)
 with
-the [Declarative one](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/declarative/RailwayValidation2.java)
-. Despite the declarative implementation having more validations than imperative implementation, the _Cognitive
-Complexity_ remains minimum.
+the [Declarative one](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/declarative/RailwayValidation2.java).
+Despite the declarative implementation having more validations than imperative implementation, the _Cognitive Complexity_ remains minimum.
 
 ## Conclusion
 
@@ -311,7 +301,7 @@ This talk was successfully presented and warmly received at:
 - [Java User Group Hyderabad (@JUGHyd)](https://www.meetup.com/en-AU/jughyderabad/events/264688807/)
 - [Salesforce, Hyderabad, India](http://y2u.be/l9jJ7m7_VpM)
 
-This talk is also selected for a prestigious international conference:
+This talk was also approved for this international conference:
 
 - **[JBCN Conf - 2020](https://www.jbcnconf.com/2020/)**, September 2020, Barcelona, Spain (This event got cancelled due
   to COVID-19).
