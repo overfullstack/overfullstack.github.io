@@ -76,3 +76,7 @@ He was also invited to speak at these international conferences:
 ### 08-2019 (Salesforce, Hyderabad)
 
 `youtube: https://www.youtube.com/watch?v=l9jJ7m7_VpM&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=7`
+
+### Grow as a Geek (01-2021)
+
+`https://www.youtube.com/watch?v=XeAV0hrSuLY&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=10`

@@ -8,7 +8,7 @@ category: Functional Programming
 cover: ./cover.jpg
 tags:
   - Java 8
-description: >-
+description:
   Fun in Functional Programming with Java 8 and how it is competing with younger
   functional languages.
 ---
@@ -16,15 +16,15 @@ description: >-
 # FP vs OOP Simply:
 
 - Whenever I write some code to deal with data about an entity, then functional programming seems to work best.
-- Whenever I write some code to simulate that entity, then object-oriented programming seems to work best. For example, if we have to design a system that deals with **People**, we use OOP to design a **Person** class, which holds the state and behavior of a person. But let us say, we need to perform an operation to calculate age of every person based on their DOB, OOP tells us to keep that as a function inside **Person** class. But if you as FP, it looks at it like a mathematical data-driven operation. It suggests you to prepare a function independent of a person class, which can be called with DOB as input, and we get age as output. We can **Evaluate** ages of all people by passing them through this function.
+- Whenever I write some code to simulate that entity, then object-oriented programming seems to work best. For example, if we have to design a system that deals with **People**, we use OOP to design a **Person** class, which holds the state and behavior of a person. But let's say, we need to perform an operation to calculate age of every person based on their DOB, OOP tells us to keep that as a function inside **Person** class. But if you use FP, it looks at it like a mathematical data-driven operation. It suggests you to prepare a function independent of a person class, which can be called with DOB as input, and we get `age` as output. We can **Evaluate** ages of all people by passing them through this function.
 
 # Only Java 8?
 
-Functional Programming is just a different way of thinking about structuring your code. Java 8, just provides new toys to make it more handy. That said, functional programming can be implemented even in Java 6, using anonymous inner classes in-place of lambdas.
+Functional Programming is just a different way of thinking about structuring your code. Java 8, just provides new toys to make it handy. That said, FP can be implemented even in Java 6, using anonymous inner classes in place of lambdas.
 
 # Why Functional Programming?
 
-- FP is handy over OOP when the core essence of objects are functions. In such scenario, design can be changed from OOP to FP, by passing the core function as an argument to constructor and use it for evaluation. This smells **Strategy Pattern**. Before Java 8, we had to use anonymous inner classes to achieve the same.
+- FP is handy over OOP when the core essence of objects are functions. In such scenario, design can be changed from OOP to FP, passing the core function as an argument to the constructor and use it for evaluation. This smells like **Strategy Pattern**. Before Java 8, we had to use anonymous inner classes to achieve the same.
 - Functions can be treated as values, and they can be assigned to variables. These are called **First Class Functions** and this type of programming is called **Higher Order Programming**. `Function<>`, `Consumer<>` etc can be used as variable types to which either lambdas or anonymous inner classes be assigned as values.
 
 ```java:title=firstclassfunction.java
@@ -40,7 +40,7 @@ private static Function<String, String> lastWord = (String phrase) ->
 
 # Thinking in FP
 
-- In the code below, the function receives lambda as an argument. Since this is a type of Functional Interface, the lambda holds the implementation of single abstract method, in this case `apply()` ('apply' is the notation used for single abstract method in functional interface when its purpose can be anything).
+- In the code below, the function receives lambda as an argument. Since this is a type of Functional Interface, the lambda holds the implementation of single abstract method, in this case `apply()` ('apply' is the notation used for a single abstract method in functional interface when its purpose can be anything).
 
 ```java:title=functionalinterface.java
 @FunctionalInterface
