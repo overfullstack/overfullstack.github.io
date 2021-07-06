@@ -129,20 +129,7 @@ class PostTemplateDetails extends React.Component {
             <div
               className="post-single__footer-text"
               style={{ marginBottom: `1.625rem` }}
-            >
-              <Bio
-                author={author}
-                subtitle={subtitle}
-                path={getCurrentPath(location)}
-              />
-              <a
-                href={`${author.resume}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <strong>My&nbsp;Résumé</strong>
-              </a>
-            </div>
+            />
             <div className="post-single__footer-text">
               <Links data={author} isFlat />
               <div style={{ marginBottom: `1.625rem` }}>

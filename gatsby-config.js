@@ -161,6 +161,7 @@ module.exports = {
               isIconAfterHeader: true,
             },
           },
+          `gatsby-plugin-catch-links`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
           {
