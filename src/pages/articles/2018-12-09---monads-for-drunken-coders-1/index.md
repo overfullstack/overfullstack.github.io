@@ -67,7 +67,7 @@ I think, I'm too drunk. My head is spinning! 🤯
 
 The code ended-up like an Alien plant 👽
 
-```java{8,9,10,18,23,26}:title=cyclomaticeggvalidator.java
+```java{8-10,18,23,26}:title=cyclomaticeggvalidator.java
 void cyclomaticCode() {
   var eggList = Egg.getEggCarton();
   Map<Integer, ValidationFailure> badEggFailureBucketMap = new HashMap<>();

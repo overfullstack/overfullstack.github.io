@@ -51,7 +51,7 @@ static void client() {
 
 - Some day after the release, a developer wanted to insert this line in the client code, and he got this unholy result.
 
-```java
+```java{4}
 static void client() {
   var nums = Arrays.asList(-2, 5, -6);
   System.out.println(sumAbsolute(nums));
@@ -61,7 +61,7 @@ static void client() {
 
 - After a painful debugging session, he found a bug that has been waiting to bite him - A **Latent Bug**.
 
-```java
+```java{3,11}
 static int sumAbsolute(List<integer> nums) {
   for (int i = 0; i < nums.size(); i++) {
     nums.set(i, Math.abs(nums.get(i))); // Latent Bug 🐞
@@ -95,7 +95,7 @@ Date getEggLayingDate(int eggId) {
 
 - Assume, it has two dependent components, independent of each-other. Assume both these components are present in two different modules.
 
-```java
+```java{3,11}
 // Dependent component - 1
 boolean isLaidInFirstHalf(int eggId) {
   var layingDate = getEggLayingDate(eggId);
@@ -113,7 +113,7 @@ int calculateEggAge(int eggId, Date today) {
 
 - They are all in harmony, everything is working great. One day! a developer wanted to add a trivial log in `hasEggRotten`. As date object is not used anymore in this function, he felt he could reuse this object to get month and year information and so he mutated it like this:
 
-```java
+```java{5-7}
 // Dependent component - 1
 boolean isLaidInFirstHalf(int eggId) {
   var layingDate = getEggLayingDate(eggId);
@@ -150,7 +150,7 @@ long calculateEggAge(int eggId, Date today) {
 
 - We just witnessed, how components separated by modules can be entangled with Mutable Objects. It's almost impossible to refactor them without breaking something.
 - On a real code base, this is even more intertwined. Most of our debugging cycles are spent to bash bugs like these. It resonates with the universal developer experience - "Fix this breaks that".
-- I call this a **Quantum Entanglement!**
+- I call this a **Quantum Entanglement!** ⚛🧙🏼‍♀️
 
 ## References Everywhere
 
@@ -200,7 +200,7 @@ Some prevailing arguments about Immutability
 
 - Mutation and imperative are super good friends, and one likes to be with the other.
 
-```java
+```java{2,8}
 void mutableFn() {
   var mutableList = Arrays.asList("a", "b", "c");
   mutateList(mutableList);
@@ -216,7 +216,7 @@ List<String> mutateList(List<String> list) {
 
 - But if you use Immutable objects, you need to replace your __Imperative mutations__ with __Declarative transformations__.
 
-```java
+```java{2,8}
 void immutableFn() {
   final var immutableList = List.of("a", "b", "c");
   transformList(immutableList);
@@ -231,7 +231,7 @@ List<String> transformList(final List<String> list) {
 - Immutability and Transformations are like **Couple**. They ought to live together, no choice! ;)
 - If you try to perform mutation on an immutable object, you get an exception right on your face
 
-```java
+```java{3,4}
 void immutableFn() {
   final var immutableList = List.of("a", "b", "c");
   // ! Throws UnsupportedOperationException ⛔️

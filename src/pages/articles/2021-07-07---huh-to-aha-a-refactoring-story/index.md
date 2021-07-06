@@ -49,9 +49,11 @@ That brings us to the story of our talk.
 - Refactoring is not a one-time activity. And every time you refactor or add a new feature, it's your responsibility to leave the codebase in a state such that it's Refactorable.
 - This is just an agile way to say I want to build my components like Lego pieces, Components that can be reused, replaced, and most importantly Composed to form different structures.
 
+![lego-pieces](media/legos.jpeg)
+
 Let's follow the **MOM** process to manage our goal. Believe me, Managers love it when you do talk to them in their own language. There are high chances they fund your refactoring in the same release!
 
-## Methods
+## Methods 🛠
 
 We shall only focus on a couple of important **Methods** to achieve our goal:
 
@@ -62,14 +64,14 @@ We shall only focus on a couple of important **Methods** to achieve our goal:
   - How independent and loose coupled my components are?
   - Are the effects of my component reaching farther than they should?
 
-## Obstacles
+## Obstacles 🧗🏼
 
 And a couple of major **Obstacles** that sabotage those:
 
 - First up, we shall start with the most abused language feature, any guesses? - **Exceptions** and see how they bind a function to an entire call stack.
 - Next, something that creates an even more invisible and unholy coupling - **Mutability**
 
-## Metrics
+## Metrics 📐
 
 And the **Metrics** to keep a check on our goals:
 
@@ -78,15 +80,17 @@ And the **Metrics** to keep a check on our goals:
 
 We shall apply those methods on a **hello-real-world application** and realise how it's metrics are affected.
 
-# Obstacles
+Let's start with Obstacles and how to overcome them:
 
-## [Throw away Exceptions](/posts/throw-away-exceptions)
+## [Throw away Exceptions 👽](/posts/throw-away-exceptions)
 
-## [Mutation is Unholy](/posts/mutation-is-unholy)
+## [Mutation is Unholy 👹](/posts/mutation-is-unholy)
 
-# Hello-real-world
+---
 
-Let's see how some of what we talked, fit into a __Hello-real-world application__
+# Hello-real-world 🪐
+
+Let's see how some of what we talked, fit into a **Hello-real-world application**
 
 ## The Flow
 
@@ -102,7 +106,7 @@ Let's see how some of what we talked, fit into a __Hello-real-world application_
 
 - But the catch is, we need a way to handle partial failures. A batch API must hold on to all those failures till the end and skip them from getting processed further down, so that we can send an aggregated response in the end.
 - We are not interested on the failed ones, but the reasons why they failed, which is a different data type `Failure`.
-- The inability to pass and return results of two datatypes (`Failures` and `Egg`), and to handle partial failures, the first __default__ choice was to use a `HashMap`, which is passed in and out of each step in the flow.
+- The inability to pass and return results of two data types (`Failures` and `Egg`), and to handle partial failures, the first __default__ choice was to use a `HashMap`, which is passed in and out of each step in the flow.
 
 ```java
 void filterDuplicates(Map<ID, Failure> failureMap,
@@ -114,9 +118,12 @@ void validate(Map<ID, Failure> failureMap,
 List<EggEntity> toEntityObjs(List<Egg> validEggs) {...}
 
 void bulkInsertIntoDB(List<EggEntity> eggEntityObjs)
-		throws DMLOperationException {...}```
-    - It is also used to filter __valids__ from __Invalids__ after each step.
-    - ```java
+		throws DMLOperationException {...}
+```
+
+- It is also used to filter __valids__ from __Invalids__ after each step.
+
+```java{3-9}
 filterDuplicates(failureMap, eggsFromRequest);
 
 // Partition
@@ -162,11 +169,11 @@ static List<Either<Tuple2<ID, Failure>, ImmutableEgg>> filterDuplicates(
 
 ![partial-failures-with-either-1](media/either.png)
 
-- New failures in the downstream layers can be turn some of those `right`s to `left`s.
+- Either is switched from `right` to `left` state if it fails downstream.
 
 ![partial-failures-with-either-2](media/either-validate.png)
 
-- This also avoids the need for intermediate filtering between steps, coz all the failures contained in `Either.left` are auto skipped from processing downstream. This is possible due to the **Monad** property of Either.
+- This also avoids the need for intermediate filtering between steps, coz all the failures contained in `Either.left` are auto skipped from processing downstream. This is possible due to the **Monad** property of `Either`.
 
 ```java
 static Either<Tuple2<ID, Failure>, ImmutableEgg> validate(
@@ -180,11 +187,11 @@ static Either<Tuple2<ID, Failure>, ImmutableEgg> validate(
 }
 ```
 
-Due to limited time, we can't go into it, but I have an entire 1 hour talk about this, which can help you fill this missing piece:
+Monads is out of scope to be covered here, but I have an entire 1 hour talk about this, which can help you fill this missing piece:
   - [Java Version](/my-talks/#Fight-Complexity-with-Functional-Programming-Java)
   - [Kotlin Version](/my-talks/#Fight-Complexity-with-Functional-Programming-Kotlin)
 
-## Refactored into Isolated Pieces
+## Refactored into Isolated Pieces 🏝
 
 This is how we refactored these components into isolated pieces.
 
@@ -215,7 +222,7 @@ But most importantly, they fit into each other, resembling a __math derivation__
 
 ## Let's play some Lego
 
-This is how elegantly all these isolated pieces fit together, like Lego fit groove-to-groove.
+All these isolated pieces elegantly fit together, like Lego, groove-to-groove.
 
 ```java
 final var partition = filterDuplicates(immutableEggsFromRequest).stream()
@@ -230,9 +237,11 @@ final var results = bulkInsertIntoDB(objsToInsert);
 // Prepare response from `partition.get(false)` and `results`
 ```
 
-But how are we doing on our Goal! let's ask our Metrics:
+---
 
 # Metrics
+
+How are we doing on our Goal! let's ask our Metrics:
 
 ## Cognitive Complexity
 
@@ -250,7 +259,7 @@ But how are we doing on our Goal! let's ask our Metrics:
   - Unfamiliarity vs Unreadability.
   - Strict vs Non-extensible.
 
-- In our case, it could feel complex because:
+- The refactored code may feel complex because:
 
   - Essential Complexity - Due to all filtering, validations and handling partial failures.
   - Unfamiliar - Not everyone might have got a chance to work with Java 8 syntax, or they haven't heard of `Either` before.
@@ -299,6 +308,7 @@ void fillEntityObjTest() {
   verify(mockEggEntity).put(Fields.field3,"field3Value");
 }
 ```
+
 - This test is __Brittle__, because `Unit Test !== Test Internals`; `Unit Test === E2E test for Unit`.
 - Unit tests doesn't mean test the internals. It's an E2E test for your Unit/Component.
 - You should respect encapsulation of each unit/component you test and operate on an abstraction one-level above.
@@ -309,7 +319,7 @@ void fillEntityObjTest() {
     - **Signal:** For each field mapping, fill non-null `Egg` fields into `EggEntity` using `put`.
 - Let's do the same in code:
 
-```java
+```java{14, 17-19}
 // Static
 static final Map<String, Function<ImmutableEgg, String>> fieldMapping = Map.of(
   Fields.field1, ImmutableEgg::field1,
@@ -361,7 +371,7 @@ public EggService(
   ...
 )
 
-// Original Config
+// Main Config
 @Bean(EGG_INSERTER)
 public Function<EggEntity, ID> insert(
   @Qualifier(EGG_REPO) EggRepo eggRepo) {
@@ -377,9 +387,9 @@ public Function<EggEntity, ID> insertNoOp() {
 
 - This helps in easy stubbing of this dependency without the need for a mock, and we get the same benefits that we discussed in [Separate Static from Signal](#separate-static-from-Signal)
 
-## Testability First, Test Coverage follows
+## Testability First, Test Coverage follows 🐕
 
-- Notice, I used the word _Testability_ than _Test Coverage_.
+- Notice, I use the word _Testability_ over _Test Coverage_.
 - Testability indicates how precisely you can hit a component without the need to mock a lot of things or know it's internals.
 - Test coverage is just a metric. It's very much possible to achieve 100% Test coverage without your code being testable. Such synthetic-coverage of-course is useless.
 
@@ -396,3 +406,8 @@ Tests should not be an after-thought and should happen parallel to Refactor, lik
 - Always refactor incrementally, as prescribed by TDD, have tests to back your component and you are free to refactor it to perfection any day. But today, you only need __Good enough!__
 
 > Even bad code can function. But if the code isn't clean, it can bring a development organization to its knees - Uncle Bob, Clean code
+
+# Resources
+
+[Slide-deck](https://bit.ly/h2a-deck)
+[Source-code](https://bit.ly/h2a-code)
