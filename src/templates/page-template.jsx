@@ -6,45 +6,43 @@ import Layout from "../components/Layout"
 import PageTemplateDetails from "../components/PageTemplateDetails"
 import SEO from "../components/SEO"
 
-class PageTemplate extends React.Component {
-  render() {
-    const { subtitle } = this.props.data.site.siteMetadata
-    const page = this.props.data.markdownRemark
-    const {
-      title: pageTitle,
-      description: pageDescription,
-      cover,
-    } = page.frontmatter
-    const description = pageDescription !== null ? pageDescription : subtitle
+const PageTemplate = (props) => {
+  const { subtitle } = props.data.site.siteMetadata
+  const page = props.data.markdownRemark
+  const {
+    title: pageTitle,
+    description: pageDescription,
+    cover,
+  } = page.frontmatter
+  const description = pageDescription !== null ? pageDescription : subtitle
 
-    const actualPageTitle = `${pageTitle}`
-    return (
-      <div
-        style={{
-          color: `var(--textNormal)`,
-          background: `var(--bg)`,
-          transition: `color 0.2s ease-out, background 0.2s ease-out`,
-          minHeight: `100vh`,
-        }}
-      >
-        <Layout>
-          <SEO
-            title={actualPageTitle}
-            description={description}
-            cover={cover ? cover.childImageSharp.original.src : ``}
-            slug={page.fields.slug}
-          />
-          <div>
-            <Helmet>
-              <title>{`${pageTitle}`}</title>
-              <meta name="description" content={description} />
-            </Helmet>
-            <PageTemplateDetails {...this.props} />
-          </div>
-        </Layout>
-      </div>
-    )
-  }
+  const actualPageTitle = `${pageTitle}`
+  return (
+    <div
+      style={{
+        color: `var(--textNormal)`,
+        background: `var(--bg)`,
+        transition: `color 0.2s ease-out, background 0.2s ease-out`,
+        minHeight: `100vh`,
+      }}
+    >
+      <Layout>
+        <SEO
+          title={actualPageTitle}
+          description={description}
+          cover={cover ? cover.childImageSharp.original.src : ``}
+          slug={page.fields.slug}
+        />
+        <div>
+          <Helmet>
+            <title>{`${pageTitle}`}</title>
+            <meta name="description" content={description} />
+          </Helmet>
+          <PageTemplateDetails {...props} />
+        </div>
+      </Layout>
+    </div>
+  )
 }
 
 export default PageTemplate

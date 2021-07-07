@@ -5,143 +5,136 @@ import { Link } from "gatsby"
 import moment from "moment"
 import React from "react"
 
-import Bio from "../Bio"
 import Disqus from "../Disqus/Disqus"
-import Links from "../Links"
+import { Links } from "../Links"
 import Signup from "../Signup/Signup"
 import ThemeToggle from "../Toggle/ThemeToggle"
-import { formatReadingTime, getCurrentPath } from "../utils"
+import { formatReadingTime } from "../utils"
 
-class PostTemplateDetails extends React.Component {
-  render() {
-    const { subtitle, author } = this.props.data.site.siteMetadata
-    const { previous, next } = this.props.pageContext
-    const post = this.props.data.markdownRemark
-    const tags = post.fields.tagSlugs
-    const { location } = this.props
-    const applauseButton = (
-      <div className="applause">
-        <applause-button multiclap="true" color="var(--applause-button)" />
+export const PostTemplateDetails = (props) => {
+  const { author } = props.data.site.siteMetadata
+  const { previous, next } = props.pageContext
+  const post = props.data.markdownRemark
+  const tags = post.fields.tagSlugs
+  const applauseButton = (
+    <div className="applause">
+      <applause-button multiclap="true" color="var(--applause-button)" />
+    </div>
+  )
+
+  const homeBlock = (
+    <div>
+      <Link className="post-single__home-button" to="/">
+        All Articles
+      </Link>
+      <div className="post-single__theme-toggle">
+        <ThemeToggle />
       </div>
-    )
+      {applauseButton}
+    </div>
+  )
 
-    const homeBlock = (
-      <div>
-        <Link className="post-single__home-button" to="/">
-          All Articles
-        </Link>
-        <div className="post-single__theme-toggle">
-          <ThemeToggle />
+  const tagsBlock = (
+    <div className="post-single__tags">
+      <ul className="post-single__tags-list">
+        {tags &&
+          tags.map((tag, i) => (
+            <li className="post-single__tags-list-item" key={tag}>
+              <Link to={tag} className="post-single__tags-list-item-link">
+                {post.frontmatter.tags[i]}
+              </Link>
+            </li>
+          ))}
+      </ul>
+    </div>
+  )
+
+  const commentsBlock = (
+    <div>
+      <Disqus postNode={post} siteMetadata={props.data.site.siteMetadata} />
+    </div>
+  )
+
+  return (
+    <div>
+      {homeBlock}
+      <div className="post-single">
+        <div className="post-single__inner">
+          <h1
+            className="post-single__title"
+            style={{
+              boxShadow: `none`,
+              textDecoration: `none`,
+              color: `var(--textTitle)`,
+            }}
+          >
+            {post.frontmatter.title}
+          </h1>
+          <div
+            style={{
+              textAlign: `center`,
+              fontSize: `larger`,
+            }}
+          >
+            {`${formatReadingTime(post.timeToRead)}`}
+          </div>
+          <div
+            className="post-single__body"
+            /* eslint-disable-next-line react/no-danger */
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
+          <div className="post-single__date">
+            <em>
+              Published&nbsp;
+              {moment(post.frontmatter.date).format(`D MMM YYYY`)}
+            </em>
+          </div>
         </div>
-        {applauseButton}
-      </div>
-    )
-
-    const tagsBlock = (
-      <div className="post-single__tags">
-        <ul className="post-single__tags-list">
-          {tags &&
-            tags.map((tag, i) => (
-              <li className="post-single__tags-list-item" key={tag}>
-                <Link to={tag} className="post-single__tags-list-item-link">
-                  {post.frontmatter.tags[i]}
+        <div className="post-single__footer">
+          {tagsBlock}
+          <div className="mobile-footer-clap">{applauseButton}</div>
+          <hr />
+          <ul
+            style={{
+              display: `flex`,
+              flexWrap: `wrap`,
+              justifyContent: `space-between`,
+              listStyle: `none`,
+              padding: 0,
+            }}
+          >
+            <li>
+              {previous && (
+                <Link to={previous.fields.slug} rel="prev">
+                  ←&nbsp;
+                  {previous.frontmatter.title}
                 </Link>
-              </li>
-            ))}
-        </ul>
-      </div>
-    )
-
-    const commentsBlock = (
-      <div>
-        <Disqus
-          postNode={post}
-          siteMetadata={this.props.data.site.siteMetadata}
-        />
-      </div>
-    )
-
-    return (
-      <div>
-        {homeBlock}
-        <div className="post-single">
-          <div className="post-single__inner">
-            <h1
-              className="post-single__title"
-              style={{
-                boxShadow: `none`,
-                textDecoration: `none`,
-                color: `var(--textTitle)`,
-              }}
-            >
-              {post.frontmatter.title}
-            </h1>
-            <div
-              style={{
-                textAlign: `center`,
-                fontSize: `larger`,
-              }}
-            >
-              {`${formatReadingTime(post.timeToRead)}`}
-            </div>
-            <div
-              className="post-single__body"
-              /* eslint-disable-next-line react/no-danger */
-              dangerouslySetInnerHTML={{ __html: post.html }}
-            />
-            <div className="post-single__date">
-              <em>
-                Published&nbsp;
-                {moment(post.frontmatter.date).format(`D MMM YYYY`)}
-              </em>
+              )}
+            </li>
+            <li>
+              {next && (
+                <Link to={next.fields.slug} rel="next">
+                  {next.frontmatter.title}
+                  &nbsp;→
+                </Link>
+              )}
+            </li>
+          </ul>
+          <div
+            className="post-single__footer-text"
+            style={{ marginBottom: `1.625rem` }}
+          />
+          <div className="post-single__footer-text">
+            <Links data={author} isFlat />
+            <div style={{ marginBottom: `1.625rem` }}>
+              <Signup />
             </div>
           </div>
-          <div className="post-single__footer">
-            {tagsBlock}
-            <div className="mobile-footer-clap">{applauseButton}</div>
-            <hr />
-            <ul
-              style={{
-                display: `flex`,
-                flexWrap: `wrap`,
-                justifyContent: `space-between`,
-                listStyle: `none`,
-                padding: 0,
-              }}
-            >
-              <li>
-                {previous && (
-                  <Link to={previous.fields.slug} rel="prev">
-                    ←&nbsp;
-                    {previous.frontmatter.title}
-                  </Link>
-                )}
-              </li>
-              <li>
-                {next && (
-                  <Link to={next.fields.slug} rel="next">
-                    {next.frontmatter.title}
-                    &nbsp;→
-                  </Link>
-                )}
-              </li>
-            </ul>
-            <div
-              className="post-single__footer-text"
-              style={{ marginBottom: `1.625rem` }}
-            />
-            <div className="post-single__footer-text">
-              <Links data={author} isFlat />
-              <div style={{ marginBottom: `1.625rem` }}>
-                <Signup />
-              </div>
-            </div>
-            {commentsBlock}
-          </div>
+          {commentsBlock}
         </div>
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default PostTemplateDetails

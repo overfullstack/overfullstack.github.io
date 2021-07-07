@@ -6,30 +6,28 @@ import CategoryTemplateDetails from "../components/CategoryTemplateDetails"
 import Layout from "../components/Layout"
 import Sidebar from "../components/Sidebar"
 
-class CategoryTemplate extends React.Component {
-  render() {
-    const { blogTitle } = this.props.data.site.siteMetadata
-    const { category } = this.props.pageContext
+const CategoryTemplate = (props) => {
+  const { blogTitle } = props.data.site.siteMetadata
+  const { category } = props.pageContext
 
-    return (
-      <div
-        style={{
-          color: `var(--textNormal)`,
-          background: `var(--bg)`,
-          transition: `color 0.2s ease-out, background 0.2s ease-out`,
-          minHeight: `100vh`,
-        }}
-      >
-        <Layout>
-          <div>
-            <Helmet title={`${category} | ${blogTitle}`} />
-            <Sidebar {...this.props} />
-            <CategoryTemplateDetails {...this.props} />
-          </div>
-        </Layout>
-      </div>
-    )
-  }
+  return (
+    <div
+      style={{
+        color: `var(--textNormal)`,
+        background: `var(--bg)`,
+        transition: `color 0.2s ease-out, background 0.2s ease-out`,
+        minHeight: `100vh`,
+      }}
+    >
+      <Layout>
+        <div>
+          <Helmet title={`${category} | ${blogTitle}`} />
+          <Sidebar {...props} />
+          <CategoryTemplateDetails {...props} />
+        </div>
+      </Layout>
+    </div>
+  )
 }
 
 export default CategoryTemplate

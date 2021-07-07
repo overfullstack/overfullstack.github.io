@@ -8,45 +8,43 @@ import Layout from "../components/Layout"
 import PostTemplateDetails from "../components/PostTemplateDetails"
 import SEO from "../components/SEO"
 
-class PostTemplate extends React.Component {
-  render() {
-    const { subtitle } = this.props.data.site.siteMetadata
-    const post = this.props.data.markdownRemark
-    const {
-      title: postTitle,
-      description: postDescription,
-      cover,
-    } = post.frontmatter
-    const description = postDescription !== null ? postDescription : subtitle
+const PostTemplate = (props) => {
+  const { subtitle } = props.data.site.siteMetadata
+  const post = props.data.markdownRemark
+  const {
+    title: postTitle,
+    description: postDescription,
+    cover,
+  } = post.frontmatter
+  const description = postDescription !== null ? postDescription : subtitle
 
-    const actualPostTitle = `${postTitle}`
-    return (
-      <div
-        style={{
-          color: `var(--textNormal)`,
-          background: `var(--bg)`,
-          transition: `color 0.2s ease-out, background 0.2s ease-out`,
-          minHeight: `100vh`,
-        }}
-      >
-        <Layout>
-          <SEO
-            title={actualPostTitle}
-            description={description}
-            cover={cover.childImageSharp.original.src}
-            slug={post.fields.slug}
-          />
-          <div>
-            <Helmet>
-              <title>{actualPostTitle}</title>
-              <meta name="description" content={description} />
-            </Helmet>
-            <PostTemplateDetails {...this.props} />
-          </div>
-        </Layout>
-      </div>
-    )
-  }
+  const actualPostTitle = `${postTitle}`
+  return (
+    <div
+      style={{
+        color: `var(--textNormal)`,
+        background: `var(--bg)`,
+        transition: `color 0.2s ease-out, background 0.2s ease-out`,
+        minHeight: `100vh`,
+      }}
+    >
+      <Layout>
+        <SEO
+          title={actualPostTitle}
+          description={description}
+          cover={cover.childImageSharp.original.src}
+          slug={post.fields.slug}
+        />
+        <div>
+          <Helmet>
+            <title>{actualPostTitle}</title>
+            <meta name="description" content={description} />
+          </Helmet>
+          <PostTemplateDetails {...props} />
+        </div>
+      </Layout>
+    </div>
+  )
 }
 
 export default PostTemplate
