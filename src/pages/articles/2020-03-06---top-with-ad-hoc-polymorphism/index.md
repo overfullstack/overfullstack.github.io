@@ -3,7 +3,7 @@ title: Template-Oriented-Programming (TOP) to Ship Faster
 date: '2020-03-06T00:00:00.000Z'
 layout: post
 draft: false
-path: /posts/top-with-ad-hoc-polymorphism/
+path: /posts/top-with-ad-hoc-polymorphism
 cover: ./cover.jpeg
 category: Design
 tags:

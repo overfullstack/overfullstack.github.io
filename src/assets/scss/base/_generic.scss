@@ -33,7 +33,6 @@ body.light {
   --hr: hsla(0, 0%, 0%, 0.2);
   --inlineCode-bg: rgba(255, 229, 100, 0.2);
   --inlineCode-text: var(--pink-thick);
-  --applause-button: green;
   --form-shadow: 0 2px 15px 0 rgba(210, 214, 220, 0.5);
 }
 
@@ -49,7 +48,6 @@ body.dark {
   --hr: hsla(0, 0%, 100%, 0.2);
   --inlineCode-bg: rgba(115, 124, 153, 0.2);
   --inlineCode-text: var(--pink);
-  --applause-button: #03bb85;
   --form-shadow: 0 2px 15px 0 rgba(26, 26, 27, 0.637);
 }
 
@@ -64,7 +62,7 @@ h6 {
 }
 
 h1 {
-  font-size: $typographic-base-font-size * 2.5;
+  font-size: $typographic-base-font-size * 2;
   @include line-height(2);
   @include margin-top(1.5);
   @include margin-bottom(1);
@@ -266,5 +264,33 @@ h4 {
   h3,
   h4 {
     margin-left: auto !important;
+  }
+
+  h1 {
+    font-size: $typographic-base-font-size * 2.5;
+    @include line-height(2);
+    @include margin-top(1.5);
+    @include margin-bottom(1);
+  }
+
+  h2 {
+    font-size: $typographic-base-font-size * 1.6875;
+    @include line-height(1.5);
+    @include margin-top(1.25);
+    @include margin-bottom(.5);
+  }
+
+  h3 {
+    font-size: $typographic-base-font-size * 1.375;
+    @include line-height(1);
+    @include margin-top(1);
+    @include margin-bottom(.5);
+  }
+
+  h4 {
+    font-size: $typographic-base-font-size * 1.2;
+    @include line-height(1);
+    @include margin-top(1.5);
+    @include margin-bottom(.5);
   }
 }

@@ -3,7 +3,7 @@ title: "Monads for Drunken Coders, Pint-1\U0001F37A"
 date: '2018-12-09T00:00:00.000Z'
 layout: post
 draft: false
-path: /posts/monads-for-drunken-coders-pint-1/
+path: /posts/monads-for-drunken-coders-pint-1
 cover: ./cover.jpg
 category: Functional Programming
 tags:

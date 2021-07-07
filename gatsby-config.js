@@ -48,6 +48,16 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-firebase`,
+      options: {
+        credentials: {
+          apiKey: process.env.FIREBASE_API_KEY || `none`,
+          authDomain: process.env.FIREBASE_AUTH_DOMAIN || `none`,
+          projectId: process.env.FIREBASE_PROJECT_ID || `none`,
+        },
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/pages`,

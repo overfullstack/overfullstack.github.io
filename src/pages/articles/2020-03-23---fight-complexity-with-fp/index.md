@@ -3,7 +3,7 @@ title: Fight Complexity with Functional Programming
 date: '2020-03-23T00:00:00.000Z'
 layout: post
 draft: false
-path: /posts/fight-complexity-with-fp/
+path: /posts/fight-complexity-with-fp
 cover: ./cover.jpeg
 category: Design
 tags:

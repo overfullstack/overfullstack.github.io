@@ -3,13 +3,13 @@ title: Throw away Exceptions 👽
 date: '2021-07-07T00:00:00.000Z'
 layout: post
 draft: false
-path: /posts/throw-away-exceptions/
+path: /posts/throw-away-exceptions
 cover: ./cover.png
 category: Design
 tags:
   - Java
   - Refactoring
-description: Exceptions are Worm Holes
+description: Exceptions are Wormholes
 ---
 
 # Exceptions are the most abused language feature
@@ -32,7 +32,7 @@ try {
 
 You need to hunt down all throws and re-throws and multiple catch blocks, playing the dangerous game of inheritance.
 
-# Exceptions are Worm Holes
+# Exceptions are Wormholes
 
 ![ides](media/ides.png)
 

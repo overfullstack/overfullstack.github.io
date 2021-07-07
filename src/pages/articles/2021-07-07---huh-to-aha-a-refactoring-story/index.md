@@ -3,7 +3,7 @@ title: Huh?🤔 to Aha!😇 - A Refactoring Story
 date: '2021-07-07T00:00:00.000Z'
 layout: post
 draft: false
-path: /posts/huh-to-aha/
+path: /posts/huh-to-aha
 cover: ./cover.png
 category: Design
 tags:
@@ -106,7 +106,7 @@ Let's see how some of what we talked, fit into a **Hello-real-world application*
 
 - But the catch is, we need a way to handle partial failures. A batch API must hold on to all those failures till the end and skip them from getting processed further down, so that we can send an aggregated response in the end.
 - We are not interested on the failed ones, but the reasons why they failed, which is a different data type `Failure`.
-- The inability to pass and return results of two data types (`Failures` and `Egg`), and to handle partial failures, the first __default__ choice was to use a `HashMap`, which is passed in and out of each step in the flow.
+- The inability to pass and return results of two data types (`Failures` and `Egg`), and to handle partial failures, the first _default_ choice was to use a `HashMap`, which is passed in and out of each step in the flow.
 
 ```java
 void filterDuplicates(Map<ID, Failure> failureMap,
@@ -121,7 +121,7 @@ void bulkInsertIntoDB(List<EggEntity> eggEntityObjs)
 		throws DMLOperationException {...}
 ```
 
-- It is also used to filter __valids__ from __Invalids__ after each step.
+- It is also used to filter _valids_ from _Invalids_ after each step.
 
 ```java{3-9}
 filterDuplicates(failureMap, eggsFromRequest);
@@ -153,7 +153,7 @@ This flow has all the problems we discussed before. Let's apply our methods and 
 
 ## The Signature Shift
 
-We can use `Either` to represent the partial failures. This eliminates the need of a temporary data structure like `HashMap`, coz now both __Valids__ and __Failures__ can share the same `List`
+We can use `Either` to represent the partial failures. This eliminates the need of a temporary data structure like `HashMap`, coz now both _Valids_ and _Failures_ can share the same `List`
 
 ```java
 // Before
@@ -218,7 +218,7 @@ static Either<DMLOperationException, List<EggEntity>> bulkInsertIntoDB(
     final List<EggEntity> eggEntityObjs) {...}
 ```
 
-But most importantly, they fit into each other, resembling a __math derivation__.
+But most importantly, they fit into each other, resembling a _math derivation_.
 
 ## Let's play some Lego
 
@@ -309,12 +309,12 @@ void fillEntityObjTest() {
 }
 ```
 
-- This test is __Brittle__, because `Unit Test !== Test Internals`; `Unit Test === E2E test for Unit`.
+- This test is _Brittle_, because `Unit Test !== Test Internals`; `Unit Test === E2E test for Unit`.
 - Unit tests doesn't mean test the internals. It's an E2E test for your Unit/Component.
 - You should respect encapsulation of each unit/component you test and operate on an abstraction one-level above.
 - Your test should be like an idiotic bot which fires your function with an input and asserts the output. It's not supposed to know anything else about your component code.
 - If it's asking for internals, it gets tightly latched with your component, which tends to fail every time you refactor. Such tests instead of helping, act as a foot-chain for refactoring.
-- But solution is not to write better test but make the main code __Testable__. Let's see our method closely, you can observer Static mixed with Signal:
+- But solution is not to write better test but make the main code _Testable_. Let's see our method closely, you can observer Static mixed with Signal:
     - **Static:**  1-1 field mapping between `Egg` to `EggEntity`
     - **Signal:** For each field mapping, fill non-null `Egg` fields into `EggEntity` using `put`.
 - Let's do the same in code:
@@ -403,7 +403,7 @@ Tests should not be an after-thought and should happen parallel to Refactor, lik
 
 - **Entropy is the price of a Structure**. No matter how much we refactor, as we build more features and as more resources quit and join, entropy is meant to increase. The goal is to keep its rate of growth to check, like a logarithmic curve instead of a linear or exponential curve.
 - But never get too adventurous and refactor half your codebase, especially when you don't have tests, you may end-up in a situation like this:
-- Always refactor incrementally, as prescribed by TDD, have tests to back your component and you are free to refactor it to perfection any day. But today, you only need __Good enough!__
+- Always refactor incrementally, as prescribed by TDD, have tests to back your component and you are free to refactor it to perfection any day. But today, you only need _Good enough!_
 
 > Even bad code can function. But if the code isn't clean, it can bring a development organization to its knees - Uncle Bob, Clean code
 

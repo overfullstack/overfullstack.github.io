@@ -3,7 +3,7 @@ title: Mutation is Unholy 👹
 date: '2021-07-07T00:00:00.000Z'
 layout: post
 draft: false
-path: /posts/mutation-is-unholy/
+path: /posts/mutation-is-unholy
 cover: ./cover.png
 category: Design
 tags:
@@ -12,9 +12,9 @@ tags:
 description: Mutation causes Quantum Entanglement
 ---
 
-Shared mutable state on a Shared Codebase, although Mutation causes a lot of problems, we shall focus on how it hinders the goal of Component Isolation.
-
 # The Entanglement
+
+Mutability causes a lot of problems, especially the **Shared mutable state on a Shared Codebase**. Let's focus on how it hinders the goal of Component Isolation.
 
 ## Mutable Objects as Input params
 
@@ -185,7 +185,7 @@ Looking at the numbers of views, up-votes and bookmarks, I am sure a lot of deve
 
 Some prevailing arguments about Immutability
 
-## Isn't Immutability only for __multi-threading__?
+## Isn't Immutability only for _multi-threading_?
 
 - Whenever I try to convince these old school java programmers, who are conditioned to mutability, I get this question a lot: "But isn't immutability just for multi-threading? Why do I need it if my app is Single Threaded?"
 - Let me remind you, the app running on your machine may be single-threaded, but the one running in your skull is not.
@@ -196,7 +196,7 @@ Some prevailing arguments about Immutability
 - With mutable objects, you need to build-up all that state in your head, and a simple distraction can puff it all up. Immutability eliminates that, by-definition.
 - Hope that answers this question.
 
-## __Immutable__ Objects doesn’t fit my __Imperative__ style?
+## _Immutable_ Objects doesn’t fit my _Imperative_ style?
 
 - Mutation and imperative are super good friends, and one likes to be with the other.
 
@@ -214,7 +214,7 @@ List<String> mutateList(List<String> list) {
 }
 ```
 
-- But if you use Immutable objects, you need to replace your __Imperative mutations__ with __Declarative transformations__.
+- But if you use Immutable objects, you need to replace your _Imperative mutations_ with _Declarative transformations_.
 
 ```java{2,8}
 void immutableFn() {

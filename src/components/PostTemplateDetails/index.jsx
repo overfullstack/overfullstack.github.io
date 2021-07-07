@@ -2,8 +2,10 @@ import "gist-syntax-themes/stylesheets/idle-fingers.css"
 import "./style.scss"
 
 import { Link } from "gatsby"
+import firebase from "gatsby-plugin-firebase"
 import moment from "moment"
-import React from "react"
+import React, { useEffect, useState } from "react"
+import styled from "styled-components"
 
 import Disqus from "../Disqus/Disqus"
 import { Links } from "../Links"
@@ -11,15 +13,48 @@ import Signup from "../Signup/Signup"
 import ThemeToggle from "../Toggle/ThemeToggle"
 import { formatReadingTime } from "../utils"
 
-export const PostTemplateDetails = (props) => {
-  const { author } = props.data.site.siteMetadata
-  const { previous, next } = props.pageContext
-  const post = props.data.markdownRemark
+export const PostTemplateDetails = ({ data, pageContext }) => {
+  const { author } = data.site.siteMetadata
+  const { previous, next } = pageContext
+  const post = data.markdownRemark
   const tags = post.fields.tagSlugs
-  const applauseButton = (
-    <div className="applause">
-      <applause-button multiclap="true" color="var(--applause-button)" />
-    </div>
+
+  const slug = post.fields.slug.substr(post.fields.slug.lastIndexOf(`/`) + 1)
+  const [claps, setClaps] = useState(0)
+  const [newClaps, setNewClaps] = useState(0)
+
+  useEffect(() => {
+    firebase
+      .firestore()
+      .collection(`claps`)
+      .doc(slug)
+      .get()
+      .then((res) => {
+        if (!res.data()) {
+          console.log(`No matching document`)
+        } else {
+          setClaps(res.data().claps)
+        }
+      })
+      .catch((err) => console.log(err))
+  }, [])
+
+  const clapHandler = (e) => {
+    e.preventDefault()
+    setClaps(claps + 1)
+    setNewClaps(newClaps + 1)
+    firebase
+      .firestore()
+      .collection(`claps`)
+      .doc(slug)
+      .set({ claps: claps + 1, lastClap: new Date() })
+      .catch((err) => console.log(err))
+  }
+
+  const clapsBtn = (
+    <Claps newClaps={newClaps} className="claps">
+      <button onClick={clapHandler}>👏🏼</button> {claps} claps
+    </Claps>
   )
 
   const homeBlock = (
@@ -30,7 +65,7 @@ export const PostTemplateDetails = (props) => {
       <div className="post-single__theme-toggle">
         <ThemeToggle />
       </div>
-      {applauseButton}
+      {clapsBtn}
     </div>
   )
 
@@ -51,7 +86,7 @@ export const PostTemplateDetails = (props) => {
 
   const commentsBlock = (
     <div>
-      <Disqus postNode={post} siteMetadata={props.data.site.siteMetadata} />
+      <Disqus postNode={post} siteMetadata={data.site.siteMetadata} />
     </div>
   )
 
@@ -92,7 +127,7 @@ export const PostTemplateDetails = (props) => {
         </div>
         <div className="post-single__footer">
           {tagsBlock}
-          <div className="mobile-footer-clap">{applauseButton}</div>
+          <div className="mobile-footer-clap">{clapsBtn}</div>
           <hr />
           <ul
             style={{
@@ -138,3 +173,38 @@ export const PostTemplateDetails = (props) => {
 }
 
 export default PostTemplateDetails
+
+const Claps = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 0.8em;
+  button {
+    outline: 0;
+    background: #e0dbd3;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: 1px solid lightgrey;
+    font-size: 2em;
+    margin-right: 8px;
+    cursor: pointer;
+  }
+  &::before {
+    content: "${(props) => `+` + props.newClaps}";
+    background: #e0dbd3;
+    opacity: 0;
+    color: #282c35;
+    padding: 8px 12px;
+    border-radius: 3px;
+    z-index: 1;
+    top: 3px;
+    left: 6px;
+    transition: opacity 0.2s 1s, top 0.2s 1s;
+  }
+  &:active::before {
+    opacity: 1;
+    top: -12px;
+    transition: opacity 0.2s, top 0.2s;
+  }
+`

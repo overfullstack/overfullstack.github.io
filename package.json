@@ -22,10 +22,12 @@
   "dependencies": {
     "applause-button": "^3.4.0",
     "bluebird": "^3.7.2",
+    "firebase": "^8.7.0",
     "gatsby": "^3.8.0",
     "gatsby-plugin-catch-links": "^3.8.0",
     "gatsby-plugin-cname": "^1.0.0",
     "gatsby-plugin-feed": "^3.8.0",
+    "gatsby-plugin-firebase": "^0.2.0-beta.4",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-google-gtag": "^3.8.0",
     "gatsby-plugin-mailchimp": "^5.2.2",
@@ -61,7 +63,8 @@
     "react-helmet": "^6.1.0",
     "react-toastify": "^7.0.4",
     "sass": "^1.35.1",
-    "snyk": "^1.646.0"
+    "snyk": "^1.646.0",
+    "styled-components": "^5.3.0"
   },
   "devDependencies": {
     "@babel/plugin-transform-typescript": "^7.14.6",
