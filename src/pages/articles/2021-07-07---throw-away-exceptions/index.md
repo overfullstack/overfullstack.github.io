@@ -84,7 +84,7 @@ Now, this function is turned into an isolated piece! 🏝
   - [Tuple (VAVR)](https://docs.vavr.io/#_tuples) - 1 WITH/AND 2
   - [Either (VAVR)](https://docs.vavr.io/#_either) - left OR right
 
-With the advent of **Pattern Matching in** Java 16+**, these turn more natural to be used in Java going forward.
+With the advent of **Pattern Matching** in Java 16+**, these blend more naturally into the language.
 
 - That's not it, Exceptions are misused to return multiple data types.
 

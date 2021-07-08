@@ -33,7 +33,7 @@ module.exports = {
     ],
     author: {
       name: `Gopal S Akshintala`,
-      email: `gopal.akshintala@gmail.com`,
+      email: `gopalakshintala@gmail.com`,
       telegram: `https://t.me/gopalakshintala`,
       twitter: `http://bit.ly/agstwtr`,
       github: `http://bit.ly/agsgithubp`,

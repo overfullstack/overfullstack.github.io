@@ -14,26 +14,30 @@ description: As a Dev, I need to Refactor, to make codebase Refactorable
 
 # Abstract
 
-**As a Dev, I need to Refactor, to make codebase Refactorable**. Let's achieve this goal through a least spoken, yet most effective Method - **Component Isolation**. Let's discuss how to overcome major **Obstacles** that hinder this goal, and **Metrics** that help measure our success.
+_As a Dev, I need to Refactor, to make codebase Refactorable_. Refactorability as defined by Martin Fowler is, "Ability to alter internal structure without changing its external behavior". This applies to each atomic component of an app. Let's achieve our dev story through a unique, yet most effective Method, **Component Isolation**.
 
-# Audience & Take-aways
+Let's huddle over persuasive arguments against _Obstacles_ that hinder our goal causing entanglements among components, and _Metrics_ that measure our success.
 
-- This applies to software developers at all levels. I use **Java** to demonstrate the code snippets, but this talk is about Software Design and is agnostic of programming language.
-- Refactoring is **NOT** moving lines of code around with IDE shortcuts. The **USP** for this talk is, it takes a unique approach to Refactoring i.e., Component Isolation and provides persuasive arguments against factors that cause **quantum-entanglement** among components.
+Let's refactor a real-world to and witness how Isolated components make-up long lasting structures.
 
-Take-aways for the audiences are:
 
-- How isolated components can build long-lasting structures, and keep rate of entropy growth in check.
+# Audience
+
+This applies to software developers at all levels. I use **Java** to demonstrate the code snippets, but this talk is about Software Design and is agnostic of programming language.
+
+# Takeaways
+
+- How **Isolated components** can makeup long-lasting structures, and keep rate of entropy-growth in check.
 - How to use **MOM** process (Methods, Obstacles and Metrics), to build a case for your Refactoring story and pitch it to your team and Manager for funding.
 - How **Exceptions** and **Mutation** hinder refactoring goals.
 - How to eliminate **Exceptions** from your code using **ADTs (Algebraic Data Types)**.
-- How to replace **Shared Global mutable state on your Shared Code** with **Immutability** and **Data Transformations**.
-- Demo a hello-real-world service with these problems and how applying these simple methods can change the face of this service, thereby reducing the cognitive complexity and organically boosting the testability.
+- How to replace **Shared Global Mutable state on your Shared Codebase** with **Immutability** and **Data Transformations**.
+- Demo of a real-world app with these problems and how applying these simple methods can change the face of this service, thereby reducing the cognitive complexity and organically boosting the testability.
 - Metric-driven approach to objectively realize the results and improvements achieved.
 
 # Talk Outline
 
-Refactoring definition from the person who authored an entire book about it.
+Refactoring is **NOT** moving lines of code around with IDE shortcuts. Let's checkout its definition from the person who authored an entire book about it.
 
 ![refactoring-definition](media/refactoring-def.png)
 
@@ -78,7 +82,7 @@ And the **Metrics** to keep a check on our goals:
 - **Cognitive Complexity** - which is inversely proportional to **Readability**
 - **Testability** - Indicates how isolated your components are, to be composed and reused.
 
-We shall apply those methods on a **hello-real-world application** and realise how it's metrics are affected.
+We shall apply those methods on a **real-world application** and realise how it's metrics are affected.
 
 Let's start with Obstacles and how to overcome them:
 
@@ -90,7 +94,7 @@ Let's start with Obstacles and how to overcome them:
 
 # Hello-real-world 🪐
 
-Let's see how some of what we talked, fit into a **Hello-real-world application**
+Let's see how some of what we talked, fits into a **real-world application**
 
 ## The Flow
 
@@ -245,27 +249,26 @@ How are we doing on our Goal! let's ask our Metrics:
 
 ## Cognitive Complexity
 
-- I don't need any metrics to say that the refactored code is more readable.
-- But for few, that might not be the case. I heard some say this is more "Complex".
-- Complexity is a wide word thrown around loosely. Before labelling something complex, we need to be clear to ourselves, as well as others about what is Complex.
-- Complexity has different types:
+I don't need any metrics to say that the refactored code is more readable. But for few, that might not be the case. I heard some say this is more "Complex". Complexity is a wide word thrown around loosely. Before labelling something complex, we need to be clear to ourselves, as well as others about what is Complex.
 
-  - Accidental Complexity
-  - Essential complexity
-  - Cognitive/Cyclomatic complexity
+Complexity has different types:
 
-- It has Different layers too:
+- Accidental Complexity
+- Essential complexity
+- Cognitive/Cyclomatic complexity
 
-  - Unfamiliarity vs Unreadability.
-  - Strict vs Non-extensible.
+It has Different layers too:
 
-- The refactored code may feel complex because:
+- Unfamiliarity vs Unreadability.
+- Strict vs Non-extensible.
 
-  - Essential Complexity - Due to all filtering, validations and handling partial failures.
-  - Unfamiliar - Not everyone might have got a chance to work with Java 8 syntax, or they haven't heard of `Either` before.
-  - Strict - We intentionally induced this strictness. Unlike earlier implementation where the Developer can imperatively mutate stuff, now he no more is in control. Declarative transformations already paved lanes to drive with discipline leaving him partial control and no shortcuts. For someone who is conditioned to Mutation, it feels like "Coding with hand-cuffs".
+The refactored code may feel complex because:
 
-- That said Cognitive Complexity can be Objectively measured using tools like [SonarQube™](https://docs.sonarqube.org/latest/user-guide/metric-definitions/).
+- Essential Complexity - Due to all filtering, validations and handling partial failures.
+- Unfamiliar - Not everyone might have got a chance to work with Java 8 syntax, or they haven't heard of `Either` before.
+- Strict - We intentionally induced this strictness. Unlike earlier implementation where the Developer can imperatively mutate stuff, now he no more is in control. Declarative transformations already paved lanes to drive with discipline leaving him partial control and no shortcuts. For someone who is conditioned to Mutation, it feels like "Coding with hand-cuffs".
+
+That said Cognitive Complexity can be Objectively measured using tools like [SonarQube™](https://docs.sonarqube.org/latest/user-guide/metric-definitions/).
 - My previous talks, on the usage of **SonarQube™**:
 
   - [Java Version](https://overfullstack.ga/my-talks/#Fight-Complexity-with-Functional-Programming-Java)
@@ -277,7 +280,7 @@ If you followed the methods we discussed, you get _Testability_ for free. Well, 
 
 ### Separate Static from Signal
 
-- Take the example of this simple function, which maps the request object to entity object.
+Take the example of this simple function, which maps the request object to entity object.
 
 ```java
 // * EggEntity is a legacy class and cannot be instantiated with `new`
@@ -294,7 +297,7 @@ void fillEntityObj(Egg egg, EggEntity eggEntity) {
 }
 ```
 
-- How do you unit test all these branches? Also, because the `EggEntity` can't be instantiated in a unit test context, we tend to write a test like this:
+How do you unit test all these branches? Also, because the `EggEntity` can't be instantiated in a unit test context, we tend to write a test like this:
 
 ```java
 @Test
@@ -309,15 +312,20 @@ void fillEntityObjTest() {
 }
 ```
 
+## A Brittle Test
 - This test is _Brittle_, because `Unit Test !== Test Internals`; `Unit Test === E2E test for Unit`.
 - Unit tests doesn't mean test the internals. It's an E2E test for your Unit/Component.
 - You should respect encapsulation of each unit/component you test and operate on an abstraction one-level above.
 - Your test should be like an idiotic bot which fires your function with an input and asserts the output. It's not supposed to know anything else about your component code.
 - If it's asking for internals, it gets tightly latched with your component, which tends to fail every time you refactor. Such tests instead of helping, act as a foot-chain for refactoring.
-- But solution is not to write better test but make the main code _Testable_. Let's see our method closely, you can observer Static mixed with Signal:
+
+## Make code Testable
+
+Solution is not to write better test but make the main code _Testable_. Let's see our method closely, you can observer Static mixed with Signal:
     - **Static:**  1-1 field mapping between `Egg` to `EggEntity`
     - **Signal:** For each field mapping, fill non-null `Egg` fields into `EggEntity` using `put`.
-- Let's do the same in code:
+
+Let's do the same in code:
 
 ```java{14, 17-19}
 // Static
@@ -343,13 +351,13 @@ static void fillEntityObj(
 }
 ```
 
-- We can focus on testing just the signal part.
+- Now, We can focus on testing just the signal part.
 - This [BiConsumer](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/function/BiConsumer.html) is agnostic of what's passed, so we can cleverly use a `HashMap::put` to test this function.
 - As our code turns testable, we don't need magical mocking frameworks or **over-granular testing** to achieve ~95% test-coverage. We can easily write highly targeted tests.
 
-### DI
+## DI
 
-- Unit tests hate side-effects. All your objects used to perform side-effects should be declared as constructor dependencies or method params, so you can stub them for unit tests. Something like this:
+Unit tests hate side-effects. All your objects used to perform side-effects should be declared as constructor dependencies or method params, so you can stub them for unit tests. Something like this:
 
 ```java
 @Autowired
@@ -360,7 +368,7 @@ public EggService(
 )
 ```
 
-- But if all you need is a function from a Dependency, resist to inject the entire the entire object. Instead, Inject only the function that you need.
+But if all you need is a function from a Dependency, resist to inject the entire the entire object. Instead, inject only the function that you need.
 
 ```java
 @Autowired
@@ -385,13 +393,11 @@ public Function<EggEntity, ID> insertNoOp() {
 }
 ```
 
-- This helps in easy stubbing of this dependency without the need for a mock, and we get the same benefits that we discussed in [Separate Static from Signal](#separate-static-from-Signal)
+This helps in easy stubbing of this dependency without the need for a mock, and we get the same benefits that we discussed in [Separate Static from Signal](#separate-static-from-Signal)
 
 ## Testability First, Test Coverage follows 🐕
 
-- Notice, I use the word _Testability_ over _Test Coverage_.
-- Testability indicates how precisely you can hit a component without the need to mock a lot of things or know it's internals.
-- Test coverage is just a metric. It's very much possible to achieve 100% Test coverage without your code being testable. Such synthetic-coverage of-course is useless.
+Notice, I use the word _Testability_ over _Test Coverage_. Testability indicates how precisely you can hit a component without the need to mock a lot of things or know it's internals. Test coverage is just a metric. It's very much possible to achieve 100% Test coverage without your code being testable. Such synthetic-coverage of-course is useless.
 
 # Last but not the Last
 
