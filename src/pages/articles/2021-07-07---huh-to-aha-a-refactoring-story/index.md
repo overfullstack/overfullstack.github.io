@@ -18,7 +18,7 @@ _As a Dev, I need to Refactor, to make codebase Refactorable_. Refactorability a
 
 Let's huddle over persuasive arguments against _Obstacles_ that hinder our goal causing entanglements among components, and _Metrics_ that measure our success.
 
-Let's refactor a real-world to and witness how Isolated components make-up long lasting structures.
+Let's refactor a real-world to and witness how Isolated components make-up long-lasting structures.
 
 
 # Audience
@@ -27,7 +27,7 @@ This applies to software developers at all levels. I use **Java** to demonstrate
 
 # Takeaways
 
-- How **Isolated components** can makeup long-lasting structures, and keep rate of entropy-growth in check.
+- How **Isolated components** can makeup long-lasting structures, and keep the rate of entropy-growth in check.
 - How to use **MOM** process (Methods, Obstacles and Metrics), to build a case for your Refactoring story and pitch it to your team and Manager for funding.
 - How **Exceptions** and **Mutation** hinder refactoring goals.
 - How to eliminate **Exceptions** from your code using **ADTs (Algebraic Data Types)**.
@@ -37,7 +37,7 @@ This applies to software developers at all levels. I use **Java** to demonstrate
 
 # Talk Outline
 
-Refactoring is **NOT** moving lines of code around with IDE shortcuts. Let's checkout its definition from the person who authored an entire book about it.
+Refactoring is **NOT** moving lines of code around with IDE shortcuts. Let's checkout the [definition](https://refactoring.com/) from the person who authored an entire book about it.
 
 ![refactoring-definition](media/refactoring-def.png)
 
