@@ -22,7 +22,7 @@
   "dependencies": {
     "bluebird": "^3.7.2",
     "firebase": "^8.7.0",
-    "gatsby": "^3.9.0",
+    "gatsby": "^3.10.0",
     "gatsby-plugin-catch-links": "^3.9.0",
     "gatsby-plugin-cname": "^1.0.0",
     "gatsby-plugin-feed": "^3.9.0",
