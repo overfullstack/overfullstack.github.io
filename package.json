@@ -62,7 +62,7 @@
     "react-helmet": "^6.1.0",
     "react-toastify": "^7.0.4",
     "sass": "^1.35.1",
-    "snyk": "^1.657.0",
+    "snyk": "^1.667.0",
     "styled-components": "^5.3.0"
   },
   "devDependencies": {
