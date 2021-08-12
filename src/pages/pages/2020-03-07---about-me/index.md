@@ -17,6 +17,6 @@ He started as an Android Developer and switched to the server-side as a Full-Sta
 
 He is a practitioner of Domain-Driven Design(DDD) and Clean Architecture. A massive fan of Test-Driven Development(TDD). He believes Expressive Code is fun and profitable, which enthused him towards Functional Programming(FP). He's a language geek, currently fluent in Kotlin, Java.
 
-In addition to his Software Engineering experience, he gains more _experiences-per-year_ by open-source collaborations & contributions, active participation in the Dev discussions, and Speaking at User Groups and Conferences. He loves being on Stage, as a [Singer](http://bit.ly/agssc) and a [Tech-Speaker](/my-talks) and writes about [Nature & Life](http://bit.ly/agslotw).
+In addition to his Software Engineering experience, he gains more _experiences-per-year_ by open-source collaborations & contributions, active participation in the Dev discussions, and Speaking at User Groups and Conferences. He loves being on Stage, as a [Singer](http://bit.ly/agssc) and a [Tech-Speaker](/my-talks) and writes about [Nature & Life](https://leafonthewind.ga).
 
 [Résumé](http://bit.ly/ags-my-resume)

@@ -195,23 +195,19 @@ Thanks to the monad abstracting away all the branching complexity, our linear co
 
 Functional Programming is not Complex, but it fights complexity. The solution runs with the same time complexity (no perf impact), but minimum cognitive complexity. The framework is generic and agnostic of programming language and can be consumed by any Service with similar requirements, with minor modifications.
 
-# My Talk on this
+# My Talks on this
 
-This talk was successfully presented and warmly received at:
-
-- **[All Things Open](https://2020.allthingsopen.org/speakers/gopal-s-akshintala/)**, 2020, Raleigh, USA.
-- [Kotlin User Group, London](https://youtu.be/QVuMSsIUw6M)
-- [Berlin Functional Programming Group](https://youtu.be/DBDTNmLbU2Y)
-- [JavaBin, Norway](https://youtu.be/tnpL1O8kTbM)
-- [Kotlin User Group, Berlin](https://youtu.be/uGxx01yYAgk)
-- [Google Developer Group Devfest 2019](https://devfest.gdghyderabad.in/speakers.html)
-- [Kotlin User Group, Hyderabad](https://youtu.be/LGABy9qdB44)
-- [Java User Group Hyderabad (@JUGHyd)](https://www.meetup.com/en-AU/jughyderabad/events/264688807/)
-- [Salesforce, Hyderabad, India](http://y2u.be/l9jJ7m7_VpM)
-
-This talk was also approved for this international conference:
-
-- **[JBCN Conf - 2020](https://www.jbcnconf.com/2020/)**, September 2020, Barcelona, Spain (This event got cancelled due to COVID-19).
+- 🇺🇸 **[All Things Open](https://2020.allthingsopen.org/speakers/gopal-s-akshintala/)**, 2020, Raleigh, USA. [📹](https://www.youtube.com/watch?v=Dvr6gx4XaD8&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1)
+- 🏴󠁧󠁢󠁥󠁮󠁧󠁿 [Kotlin User Group, London](https://www.youtube.com/watch?v=QVuMSsIUw6M&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=2)
+- 🇩🇪 [Berlin Functional Programming Group](https://www.youtube.com/watch?v=DBDTNmLbU2Y&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=3)
+- 🇳🇴 [JavaBin, Norway](https://www.youtube.com/watch?v=tnpL1O8kTbM&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=4)
+- 🇩🇪 [Kotlin User Group, Berlin](https://www.youtube.com/watch?v=uGxx01yYAgk&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=6)
+- 🇮🇳 [Google Developer Group Devfest 2019](https://devfest.gdghyderabad.in/speakers.html)
+- 🇮🇳 [Java User Group Hyderabad (@JUGHyd)](https://www.meetup.com/en-AU/jughyderabad/events/264688807/)
+- 🇮🇳 [Salesforce, Hyderabad, India](https://www.youtube.com/watch?v=l9jJ7m7_VpM&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=7)
+- 🇮🇳 [Kotlin User Group, Hyderabad](https://www.youtube.com/watch?v=_QBlKtUY6ac&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=8)
+- 🇮🇳 GHC, India - 2019, Bangalore
+- 🇪🇸 **[JBCN Conf](https://www.jbcnconf.com/2020/)**, 2020, Barcelona, Spain (This event got cancelled due to COVID-19).
 
 ## Kotlin Version
 

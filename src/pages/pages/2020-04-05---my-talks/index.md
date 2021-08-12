@@ -9,7 +9,7 @@ path: "/my-talks"
 
 He's an International Speaker, with his Tech-Talks being warmly received at:
 
-- 🇪🇸 **[JBCN Conf](https://www.jbcnconf.com/2021/infoSpeaker.html?ref=fb4fc6057fcdc50798fa601ea43883688923960d)**, 2021, Barcelona, Spain.
+- 🇪🇸 **[JBCN Conf](https://www.jbcnconf.com/2021/infoSpeaker.html?ref=fb4fc6057fcdc50798fa601ea43883688923960d)**, 2021, Barcelona, Spain. [📹](https://www.youtube.com/watch?v=Ip8SvyXLvD8&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1)
 - 🇪🇺 **[jLove](https://embed.emamo.com/event/jlove-2021/r/speaker/gopal-s-akshintala)**, 2021, Europe.
 - 🇺🇸 **[All Things Open](https://2020.allthingsopen.org/speakers/gopal-s-akshintala/)**, 2020, Raleigh, USA. [📹](https://www.youtube.com/watch?v=Dvr6gx4XaD8&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1)
 - 🏴󠁧󠁢󠁥󠁮󠁧󠁿 [Kotlin User Group, London](https://www.youtube.com/watch?v=QVuMSsIUw6M&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=2)
@@ -24,6 +24,15 @@ He's an International Speaker, with his Tech-Talks being warmly received at:
 - 🇪🇸 **[JBCN Conf](https://www.jbcnconf.com/2020/)**, 2020, Barcelona, Spain (This event got cancelled due to COVID-19).
 
 ## Recorded Talks
+
+### Huh?🤔 to Aha!😇 - A Refactoring Story
+
+- [Slide-deck](https://bit.ly/h2a-deck)
+- [Source-code](https://bit.ly/h2a-code)
+
+### 07-2021 (JBCN Conf, 2021, Barcelona, Spain)
+
+`youtube: https://www.youtube.com/watch?v=Ip8SvyXLvD8&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1`
 
 ### Fight Complexity with Functional Programming (Kotlin)
 
