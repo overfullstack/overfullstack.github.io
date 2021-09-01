@@ -420,5 +420,8 @@ Tests should not be an after-thought and should happen parallel to Refactor, lik
 
 # My Talks on this
 
-- 🇪🇸 **[JBCN Conf](https://www.jbcnconf.com/2021/infoSpeaker.html?ref=fb4fc6057fcdc50798fa601ea43883688923960d)**, 2021, Barcelona, Spain. [📹](https://www.youtube.com/watch?v=Ip8SvyXLvD8&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1)
+- 🇪🇸 **[JBCN Conf](https://www.jbcnconf.com/2021/infoSpeaker.html?ref=fb4fc6057fcdc50798fa601ea43883688923960d)**, 2021, Barcelona, Spain.
+
+`youtube: https://www.youtube.com/watch?v=Ip8SvyXLvD8&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1`
+
 - 🇪🇺 **[jLove](https://embed.emamo.com/event/jlove-2021/r/speaker/gopal-s-akshintala)**, 2021, Europe.
