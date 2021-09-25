@@ -39,11 +39,11 @@ This applies to software developers at all levels. I use **Java** to demonstrate
 
 Let's checkout the [definition](https://refactoring.com/) from the person who authored an entire book about it.
 
-![refactoring-definition](media/refactoring-def.png)
+![Refactoring is a disciplined technique for restructuring an existing body of code, altering its internal structure without changing its external behavior](media/refactoring-def.png)
 
 - This definition not only applies to your end-to-end application but also applies to each atomic unit that makes it up.
 - Refactoring is not just restructuring the existing design or moving lines around with IDE shortcuts.
-- Each component should be independent and loose, such that you should be able to change its internals without affecting the external behavior, which implies not affecting any of its dependent components.
+- Each component should be independent and loosely-coupled, such that you should be able to change its internals without affecting the external behavior, which implies not affecting any of its dependent components.
 
 That brings us to the story of our talk.
 
@@ -55,7 +55,7 @@ That brings us to the story of our talk.
 
 ![lego-pieces](media/legos.jpeg)
 
-Let's follow the **MOM** process to manage our goal. Believe me, Managers love it when you do talk to them in their own language. There are high chances they fund your refactoring in the same release!
+Let's follow the [**MOM**](https://www.salesforce.com/blog/how-to-create-alignment-within-your-company/) process to manage our goal. Believe me, Managers love it when you do talk to them in their own language. There are high chances they fund your refactoring in the same release!
 
 ## Methods 🛠
 
@@ -313,7 +313,9 @@ void fillEntityObjTest() {
 ```
 
 ## A Brittle Test
-- This test is _Brittle_, because `Unit Test !== Test Internals`; `Unit Test === E2E test for Unit`.
+- This test is _Brittle_, because:
+  - `Unit Test !== Test Internals`
+  - `Unit Test === E2E test for Unit`.
 - Unit tests doesn't mean test the internals. It's an E2E test for your Unit/Component.
 - You should respect encapsulation of each unit/component you test and operate on an abstraction one-level above.
 - Your test should be like an idiotic bot which fires your function with an input and asserts the output. It's not supposed to know anything else about your component code.

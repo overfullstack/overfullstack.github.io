@@ -25,6 +25,7 @@ A Metric-driven approach to reduce Cognitive Complexity in a code base, using Fu
   - Towards the end, we touch-upon concepts for an advanced audience like _Function-Lifting_, _Dozen FP Operations for daily Programming like `foldLeft`_ within the context of the problem, with pictures and simple examples. They are also provided with appropriate pointers wherever needed, to go back and refer.
 
 - The audience experiences a mind-shift from the traditional mutation-heavy _Imperative style_ to _Functional style_ -- with Immutable Objects (Using Java `Records` or Kotlin's `Data classes`) and Pure-Functions (replacing Mutation with Transformation).
+
 - With Hands-on demos, this talk adds a robust paradigm toolset and vocabulary to a programmer's arsenal and how to apply them to simplify the modeling and designing of complex _real-world_ problems.
 - The audience learns how to objectively perceive complexity in any codebase through metrics (measured using popular static analysis tools), and how to reduce cognitive complexity methodically.
 
@@ -47,9 +48,9 @@ The code references in this post point to Java repo, but they can be correlated 
 - This talk has 2 stories embedded. The first part explains the differences between Imperative and Declarative styles and demonstrates the **Core:Context** philosophy behind the declarative style, which helps in separating **How-to-do** from **What-to-do**, using Java Streams or Kotlin Sequences.
 - Then the talk transitions to the second part with a crash course on **Monads** and Functional Composition.
 - The second part takes the Core:Context philosophy to the next level, by applying it to solve a real-world design problem, which is common across many _REST-service Domains_ - **Batch-Validation**.
-- The talk demonstrates how batch-validation can quickly get complex when done imperatively, mixing _what-to-do( Validations)_, with _how-to-do(Validation Orchestration)_ and how it's NOT extensible if any of these three scales - Request Batch size, Validation count and No.of Services.
+- The talk demonstrates how batch-validation can quickly get complex when done imperatively, mixing _what-to-do( Validations)_, with _how-to-do(Validation Orchestration)_ and how it's NOT extensible if any of these three scales - Request Batch size, Validation count and Services count.
 - Then the talk offers a Functional Programming (FP) solution, using Monads and Lambdas, which **Minimizes the accidental complexity without compromising Time complexity (Perf)**, and can seamlessly be extended.
-- Throughout this talk, many Simple Monads (like `Option`, `Either`, `Try`, `IO` (Kotlin) etc.,) are introduced and how they fit in the context of the problem.
+- Throughout this talk, Simple Monads (like `Option`, `Either`, `Try` etc.,) are introduced and how they fit in the context of the problem.
 - This talk attempts to ramp-up the audience on functional programming gradually, and towards the end, we touch upon advanced concepts like Higher-Order Functions, Function Lifting, Dozen FP Operations for daily Programming like `foldLeft` etc.
 - This talk is a fun-filled, code-driven, and without getting into definitions (which can be read from books), the attempt is to portray hands-on experience about how FP can help us become better developers.
 
@@ -206,8 +207,6 @@ Functional Programming is not Complex, but it fights complexity. The solution ru
 - 🇮🇳 [Java User Group Hyderabad (@JUGHyd)](https://www.meetup.com/en-AU/jughyderabad/events/264688807/)
 - 🇮🇳 [Salesforce, Hyderabad, India](https://www.youtube.com/watch?v=l9jJ7m7_VpM&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=7)
 - 🇮🇳 [Kotlin User Group, Hyderabad](https://www.youtube.com/watch?v=_QBlKtUY6ac&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=8)
-- 🇮🇳 GHC, India - 2019, Bangalore
-- 🇪🇸 **[JBCN Conf](https://www.jbcnconf.com/2020/)**, 2020, Barcelona, Spain (This event got cancelled due to COVID-19).
 
 ## Kotlin Version
 
@@ -264,4 +263,5 @@ Functional Programming is not Complex, but it fights complexity. The solution ru
 6. <http://docs.mipro-proceedings.com/4cows/01_4cows_5333.pdf>
 
 7. <http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html#just-what-is-a-functor,-really>
+
 8. <https://codurance.com/2018/08/09/the-functional-style-part-1/>
