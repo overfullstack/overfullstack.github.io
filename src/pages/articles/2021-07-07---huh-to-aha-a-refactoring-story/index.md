@@ -313,7 +313,9 @@ void fillEntityObjTest() {
 ```
 
 ## A Brittle Test
-- This test is _Brittle_, because `Unit Test !== Test Internals`; `Unit Test === E2E test for Unit`.
+- This test is _Brittle_, because:
+  - `Unit Test !== Test Internals`
+  - `Unit Test === E2E test for Unit`.
 - Unit tests doesn't mean test the internals. It's an E2E test for your Unit/Component.
 - You should respect encapsulation of each unit/component you test and operate on an abstraction one-level above.
 - Your test should be like an idiotic bot which fires your function with an input and asserts the output. It's not supposed to know anything else about your component code.
