@@ -22,7 +22,7 @@
   "dependencies": {
     "bluebird": "^3.7.2",
     "firebase": "^8.9.1",
-    "gatsby": "^3.11.1",
+    "gatsby": "^3.13.0",
     "gatsby-plugin-catch-links": "^3.11.0",
     "gatsby-plugin-cname": "^1.0.0",
     "gatsby-plugin-feed": "^3.11.0",
@@ -55,7 +55,7 @@
     "katex": "^0.13.13",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
-    "prismjs": "^1.24.1",
+    "prismjs": "^1.25.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-disqus-comments": "^1.4.0",
@@ -63,7 +63,7 @@
     "react-helmet": "^6.1.0",
     "react-toastify": "^7.0.4",
     "sass": "^1.37.5",
-    "snyk": "^1.679.0",
+    "snyk": "^1.685.0",
     "styled-components": "^5.3.0"
   },
   "devDependencies": {
