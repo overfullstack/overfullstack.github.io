@@ -14,7 +14,7 @@ description: As a Dev, I need to Refactor, to make codebase Refactorable
 
 # Abstract
 
-_As a Dev, I need to Refactor, to make codebase Refactorable_. Refactorability as defined by Martin Fowler is, "Ability to alter internal structure without changing its external behavior". This applies to each atomic component of an app. Let's achieve our dev story through a unique, yet most effective Method, **Component Isolation**.
+_As a Dev, I need to Refactor, to make codebase Refactorable_. Refactorability [as defined by Martin Fowler](https://refactoring.com/) is, "Ability to alter internal structure without changing its external behavior". This applies to each atomic component of an app. Let's achieve our dev story through a unique, yet most effective Method, **Component Isolation**.
 
 Let's huddle over persuasive arguments against _Obstacles_ that hinder our goal causing entanglements among components, and _Metrics_ that measure our success.
 

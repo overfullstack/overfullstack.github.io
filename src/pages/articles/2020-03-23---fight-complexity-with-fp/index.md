@@ -198,7 +198,7 @@ Functional Programming is not Complex, but it fights complexity. The solution ru
 
 # My Talks on this
 
-- 🇺🇸 **[All Things Open](https://2020.allthingsopen.org/speakers/gopal-s-akshintala/)**, 2020, Raleigh, USA. [📹](https://www.youtube.com/watch?v=Dvr6gx4XaD8&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1)
+- 🇺🇸 **[All Things Open](https://www.youtube.com/watch?v=Dvr6gx4XaD8&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1)**, 2020, Raleigh, USA. [📄](https://2020.allthingsopen.org/speakers/gopal-s-akshintala/)
 - 🏴󠁧󠁢󠁥󠁮󠁧󠁿 [Kotlin User Group, London](https://www.youtube.com/watch?v=QVuMSsIUw6M&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=2)
 - 🇩🇪 [Berlin Functional Programming Group](https://www.youtube.com/watch?v=DBDTNmLbU2Y&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=3)
 - 🇳🇴 [JavaBin, Norway](https://www.youtube.com/watch?v=tnpL1O8kTbM&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=4)
