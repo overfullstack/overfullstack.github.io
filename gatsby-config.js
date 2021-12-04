@@ -48,7 +48,7 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-firebase`,
+      resolve: `gatsby-plugin-firebase-v9.0`,
       options: {
         credentials: {
           apiKey: process.env.FIREBASE_API_KEY || `none`,

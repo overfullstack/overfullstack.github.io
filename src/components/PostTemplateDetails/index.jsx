@@ -2,7 +2,9 @@ import "gist-syntax-themes/stylesheets/idle-fingers.css"
 import "./style.scss"
 
 import { Link } from "gatsby"
-import firebase from "gatsby-plugin-firebase"
+import app from 'gatsby-plugin-firebase-v9.0'
+import { collection, doc, getDoc, setDoc, getFirestore } from "firebase/firestore";
+import firebase from 'firebase/app';
 import moment from "moment"
 import React, { useEffect, useState } from "react"
 import styled from "styled-components"
@@ -21,38 +23,24 @@ export const PostTemplateDetails = ({ data, pageContext }) => {
 
   const slug = post.fields.slug.substr(post.fields.slug.lastIndexOf(`/`) + 1)
   const [claps, setClaps] = useState(0)
-  const [newClaps, setNewClaps] = useState(0)
 
-  useEffect(() => {
-    firebase
-      .firestore()
-      .collection(`claps`)
-      .doc(slug)
-      .get()
-      .then((res) => {
-        if (!res.data()) {
-          console.log(`No matching document`)
-        } else {
-          setClaps(res.data().claps)
-        }
-      })
-      .catch((err) => console.log(err))
-  }, [])
+  useEffect(async () => {
+    const db = getFirestore(app);
+    const clapsRef = doc(collection(db, "claps"), slug);
+    const clapsSnap = await getDoc(clapsRef);
+    setClaps(clapsSnap.data().claps)
+  })
 
-  const clapHandler = (e) => {
+  const clapHandler = async (e) => {
     e.preventDefault()
-    setClaps(claps + 1)
-    setNewClaps(newClaps + 1)
-    firebase
-      .firestore()
-      .collection(`claps`)
-      .doc(slug)
-      .set({ claps: claps + 1, lastClap: new Date() })
-      .catch((err) => console.log(err))
+    let newClaps = claps + 1;
+    const db = getFirestore(app);
+    setClaps(newClaps)
+    await setDoc(doc(collection(db, "claps"), slug), { lastClap: new Date(), claps: newClaps });
   }
 
   const clapsBtn = (
-    <Claps newClaps={newClaps} className="claps">
+    <Claps newClaps={claps} className="claps">
       <button onClick={clapHandler}>👏🏼</button> {claps} claps
     </Claps>
   )

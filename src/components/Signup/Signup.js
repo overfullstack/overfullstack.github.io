@@ -1,39 +1,41 @@
-import "react-toastify/dist/ReactToastify.css"
-import "./Signup.css"
+import "react-toastify/dist/ReactToastify.css";
+import "./Signup.css";
 
-import addToMailchimp from "gatsby-plugin-mailchimp"
-import React from "react"
-import { toast, ToastContainer } from "react-toastify"
+import addToMailchimp from "gatsby-plugin-mailchimp";
+import React from "react";
+import { toast, ToastContainer } from "react-toastify";
 
-import newsLetterLogo from "./newsletterLogo.svg"
+import newsLetterLogo from "./newsletterLogo.svg";
 
 class Signup extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       email: ``,
-      listFields: { NAME: `` },
-    }
-  }
+      listFields: { NAME: `` }
+    };
+    this.handleOnChangeEmail = (e) => this.setState({ email: e.target.value });
 
-  handleOnChangeEmail = (e) => this.setState({ email: e.target.value })
+    this.handleOnChangeName = (e) =>
+      this.setState({ listFields: { NAME: e.target.value } });
 
-  handleOnChangeName = (e) =>
-    this.setState({ listFields: { NAME: e.target.value } })
-
-  handleSubmit = async (e) => {
-    e.preventDefault()
-    const { email, listFields } = this.state
-    const result = await addToMailchimp(email, listFields)
-    if (result.result === `error`) {
-      toast.error(result.msg, {
-        position: toast.POSITION.BOTTOM_CENTER,
-      })
-    } else {
-      toast.success(result.msg, {
-        position: toast.POSITION.BOTTOM_CENTER,
-      })
-    }
+    this.handleSubmit = async (e) => {
+      e.preventDefault();
+      const {
+        email,
+        listFields
+      } = this.state;
+      const result = await addToMailchimp(email, listFields);
+      if (result.result === `error`) {
+        toast.error(result.msg, {
+          position: toast.POSITION.BOTTOM_CENTER
+        });
+      } else {
+        toast.success(result.msg, {
+          position: toast.POSITION.BOTTOM_CENTER
+        });
+      }
+    };
   }
 
   render() {
@@ -44,7 +46,7 @@ class Signup extends React.Component {
         style={{
           boxShadow: `var(--form-shadow)`,
           backgroundColor: `var(--bg)`,
-          borderRadius: `6px`,
+          borderRadius: `6px`
         }}
         onSubmit={this.handleSubmit}
       >
@@ -60,7 +62,7 @@ class Signup extends React.Component {
               style={{
                 color: `var(--textTitle)`,
                 fontSize: `20px`,
-                fontWeight: 700,
+                fontWeight: 700
               }}
             >
               Join the Newsletter
@@ -70,7 +72,7 @@ class Signup extends React.Component {
               className="formkit-subheader"
               style={{
                 color: `var(--textNormal)`,
-                fontsize: `15px`,
+                fontsize: `15px`
               }}
             >
               <p>Subscribe to get my latest content by email.</p>
@@ -81,7 +83,7 @@ class Signup extends React.Component {
                 src={newsLetterLogo}
                 style={{
                   maxWidth: `100%`,
-                  width: `auto`,
+                  width: `auto`
                 }}
               />
             </div>
@@ -105,7 +107,7 @@ class Signup extends React.Component {
                     borderColor: `rgb(227, 227, 227)`,
                     borderRadius: `4px`,
                     color: `rgb(0, 0, 0)`,
-                    fontWeight: 400,
+                    fontWeight: 400
                   }}
                   value={this.state.listFields.NAME}
                   onChange={this.handleOnChangeName}
@@ -123,7 +125,7 @@ class Signup extends React.Component {
                     borderColor: `rgb(227, 227, 227)`,
                     borderRadius: `4px`,
                     color: `rgb(0, 0, 0)`,
-                    fontWeight: 400,
+                    fontWeight: 400
                   }}
                   value={this.state.email}
                   onChange={this.handleOnChangeEmail}
@@ -137,7 +139,7 @@ class Signup extends React.Component {
                   backgroundColor: `rgb(252, 211, 225)`,
                   borderRadius: `24px`,
                   color: `rgb(110, 110, 110)`,
-                  fontWeight: 700,
+                  fontWeight: 700
                 }}
               >
                 <div className="formkit-spinner" />
@@ -150,7 +152,7 @@ class Signup extends React.Component {
               style={{
                 color: `var(--textNormal)`,
                 fontSize: `13px`,
-                fontWeight: 400,
+                fontWeight: 400
               }}
             >
               <p>I won&apos;t send you spam.</p>
@@ -164,8 +166,8 @@ class Signup extends React.Component {
         </div>
         <ToastContainer />
       </form>
-    )
+    );
   }
 }
 
-export default Signup
+export default Signup;

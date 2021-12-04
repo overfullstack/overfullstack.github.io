@@ -6,8 +6,12 @@ import sun from "../../assets/theme/sun.png"
 import Toggle from "./Toggle"
 
 class ThemeToggle extends React.Component {
-  state = {
-    theme: null,
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      theme: null,
+    }
   }
 
   componentDidMount() {
