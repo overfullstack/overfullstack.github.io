@@ -55,7 +55,7 @@
     "katex": "^0.13.13",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
-    "prismjs": "^1.24.1",
+    "prismjs": "^1.25.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-disqus-comments": "^1.4.0",
