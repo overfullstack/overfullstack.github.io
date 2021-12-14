@@ -28,6 +28,7 @@ A Metric-driven approach to reduce Cognitive Complexity in a code base, using Fu
 
 - With Hands-on demos, this talk adds a robust paradigm toolset and vocabulary to a programmer's arsenal and how to apply them to simplify the modeling and designing of complex _real-world_ problems.
 - The audience learns how to objectively perceive complexity in any codebase through metrics (measured using popular static analysis tools), and how to reduce cognitive complexity methodically.
+- Finally, we shall talk about how these concepts laid foundation stones to our in-house library **Vader**, a bean validation framework.
 
 # Source-Code
 

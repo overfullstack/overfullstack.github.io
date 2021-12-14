@@ -39,7 +39,9 @@ This applies to software developers at all levels. I use **Java** to demonstrate
 
 Let's checkout the [definition](https://refactoring.com/) from the person who authored an entire book about it.
 
-![Refactoring is a disciplined technique for restructuring an existing body of code, altering its internal structure without changing its external behavior](media/refactoring-def.png)
+> Refactoring is a disciplined technique for restructuring an existing body of code, altering its internal structure without changing its external behavior
+
+![refactoring-def](media/refactoring-def.png)
 
 - This definition not only applies to your end-to-end application but also applies to each atomic unit that makes it up.
 - Refactoring is not just restructuring the existing design or moving lines around with IDE shortcuts.
