@@ -133,6 +133,9 @@ module.exports = {
             },
           },
           {
+            resolve: `gatsby-remark-link-preview`,
+          },
+          {
             resolve: `gatsby-remark-embed-video`,
             options: {
               width: 640,

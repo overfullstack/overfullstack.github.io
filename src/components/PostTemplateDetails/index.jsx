@@ -3,7 +3,7 @@ import "./style.scss"
 
 import { Link } from "gatsby"
 import app from 'gatsby-plugin-firebase-v9.0'
-import { collection, doc, getDoc, setDoc, getFirestore } from "firebase/firestore";
+import { collection, doc, getDoc, setDoc, getFirestore, enableIndexedDbPersistence } from "firebase/firestore";
 import firebase from 'firebase/app';
 import moment from "moment"
 import React, { useEffect, useState } from "react"
@@ -26,6 +26,7 @@ export const PostTemplateDetails = ({ data, pageContext }) => {
 
   useEffect(async () => {
     const db = getFirestore(app);
+    await enableIndexedDbPersistence(db);
     const clapsRef = doc(collection(db, "claps"), slug);
     const clapsSnap = await getDoc(clapsRef);
     setClaps(clapsSnap.data().claps)

@@ -69,10 +69,12 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.5",
+    "@babel/eslint-plugin": "^7.16.5",
     "@babel/plugin-transform-typescript": "^7.16.1",
     "@types/eslint": "^8.2.1",
     "@typescript-eslint/eslint-plugin": "^5.5.0",
     "@typescript-eslint/parser": "^5.5.0",
+    "babel-preset-gatsby-package": "^2.4.0",
     "eslint": "^8.4.0",
     "eslint-config-airbnb": "^19.0.2",
     "eslint-config-google": "^0.14.0",

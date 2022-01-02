@@ -28,10 +28,11 @@ body.light {
   --bg-secondary: rgb(249, 250, 251);
   --header: var(--pink);
   --textNormal: #222;
+  --subTextNormal: rgba(55, 53, 47, 0.6);
   --textTitle: #222;
   --textLink: var(--pink-thick);
   --hr: hsla(0, 0%, 0%, 0.2);
-  --inlineCode-bg: rgba(255, 229, 100, 0.2);
+  --bg-inlineCode: rgba(255, 229, 100, 0.2);
   --inlineCode-text: var(--pink-thick);
   --form-shadow: 0 2px 15px 0 rgba(210, 214, 220, 0.5);
 }
@@ -43,10 +44,11 @@ body.dark {
   --bg-secondary: rgb(54, 60, 72);
   --header: #ffffff;
   --textNormal: rgba(255, 255, 255, 0.88);
+  --subTextNormal: rgba(200, 202, 208, 0.6);
   --textTitle: #ffffff;
   --textLink: var(--pink);
   --hr: hsla(0, 0%, 100%, 0.2);
-  --inlineCode-bg: rgba(115, 124, 153, 0.2);
+  --bg-inlineCode: rgba(115, 124, 153, 0.2);
   --inlineCode-text: var(--pink);
   --form-shadow: 0 2px 15px 0 rgba(26, 26, 27, 0.637);
 }
