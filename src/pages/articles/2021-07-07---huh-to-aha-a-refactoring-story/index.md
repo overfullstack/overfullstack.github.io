@@ -20,7 +20,6 @@ Let's huddle over persuasive arguments against _Obstacles_ that hinder our goal 
 
 Let's refactor a real-world app to and witness how Isolated components make-up long-lasting structures.
 
-
 # Audience
 
 This applies to software developers at all levels. I use **Java** to demonstrate the code snippets, but this talk is about Software Design and is agnostic of programming language.
@@ -37,7 +36,7 @@ This applies to software developers at all levels. I use **Java** to demonstrate
 
 # Talk Outline
 
-Let's checkout the [definition](https://refactoring.com/) from the person who authored an entire book about it.
+Let's check-out the [definition](https://refactoring.com/) from the person who authored an entire book about it.
 
 > Refactoring is a disciplined technique for restructuring an existing body of code, altering its internal structure without changing its external behavior
 
