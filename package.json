@@ -21,7 +21,7 @@
   "license": "MIT",
   "dependencies": {
     "bluebird": "^3.7.2",
-    "firebase": "^9.6.3",
+    "firebase": "^9.6.5",
     "gatsby": "^4.5.3",
     "gatsby-plugin-catch-links": "^4.5.0",
     "gatsby-plugin-cname": "^1.0.0",
