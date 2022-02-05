@@ -428,3 +428,4 @@ Tests should not be an after-thought and should happen parallel to Refactor, lik
 `youtube: https://www.youtube.com/watch?v=Ip8SvyXLvD8&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1`
 
 - 🇪🇺 **[jLove](https://embed.emamo.com/event/jlove-2021/r/speaker/gopal-s-akshintala)**, 2021, Europe.
+- 🇮🇳 **[Functional Conf](https://confengine.com/conferences/functional-conf-2022/proposal/16085/huh-to-aha-a-refactoring-story)**, 2022, India.
