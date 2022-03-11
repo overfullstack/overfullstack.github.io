@@ -12,6 +12,9 @@ tags:
 description: Mutation causes Quantum Entanglement
 ---
 
+> This is a part of this post:
+[$card](https://overfullstack.ga/posts/huh-to-aha)
+
 # The Entanglement
 
 Mutability causes a lot of problems, especially the **Shared mutable state on a Shared Codebase**. Let's focus on how it hinders the goal of Component Isolation.

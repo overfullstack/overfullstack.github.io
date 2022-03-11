@@ -12,6 +12,9 @@ tags:
 description: Exceptions are Wormholes
 ---
 
+> This is a part of this post:
+[$card](https://overfullstack.ga/posts/huh-to-aha)
+
 # Exceptions are the most abused language feature
 
 Although exceptions are introduced into Java language with good intentions, a developer can catch, throw, or duck any exception, making them the most abused language feature.

@@ -7,8 +7,8 @@ path: /posts/my-interview-with-konfy
 cover: ./cover.jpg
 category: Design
 tags:
-  - Java
+  - Java, Interview
 description: My Interview with Konfy
 ---
 
-[$card](https://dev.to/konfy/i-m-a-gradle-guy-gopal-s-akshintala-581l)
+[$card](https://bit.ly/konfy-interview)
