@@ -2,6 +2,9 @@ const lost = require(`lost`)
 const pxtorem = require(`postcss-pxtorem`)
 
 module.exports = {
+  flags: {
+    GATSBY_CONCURRENT_DOWNLOAD: 16,
+  },
   siteMetadata: {
     url: `https://github.com/overfullstack/overfullstack.github.io`,
     siteUrl: `https://overfullstack.ga`,
