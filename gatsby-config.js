@@ -2,9 +2,6 @@ const lost = require(`lost`)
 const pxtorem = require(`postcss-pxtorem`)
 
 module.exports = {
-  flags: {
-    GATSBY_CONCURRENT_DOWNLOAD: 16,
-  },
   siteMetadata: {
     url: `https://github.com/overfullstack/overfullstack.github.io`,
     siteUrl: `https://overfullstack.ga`,
@@ -209,7 +206,7 @@ module.exports = {
         ],
       },
     },
-    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-google-fonts`,
@@ -217,6 +214,7 @@ module.exports = {
         fonts: [`roboto:400,400i,500,700`],
       },
     },
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {

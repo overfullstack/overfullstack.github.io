@@ -29,6 +29,7 @@
     "gatsby-plugin-firebase-v9.0": "^1.0.3",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-google-gtag": "^4.9.0",
+    "gatsby-plugin-image": "^2.9.1",
     "gatsby-plugin-mailchimp": "^5.2.2",
     "gatsby-plugin-manifest": "^4.9.1",
     "gatsby-plugin-offline": "^5.9.1",
