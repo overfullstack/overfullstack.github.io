@@ -7,7 +7,8 @@ path: /posts/my-interview-with-fn-conf
 cover: ./cover.png
 category: Design
 tags:
-  - Java, Interview, FP
+  - Java
+  - Interview
 description: My Interview with Functional Conf
 ---
 

@@ -110,3 +110,12 @@ Either<NumberFormatException, Integer> parse(String s) {
   return Either.left(new NumberFormatException("Not a valid integer"));
 }
 ```
+
+# My Talks on this
+
+- 🇪🇸 **[JBCN Conf](https://www.jbcnconf.com/2021/infoSpeaker.html?ref=fb4fc6057fcdc50798fa601ea43883688923960d)**, 2021, Barcelona, Spain.
+
+`youtube: https://www.youtube.com/watch?v=Ip8SvyXLvD8&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1`
+
+- 🇪🇺 **[jLove](https://embed.emamo.com/event/jlove-2021/r/speaker/gopal-s-akshintala)**, 2021, Europe.
+- 🇮🇳 **[Functional Conf](https://confengine.com/conferences/functional-conf-2022/proposal/16085/huh-to-aha-a-refactoring-story)**, 2022, India.
