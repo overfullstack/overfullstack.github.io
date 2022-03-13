@@ -1,5 +1,6 @@
 import "prismjs/plugins/line-numbers/prism-line-numbers.css"
 import "firebase/firestore"
+import "gatsby-remark-link-beautify/themes/notion.css"
 
 export const onServiceWorkerUpdateReady = () => {
   const answer = window.confirm(

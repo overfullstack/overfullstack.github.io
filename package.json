@@ -11,8 +11,6 @@
     "format": "prettier --write './*.js' 'src/**/*.js' 'src/**/*.jsx'",
     "build": "rm -rf public && rm -rf .cache && yarn clean && gatsby clean && gatsby build",
     "deploy": "yarn build && gh-pages -d public -b master",
-    "snyk-protect": "snyk protect",
-    "prepare": "yarn run snyk-protect",
     "prettier": "prettier \"**/*.{md,css,scss,yaml,yml}\"",
     "lint": "eslint --cache --ext .js,.jsx --ignore-pattern public ."
   },
@@ -45,7 +43,7 @@
     "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "^6.9.1",
     "gatsby-remark-katex": "^6.9.0",
-    "gatsby-remark-link-preview": "^1.0.1",
+    "gatsby-remark-link-beautify": "^1.1.0",
     "gatsby-remark-prismjs": "^6.9.0",
     "gatsby-remark-smartypants": "^5.9.0",
     "gatsby-source-filesystem": "^4.9.1",
@@ -64,7 +62,7 @@
     "react-helmet": "^6.1.0",
     "react-toastify": "^8.2.0",
     "sass": "^1.49.9",
-    "snyk": "^1.868.0",
+    "snyk": "^1.869.0",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {

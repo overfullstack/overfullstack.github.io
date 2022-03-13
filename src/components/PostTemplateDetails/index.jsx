@@ -2,9 +2,15 @@ import "gist-syntax-themes/stylesheets/idle-fingers.css"
 import "./style.scss"
 
 import { Link } from "gatsby"
-import app from 'gatsby-plugin-firebase-v9.0'
-import { collection, doc, getDoc, setDoc, getFirestore, enableIndexedDbPersistence } from "firebase/firestore";
-import firebase from 'firebase/app';
+import app from "gatsby-plugin-firebase-v9.0"
+import {
+  collection,
+  doc,
+  getDoc,
+  setDoc,
+  getFirestore,
+  enableIndexedDbPersistence,
+} from "firebase/firestore"
 import moment from "moment"
 import React, { useEffect, useState } from "react"
 import styled from "styled-components"
@@ -21,23 +27,26 @@ export const PostTemplateDetails = ({ data, pageContext }) => {
   const post = data.markdownRemark
   const tags = post.fields.tagSlugs
 
-  const slug = post.fields.slug.substr(post.fields.slug.lastIndexOf(`/`) + 1)
+  const slug = post.fields.slug.substring(post.fields.slug.lastIndexOf(`/`) + 1)
   const [claps, setClaps] = useState(0)
 
   useEffect(async () => {
-    const db = getFirestore(app);
-    await enableIndexedDbPersistence(db);
-    const clapsRef = doc(collection(db, "claps"), slug);
-    const clapsSnap = await getDoc(clapsRef);
+    const db = getFirestore(app)
+    await enableIndexedDbPersistence(db)
+    const clapsRef = doc(collection(db, `claps`), slug)
+    const clapsSnap = await getDoc(clapsRef)
     setClaps(clapsSnap.data().claps)
   })
 
   const clapHandler = async (e) => {
     e.preventDefault()
-    let newClaps = claps + 1;
-    const db = getFirestore(app);
+    const newClaps = claps + 1
+    const db = getFirestore(app)
     setClaps(newClaps)
-    await setDoc(doc(collection(db, "claps"), slug), { lastClap: new Date(), claps: newClaps });
+    await setDoc(doc(collection(db, `claps`), slug), {
+      lastClap: new Date(),
+      claps: newClaps,
+    })
   }
 
   const clapsBtn = (

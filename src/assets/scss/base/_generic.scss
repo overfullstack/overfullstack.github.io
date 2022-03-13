@@ -35,6 +35,7 @@ body.light {
   --bg-inlineCode: rgba(255, 229, 100, 0.2);
   --inlineCode-text: var(--pink-thick);
   --form-shadow: 0 2px 15px 0 rgba(210, 214, 220, 0.5);
+  --card-border-color: rgba(123, 114, 101, 0.16);
 }
 
 body.dark {
@@ -51,6 +52,7 @@ body.dark {
   --bg-inlineCode: rgba(115, 124, 153, 0.2);
   --inlineCode-text: var(--pink);
   --form-shadow: 0 2px 15px 0 rgba(26, 26, 27, 0.637);
+  --card-border-color: rgba(132, 141, 154, 0.16);
 }
 
 h1,

@@ -140,21 +140,6 @@
   }
 }
 
-.preview-notion {
-  &-title {
-    color: var(--textNormal)
-  }
-  &-description {
-    color: var(--subTextNormal)
-  }
-  &-link {
-    color: var(--textLink)
-  }
-  &-favicon {
-    display: none;
-  }
-}
-
 @keyframes popout {
   from {
     transform: scale(0)
@@ -165,6 +150,10 @@
   to {
     transform: scale(1)
   }
+}
+
+.link-card-container {
+  border: 1px solid var(--card-border-color);
 }
 
 @-webkit-keyframes popout {
