@@ -12,4 +12,4 @@ tags:
 description: My Interview with Functional Conf
 ---
 
-[$card](https://bit.ly/fn-conf-interview-op)
+[$card](https://bit.ly/fn-conf-interview)
