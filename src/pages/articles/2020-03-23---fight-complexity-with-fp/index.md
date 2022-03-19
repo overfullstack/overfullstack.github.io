@@ -27,6 +27,7 @@ A Metric-driven approach to reduce Cognitive Complexity in a code base, using Fu
 - The audience experiences a mind-shift from the traditional mutation-heavy _Imperative style_ to _Functional style_ -- with Immutable Objects (Using Java `Records` or Kotlin's `Data classes`) and Pure-Functions (replacing Mutation with Transformation).
 
 - With Hands-on demos, this talk adds a robust paradigm toolset and vocabulary to a programmer's arsenal and how to apply them to simplify the modeling and designing of complex _real-world_ problems.
+
 - The audience learns how to objectively perceive complexity in any codebase through metrics (measured using popular static analysis tools), and how to reduce cognitive complexity methodically.
 - Finally, we shall talk about how these concepts laid foundation stones to our in-house library **Vader**, a bean validation framework.
 
@@ -199,7 +200,7 @@ Functional Programming is not Complex, but it fights complexity. The solution ru
 
 # My Talks on this
 
-- 🇺🇸 **[All Things Open](https://www.youtube.com/watch?v=Dvr6gx4XaD8&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1)**, 2020, Raleigh, USA. [📄](https://2020.allthingsopen.org/speakers/gopal-s-akshintala/)
+- 🇺🇸 **[All Things Open](https://www.youtube.com/watch?v=Dvr6gx4XaD8&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1)**, 2020, Raleigh, USA. [📃](https://2020.allthingsopen.org/speakers/gopal-s-akshintala/)
 - 🏴󠁧󠁢󠁥󠁮󠁧󠁿 [Kotlin User Group, London](https://www.youtube.com/watch?v=QVuMSsIUw6M&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=2)
 - 🇩🇪 [Berlin Functional Programming Group](https://www.youtube.com/watch?v=DBDTNmLbU2Y&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=3)
 - 🇳🇴 [JavaBin, Norway](https://www.youtube.com/watch?v=tnpL1O8kTbM&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=4)
