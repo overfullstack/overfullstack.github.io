@@ -165,8 +165,7 @@ Looking at the numbers of views, up-votes and bookmarks, I am sure a lot of deve
 
 ## But why is Mutability Predominant in Java code?
 
-- Because historically it has been the default mode in Java, and defaults are powerful.
-- We all heard Google pays Apple a fat cheque every year just to keep google as default search engine. People seldom change defaults.
+Because historically it has been the default mode in Java, and defaults are powerful. We all heard Google pays Apple a fat cheque every year just to keep google as default search engine. People seldom change defaults.
 
 ## It takes **Discipline** to beat the **Default**
 
@@ -178,30 +177,30 @@ Looking at the numbers of views, up-votes and bookmarks, I am sure a lot of deve
 
 - Make a habit to use final before var and function params to guard your references.
 - Follow Immutable strategy for POJOs from [Oracle's Documentation](https://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html)
-- Auto-generate Immutable version of your POJO using:
-
+- (Pre Java 16) Auto-generate Immutable version of your POJO using:
   - [Lombok](https://projectlombok.org/features/Value) **(More Magic, Less Effort)**
   - [Google Auto](https://github.com/google/auto) **(Less Magic, More Effort)**
   - [Immutables](https://immutables.github.io/) **(Less Magic, More Effort)**
+- Use `Record` types from Java 16
 
 # Anti-Immutables
 
 Some prevailing arguments about Immutability
 
-## Isn't Immutability only for _multi-threading_?
+## Isn't Immutability only for _Multi-threading_?
 
 - Whenever I try to convince these old school java programmers, who are conditioned to mutability, I get this question a lot: "But isn't immutability just for multi-threading? Why do I need it if my app is Single Threaded?"
 - Let me remind you, the app running on your machine may be single-threaded, but the one running in your skull is not.
 
 ![concurrent-mind](media/ides-brain-distractions.png)
 
-- It's by default multi-threaded, with all the distractions. Plus, it doesn't come with a built-in debugger.
+- It's by default concurrent, with all the distractions. Plus, it doesn't come with a built-in debugger.
 - With mutable objects, you need to build-up all that state in your head, and a simple distraction can puff it all up. Immutability eliminates that, by-definition.
 - Hope that answers this question.
 
 ## _Immutable_ Objects doesn’t fit my _Imperative_ style?
 
-- Mutation and imperative are super good friends, and one likes to be with the other.
+Mutation and imperative are super good friends, and one likes to be with the other.
 
 ```java{2,8}
 void mutableFn() {
@@ -217,7 +216,7 @@ List<String> mutateList(List<String> list) {
 }
 ```
 
-- But if you use Immutable objects, you need to replace your _Imperative mutations_ with _Declarative transformations_.
+But if you use _Immutable_ objects, you _need_ to replace your _Imperative mutations_ with _Declarative transformations_.
 
 ```java{2,8}
 void immutableFn() {
@@ -242,7 +241,8 @@ void immutableFn() {
 }
 ```
 
-- Immutability forces Transformation (Now I don't have to tell you, who is the wife and who is the husband!)
+**Immutability forces Transformation**
+(Now I don't have to tell you, who is the wife and who is the husband! 😉)
 
 ## Doesn't Immutability affect Perf?
 
@@ -256,9 +256,9 @@ void immutableFn() {
 - Most used Data type in any Java application? `String`, No coincidence that it’s Immutable.
 - Java 8 replaced `Date` with immutable `LocalDate`.
 - Java 11 introduced Immutable Collections.
-- Java 16 introduced a concise Stream operation `toList` for UnmodifiableList.
+- Java 16 introduced `Record` types and a concise Stream operation `toList` for UnmodifiableList.
 
-Any many more. The tide's turning!
+Any many more. The tide's turning! 🌊
 
 # My Talks on this
 

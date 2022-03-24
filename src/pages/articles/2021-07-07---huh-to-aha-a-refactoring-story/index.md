@@ -95,7 +95,7 @@ Let's start with Obstacles and how to overcome them:
 
 # Hello-real-world 🪐
 
-Let's see how some of what we talked, fits into a **real-world application**
+Let's see how some of what we talked, fits into a **Real-world application**
 
 ## The Flow
 
