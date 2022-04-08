@@ -51,7 +51,7 @@ export const PostTemplateDetails = ({ data, pageContext }) => {
 
   const clapsBtn = (
     <Claps newClaps={claps} className="claps">
-      <button onClick={clapHandler}>👏🏼</button> {claps} claps
+      <button onClick={clapHandler}>👏🏼</button> {claps > 0 ? claps : null}
     </Claps>
   )
 
