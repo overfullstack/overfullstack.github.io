@@ -30,12 +30,14 @@ export const PostTemplateDetails = ({ data, pageContext }) => {
   const slug = post.fields.slug.substring(post.fields.slug.lastIndexOf(`/`) + 1)
   const [claps, setClaps] = useState(0)
 
-  useEffect(async () => {
-    const db = getFirestore(app)
-    await enableIndexedDbPersistence(db)
-    const clapsRef = doc(collection(db, `claps`), slug)
-    const clapsSnap = await getDoc(clapsRef)
-    setClaps(clapsSnap.data().claps)
+  useEffect(() => {
+    ;(async () => {
+      const db = getFirestore(app)
+      await enableIndexedDbPersistence(db)
+      const clapsRef = doc(collection(db, `claps`), slug)
+      const clapsSnap = await getDoc(clapsRef)
+      setClaps(clapsSnap.data().claps)
+    })()
   })
 
   const clapHandler = async (e) => {
