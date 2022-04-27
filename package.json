@@ -43,7 +43,7 @@
     "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "^6.11.1",
     "gatsby-remark-katex": "^6.11.0",
-    "gatsby-remark-link-beautify": "^1.2.0",
+    "gatsby-remark-link-beautify": "^2.0.0",
     "gatsby-remark-prismjs": "^6.11.0",
     "gatsby-remark-smartypants": "^5.11.0",
     "gatsby-source-filesystem": "^4.11.1",
