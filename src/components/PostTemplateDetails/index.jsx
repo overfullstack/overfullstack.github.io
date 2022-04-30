@@ -191,7 +191,7 @@ const Claps = styled.div`
     cursor: pointer;
   }
   &::before {
-    content: "${(props) => `+` + props.newClaps}";
+    content: "+1";
     background: #e0dbd3;
     opacity: 0;
     color: #282c35;
