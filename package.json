@@ -62,7 +62,7 @@
     "react-helmet": "^6.1.0",
     "react-toastify": "^8.2.0",
     "sass": "^1.50.0",
-    "sharp": "^0.30.4",
+    "sharp": "^0.30.5",
     "snyk": "^1.899.0",
     "styled-components": "^5.3.5"
   },
