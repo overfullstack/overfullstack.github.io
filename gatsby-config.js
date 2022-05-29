@@ -132,7 +132,12 @@ module.exports = {
               strict: `ignore`,
             },
           },
-          `gatsby-remark-link-beautify`,
+          {
+            resolve: `gatsby-remark-link-beautify`,
+            options: {
+              timeout: 3000,
+            },
+          },
           {
             resolve: `gatsby-remark-embed-video`,
             options: {
