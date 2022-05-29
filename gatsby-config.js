@@ -176,13 +176,6 @@ module.exports = {
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
           {
-            resolve: `gatsby-remark-external-links`,
-            options: {
-              target: `_blank`,
-              rel: `noopener noreferrer`,
-            },
-          },
-          {
             resolve: `gatsby-plugin-mailchimp`,
             options: {
               endpoint: `https://github.us7.list-manage.com/subscribe/post?u=ab6b858fe942240463c3a5ab5&amp;id=8851ab5056`,
@@ -210,36 +203,6 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [`roboto:400,400i,500,700`],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-sitemap`,
-      options: {
-        query: `
-            {
-              site {
-                siteMetadata {
-                  siteUrl
-                }
-              }
-              allSitePage {
-                nodes {
-                  path
-                }
-              }
-          }`,
-        output: `/sitemap.xml`,
-        resolveSiteUrl: (data) => data.site.siteMetadata.siteUrl,
-        resolvePages: ({ allSitePage: { nodes: allPages } }) =>
-          allPages.map((page) => {
-            return { ...page }
-          }),
-        serialize: ({ path, modifiedGmt }) => {
-          return {
-            url: path,
-            lastmod: modifiedGmt,
-          }
-        },
       },
     },
     `gatsby-plugin-offline`,
@@ -303,6 +266,5 @@ module.exports = {
       },
     },
     `gatsby-plugin-cname`,
-    `gatsby-plugin-catch-links`,
   ],
 }
