@@ -418,8 +418,8 @@ Tests should not be an after-thought and should happen parallel to Refactor, lik
 
 # Resources
 
-[Slide-deck](https://bit.ly/h2a-deck)
-[Source-code](https://bit.ly/h2a-code)
+- [Slide-deck](https://bit.ly/h2a-deck)
+- [Source-code](https://bit.ly/h2a-code)
 
 # My Talks on this
 
