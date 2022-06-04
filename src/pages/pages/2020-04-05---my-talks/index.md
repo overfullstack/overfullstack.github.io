@@ -9,7 +9,7 @@ path: /my-talks
 
 He's an International Speaker, with his Tech-Talks being warmly received at:
 
-- 🇮🇳 **[Functional Conf](https://confengine.com/conferences/functional-conf-2022/proposal/16085/huh-to-aha-a-refactoring-story)**, 2022, India.
+- 🇮🇳 **[Functional Conf](https://www.youtube.com/watch?v=MVnfndMW9zo&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1)**, 2022, India [📃](https://confengine.com/conferences/functional-conf-2022/proposal/16085/huh-to-aha-a-refactoring-story)
 - 🇪🇸 **[JBCN Conf](https://www.youtube.com/watch?v=Ip8SvyXLvD8&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1)**, 2021, Barcelona, Spain. [📃](https://www.jbcnconf.com/2021/infoSpeaker.html)
 - 🇪🇺 **[jLove](https://embed.emamo.com/event/jlove-2021/r/speaker/gopal-s-akshintala)**, 2021, Europe.
 - 🇺🇸 **[All Things Open](https://www.youtube.com/watch?v=Dvr6gx4XaD8&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1)**, 2020, Raleigh, USA. [📃](https://2020.allthingsopen.org/speakers/gopal-s-akshintala/)
