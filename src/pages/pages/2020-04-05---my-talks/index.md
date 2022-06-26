@@ -9,8 +9,10 @@ path: /my-talks
 
 He's an International Speaker, with his Tech-Talks being warmly received at:
 
-- 🇮🇳 **[Functional Conf](https://www.youtube.com/watch?v=MVnfndMW9zo&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1)**, 2022, India [📃](https://confengine.com/conferences/functional-conf-2022/proposal/16085/huh-to-aha-a-refactoring-story)
+- 🇮🇳 **[Git the Core on, May the perForce be ~~with you~~ Gone](https://www.youtube.com/watch?v=YjtsQ-JjodM&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1)**, 2022
+- 🇮🇳 **[Functional Conf](https://www.youtube.com/watch?v=MVnfndMW9zo&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1)**, 2022, India. [📃](https://confengine.com/conferences/functional-conf-2022/proposal/16085/huh-to-aha-a-refactoring-story)
 - 🇪🇸 **[JBCN Conf](https://www.youtube.com/watch?v=Ip8SvyXLvD8&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1)**, 2021, Barcelona, Spain. [📃](https://www.jbcnconf.com/2021/infoSpeaker.html)
+- 🇺🇸 **[Vader & the Army of Validators](https://www.youtube.com/watch?v=NuD32oEjfWk&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or)**, 2021, Season of Innovation, Salesforce
 - 🇪🇺 **[jLove](https://embed.emamo.com/event/jlove-2021/r/speaker/gopal-s-akshintala)**, 2021, Europe.
 - 🇺🇸 **[All Things Open](https://www.youtube.com/watch?v=Dvr6gx4XaD8&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1)**, 2020, Raleigh, USA. [📃](https://2020.allthingsopen.org/speakers/gopal-s-akshintala/)
 - 🏴󠁧󠁢󠁥󠁮󠁧󠁿 [Kotlin User Group, London](https://www.youtube.com/watch?v=QVuMSsIUw6M&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=2)
@@ -26,6 +28,14 @@ He's an International Speaker, with his Tech-Talks being warmly received at:
 - 🇪🇸 **[JBCN Conf](https://www.jbcnconf.com/2020/)**, 2020, Barcelona, Spain (This event got cancelled due to COVID-19).
 
 # Recorded Talks
+
+## Git the Core on, May the perForce be ~~with you~~ Gone
+
+[Slide-deck](https://speakerdeck.com/gopalakshintala/git-the-core-on-may-the-perforce-be-gone)
+
+### 06-2022 (Git Enablement & Adoption Camp, Salesforce)
+
+`youtube: https://www.youtube.com/watch?v=YjtsQ-JjodM&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1`
 
 ## Huh?🤔 to Aha!😇 - A Refactoring Story
 
