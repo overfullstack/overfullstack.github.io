@@ -51,7 +51,7 @@
     "gist-syntax-themes": "^1.1.0",
     "katex": "^0.16.0",
     "lodash": "^4.17.21",
-    "moment": "^2.29.3",
+    "moment": "^2.29.4",
     "prismjs": "^1.28.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
