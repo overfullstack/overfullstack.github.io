@@ -44,7 +44,7 @@
     "gatsby-remark-link-preview": "^1.0.1",
     "gatsby-remark-prismjs": "^6.17.0",
     "gatsby-remark-smartypants": "^5.17.0",
-    "gatsby-source-filesystem": "^4.17.0",
+    "gatsby-source-filesystem": "^4.21.0",
     "gatsby-transformer-asciidoc": "^3.17.0",
     "gatsby-transformer-remark": "^5.17.0",
     "gatsby-transformer-sharp": "^4.17.0",
