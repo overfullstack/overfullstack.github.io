@@ -14,19 +14,22 @@ description: Skadooosh!
 
 # Abstract
 
-A Metric-driven approach to reduce Cognitive Complexity in a code base, using Functional Programming, demoed **hands-on**, by solving a complex real-world ubiquitous design challenge - REST API Bulk Request Validation, with an extensible Framework that separates what-to-do (Validations) from how-to-do (Validation Orchestration). Let's do a case study of a successful implementation done by our team in the world's largest SaaS org, _Salesforce_, through our in-house baked FOSS library **Vader**.
+A Metric-driven approach to reduce Cognitive Complexity in a code base, using Functional Programming, demoed **hands-on**, 
+by solving a complex real-world ubiquitous design challenge - REST API Bulk Request Validation, 
+with an extensible Framework that separates what-to-do (Validations)from how-to-do (Validation Orchestration). 
+Let's do a case study of a successful implementation done by our team in the world's largest SaaS org, _Salesforce_.
 
 # Audience & Takeaways
 
-- The [USP](https://en.wikipedia.org/wiki/Unique_selling_proposition) for this talk is, unlike majority FP talks in Java/Kotlin space, which are either introductory or advanced, this has something for all levels of the audience.
+- The [USP](https://en.wikipedia.org/wiki/Unique_selling_proposition) for this talk is, unlike the majority FP talks in Java/Kotlin space, which are either introductory or advanced, this has something for all levels of the audience.
 
   - This talk starts with basic FP concepts like _Imperative vs. Declarative_ style using Java **Streams** or Kotlin **Sequences**.
   - Then the audience is gradually ramped-up towards intermediate FP concepts such as _Monads_, _First-Class Functions_ , _Higher-Order Functions_.
-  - Towards the end, we touch-upon concepts for an advanced audience like _Function-Lifting_, _Dozen FP Operations for daily Programming like `foldLeft`_ within the context of the problem, with pictures and simple examples. They are also provided with appropriate pointers wherever needed, to go back and refer.
+  - Towards the end, we touch upon concepts for an advanced audience like _Function-Lifting_, _Dozen FP Operations for daily Programming like `foldLeft`_ within the context of the problem, with pictures and simple examples. They are also provided with appropriate pointers wherever needed, to go back and refer.
 
 - The audience experiences a mind-shift from the traditional mutation-heavy _Imperative style_ to _Functional style_ -- with Immutable Objects (Using Java `Records` or Kotlin's `Data classes`) and Pure-Functions (replacing Mutation with Transformation).
 
-- With Hands-on demos, this talk adds a robust paradigm toolset and vocabulary to a programmer's arsenal and how to apply them to simplify the modeling and designing of complex _real-world_ problems.
+- With Hands-on demos, this talk adds a robust paradigm toolset and vocabulary to a programmer's arsenal and how to apply them to simplify the modelling and designing of complex _real-world_ problems.
 
 - The audience learns how to objectively perceive complexity in any codebase through metrics (measured using popular static analysis tools), and how to reduce cognitive complexity methodically.
 - Finally, we shall talk about how these concepts laid foundation stones to our in-house library **Vader**, a bean validation framework.
@@ -43,7 +46,7 @@ The concepts are language agnostic. For broader outreach, I can use either of th
 
 As I cannot use the production code, I use code samples from my POC for the demonstration -- [Github repo for Java](https://github.com/overfullstack/railway-oriented-validation) or [Github repo for Kotlin](https://github.com/overfullstack/railway-oriented-validation-kotlin).
 
-The code references in this post point to Java repo, but they can be correlated by name with the Kotlin repo.
+The code references in this post point to the Java repo, but they can be correlated by name with the Kotlin repo.
 
 # Talk Outline
 

@@ -1,5 +1,5 @@
 ---
-title: Java for Problem-Solving in Campus Interviews 
+title: Java for Problem-Solving in Campus Interviews
 date: '2022-09-04T00:00:00.000Z'
 layout: post
 draft: false
@@ -13,6 +13,10 @@ description: Java for Problem-Solving in Campus Interviews
 ---
 
 # Java for Problem-Solving in Campus Interviews
+
+# Promo
+
+`youtube: https://youtu.be/SHwW47CUZAk`
 
 Hey Future hackers! 👋🏼
 
@@ -45,7 +49,7 @@ Hey Future hackers! 👋🏼
 - What makes up a Class
 - Class vs Object
 - Represent a real-world Object through Java
-- Hands-on: Build a Object-Oriented game
+- Hands-on: Build an Object-Oriented game
 - Data types and Variables
 - Objects, References and Garbage collection
 - Encapsulation
