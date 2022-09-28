@@ -11,8 +11,10 @@ Decent at Math and loves Physics, a right-brainer who loves being creative and t
 
 **Gopal S Akshintala** is currently a **Lead Software Engineer at Salesforce**, working on Scaling Backend Systems for Revenue Cloud.
 
-He is a passionate developer and loves being an **Influencer & Mentor** in the dev community through his Blog-posts,
-[International Tech-Talks](/my-talks), and Social-media.
+He is a passionate developer and loves being an **Influencer & Mentor** in the dev community through his [Blog-posts](/),
+[International Tech-Talks](/my-talks), Social-media and Open-Source.
+He authored an Open-Source Validation framework for JVM, [**Vador**](https://github.com/salesforce-misc/Vador)
+
 He started as an Android Developer and switched to the server-side as a Full-Stack Developer (Backend - Kotlin, Java | Frontend - React Js). 
 Wearing multiple hats, aided him to perceiving Patterns, Solutions, and Trade-offs.
 He is a practitioner of Domain-Driven Design(DDD) and Clean Architecture.
