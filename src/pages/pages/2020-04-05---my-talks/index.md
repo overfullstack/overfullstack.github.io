@@ -9,6 +9,7 @@ path: /my-talks
 
 He's an International Speaker, with his Tech-Talks being warmly received at:
 
+- 🇮🇳 [**TMP Horizon**](https://sites.google.com/salesforce.com/tmphorizon2022/agenda/hyderabad/gopal-s-akshintala), Hyderabad, 2022
 - 🇮🇳 [**Google Cloud Community Days**](https://gdg.community.dev/events/details/google-gdg-cloud-hyderabad-presents-cloud-community-days-hyderabad-2022-1/), Hyderabad, 2022
 - 🇮🇳 [**Git the Core on, May the perForce be ~~with you~~ Gone**](https://www.youtube.com/watch?v=YjtsQ-JjodM&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1), 2022
 - 🇮🇳 [**Functional Conf**](https://www.youtube.com/watch?v=MVnfndMW9zo&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1), 2022, India. [📃](https://confengine.com/conferences/functional-conf-2022/proposal/16085/huh-to-aha-a-refactoring-story)

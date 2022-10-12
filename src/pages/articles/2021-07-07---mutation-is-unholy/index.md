@@ -43,7 +43,7 @@ static int sumAbsolute(List<Integer> nums) {
 }
 ```
 
-- Now a client uses it, and everything works, they release it and had a GA party!
+- Now a client uses it, and everything worked, they released it and had a GA party! 🥳
 
 ```java
 static void client() {
@@ -62,10 +62,10 @@ static void client() {
 }
 ```
 
-- After a painful debugging session, he found a bug that has been waiting to bite him - A **Latent Bug**.
+- After a painful debugging session, he found a bug; that has been waiting to bite him — A **Latent Bug**.
 
 ```java{3,11}
-static int sumAbsolute(List<integer> nums) {
+static int sumAbsolute(List<Integer> nums) {
   for (int i = 0; i < nums.size(); i++) {
     nums.set(i, Math.abs(nums.get(i))); // Latent Bug 🐞
   }
@@ -79,15 +79,15 @@ static void client() {
 }
 ```
 
-- Because the `sumAbsolute` received a reference to a mutable object, it assumed it as a license to do any mutations on it.
-- To me the mistake lies with the `client`, who passes-around a mutable object reference.
-- This mutable object acts as an invisible string, coupling the components `sumAbsolute`, `client` and `sum`.
-- Thus, Mutable objects as Input params are **Unholy** for isolation.
+Because the `sumAbsolute` received a reference to a mutable object, it assumed it as a license to do any mutations on it. 
+To me the mistake lies with the `client`, who passes-around a mutable object reference. 
+This mutable object acts as an invisible string, coupling the components `sumAbsolute`, `client` and `sum`.
+Thus, Mutable objects as Input params are **Unholy** for isolation.
 
 ## Mutable Objects as Return types
 
-- Well, that's even more dangerous. Let's see with an example:
-- This is a function, which take an `eggId` and fetches its laying date by doing a heavy DB operation.
+Well, that's even more dangerous. Let's see with an example:
+This is a function, which takes an `eggId` and fetches its laying date by doing a heavy DB operation.
 
 ```java
 Date getEggLayingDate(int eggId) {
@@ -96,7 +96,7 @@ Date getEggLayingDate(int eggId) {
 }
 ```
 
-- Assume, it has two dependent components, independent of each-other. Assume both these components are present in two different modules.
+- Assume, it has two dependent components, independent of each other. Assume both these components are present in two different modules.
 
 ```java{3,11}
 // Dependent component - 1
@@ -114,7 +114,8 @@ int calculateEggAge(int eggId, Date today) {
 }
 ```
 
-- They are all in harmony, everything is working great. One day! a developer wanted to add a trivial log in `hasEggRotten`. As date object is not used anymore in this function, he felt he could reuse this object to get month and year information and so he mutated it like this:
+- They are all in harmony, everything is working great. One day! a developer wanted to add a trivial log in `hasEggRotten`. 
+- As a date object is not used anymore in this function, he felt he could reuse this object to get month and year information and so he mutated it like this:
 
 ```java{5-7}
 // Dependent component - 1
@@ -141,7 +142,7 @@ Date getEggLayingDate(int eggId) {
 }
 ```
 
-- He tested his component and it's working great and so they released it.
+- He tested his component, and it's working great and so they released it.
 - Now, guess who gets the bite this time? The innocent `calculateAge` component which has no changes!
 
 ```java
@@ -151,8 +152,10 @@ long calculateEggAge(int eggId, Date today) {
 }
 ```
 
-- We just witnessed, how components separated by modules can be entangled with Mutable Objects. It's almost impossible to refactor them without breaking something.
-- On a real code base, this is even more intertwined. Most of our debugging cycles are spent to bash bugs like these. It resonates with the universal developer experience - "Fix this breaks that".
+- We just witnessed, how components separated by modules can be entangled with Mutable Objects. It's almost impossible to refactor them without breaking anything.
+- On a real code base, this is even more intertwined.
+  Most of our debugging cycles are spent to bash bugs like these. 
+  It resonates with the universal developer experience - "Fix this breaks that".
 - I call this a **Quantum Entanglement!** ⚛🧙🏼‍♀️
 
 ## References Everywhere
