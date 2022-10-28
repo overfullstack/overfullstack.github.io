@@ -14,7 +14,7 @@ tags:
 description: Java for Problem-Solving in Campus Interviews
 ---
 
-# 🏏 Score the Tendulkar Test **Coverage**
+# 🏏 Score the Tendulkar Test Coverage
 
 India's most renowned cricketer Sachin Tendulkar has a peculiar record that no batsman wants to break. He got dismissed in 90s 18 times in ODIs and 10 times in Test cricket and
 holds the record for the highest number of dismissals in the 90s (a total of 28 times) across all forms of international cricket.  they call it!
@@ -23,7 +23,7 @@ When I see code coverage numbers hitting more than 90, it reminds me of Sachin's
 # Abstract
 - Unit testing has always been one of the most controversial topics among devs with many strong opinions, myths, and magic!
 - Let’s talk about why we write unit tests and common mistakes that make unit testing difficult and tempt teams to reach out for Invasive tools like **PowerMock** to quench their coverage obsession.
-- Developing in the middle of Legacy code should not be an excuse to skip unit tests. Let’s check out how **Ports & Adapters** architecture can cover your Greenfield code written over a Brownfield setup.
+- Developing amidst Legacy code should not be an excuse to skip unit tests. Let’s check out how **Ports & Adapters** architecture can help unit-test your Greenfield code written over a Brownfield setup.
 - Salesforce platform is powered by one of the largest monoliths, scaffolded back in 1999. Let’s discuss some of the practices we follow to stay honest with our coverage obsession till today.
 
 # Audience
@@ -37,7 +37,7 @@ but there may be analogous tools in other ecosystems. *Ports & Adapters* is a la
 - Learn how the need to use Invasive tools like PowerMock literally mocks the OO principles like Encapsulation, through hands-on demonstration.
 - Anti-patterns that can be avoided in the design so that the behavior can be tested without any `when-then` statements
 - Let's discuss **Ports & Adapters** architecture and understand how it eases Testing the Domain logic in isolation, even when interacting with Legacy code.
-- Let’s learn about techniques like **Black-box unit testing**, which emphasises on behavior-coverage rather than Statement-coverage
+- Let’s learn about techniques like **Black-box unit testing**, which emphasizes on behavior-coverage rather than Statement-coverage
 
 # Resources
 
@@ -61,11 +61,11 @@ but there may be analogous tools in other ecosystems. *Ports & Adapters* is a la
 
 ## Bad Design
 
-- Your component is interacting with your external systems directly, without explicitly declaring them as dependencies.
+Your component is interacting with your external systems directly, without explicitly declaring them as dependencies.
 
 ## Legacy Code Interactions
 
-- If you interact with Legacy code, your code instantly turns legacy
+If you interact with Legacy code, your code instantly turns legacy
 
 # I have the "Power"Mock
 Are you saying one can't achieve high test coverage with these obstacles? The obstacle is the way and I have the **"Power"Mock**. Some of the powerful things that it lets you do are:
@@ -81,16 +81,14 @@ Are you saying one can't achieve high test coverage with these obstacles? The ob
 - Mock `final` classes
 - What else you need, you should feel unstoppable
 
-When you have a hammer, everything feels like a nail. Check-out how you can achieve 100% test coverage even without testing any behavior
-
-- [Example](https://github.com/overfullstack/sttc-demo/blob/master/src/test/java/ga/overfullstack/PowerMock/after/BeanToEntityTest.java)
+When you have a hammer, everything feels like a nail. Check-out how you can achieve 100% test coverage even without testing any behavior: [Example](https://github.com/overfullstack/sttc-demo/blob/master/demo/src/test/java/ga/overfullstack/powermock/before/BeanToEntityTest.java#L27-L27)
 - Although this is an example, it's inspired from some tests that I encountered in reality
-- Such tests are extremely hard to spot in code reviews and so sneaky even if you are seeing them in the IDE
+- Such tests are extremely hard to spot in code reviews and so sneaky even if you are seeing them in the IDE.
 
 ## Synthetic Coverage
 - What you essentially are doing is bending the Prod code to make the test pass and achieve 100% statement coverage.
 - *Statement* coverage as a metric is **NOT** accurate to measure the behavior of the component covered.
-- The synthetic coverage can disguise your coverage dashboards, which is more dangerous than not having coverage
+- The synthetic coverage can disguise your coverage dashboards, which is more dangerous than not having coverage.
 
 ## All-together a new Framework to learn
 - I am interested in knowing if anyone can write tests with PowerMock without googling or referring to other PowerMock tests.
@@ -98,8 +96,7 @@ When you have a hammer, everything feels like a nail. Check-out how you can achi
 - Again, has anyone got a PowerMock test right the first time? I never did, I had to do a lot of setups upfront and a lot of trial and error, mock the right pieces in a particular way to get it right.
 
 ## Brittle and Hard to maintain tests
-- And most of the time, I end up with a feeling of, "I don't know how that test is passing, I don't wanna touch it any further".
-- This feeling especially comes while fixing TFs on PowerMock tests. The tests are so diluted with a lot of mocking, I don't have any clue what's being tested.
+- Most of the time, I end up with a feeling of, "I don't know how that test is passing, I don't wanna touch it any further", especially while fixing failures on PowerMock tests, the tests are so diluted with a lot of mocking, I don't have any clue what's being tested.
 - Plus, as these tests are so tightly latched with the statements in your prod code, a simple refactoring can break all these tests.
 - If your behavior hasn't changed but your tests are failing, then there is a problem with what you are testing
 - Instead of aiding the refactoring, they end up being a foot-chain for your code.
@@ -120,13 +117,15 @@ When you have a hammer, everything feels like a nail. Check-out how you can achi
 - Thus, I confirmed PowerMock is indeed a **Painkiller**, and conceals the actual ailments in the prod code.
 
 ## Compatibility
-- Last nail in the coffin, PowerMock is incompatible with Junit 5
+
+Last nail in the coffin is PowerMock's poor compatibility with other test tools:
+
+- PowerMock is incompatible with Junit 5
   - Junit 5 was released 5 years ago, just to give you an idea how  overdue this is
   - [Active Issue](https://github.com/PowerMock/PowerMock/issues/929) not addressed since 2018
 - PowerMock doesn't support Mockito 4
   - PowerMock is wrapper over Mockito, the most popular mocking library
-  - Mockito `4.20` is the latest version with a lot of improvements over Mockito 3
-  - But the highest version PowerMock supports is `3.12`.
+  - The newer versions of Mockito brings in many fixes and enhancements, but the highest version PowerMock supports is still stuck at `3.12`.
 - Not fully compatible even with Java 11
 - PowerMock has no major enhancements since 2018 or early 2019. There are numerous unaddressed issues, and the library doesn't seem to be in a great shape.
 
@@ -134,18 +133,19 @@ When you have a hammer, everything feels like a nail. Check-out how you can achi
 With all these obstacles and PowerMock dark powers, do unit tests even add any value to my automation? I better rely on my FTests
 
 ## Integration Tests (ITests) vs Unit Tests (UTests)
-- I must emphasize, please don't use ITests to replace your Unit tests. That's like taking a full bath each time you pee, instead of just hand-washing.
+I must emphasize, please don't use ITests to replace your Utests. That's like taking a full bath each time you pee, instead of just hand-washing.
 
 ### Purpose
 ITest is supposed to emulate how the customer uses your application in the real-world, with real DB and network calls. So, you need to limit them to test E2E use-cases and not for every perm & comb.
 
 ### Traceability
 ITests are bad at giving pinpoint feedback. Unit tests do an excellent job at that. We have so many ITests with just a param difference. Mostly, they might be testing a validation for which they don't need the server to be running.
+
 ### Productivity
-ITests, both writing and running are costly and one of the major productivity killers
+ITests, both writing and running are costly and one of the major productivity killers.
 - We compromise running them due to long hours, unpredictability and check-in timelines.
 - As we break tests, subsequent check-ins cannot leverage this automation anymore and have to check in blindfolded. This leads to a traffic-jam situation, where nobody knows what's going on
-- UTests can even help code reviews
+- UTests are quick to run, can provide immediate feedback and can even help code reviews.
 
 What if I told you instead of trying to overcome those obstacles using invasive tools like PowerMock, you can get rid of those altogether and write meaningful Unit tests and achieve organic Unit test coverage that matters?
 
@@ -202,13 +202,13 @@ add(1, 2, result -> assertEquals(3, result));
 ```
 
 ## Bad Design
-- [Example](https://github.com/overfullstack/sttc-demo/tree/f9793eea7bd4b185db521ff14c77ac3a1827e508/src/main/java/ga/overfullstack/pokemon)
+- [Example](https://github.com/overfullstack/sttc-demo/blob/master/demo/src/main/java/ga/overfullstack/pokemon/before/PokemonCollector.java#L21-L21)
 - When you have a function like this, it is no more OOP, instead, it's P~~O~~OP (Procedure Oriented Programming).
 - It's just a script written in Java and scripts are by definition not test-friendly.
 - This leaves you no choice but to resort to invasive tools like **PowerMock** where you end up mocking statements with `when-then`
 - Mocking statements instead of Dependencies is like strapping your prod code. You can't move those lines around without breaking or need to update your tests, even though the behavior remains the same.
 - You need to design components with Unit-Testing in mind. There you go, **TDD** in one line
-- But why? Your test is your first client. It's like your Dogfood customer. If it's finding it difficult to assert your component behavior, any other client integrating will also.
+- But why? Your test is your first client. It's like your Dogfood customer. If it's finding it difficult to interact and assert your component behavior, any other client integrating will also face the same difficulty.
 - One Golden thumb rule: **Always inject the dependencies through constructor**.
 - It makes it really easy to Isolate your component and control the dependency behavior while testing.
 
@@ -232,31 +232,36 @@ add(1, 2, result -> assertEquals(3, result));
 - By making your component depend on Ports, you can switch implementation from Prod to Fake adapters during a test.
 
 # Black-box unit testing
-- You must have noticed this statement in PowerMock tests: `Whitebox.setInternalState(...)`
-- This is essentially what we talked about breaking into one's house.
+
+You must have noticed this statement in PowerMock tests: `Whitebox.setInternalState(...)`. This is essentially what we talked about "breaking into your own house".
 
 ## Mock Dependencies not statements
-- You also notice statement like: `when(...).then(...)`, `doNothing().when(...)` etc, which essentially indicate you are testing a code statement flow and not the behavior.
+- You also notice statements like: `when(...).then(...)`, `doNothing().when(...)` etc, which essentially indicate you are testing a code statement flow and not the behavior.
 - Mocking statements is like strapping your prod code, you can't move those lines around without breaking or need to update your tests, even though the behavior remains the same.
 - Your tests shouldn't know about the internals of your component.
 - Unit tests should be E2E for a component.
 
 # Demo
 
-[sttc-demo | Github](https://github.com/overfullstack/sttc-demo)
+[sttc-demo](https://github.com/overfullstack/sttc-demo)
 
 ## Before:
-[PokemonCollector](https://github.com/overfullstack/sttc-demo/blob/master/src/main/java/ga/overfullstack/pokemon/before/PokemonCollector.java)
+
+[PokemonCollector](https://github.com/overfullstack/sttc-demo/blob/master/demo/src/main/java/ga/overfullstack/pokemon/before/PokemonCollector.java)
 
 - This is badly designed and this component directly interacts with legacy components, leaving no choice for the tests but to use **PowerMock**
-- In-order to test such component, you may need to mock a lot of statements, with some random data. You don't necessarily care about the value of these data.
+- In-order to test such component, you may need to mock a lot of statements.
 - But for every `when-then` statement written here, the developer has to scrutinize the prod code and do a lot of trial n error.
 
 ## After:
 
-[PokemonCollector](https://github.com/overfullstack/sttc-demo/blob/master/src/main/java/ga/overfullstack/pokemon/after/PokemonCollector.java)
+[PokemonCollector](https://github.com/overfullstack/sttc-demo/blob/master/demo/src/main/java/ga/overfullstack/pokemon/before/PokemonCollector.java)
 
-- You can execute a test without worrying about what statements to mock. Test as if you don't know how it's implemented. Instead, fake the dependencies and assert how the component behavior changes with it.
+You can execute a test without worrying about what statements to mock. Test as if you don't know how it's implemented. Instead, fake the dependencies and assert how the component behavior changes with it.
+
+# Conclusion
+
+It's easy to design right than to depend on invasive tools like PowerMock. Don't let the exiting legacy code be an excuse for bad design.
 
 > No one gives you change, you need to bring change
 
