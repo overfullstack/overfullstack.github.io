@@ -16,7 +16,7 @@ description: Java for Problem-Solving in Campus Interviews
 
 # 🏏 Score the Tendulkar Test Coverage
 
-India's most renowned cricketer Sachin Tendulkar has a peculiar record that no batsman wants to break. He got dismissed in 90s 18 times in ODIs and 10 times in Test cricket and
+India's most renowned cricketer **Sachin Tendulkar** holds a peculiar record that no batsman wants to break. He got dismissed in 90s 18 times in ODIs and 10 times in Test cricket and
 holds the record for the highest number of dismissals in the 90s (a total of 28 times) across all forms of international cricket.  they call it!
 When I see code coverage numbers hitting more than 90, it reminds me of Sachin's [Nervous Nineties](https://en.wikipedia.org/wiki/Nervous_nineties)
 
