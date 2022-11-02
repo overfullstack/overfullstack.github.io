@@ -46,17 +46,17 @@ but there may be analogous tools in other ecosystems. *Ports & Adapters* is a la
 
 # Why Unit test
 
-- Unit testing is not to find bugs, it's behavior documentation in the form of Code
-- Strive to achieve behavior coverage, not statement coverage
+Unit testing is not to find bugs, it's behavior documentation in the form of Code.
+One should Strive to achieve behavior coverage, not statement coverage
 
 # What makes Unit testing difficult?
 
-- There are so many [test anti-patterns](www.digitaltapestry.net/testify/manual/AntiPatterns.html), but obviously we cannot cover all these in this talk; you may refer to these resources for cited for in-depth explanation.
-- We are going to focus on a few primary factors, that are prevalent across almost all code bases and simply correcting them gives us maximum returns.
+There are so many [test anti-patterns](www.digitaltapestry.net/testify/manual/AntiPatterns.html), you may refer to the [resources](#resources) cited for in-depth explanation.
+We are going to focus on a few primary factors, that are prevalent across almost all code bases and simply correcting them gives us maximum returns.
 
 ## Code Smells
 
-- `void` methods make it really difficult to test, as you don't give you back any result to assert. Asserting on statements like no.of times, a statement got executed is very brittle
+- `void` methods are hard to test, as they don't give you back any result to assert. Asserting on statements like no.of times, a statement got executed is very brittle
 - `static` methods that are not static and mutate state and do side-effects are not really __Static__
 
 ## Bad Design
@@ -68,7 +68,8 @@ Your component is interacting with your external systems directly, without expli
 If you interact with Legacy code, your code instantly turns legacy
 
 # I have the "Power"Mock
-Are you saying one can't achieve high test coverage with these obstacles? The obstacle is the way and I have the **"Power"Mock**. Some of the powerful things that it lets you do are:
+Are you saying one can't achieve high test coverage with these obstacles? The obstacle is the way and I have the **"Power"Mock**.
+These are some of the dark powers it gives you:
 
 - Suppress
   - `this` and `super` constructor
@@ -79,14 +80,13 @@ Are you saying one can't achieve high test coverage with these obstacles? The ob
   - `final` methods
   - Constructors
 - Mock `final` classes
-- What else you need, you should feel unstoppable
 
-When you have a hammer, everything feels like a nail. Check-out how you can achieve 100% test coverage even without testing any behavior: [Example](https://github.com/overfullstack/sttc-demo/blob/master/demo/src/test/java/ga/overfullstack/powermock/before/BeanToEntityTest.java#L27-L27)
+What else you need, you should feel unstoppable!! When you have a hammer, everything feels like a nail. Check-out how you can achieve 100% test coverage even without testing any behavior: [Example](https://github.com/overfullstack/sttc-demo/blob/master/demo/src/test/java/ga/overfullstack/powermock/before/BeanToEntityTest.java#L27-L27)
 - Although this is an example, it's inspired from some tests that I encountered in reality
 - Such tests are extremely hard to spot in code reviews and so sneaky even if you are seeing them in the IDE.
 
 ## Synthetic Coverage
-- What you essentially are doing is bending the Prod code to make the test pass and achieve 100% statement coverage.
+- What invasive tools like PowerMock does is bending the Prod code to make the test pass and achieve 100% statement coverage.
 - *Statement* coverage as a metric is **NOT** accurate to measure the behavior of the component covered.
 - The synthetic coverage can disguise your coverage dashboards, which is more dangerous than not having coverage.
 

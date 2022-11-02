@@ -423,13 +423,14 @@ Tests should not be an after-thought and should happen parallel to Refactor, lik
 
 # My Talks on this
 
-- 🇪🇸 **[JBCN Conf](https://www.jbcnconf.com/2021/infoSpeaker.html)**, 2021, Barcelona, Spain.
+- 🇪🇸 [**JBCN Conf**](https://www.jbcnconf.com/2021/infoSpeaker.html), 2021, Barcelona, Spain.
 
 `youtube: https://www.youtube.com/watch?v=Ip8SvyXLvD8&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1`
 
-- 🇮🇳 **[Functional Conf](https://confengine.com/conferences/functional-conf-2022/proposal/16085/huh-to-aha-a-refactoring-story)**, 2022, India.
+- 🇮🇳 [**Functional Conf**](https://confengine.com/conferences/functional-conf-2022/proposal/16085/huh-to-aha-a-refactoring-story), 2022, India.
 
 `youtube: https://www.youtube.com/watch?v=MVnfndMW9zo&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1`
 
-- 🇪🇺 **[jLove](https://embed.emamo.com/event/jlove-2021/r/speaker/gopal-s-akshintala)**, 2021, Europe.
+- 🇩🇪 [**WeAreDevelopers World Congress**](https://www.wearedevelopers.com/world-congress/speakers#:~:text=Architect%20at%20smapiot-,Gopal,-S%20Akshintala), 2022, Berlin, Germany.
 
+- 🇪🇺 **[jLove](https://embed.emamo.com/event/jlove-2021/r/speaker/gopal-s-akshintala)**, 2021, Europe.
