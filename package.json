@@ -20,7 +20,7 @@
   "dependencies": {
     "bluebird": "^3.7.2",
     "firebase": "^9.13.0",
-    "gatsby": "^4.24.5",
+    "gatsby": "^5.0.0",
     "gatsby-plugin-catch-links": "^4.24.0",
     "gatsby-plugin-cname": "^1.0.0",
     "gatsby-plugin-feed": "^4.24.0",
@@ -46,7 +46,7 @@
     "gatsby-remark-smartypants": "^5.24.0",
     "gatsby-source-filesystem": "^4.24.0",
     "gatsby-transformer-asciidoc": "^3.24.0",
-    "gatsby-transformer-remark": "^5.24.0",
+    "gatsby-transformer-remark": "^6.0.0",
     "gatsby-transformer-sharp": "^4.24.0",
     "gist-syntax-themes": "^1.1.0",
     "katex": "^0.16.3",
