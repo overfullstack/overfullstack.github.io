@@ -82,7 +82,7 @@ And the **Metrics** to keep a check on our goals:
 - **Cognitive Complexity** - which is inversely proportional to **Readability**
 - **Testability** - Indicates how isolated your components are, to be composed and reused.
 
-We shall apply those methods on a **real-world application** and realize how its metrics are affected.
+We shall apply those methods to a **real-world**** application** and realize how its metrics are affected.
 
 Let's start with Obstacles and how to overcome them:
 
@@ -191,7 +191,7 @@ static Either<Tuple2<ID, Failure>, ImmutableEgg> validate(
 }
 ```
 
-Monads is out of scope to be covered here, but I have an entire 1 hour talk about this, which can help you fill this missing piece:
+Monad is out of scope to be covered here, but I have an entire 1 hour talk about this, which can help you fill in this missing piece:
   - [Java Version](/my-talks/#Fight-Complexity-with-Functional-Programming-Java)
   - [Kotlin Version](/my-talks/#Fight-Complexity-with-Functional-Programming-Kotlin)
 

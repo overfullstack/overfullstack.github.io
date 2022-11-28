@@ -9,7 +9,7 @@ path: /my-talks
 
 He's an International Speaker, with his Tech-Talks being warmly received at:
 
-- 🇮🇳 [**TMP Horizon**](https://sites.google.com/salesforce.com/tmphorizon2022/agenda/hyderabad/gopal-s-akshintala), Hyderabad, 2022
+- 🇮🇳 [**TMP Horizon**](https://www.youtube.com/watch?v=n849hcp6jkg&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1), Hyderabad, 2022
 - 🇮🇳 [**Google Cloud Community Days**](https://gdg.community.dev/events/details/google-gdg-cloud-hyderabad-presents-cloud-community-days-hyderabad-2022-1/), Hyderabad, 2022
 - 🇩🇪 [**WeAreDevelopers World Congress**](https://www.wearedevelopers.com/world-congress/speakers#:~:text=Architect%20at%20smapiot-,Gopal,-S%20Akshintala), 2022, Berlin, Germany.
 - 🇮🇳 [**Git the Core on, May the perForce be ~~with you~~ Gone**](https://www.youtube.com/watch?v=YjtsQ-JjodM&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1), 2022
@@ -31,6 +31,11 @@ He's an International Speaker, with his Tech-Talks being warmly received at:
 - 🇪🇸 [**JBCN Conf**](https://www.jbcnconf.com/2020/), 2020, Barcelona, Spain (This event got cancelled due to COVID-19).
 
 # Recorded Talks
+
+## Automation → Obsession → Innovation
+
+`youtube: https://www.youtube.com/watch?v=n849hcp6jkg&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1`
+
 
 ## Git the Core on, May the perForce be ~~with you~~ Gone
 

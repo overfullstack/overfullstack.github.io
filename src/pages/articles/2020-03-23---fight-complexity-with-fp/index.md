@@ -14,9 +14,9 @@ description: Skadooosh!
 
 # Abstract
 
-A Metric-driven approach to reduce Cognitive Complexity in a code base, using Functional Programming, demoed **hands-on**, 
-by solving a complex real-world ubiquitous design challenge - REST API Bulk Request Validation, 
-with an extensible Framework that separates what-to-do (Validations)from how-to-do (Validation Orchestration). 
+A Metric-driven approach to reduce Cognitive Complexity in a code base, using Functional Programming, demoed **hands-on**,
+by solving a complex real-world ubiquitous design challenge - REST API Bulk Request Validation,
+with an extensible Framework that separates what-to-do (Validations)from how-to-do (Validation Orchestration).
 Let's do a case study of a successful implementation done by our team in the world's largest SaaS org, _Salesforce_.
 
 # Audience & Takeaways
@@ -25,14 +25,14 @@ Let's do a case study of a successful implementation done by our team in the wor
 
   - This talk starts with basic FP concepts like _Imperative vs. Declarative_ style using Java **Streams** or Kotlin **Sequences**.
   - Then the audience is gradually ramped-up towards intermediate FP concepts such as _Monads_, _First-Class Functions_ , _Higher-Order Functions_.
-  - Towards the end, we touch upon concepts for an advanced audience like _Function-Lifting_, _Dozen FP Operations for daily Programming like `foldLeft`_ within the context of the problem, with pictures and simple examples. They are also provided with appropriate pointers wherever needed, to go back and refer.
+  - Towards the end, we touch upon concepts for an advanced audience like _Function-Lifting_, _Dozen FP Operations for daily Programming like `foldLeft`_ within the context of the problem, with pictures and simple examples. They are also provided with appropriate pointers wherever needed, to go back and refer to.
 
 - The audience experiences a mind-shift from the traditional mutation-heavy _Imperative style_ to _Functional style_ -- with Immutable Objects (Using Java `Records` or Kotlin's `Data classes`) and Pure-Functions (replacing Mutation with Transformation).
 
 - With Hands-on demos, this talk adds a robust paradigm toolset and vocabulary to a programmer's arsenal and how to apply them to simplify the modelling and designing of complex _real-world_ problems.
 
 - The audience learns how to objectively perceive complexity in any codebase through metrics (measured using popular static analysis tools), and how to reduce cognitive complexity methodically.
-- Finally, we shall talk about how these concepts laid foundation stones to our in-house library **Vader**, a bean validation framework.
+- Finally, we shall talk about how these concepts laid the foundation stones for our in-house library [**Vador**](https://github.com/salesforce-misc/Vador), a bean validation framework.
 
 # Source-Code
 
@@ -44,7 +44,7 @@ The concepts are language agnostic. For broader outreach, I can use either of th
 
 - **Java** + **[Vavr](https://www.vavr.io/)** (an Open-source functional library for Java)
 
-As I cannot use the production code, I use code samples from my POC for the demonstration -- [Github repo for Java](https://github.com/overfullstack/railway-oriented-validation) or [Github repo for Kotlin](https://github.com/overfullstack/railway-oriented-validation-kotlin).
+As I cannot use the production code, I use code samples from my POC for the demonstration -- [Github repo for Java](https://github.com/overfullstack/railway-oriented-validation) or [GitHub repo for Kotlin](https://github.com/overfullstack/railway-oriented-validation-kotlin).
 
 The code references in this post point to the Java repo, but they can be correlated by name with the Kotlin repo.
 
@@ -57,11 +57,11 @@ The code references in this post point to the Java repo, but they can be correla
 - Then the talk offers a Functional Programming (FP) solution, using Monads and Lambdas, which **Minimizes the accidental complexity without compromising Time complexity (Perf)**, and can seamlessly be extended.
 - Throughout this talk, Simple Monads (like `Option`, `Either`, `Try` etc.,) are introduced and how they fit in the context of the problem.
 - This talk attempts to ramp-up the audience on functional programming gradually, and towards the end, we touch upon advanced concepts like Higher-Order Functions, Function Lifting, Dozen FP Operations for daily Programming like `foldLeft` etc.
-- This talk is a fun-filled, code-driven, and without getting into definitions (which can be read from books), the attempt is to portray hands-on experience about how FP can help us become better developers.
+- This talk is fun-filled, code-driven, and without getting into definitions (which can be read from books), the attempt is to portray hands-on experience about how FP can help us become better developers.
 
 # Introduction
 
-With the advent of **SaaS** and **Microservices/Macroservices**, software systems majorly communicate through the network, and **REST** is the predominant HTTP protocol used. To reduce network latency, these services resort to _Bulk-APIs_. One of the significant challenges of Bulk-APIs is **Request Validation**. With increasing request bulk size, service routes, and the number of validations, the validation orchestration can quickly get complex when done in traditional imperative style.
+With the advent of **SaaS** and **Microservices/Macroservices**, software systems majorly communicate through the network, and **REST** is the predominant HTTP protocol used. To reduce network latency, these services resort to _Bulk-APIs_. One of the significant challenges of Bulk-APIs is **Request Validation**. With increasing request bulk size, service routes, and the number of validations, the validation orchestration can quickly get complex when done in a traditional imperative style.
 
 Let's take-up a real-world problem. Our Payments-Platform domain has parallel services such as Authorization, Capture, Refund, Void. All of these are REST-APIs. They have JSON request payloads that accept sub-requests in bulk (list of JSON nodes). A simplified version of payload for one of the routes - Authorization:
 
@@ -88,7 +88,7 @@ Let's take-up a real-world problem. Our Payments-Platform domain has parallel se
 ]
 ```
 
-This JSON structure gets marshalled into POJOs, which needs to validated at the entry point of our application layer. Since all services deal with Payments, they have a lot of common fields like `amount`, as well as common child nodes like `paymentMethod` in their structure. Based on the type of field, they have different kinds of validations. E.g.:
+This JSON structure gets marshaled into POJO, which needs to be validated at the entry point of our application layer. Since all services deal with Payments, they have a lot of common fields like `amount`, as well as common child nodes like `paymentMethod` in their structure. Based on the type of field, they have different kinds of validations. E.g.:
 
 - _Data validations_ - to validate data integrity for fields like `amount`.
 - _Effectful validations_ - for fields like `accountId`, which involves a DB read to verify.
@@ -115,7 +115,7 @@ We have close to **100 validations** of various kinds and increasing. When the a
 
 But to state that objectively, we can run **Cognitive Complexity** [$_{[2]}$](https://www.sonarsource.com/docs/CognitiveComplexity.pdf) metrics on this code, using a popular Code Quality tool called **SonarQube™**[$_{[3]}$](https://docs.sonarqube.org/latest/user-guide/metric-definitions/).
 
-Our current imperative approach records **high** values for both these metrics. (Results to be run and explained during the talk).
+Our current imperative approach records **high** values for both of these metrics. (Results to be run and explained during the talk).
 
 # Need for Better Design
 
@@ -139,7 +139,7 @@ The framework mainly consists of 3 decoupled parts:
 
 ## Why FP?
 
-We need an extensible framework to cater above design needs. But why is FP the best fit for solving problems like these? Every Software design problem can be seen like a block of objects doing functions or functions processing objects. We have the latter situation, where the sub-requests are being processed (validated) by various validation functions. Whenever there is a situation, where we got to apply a set of operations or transformations on a collection, where output of a function happens to be the input for the subsequent, that's when we should identify it's a FP problem. Please mind, these are transformations and not Mutations.
+We need an extensible framework to cater above design needs. But why is FP the best fit for solving problems like these? Every Software design problem can be seen as a block of objects doing functions or functions processing objects. We have the latter situation, where the sub-requests are being processed (validated) by various validation functions. Whenever there is a situation, where we got to apply a set of operations or transformations on a collection, where the output of a function happens to be the input for the subsequent, that's when we should identify it's an FP problem. Please mind, these are transformations and not Mutations.
 
 FP is the best fit to model domains with rich business logic, filled with computations and transformations. That is the reason, it is the first choice for Machine learning, AI, BigData, Reactive Programming etc.
 
@@ -147,7 +147,7 @@ FP is the best fit to model domains with rich business logic, filled with comput
 
 Making POJOs immutable helps us take out a lot of cognitive load while reasoning about programs. Especially, when our objects are passing through an array of functions, Immutability gives a guarantee that the objects are only being _Transformed_ and not _Mutated_.
 
-With the latest Java feature **Records**, I shall demo how a class can be easilymade immutable
+With the latest Java feature **Records**, I shall demo how a class can be easily made immutable
 
 - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/domain/ImmutableEgg.java)
 
@@ -165,19 +165,19 @@ This is a popular technique called **Railway-Oriented-Programming**[$_{[5]}$](ht
 
 ## Validations exchange Monad Currency
 
-This _Effect_ can be used as a currency to be exchanged as input-output for our independent validation functions. A validation function takes Either monad as input. If the input is in the `right` state, validation is performed using its API functions `map` or `flatMap`, and if the validation fails, the corresponding failure is set in the `left` state. Otherwise, return the monad in the right state. As long as the result of a validation is in the right state, it doesn't matter what the value it has. Thus a wild-card is used in the `Validator` Data type signature. [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/0a2b47279ea2d76eb8a31d3c3f8ea0a05d64b6e9/src/main/java/algebra/types/Validator.java#L11).
+This _Effect_ can be used as a currency to be exchanged as input-output for our independent validation functions. A validation function takes Either monad as input. If the input is in the `right` state, validation is performed using its API functions `map` or `flatMap`, and if the validation fails, the corresponding failure is set in the `left` state. Otherwise, return the monad in the right state. As long as the result of validation is in the right state, it doesn't matter what value it has. Thus a wild-card is used in the `Validator` Data type signature. [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/0a2b47279ea2d76eb8a31d3c3f8ea0a05d64b6e9/src/main/java/algebra/types/Validator.java#L11).
 
 ## The Configuration
 
 Since functions are values, all we need is an Ordered List (like `java.util.list`) to maintain the sequence of validations. We can compose all the validation functions, in the order of preference. This order is **Configurable** easily. [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/declarative/Config.java#L37-L50).
 
-However, there is a complexity. List of Validations for a parent node consists of a mix of parent node and child node validations. But they can't be put under one `List`, as they are functions on different Data Types. So child validations need to be ported to parent context. We can achieve this with **Higher-Order Functions**, which act as DSL to **lift** child validation to parent type
+However, there is a complexity. The list of Validations for a parent node consists of a mix of the parent node and child node validations. But they can't be put under one `List`, as they are functions on different Data Types. So child validations need to be ported to the parent context. We can achieve this with **Higher-Order Functions**, which act as DSL to **lift** child validation to the parent type
 
 - [Ref](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/algebra/ConfigDsl.java).
 
 This is a powerful technique, which enables us to see the code through the lens of **Algebra**. This way, we can configure a **Chain** of validations in-order, sorting out all the parent-child dependencies. This is nothing but the most popular **Chain of Responsibility** Design pattern, with a functional touch.
 
-If the inter-dependencies between Parent-Child happens to be more complex, we may end-up with _Graph_ like relationship, but it can easily be _flatten_ into a Chain with simple _Topological Sort_.
+If the inter-dependencies between Parent-Child happen to be more complex, we may end up with _Graph__ like relationship, but it can easily be _flatten_ into a Chain with a simple _Topological Sort__.
 
 ## The Orchestration
 
@@ -195,7 +195,7 @@ Individual validation functions are easily testable through unit-tests as they a
 
 ## Complexity
 
-Thanks to the monad abstracting away all the branching complexity, our linear code has minimum complexity, which makes it easy to extend, debug and reason about. We can rerun the previous complexity metrics to prove it. ![complexity-compare](media/complexity-compare.png) As pointed, we can compare [Imperative approach](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/imperative/ImperativeValidation.java) with the [Declarative one](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/declarative/RailwayValidation2.java). Despite the declarative implementation having more validations than imperative implementation, the _Cognitive Complexity_ remains minimum.
+Thanks to the monad abstracting away all the branching complexity, our linear code has minimum complexity, which makes it easy to extend, debug and reason about. We can rerun the previous complexity metrics to prove it. ![complexity-compare](media/complexity-compare.png) As pointed out, we can compare [Imperative approach](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/imperative/ImperativeValidation.java) with the [Declarative one](https://github.com/overfullstack/railway-oriented-validation/blob/master/src/main/java/app/declarative/RailwayValidation2.java). Despite the declarative implementation having more validations than imperative implementation, the _Cognitive Complexity_ remains minimum.
 
 # Conclusion
 

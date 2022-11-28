@@ -23,7 +23,7 @@ When I see code coverage numbers hitting more than 90, it reminds me of Sachin's
 # Abstract
 - Unit testing has always been one of the most controversial topics among devs with many strong opinions, myths, and magic!
 - Let’s talk about why we write unit tests and common mistakes that make unit testing difficult and tempt teams to reach out for Invasive tools like **PowerMock** to quench their coverage obsession.
-- Developing amidst Legacy code should not be an excuse to skip unit tests. Let’s check out how **Ports & Adapters** architecture can help unit-test your Greenfield code written over a Brownfield setup.
+- Side-effects in domain logic or developing amidst Legacy code should not be an excuse to skip unit tests. Let’s check out how **Ports & Adapters** architecture can help unit-test your Greenfield code in isolation, independent of side-effects or Brownfield setup.
 - The Salesforce platform is powered by one of the largest monoliths, scaffolded back in 1999. Let’s discuss some of the practices we follow to stay honest with our coverage obsession till today.
 
 # Audience
