@@ -61,7 +61,7 @@
     "react-toastify": "^9.0.8",
     "sass": "^1.55.0",
     "sharp": "^0.31.1",
-    "snyk": "^1.1044.0",
+    "snyk": "^1.1064.0",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
