@@ -16,9 +16,7 @@ description: Java for Problem-Solving in Campus Interviews
 
 # 🏏 Score the Tendulkar Test Coverage
 
-India's most renowned cricketer **Sachin Tendulkar** holds a peculiar record that no batsman wants to break. He got dismissed in 90s 18 times in ODIs and 10 times in Test cricket and
-holds the record for the highest number of dismissals in the 90s (a total of 28 times) across all forms of international cricket.  they call it!
-When I see code coverage numbers hitting more than 90, it reminds me of Sachin's [Nervous Nineties](https://en.wikipedia.org/wiki/Nervous_nineties)
+India's most renowned cricketer **Sachin Tendulkar** holds a peculiar record that **NO** batsman wants to break. He missed many centuries by getting dismissed at the score of 90 (18 times in ODIs and 10 times in Test cricket). He holds the record for the highest number of dismissals in the 90s (a total of 28 times) across all forms of international cricket. As a Tendulkar fan, I knew almost each of these scores by heart, as I felt equally nervous. When I see code coverage numbers hitting more than 90, it reminds me of Sachin's [Nervous Nineties](https://en.wikipedia.org/wiki/Nervous_nineties)
 
 # Abstract
 - Unit testing has always been one of the most controversial topics among devs with many strong opinions, myths, and magic!
@@ -196,10 +194,10 @@ add(1, 2, result -> assertEquals(3, result));
 ```
 
 ## Bad Design
-- [Example](https://github.com/overfullstack/sttc-demo/blob/master/demo/src/main/java/ga/overfullstack/pokemon/before/PokemonCollector.java#L21-L21)
+- [Example](https://github.com/overfullstack/sttc-demo/blob/4c9bbfc1137f71d247f7528d66b69812e57f85be/demo/src/main/java/ga/overfullstack/pokemon/before/PokemonCollector.java)
 - When you have a function like this, it is no more OOP, instead, it's P~~O~~OP (Procedure Oriented Programming).
 - It's just a script written in Java and scripts are by definition not test-friendly.
-- This leaves you no choice but to resort to invasive tools like **PowerMock** where you end up mocking statements with `when-then`
+- This leaves you with no choice but to resort to invasive tools like **PowerMock**, where you end up mocking statements with `when-then`
 - Mocking statements instead of Dependencies is like strapping your prod code. You can't move those lines around without breaking or needing to update your tests, even though the behavior remains the same.
 - You need to design components with Unit-Testing in mind (There you go, **TDD** in one line).
 - One Golden thumb rule: **Always inject the **dependencies through the **constructor**.
