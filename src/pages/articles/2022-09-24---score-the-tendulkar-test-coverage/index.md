@@ -1,5 +1,5 @@
 ---
-title: Score the Tendulkar Test Coverage
+title: Score the Tendulkar Test Coverage 🏏
 date: '2022-09-24T00:00:00.000Z'
 layout: post
 draft: false
@@ -14,7 +14,7 @@ tags:
 description: Java for Problem-Solving in Campus Interviews
 ---
 
-# 🏏 Score the Tendulkar Test Coverage
+# Nervous Nineties
 
 India's most renowned cricketer **Sachin Tendulkar** holds a peculiar record that **NO** batsman wants to break. He missed many centuries by getting dismissed at the score of 90 (18 times in ODIs and 10 times in Test cricket). He holds the record for the highest number of dismissals in the 90s (a total of 28 times) across all forms of international cricket. As a Tendulkar fan, I knew almost each of these scores by heart, as I felt equally nervous. When I see code coverage numbers hitting more than 90, it reminds me of Sachin's [Nervous Nineties](https://en.wikipedia.org/wiki/Nervous_nineties)
 
