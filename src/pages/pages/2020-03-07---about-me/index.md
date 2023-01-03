@@ -27,4 +27,4 @@ active participation in the Dev discussions, and Speaking at User Groups and Con
 He loves being on Stage, as a Singer ([SoundCloud](http://bit.ly/agssc) | [Youtube](https://youtube.com/playlist?list=PLrJbJ9wDl9EB5lKs1L13pJDOKp9yg0YF9))
 and a Tech-Speaker and writes about [Nature & Life](https://leafonthewind.ga).
 
-[Résumé](http://bit.ly/ags-my-resume)
+[Résumé](bit.ly/resume-ga)
