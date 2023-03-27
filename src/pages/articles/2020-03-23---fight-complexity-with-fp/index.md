@@ -16,7 +16,7 @@ description: Skadooosh!
 
 A Metric-driven approach to reduce Cognitive Complexity in a code base, using Functional Programming, demoed **hands-on**,
 by solving a complex real-world ubiquitous design challenge - REST API Bulk Request Validation,
-with an extensible Framework that separates what-to-do (Validations)from how-to-do (Validation Orchestration).
+with an extensible Framework that separates what-to-do (Validations) from how-to-do (Validation Orchestration).
 Let's do a case study of a successful implementation done by our team in the world's largest SaaS org, _Salesforce_.
 
 # Audience & Takeaways
@@ -32,7 +32,7 @@ Let's do a case study of a successful implementation done by our team in the wor
 - With Hands-on demos, this talk adds a robust paradigm toolset and vocabulary to a programmer's arsenal and how to apply them to simplify the modelling and designing of complex _real-world_ problems.
 
 - The audience learns how to objectively perceive complexity in any codebase through metrics (measured using popular static analysis tools), and how to reduce cognitive complexity methodically.
-- Finally, we shall talk about how these concepts laid the foundation stones for our in-house library [**Vador**](https://github.com/salesforce-misc/Vador), a bean validation framework.
+- Finally, we shall talk about how these concepts laid the foundation stones for our in-house open-source library [**Vador**](https://github.com/salesforce-misc/Vador), a bean validation framework.
 
 # Source-Code
 
