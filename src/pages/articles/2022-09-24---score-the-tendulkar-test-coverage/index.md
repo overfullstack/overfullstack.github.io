@@ -7,10 +7,13 @@ path: /posts/score-the-tendulkar-test-coverage
 cover: ./cover.png
 category: Design
 tags:
-  - Java
   - Unit Test
   - Design Pattern
   - Clean Architecture
+  - Ports and Adapters
+  - PowerMock
+  - Java
+  - Kotlin
 description: Java for Problem-Solving in Campus Interviews
 ---
 

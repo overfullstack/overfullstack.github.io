@@ -8,13 +8,18 @@ cover: ./cover.png
 category: Design
 tags:
   - Java
+  - Kotlin
   - Refactoring
+  - Component Isolation
+  - Immutability
+  - Complexity
+  - Testability
 description: As a Dev, I need to Refactor, to make the codebase Refactorable
 ---
 
 # Abstract
 
-_As a Dev, I need to Refactor, to make the codebase Refactorable_. Refactorability [as defined by Martin Fowler](https://refactoring.com/) is, "The ability to alter internal structure without changing its external behavior". This applies to each atomic component of an app. Let's achieve our dev story through a unique, yet the most effective method, **Component Isolation**.
+_As a Dev, I need to Refactor, to make the codebase Refactorable_. Refactorability, [as defined by Martin Fowler](https://refactoring.com/) is, "The ability to alter internal structure without changing its external behavior". This applies to each atomic component of an app. Let's achieve our dev story through a unique, yet the most effective method, **Component Isolation**.
 
 Let's huddle over persuasive arguments against _Obstacles_ that hinder our goal causing entanglements among components, and _Metrics_ that measure our success.
 
