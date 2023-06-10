@@ -5,7 +5,7 @@ layout: post
 draft: false
 path: /posts/my-interview-with-konfy
 cover: ./cover.jpg
-category: Design
+category: Interview
 tags:
   - Java
   - Interview

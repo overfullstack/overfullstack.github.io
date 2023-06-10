@@ -5,7 +5,7 @@ layout: post
 draft: false
 path: /posts/score-the-tendulkar-test-coverage
 cover: ./cover.png
-category: Design
+category: Test Driven Design
 tags:
   - Unit Test
   - Design Pattern

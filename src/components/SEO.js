@@ -34,11 +34,11 @@ const SEO = ({ meta, cover, title, description, slug }) => (
           htmlAttributes={{ lang: `en` }}
           {...(title
             ? {
-                titleTemplate: `%s | ${siteMetadata.author.name} | ${siteMetadata.blogTitle}`,
+                titleTemplate: `%s | ${siteMetadata.blogTitle} | ${siteMetadata.author.name}`,
                 title,
               }
             : {
-                title: `${siteMetadata.author.name} | ${siteMetadata.blogTitle}`,
+                title: `${siteMetadata.blogTitle} | ${siteMetadata.author.name}`,
               })}
           meta={[
             {

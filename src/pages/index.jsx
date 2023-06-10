@@ -1,47 +1,39 @@
 import { graphql } from "gatsby"
 import React from "react"
-import { Helmet } from "react-helmet"
 
 import Layout from "../components/Layout"
 import Post from "../components/Post"
 import SEO from "../components/SEO"
 import Sidebar from "../components/Sidebar"
 
-class IndexRoute extends React.Component {
-  render() {
-    const items = []
-    const { blogTitle, subtitle, caption, logo } =
-      this.props.data.site.siteMetadata
-    const posts = this.props.data.allMarkdownRemark.edges
-    posts.forEach((post) => {
-      items.push(<Post data={post} key={post.node.fields.slug} />)
-    })
+const IndexRoute = (props) => {
+  const items = []
+  const { subtitle, caption, logo } = props.data.site.siteMetadata
+  const posts = props.data.allMarkdownRemark.edges
+  posts.forEach((post) => {
+    items.push(<Post data={post} key={post.node.fields.slug} />)
+  })
 
-    return (
-      <div
-        style={{
-          color: `var(--textNormal)`,
-          background: `var(--bg)`,
-          transition: `color 0.2s ease-out, background 0.2s ease-out`,
-          minHeight: `100vh`,
-        }}
-      >
-        <Layout>
-          <SEO cover={logo} description={subtitle} caption={caption} />
-          <div>
-            <Helmet>
-              <title>{`${blogTitle}`}</title>
-              <meta name="description" content={subtitle} />
-            </Helmet>
-            <Sidebar {...this.props} />
-            <div className="content">
-              <div className="content__inner">{items}</div>
-            </div>
+  return (
+    <div
+      style={{
+        color: `var(--textNormal)`,
+        background: `var(--bg)`,
+        transition: `color 0.2s ease-out, background 0.2s ease-out`,
+        minHeight: `100vh`,
+      }}
+    >
+      <Layout>
+        <SEO cover={logo} description={subtitle} caption={caption} />
+        <div>
+          <Sidebar {...props} />
+          <div className="content">
+            <div className="content__inner">{items}</div>
           </div>
-        </Layout>
-      </div>
-    )
-  }
+        </div>
+      </Layout>
+    </div>
+  )
 }
 
 export default IndexRoute

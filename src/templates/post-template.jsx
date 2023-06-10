@@ -32,7 +32,7 @@ const PostTemplate = (props) => {
         <SEO
           title={actualPostTitle}
           description={description}
-          cover={cover.childImageSharp.original.src}
+          cover={cover ? cover.childImageSharp.original.src : ``}
           slug={post.fields.slug}
         />
         <div>
