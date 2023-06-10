@@ -1,6 +1,10 @@
 const lost = require(`lost`)
 const pxtorem = require(`postcss-pxtorem`)
 
+require(`dotenv`).config({
+  path: `.env`,
+})
+
 module.exports = {
   siteMetadata: {
     url: `https://github.com/overfullstack/overfullstack.github.io`,
