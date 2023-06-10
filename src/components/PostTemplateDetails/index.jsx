@@ -2,7 +2,7 @@ import "gist-syntax-themes/stylesheets/idle-fingers.css"
 import "./style.scss"
 
 import { Link } from "gatsby"
-import app from "gatsby-plugin-firebase-v9.0"
+import app from "../firebase"
 import {
   collection,
   doc,

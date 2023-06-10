@@ -5,6 +5,7 @@
   "main": "n/a",
   "scripts": {
     "develop": "gatsby develop",
+    "debug": "node --nolazy node_modules/.bin/gatsby develop --inspect-brk",
     "clean:public": "rm -rf public",
     "clean": "yarn clean:public",
     "test": "test --passWithNoTests",
@@ -24,7 +25,6 @@
     "gatsby-plugin-catch-links": "^5.10.0",
     "gatsby-plugin-cname": "^1.0.0",
     "gatsby-plugin-feed": "^5.10.0",
-    "gatsby-plugin-firebase-v9.0": "^1.0.3",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-google-gtag": "^5.10.0",
     "gatsby-plugin-mailchimp": "^5.2.2",

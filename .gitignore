@@ -8,7 +8,7 @@ npm-debug.log
 .intermediate-representation/
 /.idea/workspace.xml
 /package-lock.json
-.env
+.env.*
 
 .yarn/*
 !.yarn/cache
