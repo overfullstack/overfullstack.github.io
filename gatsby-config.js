@@ -51,9 +51,9 @@ module.exports = {
       resolve: `gatsby-plugin-firebase-v9.0`,
       options: {
         credentials: {
-          apiKey: process.env.FIREBASE_API_KEY || `none`,
-          authDomain: process.env.FIREBASE_AUTH_DOMAIN || `none`,
-          projectId: process.env.FIREBASE_PROJECT_ID || `none`,
+          apiKey: process.env.GATSBY_FIREBASE_API_KEY || `none`,
+          authDomain: process.env.GATSBY_FIREBASE_AUTH_DOMAIN || `none`,
+          projectId: process.env.GATSBY_FIREBASE_PROJECT_ID || `none`,
         },
       },
     },
