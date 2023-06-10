@@ -1,5 +1,5 @@
 ---
-title: Throw away Exceptions 👽
+title: "Throw away Exceptions \U0001F47D"
 date: '2021-07-07T00:00:00.000Z'
 layout: post
 draft: false
@@ -12,8 +12,7 @@ tags:
 description: Exceptions are Wormholes
 ---
 
-> This is a part of this post:
-[$card](https://overfullstack.ga/posts/huh-to-aha)
+> This is a part of this post: [$card](https://overfullstack.github.io/posts/huh-to-aha)
 
 # Exceptions are the most abused language feature
 
@@ -40,6 +39,7 @@ You need to hunt down all throws and re-throws and multiple catch blocks, playin
 ![ides](media/ides.png)
 
 Whenever you are reading someone's code or your own code after a while for that matter, 2 IDEs run, one on your laptop and another in your head. The laptop IDE is the one that takes its sweet time to index and gobbles up half your ram, (they got too greedy these days). The other one, the poor one, which runs in your skull, slowly reads line-by-line, and tries to make-up a picture of what's going-on until that picture is suddenly shattered with a `throw`. If you're like me with an extremely limited working memory and got ADHD on top of it, please don't throw exceptions.
+
 - Exceptions are famously called modern `goto`s. I would say they are _Wormholes_ in the code which can teleport your execution point to places unexpected.
 - And I am not even going into Async and Concurrent realms, where you add an extra dimension to this catching game called **Threads**.
 - Therefore, modern JVM languages like Kotlin are going away from the concept of **Checked Exceptions**. You shouldn't force developers to catch exceptions, they will if they need to handle.

@@ -1,5 +1,5 @@
 ---
-title: Mutation is Unholy 👹
+title: "Mutation is Unholy \U0001F479"
 date: '2021-07-07T00:00:00.000Z'
 layout: post
 draft: false
@@ -12,8 +12,7 @@ tags:
 description: Mutation causes Quantum Entanglement
 ---
 
-> This is a part of this post:
-[$card](https://overfullstack.ga/posts/huh-to-aha)
+> This is a part of this post: [$card](https://overfullstack.github.io/posts/huh-to-aha)
 
 # The Entanglement
 
@@ -62,7 +61,7 @@ static void client() {
 }
 ```
 
-- After a painful debugging session, he found a bug; that has been waiting to bite him — A **Latent Bug**.
+- After a painful debugging session, he found a bug; that has been waiting to bite him -- A **Latent Bug**.
 
 ```java{3,11}
 static int sumAbsolute(List<Integer> nums) {
@@ -79,15 +78,11 @@ static void client() {
 }
 ```
 
-Because the `sumAbsolute` received a reference to a mutable object, it assumed it as a license to do any mutations on it. 
-To me the mistake lies with the `client`, who passes-around a mutable object reference. 
-This mutable object acts as an invisible string, coupling the components `sumAbsolute`, `client` and `sum`.
-Thus, Mutable objects as Input params are **Unholy** for isolation.
+Because the `sumAbsolute` received a reference to a mutable object, it assumed it as a license to do any mutations on it. To me the mistake lies with the `client`, who passes-around a mutable object reference. This mutable object acts as an invisible string, coupling the components `sumAbsolute`, `client` and `sum`. Thus, Mutable objects as Input params are **Unholy** for isolation.
 
 ## Mutable Objects as Return types
 
-Well, that's even more dangerous. Let's see with an example:
-This is a function, which takes an `eggId` and fetches its laying date by doing a heavy DB operation.
+Well, that's even more dangerous. Let's see with an example: This is a function, which takes an `eggId` and fetches its laying date by doing a heavy DB operation.
 
 ```java
 Date getEggLayingDate(int eggId) {
@@ -114,7 +109,7 @@ int calculateEggAge(int eggId, Date today) {
 }
 ```
 
-- They are all in harmony, everything is working great. One day! a developer wanted to add a trivial log in `hasEggRotten`. 
+- They are all in harmony, everything is working great. One day! a developer wanted to add a trivial log in `hasEggRotten`.
 - As a date object is not used anymore in this function, he felt he could reuse this object to get month and year information and so he mutated it like this:
 
 ```java{5-7}
@@ -153,9 +148,7 @@ long calculateEggAge(int eggId, Date today) {
 ```
 
 - We just witnessed, how components separated by modules can be entangled with Mutable Objects. It's almost impossible to refactor them without breaking anything.
-- On a real code base, this is even more intertwined.
-  Most of our debugging cycles are spent to bash bugs like these. 
-  It resonates with the universal developer experience - "Fix this breaks that".
+- On a real code base, this is even more intertwined. Most of our debugging cycles are spent to bash bugs like these. It resonates with the universal developer experience - "Fix this breaks that".
 - I call this a **Quantum Entanglement!** ⚛🧙🏼‍♀️
 
 ## References Everywhere
@@ -181,9 +174,11 @@ Because historically it has been the default mode in Java, and defaults are powe
 - Make a habit to use final before var and function params to guard your references.
 - Follow Immutable strategy for POJOs from [Oracle's Documentation](https://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html)
 - (Pre Java 16) Auto-generate Immutable version of your POJO using:
+
   - [Lombok](https://projectlombok.org/features/Value) **(More Magic, Less Effort)**
   - [Google Auto](https://github.com/google/auto) **(Less Magic, More Effort)**
   - [Immutables](https://immutables.github.io/) **(Less Magic, More Effort)**
+
 - Use `Record` types from Java 16
 
 # Anti-Immutables
@@ -201,7 +196,7 @@ Some prevailing arguments about Immutability
 - With mutable objects, you need to build-up all that state in your head, and a simple distraction can puff it all up. Immutability eliminates that, by-definition.
 - Hope that answers this question.
 
-## _Immutable_ Objects doesn’t fit my _Imperative_ style?
+## _Immutable_ Objects doesn't fit my _Imperative_ style?
 
 Mutation and imperative are super good friends, and one likes to be with the other.
 
@@ -244,19 +239,21 @@ void immutableFn() {
 }
 ```
 
-**Immutability forces Transformation**
-(Now I don't have to tell you, who is the wife and who is the husband! 😉)
+**Immutability forces Transformation** (Now I don't have to tell you, who is the wife and who is the husband! 😉)
 
 ## Doesn't Immutability affect Perf?
 
 - Immutability may lead to creating more objects. But let's see what Oracle says:
-- ctrl-c + ctrl-v from [Oracle’s Documentation](https://docs.oracle.com/javase/tutorial/essential/concurrency/immutable.html)
-    - **The impact of object creation is often overestimated**.
-    - It can be offset by **decreased overhead due to garbage collection**.
+- ctrl-c + ctrl-v from [Oracle's Documentation](https://docs.oracle.com/javase/tutorial/essential/concurrency/immutable.html)
+
+  - **The impact of object creation is often overestimated**.
+  - It can be offset by **decreased overhead due to garbage collection**.
+
 - Period!
 
 ## Java's embracing Immutability, slowly
-- Most used Data type in any Java application? `String`, No coincidence that it’s Immutable.
+
+- Most used Data type in any Java application? `String`, No coincidence that it's Immutable.
 - Java 8 replaced `Date` with immutable `LocalDate`.
 - Java 11 introduced Immutable Collections.
 - Java 16 introduced `Record` types and a concise Stream operation `toList` for UnmodifiableList.

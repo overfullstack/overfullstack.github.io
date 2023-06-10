@@ -1,5 +1,5 @@
 ---
-title: Huh?🤔 to Aha!😇 - A Refactoring Story
+title: "Huh?\U0001F914 to Aha!\U0001F607 - A Refactoring Story"
 date: '2021-07-07T00:00:00.000Z'
 layout: post
 draft: false
@@ -14,7 +14,7 @@ tags:
   - Immutability
   - Complexity
   - Testability
-description: As a Dev, I need to Refactor, to make the codebase Refactorable
+description: 'As a Dev, I need to Refactor, to make the codebase Refactorable'
 ---
 
 # Abstract
@@ -40,6 +40,7 @@ This applies to software developers at all levels. I use **Java** to demonstrate
 - Metric-driven approach to objectively realize the results and improvements achieved.
 
 # Talk Outline
+
 Let's check out the [definition](https://refactoring.com/)](https://refactoring.com/) from the person who authored an entire book about it.
 
 > Refactoring is a disciplined technique for restructuring an existing body of code, altering its internal structure without changing its external behavior
@@ -67,9 +68,11 @@ Let's follow the [**MOM**](https://www.salesforce.com/blog/how-to-create-alignme
 We shall only focus on a couple of important **Methods** to achieve our goal:
 
 - **Human Readability**
+
   - Refactoring is for humans, machines can run any shitty code.
 
 - **Component Isolation**
+
   - How independent and loosely coupled my components are?
   - Are the effects of my component reaching farther than they should?
 
@@ -95,7 +98,7 @@ Let's start with Obstacles and how to overcome them:
 
 ## [Mutation is Unholy 👹](/posts/mutation-is-unholy)
 
----
+--------------------------------------------------------------------------------
 
 # Hello-real-world 🪐
 
@@ -127,7 +130,7 @@ void validate(Map<ID, Failure> failureMap,
 List<EggEntity> toEntityObjs(List<Egg> validEggs) {...}
 
 void bulkInsertIntoDB(List<EggEntity> eggEntityObjs)
-		throws DMLOperationException {...}
+        throws DMLOperationException {...}
 ```
 
 - It is also used to filter _valids_ from _Invalids_ after each step.
@@ -182,7 +185,7 @@ static List<Either<Tuple2<ID, Failure>, ImmutableEgg>> filterDuplicates(
 
 ![partial-failures-with-either-2](media/either-validate.png)
 
-- This also avoids the need for intermediate filtering between steps, coz all the failures contained in `Either.`left` are auto-skipped from processing downstream. This is possible due to the **Monad** property of `Either`.
+- This also avoids the need for intermediate filtering between steps, coz all the failures contained in `Either.`left`are auto-skipped from processing downstream. This is possible due to the **Monad** property of`Either`.
 
 ```java
 static Either<Tuple2<ID, Failure>, ImmutableEgg> validate(
@@ -197,8 +200,9 @@ static Either<Tuple2<ID, Failure>, ImmutableEgg> validate(
 ```
 
 Monad is out of scope to be covered here, but I have an entire 1 hour talk about this, which can help you fill in this missing piece:
-  - [Java Version](/my-talks/#Fight-Complexity-with-Functional-Programming-Java)
-  - [Kotlin Version](/my-talks/#Fight-Complexity-with-Functional-Programming-Kotlin)
+
+- [Java Version](/my-talks/#Fight-Complexity-with-Functional-Programming-Java)
+- [Kotlin Version](/my-talks/#Fight-Complexity-with-Functional-Programming-Kotlin)
 
 ## Refactored into Isolated Pieces 🏝
 
@@ -246,7 +250,7 @@ final var results = bulkInsertIntoDB(objsToInsert);
 // Prepare response from `partition.get(false)` and `results`
 ```
 
----
+--------------------------------------------------------------------------------
 
 # Metrics
 
@@ -274,10 +278,11 @@ The refactored code may feel complex because:
 - Strict - We intentionally induced this strictness. Unlike earlier implementations where the Developer can imperatively mutate stuff, now he is no more is in control. Declarative transformations already paved lanes to drive with discipline leaving him partial control and no shortcuts. For someone who is conditioned to Mutation, it feels like "Coding with handcuffs".
 
 That said Cognitive Complexity can be Objectively measured using tools like [SonarQube™](https://docs.sonarqube.org/latest/user-guide/metric-definitions/).
+
 - My previous talks, on the usage of **SonarQube™**:
 
-  - [Java Version](https://overfullstack.ga/my-talks/#Fight-Complexity-with-Functional-Programming-Java)
-  - [Kotlin Version](https://overfullstack.ga/my-talks/#Fight-Complexity-with-Functional-Programming-Kotlin)
+  - [Java Version](https://overfullstack.github.io/my-talks/#Fight-Complexity-with-Functional-Programming-Java)
+  - [Kotlin Version](https://overfullstack.github.io/my-talks/#Fight-Complexity-with-Functional-Programming-Kotlin)
 
 ## Testability
 
@@ -318,45 +323,50 @@ void fillEntityObjTest() {
 ```
 
 ## A Brittle Test
+
 - This test is _Brittle_, because:
+
   - `Unit Test !== Test Internals`
   - `Unit Test === E2E test for Unit`.
+
 - Unit tests don't mean testing the internals. It's an E2E test for your Unit/Component.
 - You should respect the encapsulation of each unit/component you test and operate on an abstraction one level above.
 - Your test should be like an idiotic bot that fires your function with input and asserts the output. It's not supposed to know anything else about your component code.
 - If it's asking for internals, it gets tightly latched with your component, which tends to fail every time you refactor. Such tests instead of helping, act as a foot-chain for refactoring.
 
 ## Make code Testable
+
 The solution is not to write better tests but make the main code _Testable_. Let's see our method closely, you can observe Static mixed with Signal:
-    - **Static:**  1-1 field mapping between `Egg` to `EggEntity`
-    - **Signal:** For each field mapping, fill non-null `Egg` fields into `EggEntity` using `put`.
+
+```
+- **Static:**  1-1 field mapping between `Egg` to `EggEntity`
+- **Signal:** For each field mapping, fill non-null `Egg` fields into `EggEntity` using `put`.
+```
 
 Let's do the same in code:
 
-```java{14, 17-19}
-// Static
-static final Map<String, Function<ImmutableEgg, String>> fieldMapping = Map.of(
+```java{14, 17-19} // Static static final Map
+
+<string, function<immutableegg,="" string="">&gt; fieldMapping = Map.of(
   Fields.field1, ImmutableEgg::field1,
   Fields.field2, ImmutableEgg::field2,
-  Fields.field3, ImmutableEgg::field3);
+  Fields.field3, ImmutableEgg::field3);</string,>
 
-// Call with Static data and Function reference
-fillEntityObj(egg, fieldMapping, EggEntity::put);
+// Call with Static data and Function reference fillEntityObj(egg, fieldMapping, EggEntity::put);
 
-// Signal
-static void fillEntityObj(
-    ImmutableEgg egg,
-    Map<String, Function<ImmutableEgg, String>> fieldMapping
-    BiConsumer<String, String> filler) {
-  fieldMapping.forEach((fieldId, valueGetter) -> {
+// Signal static void fillEntityObj( ImmutableEgg egg, Map
+
+<string, function<immutableegg,="" string="">&gt; fieldMapping
+    BiConsumer<string, string=""> filler) {
+  fieldMapping.forEach((fieldId, valueGetter) -&gt; {
     final var fieldValue = valueGetter.apply(egg);
     if (fieldValue != null) {
       filler.accept(fieldId, fieldValue);
     }
   });
-}
-```
+}</string,></string,>
 
+````
 - Now, We can focus on testing just the signal part.
 - This [BiConsumer](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/function/BiConsumer.html) is agnostic of what's passed, so we can cleverly use a `HashMap::put` to test this function.
 - As our code turns testable, we don't need magical mocking frameworks or **over-granular testing** to achieve ~95% test coverage. We can easily write highly targeted tests.
@@ -372,7 +382,7 @@ public EggService(
   @Qualifier(EGG_REPO) EggRepo eggRepo,
   ...
 )
-```
+````
 
 But if all you need is a function from a Dependency, resist injecting the entire object. Instead, inject only the function that you need.
 

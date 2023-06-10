@@ -4,7 +4,7 @@ const pxtorem = require(`postcss-pxtorem`)
 module.exports = {
   siteMetadata: {
     url: `https://github.com/overfullstack/overfullstack.github.io`,
-    siteUrl: `https://overfullstack.ga`,
+    siteUrl: `https://overfullstack.github.io`,
     blogTitle: `Overfullstack`,
     subtitle: `Writing & Speaking are Test-Driven-Learning`,
     caption: `It's All Over full-stack`,
