@@ -2,7 +2,7 @@ import "gist-syntax-themes/stylesheets/idle-fingers.css"
 import "./style.scss"
 
 import { Link } from "gatsby"
-import app from "../firebase"
+import firebaseApp from "../firebase"
 import {
   collection,
   doc,
@@ -18,7 +18,6 @@ import Disqus from "../Disqus/Disqus"
 import { Links } from "../Links"
 import Signup from "../Signup/Signup"
 import ThemeToggle from "../Toggle/ThemeToggle"
-import { formatReadingTime } from "../utils"
 
 export const PostTemplateDetails = ({ data, pageContext }) => {
   const { author } = data.site.siteMetadata
@@ -31,17 +30,17 @@ export const PostTemplateDetails = ({ data, pageContext }) => {
 
   useEffect(() => {
     ;(async () => {
-      const db = getFirestore(app)
+      const db = getFirestore(firebaseApp)
       const clapsRef = doc(collection(db, `claps`), slug)
-      const clapsSnap = await getDoc(clapsRef)
-      setClaps(clapsSnap.data().claps)
+      const clapDoc = await getDoc(clapsRef)
+      setClaps(clapDoc.data().claps)
     })()
   })
 
   const clapHandler = async (e) => {
     e.preventDefault()
     const newClaps = claps + 1
-    const db = getFirestore(app)
+    const db = getFirestore(firebaseApp)
     setClaps(newClaps)
     await setDoc(doc(collection(db, `claps`), slug), {
       lastClap: new Date(),
@@ -50,7 +49,7 @@ export const PostTemplateDetails = ({ data, pageContext }) => {
   }
 
   const clapsBtn = (
-    <Claps newClaps={claps} className="claps">
+    <Claps className="claps">
       <button onClick={clapHandler}>👏🏼</button> {claps > 0 ? claps : null}
     </Claps>
   )
@@ -70,14 +69,13 @@ export const PostTemplateDetails = ({ data, pageContext }) => {
   const tagsBlock = (
     <div className="post-single__tags">
       <ul className="post-single__tags-list">
-        {tags &&
-          tags.map((tag, i) => (
-            <li className="post-single__tags-list-item" key={tag}>
-              <Link to={tag} className="post-single__tags-list-item-link">
-                {post.frontmatter.tags[i]}
-              </Link>
-            </li>
-          ))}
+        {tags?.map((tag, i) => (
+          <li className="post-single__tags-list-item" key={tag}>
+            <Link to={tag} className="post-single__tags-list-item-link">
+              {post.frontmatter.tags[i]}
+            </Link>
+          </li>
+        ))}
       </ul>
     </div>
   )
@@ -103,14 +101,6 @@ export const PostTemplateDetails = ({ data, pageContext }) => {
           >
             {post.frontmatter.title}
           </h1>
-          <div
-            style={{
-              textAlign: `center`,
-              fontSize: `larger`,
-            }}
-          >
-            {`${formatReadingTime(post.timeToRead)}`}
-          </div>
           <div
             className="post-single__body"
             /* eslint-disable-next-line react/no-danger */

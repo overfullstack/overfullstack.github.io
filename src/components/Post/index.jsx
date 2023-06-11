@@ -4,12 +4,9 @@ import { Link } from "gatsby"
 import moment from "moment"
 import React from "react"
 
-import { formatReadingTime } from "../utils"
-
 const Post = (props) => {
   const { title, date, category, description } = props.data.node.frontmatter
   const { slug, categorySlug } = props.data.node.fields
-  const { timeToRead } = props.data.node
 
   return (
     <div className="post">
@@ -46,7 +43,6 @@ const Post = (props) => {
         </Link>
       </h2>
       <p className="post__description">{description}</p>
-      <div>{`${formatReadingTime(timeToRead)}`}</div>
     </div>
   )
 }

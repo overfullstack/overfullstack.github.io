@@ -12,7 +12,8 @@ tags:
 description: Mutation causes Quantum Entanglement
 ---
 
-> This is a part of this post: [$card](https://overfullstack.github.io/posts/huh-to-aha)
+> This is a part of this post:
+[$card](https://overfullstack.github.io/posts/huh-to-aha)
 
 # The Entanglement
 
@@ -149,7 +150,7 @@ long calculateEggAge(int eggId, Date today) {
 
 - We just witnessed, how components separated by modules can be entangled with Mutable Objects. It's almost impossible to refactor them without breaking anything.
 - On a real code base, this is even more intertwined. Most of our debugging cycles are spent to bash bugs like these. It resonates with the universal developer experience - "Fix this breaks that".
-- I call this a **Quantum Entanglement!** ⚛🧙🏼‍♀️
+- I call this a **Quantum Entanglement!** ⚛🧙🏼♀️
 
 ## References Everywhere
 

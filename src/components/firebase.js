@@ -6,6 +6,6 @@ const firebaseConfig = {
   projectId: process.env.GATSBY_FIREBASE_PROJECT_ID || `not_found_in_env`,
 }
 
-const app = initializeApp(firebaseConfig)
+const firebaseApp = initializeApp(firebaseConfig)
 
-export default app
+export default firebaseApp
