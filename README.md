@@ -1,7 +1,5 @@
 # My Personal blog
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a261ae18-d6b5-44f7-a615-52a9006860c8/deploy-status)](https://app.netlify.com/sites/shiny-bavarois-f7374c/deploys)
-
 Here, I would love to share my learning and digitize the notes I make, to make them helpful for other developers :)
 
 Please Visit the Blog @ [overfullstack.github.io](https://overfullstack.github.io)
