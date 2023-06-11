@@ -4,17 +4,17 @@ date: "2018-12-07T00:00:00.000Z"
 layout: post
 draft: false
 path: /posts/functional-terminology
-category: "Functional Programming"
+category: Functional Programming
 cover: "./cover.jpg"
 tags:
-- "Functional Programming"
+- Functional Programming
 description: "Speak Functional language fluently"
 
 ---
 
 ## Pure Functions
 
-- These return a value based on what is passed in to the function.
+- These return a value based on what is passed into the function.
 - For instance, if we pass x into a function as input we will get F of x out as output.
 - Another property of a pure function is that it will always return the same result for the same passed in value.
 - If we pass input x into the function again, we should get back the exact same value, F of x. You should be able to do

@@ -9220,15 +9220,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-firebase-v9.0@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "gatsby-plugin-firebase-v9.0@npm:1.0.3"
-  peerDependencies:
-    firebase: ">=9.x"
-  checksum: ba146fba293cfea43ba1171c4e2164548b5999efc99ac436938dbd2932b045360279ba429d817f557268ee4d8607da548454de6b2763426b633b4a9f8d48e6cd
-  languageName: node
-  linkType: hard
-
 "gatsby-plugin-google-fonts@npm:^1.0.1":
   version: 1.0.1
   resolution: "gatsby-plugin-google-fonts@npm:1.0.1"
@@ -10234,7 +10225,6 @@ __metadata:
     gatsby-plugin-catch-links: ^5.10.0
     gatsby-plugin-cname: ^1.0.0
     gatsby-plugin-feed: ^5.10.0
-    gatsby-plugin-firebase-v9.0: ^1.0.3
     gatsby-plugin-google-fonts: ^1.0.1
     gatsby-plugin-google-gtag: ^5.10.0
     gatsby-plugin-mailchimp: ^5.2.2
