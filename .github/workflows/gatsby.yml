@@ -2,7 +2,7 @@
 #
 # To get started with Gatsby see: https://www.gatsbyjs.com/docs/quick-start/
 #
-name: Deploy Gatsby site to Pages
+name: Gatsby site Deploy to Pages
 
 on:
   # Runs on pushes targeting the default branch
@@ -45,11 +45,6 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v3
-        with:
-          # Automatically inject pathPrefix in your Gatsby configuration file.
-          #
-          # You may remove this line if you want to manage the configuration yourself.
-          static_site_generator: gatsby
       - name: Restore cache
         uses: actions/cache@v3
         with:
@@ -62,8 +57,6 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Build with Gatsby
-        env:
-          PREFIX_PATHS: 'true'
         run: yarn run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1

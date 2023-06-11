@@ -10,7 +10,7 @@
     "clean": "yarn clean:public",
     "test": "test --passWithNoTests",
     "format": "prettier --write './*.js' 'src/**/*.js' 'src/**/*.jsx'",
-    "build": "gatsby build",
+    "build": "rm -rf public && rm -rf .cache && yarn clean && gatsby clean && gatsby build",
     "deploy": "yarn build && gh-pages -d public -b master",
     "prettier": "prettier \"**/*.{md,css,scss,yaml,yml}\"",
     "lint": "eslint --cache --ext .js,.jsx --ignore-pattern public ."

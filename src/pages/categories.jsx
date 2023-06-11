@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet"
 import Layout from "../components/Layout"
 import Sidebar from "../components/Sidebar"
 
-const CategoriesRoute = (props) => {
+const CategoryRoute = (props) => {
   const { blogTitle } = props.data.site.siteMetadata
   const categories = props.data.allMarkdownRemark.group
 
@@ -46,10 +46,10 @@ const CategoriesRoute = (props) => {
   )
 }
 
-export default CategoriesRoute
+export default CategoryRoute
 
 export const pageQuery = graphql`
-  query CategoryesQuery {
+  query CategoryQuery {
     site {
       siteMetadata {
         blogTitle

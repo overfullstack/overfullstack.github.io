@@ -15,7 +15,6 @@ module.exports = {
     copyright: `© All rights reserved.`,
     declaration: `I built this blog with React.js`,
     disqusShortname: `gopal`,
-    pathPrefix: ``,
     logo: `src/assets/logo.png`,
     menu: [
       {
@@ -86,28 +85,28 @@ module.exports = {
                 }
               }),
             query: `{
-  allMarkdownRemark(
-    limit: 1000
-    sort: {frontmatter: {date: DESC}}
-    filter: {frontmatter: {layout: {eq: "post"}, draft: {ne: true}}}
-  ) {
-    edges {
-      node {
-        html
-        fields {
-          slug
-        }
-        frontmatter {
-          title
-          date
-          layout
-          draft
-          description
-        }
-      }
-    }
-  }
-}`,
+              allMarkdownRemark(
+                limit: 1000
+                sort: {frontmatter: {date: DESC}}
+                filter: {frontmatter: {layout: {eq: "post"}, draft: {ne: true}}}
+              ) {
+                edges {
+                  node {
+                    html
+                    fields {
+                      slug
+                    }
+                    frontmatter {
+                      title
+                      date
+                      layout
+                      draft
+                      description
+                    }
+                  }
+                }
+              }
+            }`,
             output: `/rss.xml`,
             title: `Overfullstack's RSS`,
           },
