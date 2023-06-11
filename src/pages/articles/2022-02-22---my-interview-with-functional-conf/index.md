@@ -5,7 +5,7 @@ layout: post
 draft: false
 path: /posts/my-interview-with-fn-conf
 cover: ./cover.png
-category: Interview
+category: Conference
 tags:
   - Java
   - Interview

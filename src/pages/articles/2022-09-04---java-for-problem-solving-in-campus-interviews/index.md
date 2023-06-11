@@ -5,10 +5,9 @@ layout: post
 draft: false
 path: /posts/java-for-problem-solving-in-campus-interviews
 cover: ./cover.png
-category: "Problem Solving"
+category: "Problem-Solving"
 tags:
   - Java
-  - Interview
 description: Java for Problem-Solving in Campus Interviews
 ---
 
