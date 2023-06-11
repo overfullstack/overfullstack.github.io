@@ -37,7 +37,7 @@ module.exports = {
     author: {
       name: `Gopal S Akshintala`,
       email: `gopalakshintala@gmail.com`,
-      telegram: `https://t.me/gopalakshintala`,
+      youtube: `https://www.youtube.com/@GopalAkshintala`,
       twitter: `https://bit.ly/agstwtr`,
       github: `https://bit.ly/agsgithubp`,
       resume: `https://bit.ly/ags-my-resume`,

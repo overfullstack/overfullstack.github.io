@@ -1,4 +1,4 @@
-import "../../assets/fonts/fontello-771c82e0/css/fontello.css"
+import "../../assets/fontello/css/fontello.css"
 import "./style.scss"
 
 import React from "react"
@@ -9,7 +9,7 @@ export const Links = (props) => {
     twitter: author.twitter,
     github: author.github,
     linkedin: author.linkedin,
-    telegram: author.telegram,
+    youtube: author.youtube,
     email: author.email,
     stackoverflow: author.stackoverflow,
   }
@@ -19,11 +19,11 @@ export const Links = (props) => {
       <ul className="links__list" style={{ justifyContent: `space-between` }}>
         <li className="links__list-item">
           <a
-            href={`${links.twitter}`}
+            href={`${links.youtube}`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="icon-twitter" />
+            <i className="icon-youtube" />
           </a>
         </li>
         <li className="links__list-item">
@@ -46,8 +46,12 @@ export const Links = (props) => {
           </a>
         </li>
         <li className="links__list-item">
-          <a href={`${links.telegram}`}>
-            <i className="icon-paper-plane" />
+          <a
+            href={`${links.twitter}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="icon-twitter" />
           </a>
         </li>
         <li className="links__list-item">
@@ -65,12 +69,8 @@ export const Links = (props) => {
     <div className="links">
       <ul className="links__list">
         <li className="links__list-item">
-          <a
-            href={`${links.twitter}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i className="icon-twitter" />
+          <a href={`${links.youtube}`}>
+            <i className="icon-youtube-play" />
           </a>
         </li>
         <li className="links__list-item">
@@ -95,8 +95,12 @@ export const Links = (props) => {
           </a>
         </li>
         <li className="links__list-item">
-          <a href={`${links.telegram}`}>
-            <i className="icon-paper-plane" />
+          <a
+            href={`${links.twitter}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="icon-twitter" />
           </a>
         </li>
       </ul>
