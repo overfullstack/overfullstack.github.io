@@ -57,6 +57,8 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Build with Gatsby
+        env:
+          GATSBY_CPU_COUNT: 1
         run: yarn run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1

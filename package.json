@@ -5,12 +5,12 @@
   "main": "n/a",
   "scripts": {
     "develop": "gatsby develop",
-    "debug": "node --nolazy node_modules/.bin/gatsby develop --inspect-brk",
+    "debug": "node --nolazy gatsby develop --inspect-brk",
     "clean:public": "rm -rf public",
     "clean": "yarn clean:public",
     "test": "test --passWithNoTests",
     "format": "prettier --write './*.js' 'src/**/*.js' 'src/**/*.jsx'",
-    "build": "node_modules/.bin/gatsby build",
+    "build": "gatsby build",
     "deploy": "yarn build && gh-pages -d public -b master",
     "prettier": "prettier \"**/*.{md,css,scss,yaml,yml}\"",
     "lint": "eslint --cache --ext .js,.jsx --ignore-pattern public ."
