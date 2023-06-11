@@ -61,7 +61,6 @@
     "react-toastify": "^9.1.3",
     "sass": "^1.63.3",
     "sharp": "^0.32.1",
-    "snyk": "^1.1177.0",
     "styled-components": "^6.0.0-rc.3"
   },
   "devDependencies": {
@@ -98,7 +97,6 @@
     "interfaces",
     "**/__tests__/fixtures/"
   ],
-  "snyk": false,
   "volta": {
     "node": "18.16.0",
     "yarn": "3.6.0-git.20230603.hash-3c8237cb"
