@@ -5,7 +5,7 @@ layout: post
 draft: false
 path: /posts/monads-for-drunken-coders-pint-1
 cover: ./cover.jpg
-category: Functional Programming
+category: "Functional Programming"
 tags:
   - Java 8
   - Monads

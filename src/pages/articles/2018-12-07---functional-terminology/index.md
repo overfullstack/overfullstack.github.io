@@ -4,7 +4,7 @@ date: "2018-12-07T00:00:00.000Z"
 layout: post
 draft: false
 path: /posts/functional-terminology
-category: Functional Programming
+category: "Functional Programming"
 cover: "./cover.jpg"
 tags:
 - Functional Programming

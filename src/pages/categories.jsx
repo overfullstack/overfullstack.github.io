@@ -76,7 +76,7 @@ export const pageQuery = graphql`
       limit: 2000
       filter: { frontmatter: { layout: { eq: "post" }, draft: { ne: true } } }
     ) {
-      group(field: frontmatter___category) {
+      group(field: { frontmatter: { category: SELECT } }) {
         fieldValue
         totalCount
       }

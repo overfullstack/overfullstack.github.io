@@ -85,31 +85,29 @@ module.exports = {
                   custom_elements: [{ "content:encoded": edge.node.html }],
                 }
               }),
-            query: `
-              {
-                allMarkdownRemark(
-                  limit: 1000,
-                  sort: { order: DESC, fields: [frontmatter___date] },
-                  filter: { frontmatter: { layout: { eq: "post" }, draft: { ne: true } } }
-                ) {
-                  edges {
-                    node {
-                      html
-                      fields {
-                        slug
-                      }
-                      frontmatter {
-                        title
-                        date
-                        layout
-                        draft
-                        description
-                      }
-                    }
-                  }
-                }
-              }
-            `,
+            query: `{
+  allMarkdownRemark(
+    limit: 1000
+    sort: {frontmatter: {date: DESC}}
+    filter: {frontmatter: {layout: {eq: "post"}, draft: {ne: true}}}
+  ) {
+    edges {
+      node {
+        html
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+          date
+          layout
+          draft
+          description
+        }
+      }
+    }
+  }
+}`,
             output: `/rss.xml`,
             title: `Overfullstack's RSS`,
           },

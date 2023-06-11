@@ -14,29 +14,27 @@ exports.createPages = ({ graphql, actions }) => {
       `./src/templates/category-template.jsx`
     )
 
-    graphql(`
-      {
-        allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
-          limit: 1000
-          filter: { frontmatter: { draft: { ne: true } } }
-        ) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-                tags
-                layout
-                category
-              }
-            }
-          }
+    graphql(`{
+  allMarkdownRemark(
+    sort: {frontmatter: {date: DESC}}
+    limit: 1000
+    filter: {frontmatter: {draft: {ne: true}}}
+  ) {
+    edges {
+      node {
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+          tags
+          layout
+          category
         }
       }
-    `).then((result) => {
+    }
+  }
+}`).then((result) => {
       if (result.errors) {
         console.log(result.errors)
         reject(result.errors)
@@ -99,7 +97,7 @@ exports.createPages = ({ graphql, actions }) => {
 
       resolve()
     })
-  })
+  });
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
