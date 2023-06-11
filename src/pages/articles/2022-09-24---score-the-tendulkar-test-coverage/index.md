@@ -14,7 +14,7 @@ tags:
   - PowerMock
   - Java
   - Kotlin
-description: Java for Problem-Solving in Campus Interviews
+description: Right design can boost test coverage organically
 ---
 
 # Nervous Nineties
