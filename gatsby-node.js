@@ -80,7 +80,7 @@ exports.createPages = ({ graphql, actions }) => {
             })
           })
 
-          /*          let categories = []
+          let categories = []
           if (_.get(edge, `node.frontmatter.category`)) {
             categories = categories.concat(edge.node.frontmatter.category)
           }
@@ -93,7 +93,7 @@ exports.createPages = ({ graphql, actions }) => {
               component: categoryTemplate,
               context: { category },
             })
-          })*/
+          })
         }
       })
 
