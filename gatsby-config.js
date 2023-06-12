@@ -123,7 +123,6 @@ module.exports = {
               strict: `ignore`,
             },
           },
-          `gatsby-remark-link-preview`,
           {
             resolve: `gatsby-remark-embed-video`,
             options: {

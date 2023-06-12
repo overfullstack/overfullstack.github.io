@@ -41,7 +41,6 @@
     "gatsby-remark-embed-video": "^3.2.1",
     "gatsby-remark-images": "^7.10.0",
     "gatsby-remark-katex": "^7.10.0",
-    "gatsby-remark-link-preview": "^1.0.1",
     "gatsby-remark-prismjs": "^7.10.0",
     "gatsby-remark-smartypants": "^6.10.0",
     "gatsby-source-filesystem": "^5.10.0",

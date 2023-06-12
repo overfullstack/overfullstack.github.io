@@ -23,7 +23,7 @@ export const Links = (props) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="icon-youtube" />
+            <i className="icon-youtube-play" />
           </a>
         </li>
         <li className="links__list-item">
@@ -69,7 +69,11 @@ export const Links = (props) => {
     <div className="links">
       <ul className="links__list">
         <li className="links__list-item">
-          <a href={`${links.youtube}`}>
+          <a
+            href={`${links.youtube}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <i className="icon-youtube-play" />
           </a>
         </li>
