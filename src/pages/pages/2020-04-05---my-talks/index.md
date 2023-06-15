@@ -54,10 +54,10 @@ He's an International Speaker, with his Tech-Talks being warmly received at:
 
 `youtube: https://www.youtube.com/watch?v=Ip8SvyXLvD8&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1`
 
-## Vader & the Army of Validators
+## Vador & the Army of Validators
 
 - [Slide-deck](https://bit.ly/vader-slides)
-- [Code-repo](https://bit.ly/vader-gh)
+- [Code-repo](https://github.com/salesforce-misc/Vador)
 
 ### 10-2021 (Season of Innovation, Salesforce)
 
