@@ -71,10 +71,7 @@
     "@babel/plugin-syntax-flow": "^7.22.5",
     "@babel/plugin-transform-flow-strip-types": "^7.22.5",
     "@babel/plugin-transform-react-jsx": "^7.22.5",
-    "@babel/plugin-transform-typescript": "^7.22.10",
     "@types/eslint": "^8.44.2",
-    "@typescript-eslint/eslint-plugin": "^6.3.0",
-    "@typescript-eslint/parser": "^6.3.0",
     "babel-preset-gatsby-package": "^3.11.0",
     "eslint": "^8.46.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -91,8 +88,7 @@
     "gh-pages": "^5.0.0",
     "lost": "^9.0.1",
     "postcss-pxtorem": "^6.0.0",
-    "prettier": "^3.0.1",
-    "typescript": "^5.1.6"
+    "prettier": "^3.0.1"
   },
   "resolutions": {
     "gatsby-plugin-sharp/probe-image-size": "^7.0.0"
