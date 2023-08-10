@@ -8,7 +8,7 @@ export const Layout = (props) => {
 
   return (
     <div className="layout">
-      <Helmet defaultTitle=" | Gopal S Akshintala" />
+      <Helmet />
       {children}
     </div>
   )

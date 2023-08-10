@@ -145,6 +145,7 @@ module.exports = {
             },
           },
           `gatsby-remark-code-titles`,
+          `gatsby-remark-link-preview`,
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
