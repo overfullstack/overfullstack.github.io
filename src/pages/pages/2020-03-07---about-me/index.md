@@ -24,7 +24,7 @@ He's a language geek, currently fluent in Kotlin and Java.
 
 In addition to his Software Engineering experience, he gains more _experiences-per-year_ by open-source collaborations & contributions,
 active participation in the Dev discussions, and Speaking at User Groups and Conferences.
-He loves being on Stage, as a Singer ([SoundCloud](http://bit.ly/agssc) | [Youtube](https://youtube.com/playlist?list=PLrJbJ9wDl9EB5lKs1L13pJDOKp9yg0YF9))
+He loves being on Stage, as a Singer ([Youtube](https://bit.ly/gopal-vox))
 and a Tech-Speaker and writes about [Nature & Life](https://leafonthewind.netlify.app/).
 
 [Résumé](bit.ly/resume-ga)
