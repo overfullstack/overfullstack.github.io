@@ -1,5 +1,9 @@
 const lost = require(`lost`)
 const pxtorem = require(`postcss-pxtorem`)
+const descriptionRule = require(`metascraper-description`)
+const imageRule = require(`metascraper-image`)
+const titleRule = require(`metascraper-title`)
+const urlRule = require(`metascraper-url`)
 
 require(`dotenv`).config({
   path: `.env`,
@@ -118,6 +122,59 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: `gatsby-remark-link-summary`,
+            options: {
+              cacheRootDirPath: `.cache/link-summary`,
+              destinationSubDirPath: `link-summary`,
+              sites: [
+                {
+                  pattern: (node) => {
+                    if (node.children.length === 0) return false
+                    const [firstChild] = node.children
+                    return (
+                      firstChild.type === `text` &&
+                      firstChild.value === `--large-card--`
+                    )
+                    // NOTE: The URL of a link node can be obtained from `node.url`
+                  },
+                  generator: async ({
+                    metadata: { image, url, title, description },
+                    cacheRemoteFile,
+                  }) => {
+                    const filePath = await cacheRemoteFile(image, true)
+                    return `
+                      <div class="large-image-summary-card">
+                        <a href="${url}">
+                          <img
+                            class="large-image-summary-card__image"
+                            src="${filePath}"
+                          />
+                          <div class="large-image-summary-card__description">
+                            <div class="large-image-summary-card__description__title"
+                              >${title}</div
+                            >
+                            <div class="large-image-summary-card__description__summary"
+                              >${description}</div
+                            >
+                            <div class="large-image-summary-card__description__url"
+                              >${url}</div
+                            >
+                          </div>
+                        </a>
+                      </div>
+                    `
+                  },
+                  rules: [
+                    urlRule(),
+                    titleRule(),
+                    imageRule(),
+                    descriptionRule(),
+                  ],
+                },
+              ],
+            },
+          },
+          {
             resolve: `gatsby-remark-katex`,
             options: {
               strict: `ignore`,
@@ -145,7 +202,6 @@ module.exports = {
             },
           },
           `gatsby-remark-code-titles`,
-          `gatsby-remark-link-preview`,
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
@@ -163,7 +219,6 @@ module.exports = {
               isIconAfterHeader: true,
             },
           },
-          `gatsby-plugin-catch-links`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
           {

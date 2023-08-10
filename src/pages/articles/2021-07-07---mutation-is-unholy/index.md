@@ -13,7 +13,7 @@ description: Mutation causes Quantum Entanglement
 ---
 
 > This is a part of this post:
-[$card](https://overfullstack.github.io/posts/huh-to-aha)
+[--large-card--](https://overfullstack.github.io/posts/huh-to-aha)
 
 # The Entanglement
 

@@ -12,4 +12,4 @@ tags:
 description: My Interview with Konfy
 ---
 
-[$card](https://bit.ly/konfy-interview)
+[--large-card--](https://bit.ly/konfy-interview)
