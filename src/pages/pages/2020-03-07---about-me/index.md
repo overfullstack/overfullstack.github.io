@@ -27,4 +27,4 @@ active participation in the Dev discussions, and Speaking at User Groups and Con
 He loves being on Stage, as a Singer ([Youtube](https://bit.ly/gopal-vox))
 and a Tech-Speaker and writes about [Nature & Life](https://leafonthewind.netlify.app/).
 
-[Résumé](bit.ly/resume-ga)
+[Résumé](https://bit.ly/resume-ga)
