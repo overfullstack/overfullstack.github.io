@@ -32,7 +32,7 @@ const PostTemplate = (props) => {
         <SEO
           title={actualPostTitle}
           description={description}
-          cover={cover ? cover.childImageSharp.original.src : ``}
+          cover={cover ? cover.absolutePath : ``}
           slug={post.fields.slug}
         />
         <div>
@@ -85,11 +85,7 @@ export const pageQuery = graphql`
         date
         description
         cover {
-          childImageSharp {
-            original {
-              src
-            }
-          }
+          absolutePath
         }
       }
     }

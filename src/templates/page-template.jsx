@@ -30,7 +30,7 @@ const PageTemplate = (props) => {
         <SEO
           title={actualPageTitle}
           description={description}
-          cover={cover ? cover.childImageSharp.original.src : ``}
+          cover={cover ? cover.absolutePath : ``}
           slug={page.fields.slug}
         />
         <div>
@@ -81,11 +81,7 @@ export const pageQuery = graphql`
         date
         description
         cover {
-          childImageSharp {
-            original {
-              src
-            }
-          }
+          absolutePath
         }
       }
     }

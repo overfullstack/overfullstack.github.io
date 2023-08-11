@@ -54,6 +54,9 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -175,6 +178,12 @@ module.exports = {
             },
           },
           {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+            },
+          },
+          {
             resolve: `gatsby-remark-katex`,
             options: {
               strict: `ignore`,
@@ -193,12 +202,6 @@ module.exports = {
             resolve: `gatsby-remark-embed-markdown`,
             options: {
               directory: `${__dirname}/src/pages/`,
-            },
-          },
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 640,
             },
           },
           `gatsby-remark-code-titles`,
@@ -243,8 +246,6 @@ module.exports = {
         ],
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {

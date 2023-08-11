@@ -952,6 +952,28 @@ enum FieldSelectorEnum {
     SELECT
 }
 
+enum GatsbyImageFormat {
+    AUTO
+    AVIF
+    JPG
+    NO_CHANGE
+    PNG
+    WEBP
+}
+
+enum GatsbyImageLayout {
+    CONSTRAINED
+    FIXED
+    FULL_WIDTH
+}
+
+enum GatsbyImagePlaceholder {
+    BLURRED
+    DOMINANT_COLOR
+    NONE
+    TRACED_SVG
+}
+
 enum ImageCropFocus {
     ATTENTION
     CENTER

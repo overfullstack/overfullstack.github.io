@@ -5650,7 +5650,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"camelcase@npm:^6.2.0":
+"camelcase@npm:^6.2.0, camelcase@npm:^6.3.0":
   version: 6.3.0
   resolution: "camelcase@npm:6.3.0"
   checksum: 0d701658219bd3116d12da3eab31acddb3f9440790c0792e0d398f0a520a6a4058018e546862b6fba89d7ae990efaeb97da71e1913e9ebf5a8b5621a3d55c710
@@ -9070,6 +9070,40 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gatsby-plugin-image@npm:^3.11.0":
+  version: 3.11.0
+  resolution: "gatsby-plugin-image@npm:3.11.0"
+  dependencies:
+    "@babel/code-frame": "npm:^7.18.6"
+    "@babel/parser": "npm:^7.20.13"
+    "@babel/runtime": "npm:^7.20.13"
+    "@babel/traverse": "npm:^7.20.13"
+    babel-jsx-utils: "npm:^1.1.0"
+    babel-plugin-remove-graphql-queries: "npm:^5.11.0"
+    camelcase: "npm:^6.3.0"
+    chokidar: "npm:^3.5.3"
+    common-tags: "npm:^1.8.2"
+    fs-extra: "npm:^11.1.1"
+    gatsby-core-utils: "npm:^4.11.0"
+    gatsby-plugin-utils: "npm:^4.11.0"
+    objectFitPolyfill: "npm:^2.3.5"
+    prop-types: "npm:^15.8.1"
+  peerDependencies:
+    "@babel/core": ^7.12.3
+    gatsby: ^5.0.0-next
+    gatsby-plugin-sharp: ^5.0.0-next
+    gatsby-source-filesystem: ^5.0.0-next
+    react: ^18.0.0 || ^0.0.0
+    react-dom: ^18.0.0 || ^0.0.0
+  peerDependenciesMeta:
+    gatsby-plugin-sharp:
+      optional: true
+    gatsby-source-filesystem:
+      optional: true
+  checksum: 7c31891e1fbdf6987da36de6e7920feaaf5bbb5a48b7e2a17eea15e2f2aea6690d54b9d975ab8727e9ced2119063cf484bccd16c282e6dc11509fefdbd5201de
+  languageName: node
+  linkType: hard
+
 "gatsby-plugin-mailchimp@npm:^5.2.2":
   version: 5.2.2
   resolution: "gatsby-plugin-mailchimp@npm:5.2.2"
@@ -10044,6 +10078,7 @@ __metadata:
     gatsby-plugin-feed: "npm:^5.11.0"
     gatsby-plugin-google-fonts: "npm:^1.0.1"
     gatsby-plugin-google-gtag: "npm:^5.11.0"
+    gatsby-plugin-image: "npm:^3.11.0"
     gatsby-plugin-mailchimp: "npm:^5.2.2"
     gatsby-plugin-manifest: "npm:^5.11.0"
     gatsby-plugin-offline: "npm:^6.11.0"
@@ -13514,6 +13549,13 @@ __metadata:
     define-properties: "npm:^1.1.4"
     es-abstract: "npm:^1.20.4"
   checksum: 3381204390f10c9f653a4875a50d221c67b5c16cb80a6ac06c706fc82a7cad8400857d4c7a0731193b0abb56b84fe803eabcf7addcf32de76397bbf207e68c66
+  languageName: node
+  linkType: hard
+
+"objectFitPolyfill@npm:^2.3.5":
+  version: 2.3.5
+  resolution: "objectFitPolyfill@npm:2.3.5"
+  checksum: 3efe83ef5d5ce51e2ccff9035b9929c634fb974230f7a961f67a5600909167a574dc029d7846250bd2712e38cfaf8dee2d910f97d4a7eb5af0add4ac4d13f3a3
   languageName: node
   linkType: hard
 
