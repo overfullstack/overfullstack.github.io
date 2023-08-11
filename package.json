@@ -91,7 +91,7 @@
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-react": "^7.33.1",
     "eslint-plugin-simple-import-sort": "^10.0.0",
-    "gh-pages": "^5.0.0",
+    "gh-pages": "^6.0.0",
     "lost": "^9.0.1",
     "postcss-pxtorem": "^6.0.0",
     "prettier": "^3.0.1"
