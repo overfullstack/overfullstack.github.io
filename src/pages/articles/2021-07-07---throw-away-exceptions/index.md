@@ -13,7 +13,7 @@ description: Exceptions are Wormholes
 ---
 
 > This is a part of this post: 
-[--large-card--](https://overfullstack.github.io/posts/huh-to-aha)
+[$card](https://overfullstack.github.io/posts/huh-to-aha)
 
 # Exceptions are the most abused language feature
 

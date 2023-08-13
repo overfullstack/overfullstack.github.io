@@ -55,6 +55,10 @@ body.dark {
   --card-border-color: rgba(132, 141, 154, 0.16);
 }
 
+.link-card-container {
+  border: 1px solid var(--card-border-color);
+}
+
 h1,
 h2,
 h3,

@@ -125,46 +125,9 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-link-summary`,
+            resolve: `gatsby-remark-link-beautify`,
             options: {
-              cacheRootDirPath: `.cache/link-summary`,
-              destinationSubDirPath: `link-summary`,
-              sites: [
-                {
-                  pattern: (node) => {
-                    if (node.children.length === 0) return false
-                    const [firstChild] = node.children
-                    return (
-                      firstChild.type === `text` &&
-                      firstChild.value === `--large-card--`
-                    )
-                    // NOTE: The URL of a link node can be obtained from `node.url`
-                  },
-                  generator: ({ metadata: { url, title, description } }) => `
-                      <div class="large-image-summary-card">
-                        <a href="${url}">
-                          <div class="large-image-summary-card__description">
-                            <div class="large-image-summary-card__description__title"
-                              >${title}</div
-                            >
-                            <div class="large-image-summary-card__description__summary"
-                              >${description}</div
-                            >
-                            <div class="large-image-summary-card__description__url"
-                              >${url}</div
-                            >
-                          </div>
-                        </a>
-                      </div>
-                    `,
-                  rules: [
-                    urlRule(),
-                    titleRule(),
-                    imageRule(),
-                    descriptionRule(),
-                  ],
-                },
-              ],
+              enableLinkPreview: false,
             },
           },
           {
