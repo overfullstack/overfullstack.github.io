@@ -140,18 +140,9 @@ module.exports = {
                     )
                     // NOTE: The URL of a link node can be obtained from `node.url`
                   },
-                  generator: async ({
-                    metadata: { image, url, title, description },
-                    cacheRemoteFile,
-                  }) => {
-                    const filePath = await cacheRemoteFile(image, true)
-                    return `
+                  generator: ({ metadata: { url, title, description } }) => `
                       <div class="large-image-summary-card">
                         <a href="${url}">
-                          <img
-                            class="large-image-summary-card__image"
-                            src="${filePath}"
-                          />
                           <div class="large-image-summary-card__description">
                             <div class="large-image-summary-card__description__title"
                               >${title}</div
@@ -165,8 +156,7 @@ module.exports = {
                           </div>
                         </a>
                       </div>
-                    `
-                  },
+                    `,
                   rules: [
                     urlRule(),
                     titleRule(),
