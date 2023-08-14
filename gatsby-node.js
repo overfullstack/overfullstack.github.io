@@ -27,7 +27,6 @@ exports.createPages = ({ graphql, actions }) => {
                 slug
               }
               frontmatter {
-                title
                 tags
                 layout
                 category
@@ -107,7 +106,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   if (node.internal.type === `File`) {
     const parsedFilePath = path.parse(node.absolutePath)
-    const slug = `/${parsedFilePath.dir.split(`---`)[1]}/`
+    const pageOrPostName = parsedFilePath.dir.split(`---`)[1]
+    const slug = `/${pageOrPostName}/`
     createNodeField({
       node,
       name: `slug`,
