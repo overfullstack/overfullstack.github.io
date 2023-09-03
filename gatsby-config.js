@@ -65,62 +65,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-feed`,
-      options: {
-        query: `
-          {
-            site {
-              siteMetadata {
-                site_url: siteUrl
-                title: blogTitle
-                description: subtitle
-              }
-            }
-          }
-        `,
-        feeds: [
-          {
-            serialize: ({ query: { site, allMdx } }) =>
-              allMdx.edges.map((edge) => {
-                return {
-                  ...edge.node.frontmatter,
-                  description: edge.node.frontmatter.description,
-                  date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.site_url + edge.node.fields.slug,
-                  guid: site.siteMetadata.site_url + edge.node.fields.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }],
-                }
-              }),
-            query: `{
-              allMdx(
-                limit: 1000
-                sort: {frontmatter: {date: DESC}}
-                filter: {frontmatter: {layout: {eq: "post"}, draft: {ne: true}}}
-              ) {
-                edges {
-                  node {
-                    html
-                    fields {
-                      slug
-                    }
-                    frontmatter {
-                      title
-                      date
-                      layout
-                      draft
-                      description
-                    }
-                  }
-                }
-              }
-            }`,
-            output: `/rss.xml`,
-            title: `Overfullstack's RSS`,
-          },
-        ],
-      },
-    },
-    {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.md`, `.mdx`],
