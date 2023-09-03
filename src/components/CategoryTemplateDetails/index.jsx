@@ -7,7 +7,7 @@ import Post from "../Post"
 export const CategoryTemplateDetails = (props) => {
   const items = []
   const { category } = props.pageContext
-  const posts = props.data.allMarkdownRemark.edges
+  const posts = props.data.allMdx.edges
   posts.forEach((post) => {
     items.push(<Post data={post} key={post.node.fields.slug} />)
   })

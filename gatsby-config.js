@@ -80,8 +80,8 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) =>
-              allMarkdownRemark.edges.map((edge) => {
+            serialize: ({ query: { site, allMdx } }) =>
+              allMdx.edges.map((edge) => {
                 return {
                   ...edge.node.frontmatter,
                   description: edge.node.frontmatter.description,
@@ -92,7 +92,7 @@ module.exports = {
                 }
               }),
             query: `{
-              allMarkdownRemark(
+              allMdx(
                 limit: 1000
                 sort: {frontmatter: {date: DESC}}
                 filter: {frontmatter: {layout: {eq: "post"}, draft: {ne: true}}}
@@ -121,9 +121,10 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
+        extensions: [`.md`, `.mdx`],
+        gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-link-beautify`,
             options: {

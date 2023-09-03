@@ -19,6 +19,7 @@
   "author": "Gopal S Akshintala <gopalakshintala@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@mdx-js/react": "^2.3.0",
     "bluebird": "^3.7.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "firebase": "^10.1.0",
@@ -31,6 +32,7 @@
     "gatsby-plugin-image": "^3.11.0",
     "gatsby-plugin-mailchimp": "^5.2.2",
     "gatsby-plugin-manifest": "^5.11.0",
+    "gatsby-plugin-mdx": "^5.12.0",
     "gatsby-plugin-offline": "^6.11.0",
     "gatsby-plugin-react-helmet": "^6.11.0",
     "gatsby-plugin-sass": "^6.11.0",
@@ -48,7 +50,6 @@
     "gatsby-remark-smartypants": "^6.11.0",
     "gatsby-source-filesystem": "^5.11.0",
     "gatsby-transformer-asciidoc": "^4.11.0",
-    "gatsby-transformer-remark": "^6.11.0",
     "gatsby-transformer-sharp": "^5.11.0",
     "gist-syntax-themes": "^1.1.0",
     "katex": "^0.16.8",

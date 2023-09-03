@@ -159,7 +159,7 @@ However, these User-rules are generic functions aka _Templates_, which are agnos
 
 Sharing code among micro-services is seen as an anti-pattern as it causes tight-coupling and eager-abstractions. But, this is specific to _Parallel_ services like Payments-Refunds, Reservations-Cancellations etc., which share a lot of domain logic and is not bound to change. Plus, this is sharing at granular level. As discussed above, these templates are **Extensions** of typeclass and services (consumers) are the ones, which breathe life into them. That means, any new service or service migration can pick and borrow and extend at granular level, all those well-tested small and large features for _free_ with minor efforts! Moreover, typeclasses are entirely extensible to support more operations, in turn, to extend and expand our template base.
 
-> ⚠️ A word of caution, this technique should **NOT** be misused on the name of DRY to abstract duplication everywhere. Always, give the duplicate code some time to settle and evolve. 👯‍♂️
+> ⚠️ A word of caution, this technique should **NOT** be misused on the name of DRY to abstract duplication everywhere. Always, give the duplicate code some time to settle and evolve. 👯♂️
 
 # Outcomes and Conclusions
 
@@ -167,7 +167,7 @@ We achieved reusable domain logic using Ad-hoc Polymorphism, abstracting out the
 
 # My Talk on this
 
-The idea was presented at [Kotlin User Group, Hyderabad](https://twitter.com/kotlinhyderabad) <https://www.meetup.com/en-AU/kotlinhyderabad/events/269763753/> (This is only an intro to explain prerequisites for the talk in this post.)
+The idea was presented at [Kotlin User Group, Hyderabad](https://twitter.com/kotlinhyderabad) [](https://www.meetup.com/en-AU/kotlinhyderabad/events/269763753) (This is only an intro to explain prerequisites for the talk in this post.)
 
 The [Slide deck](https://speakerdeck.com/gopalakshintala/template-oriented-programming-top-to-ship-faster)
 
@@ -175,18 +175,16 @@ The [Slide deck](https://speakerdeck.com/gopalakshintala/template-oriented-progr
 
 # References
 
-1. <https://nodejs.org/en/docs/guides/blocking-vs-non-blocking/>
-2. <https://www.intuit.com/blog/uncategorized/kotlin-development-plan/>
-3. <https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#spring-web>
-4. <https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html>
-5. <https://en.wikipedia.org/wiki/Ad_hoc_polymorphism>
-6. <https://www.reactivemanifesto.org/>
-7. <https://blog.pragmatists.com/unobvious-traps-of-spring-webflux-16924a0d76d5>
-8. <https://arrow-kt.io/docs/fx/polymorphism/>
-9. <https://arrow-kt.io/docs/patterns/glossary/#higher-kinds>
-10. <https://arrow-kt.io/docs/patterns/glossary/#typeclasses>
-
-11. <https://danielwestheide.com/blog/the-neophytes-guide-to-scala-part-12-type-classes/>
-
-12. <https://www.cl.cam.ac.uk/~jdy22/papers/lightweight-higher-kinded-polymorphism.pdf>
-13. <https://people.csail.mit.edu/dnj/teaching/6898/papers/wadler88.pdf>
+1. [](https://nodejs.org/en/docs/guides/blocking-vs-non-blocking)
+2. [](https://www.intuit.com/blog/uncategorized/kotlin-development-plan)
+3. [](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#spring-web)
+4. [](https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html)
+5. [](https://en.wikipedia.org/wiki/Ad_hoc_polymorphism)
+6. [](https://www.reactivemanifesto.org)
+7. [](https://blog.pragmatists.com/unobvious-traps-of-spring-webflux-16924a0d76d5)
+8. [](https://arrow-kt.io/docs/fx/polymorphism)
+9. [](https://arrow-kt.io/docs/patterns/glossary/#higher-kinds)
+10. [](https://arrow-kt.io/docs/patterns/glossary/#typeclasses)
+11. [](https://danielwestheide.com/blog/the-neophytes-guide-to-scala-part-12-type-classes)
+12. [](https://www.cl.cam.ac.uk/~jdy22/papers/lightweight-higher-kinded-polymorphism.pdf)
+13. [](https://people.csail.mit.edu/dnj/teaching/6898/papers/wadler88.pdf)

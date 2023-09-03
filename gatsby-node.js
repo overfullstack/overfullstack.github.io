@@ -1,14 +1,14 @@
 const _ = require(`lodash`)
-const Promise = require(`bluebird`)
+const createPageAsync = require(`bluebird`)
 const path = require(`path`)
 const slash = require(`slash`)
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
-  return new Promise((resolve, reject) => {
-    const postTemplate = path.resolve(`./src/templates/post-template.jsx`)
+  return new createPageAsync((resolve, reject) => {
     const pageTemplate = path.resolve(`./src/templates/page-template.jsx`)
+    const postTemplate = path.resolve(`./src/templates/post-template.jsx`)
     const tagTemplate = path.resolve(`./src/templates/tag-template.jsx`)
     const categoryTemplate = path.resolve(
       `./src/templates/category-template.jsx`
@@ -16,7 +16,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     graphql(`
       {
-        allMarkdownRemark(
+        allMdx(
           sort: { frontmatter: { date: DESC } }
           limit: 1000
           filter: { frontmatter: { draft: { ne: true } } }
@@ -31,6 +31,9 @@ exports.createPages = ({ graphql, actions }) => {
                 layout
                 category
               }
+              internal {
+                contentFilePath
+              }
             }
           }
         }
@@ -41,12 +44,14 @@ exports.createPages = ({ graphql, actions }) => {
         reject(result.errors)
       }
 
-      const edges = result.data.allMarkdownRemark.edges
+      const edges = result.data.allMdx.edges
       _.each(edges, (edge, index) => {
         if (_.get(edge, `node.frontmatter.layout`) === `page`) {
           createPage({
             path: edge.node.fields.slug,
-            component: slash(pageTemplate),
+            component: `${slash(pageTemplate)}?__contentFilePath=${
+              edge.node.internal.contentFilePath
+            }`,
             context: { slug: edge.node.fields.slug },
           })
         } else if (_.get(edge, `node.frontmatter.layout`) === `post`) {
@@ -56,7 +61,9 @@ exports.createPages = ({ graphql, actions }) => {
           const next = index === 2 ? null : edges[index - 1].node
           createPage({
             path: edge.node.fields.slug,
-            component: slash(postTemplate),
+            component: `${slash(postTemplate)}?__contentFilePath=${
+              edge.node.internal.contentFilePath
+            }`,
             context: {
               slug: edge.node.fields.slug,
               previous,
@@ -74,7 +81,9 @@ exports.createPages = ({ graphql, actions }) => {
             const tagPath = `/tags/${_.kebabCase(tag)}/`
             createPage({
               path: tagPath,
-              component: tagTemplate,
+              component: `${slash(tagTemplate)}?__contentFilePath=${
+                edge.node.internal.contentFilePath
+              }`,
               context: { tag },
             })
           })
@@ -89,7 +98,9 @@ exports.createPages = ({ graphql, actions }) => {
             const categoryPath = `/categories/${_.kebabCase(category)}/`
             createPage({
               path: categoryPath,
-              component: categoryTemplate,
+              component: `${slash(categoryTemplate)}?__contentFilePath=${
+                edge.node.internal.contentFilePath
+              }`,
               context: { category },
             })
           })
@@ -113,10 +124,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       name: `slug`,
       value: slug,
     })
-  } else if (
-    node.internal.type === `MarkdownRemark` &&
-    typeof node.slug === `undefined`
-  ) {
+  } else if (node.internal.type === `Mdx` && typeof node.slug === `undefined`) {
     const fileNode = getNode(node.parent)
     let slug = ``
     if (fileNode.fields !== undefined) {

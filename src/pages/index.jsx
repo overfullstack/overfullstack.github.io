@@ -9,7 +9,7 @@ import Sidebar from "../components/Sidebar"
 const IndexRoute = (props) => {
   const items = []
   const { subtitle, caption, logo } = props.data.site.siteMetadata
-  const posts = props.data.allMarkdownRemark.edges
+  const posts = props.data.allMdx.edges
   posts.forEach((post) => {
     items.push(<Post data={post} key={post.node.fields.slug} />)
   })
@@ -64,7 +64,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(
+    allMdx(
       limit: 1000
       filter: { frontmatter: { layout: { eq: "post" }, draft: { ne: true } } }
       sort: { frontmatter: { date: DESC } }

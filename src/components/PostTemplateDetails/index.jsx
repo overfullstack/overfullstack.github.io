@@ -19,10 +19,10 @@ import { Links } from "../Links"
 import Signup from "../Signup/Signup"
 import ThemeToggle from "../Toggle/ThemeToggle"
 
-export const PostTemplateDetails = ({ data, pageContext }) => {
+export const PostTemplateDetails = ({ data, pageContext, children }) => {
   const { author } = data.site.siteMetadata
   const { previous, next } = pageContext
-  const post = data.markdownRemark
+  const post = data.mdx
   const tags = post.fields.tagSlugs
 
   const slug = post.fields.slug.substring(post.fields.slug.lastIndexOf(`/`) + 1)
@@ -101,11 +101,7 @@ export const PostTemplateDetails = ({ data, pageContext }) => {
           >
             {post.frontmatter.title}
           </h1>
-          <div
-            className="post-single__body"
-            /* eslint-disable-next-line react/no-danger */
-            dangerouslySetInnerHTML={{ __html: post.html }}
-          />
+          <div className="post-single__body">{children}</div>
           <div className="post-single__date">
             <em>
               Published&nbsp;
@@ -188,11 +184,15 @@ const Claps = styled.div`
     z-index: 1;
     top: 3px;
     left: 6px;
-    transition: opacity 0.2s 1s, top 0.2s 1s;
+    transition:
+      opacity 0.2s 1s,
+      top 0.2s 1s;
   }
   &:active::before {
     opacity: 1;
     top: -12px;
-    transition: opacity 0.2s, top 0.2s;
+    transition:
+      opacity 0.2s,
+      top 0.2s;
   }
 `

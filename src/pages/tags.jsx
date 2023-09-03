@@ -8,7 +8,7 @@ import Sidebar from "../components/Sidebar"
 
 const TagsRoute = (props) => {
   const { blogTitle } = props.data.site.siteMetadata
-  const tags = props.data.allMarkdownRemark.group
+  const tags = props.data.allMdx.group
 
   return (
     <Layout>
@@ -69,7 +69,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(
+    allMdx(
       limit: 2000
       filter: { frontmatter: { layout: { eq: "post" }, draft: { ne: true } } }
     ) {

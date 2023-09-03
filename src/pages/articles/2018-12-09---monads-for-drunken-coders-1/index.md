@@ -321,11 +321,11 @@ public class Monad<T> {
 
 Enough of Theory! how can this help the problem at hand?
 
-## Problems`.split().stream()`<br>
+## Problems`.split().stream()`<br></br>
 `.map(this::solve)`
 
 - You would have got a hint by now. Monads are the data containers you need. The problem is solved by one container-type (which can be the unit for uniformity through-out the pipeline) and a variable-value-type contained inside (which can be morphed from type to type).
-- Now every function can speak the same language, by passing around these Monad boxes and operate on them with functions, without worrying much about what it contains. Uniform boxes with Heterogenous data.
+- Now every function can speak the same language, by passing around these Monad boxes and operating on them with functions, without worrying much about what it contains. Uniform boxes with Heterogenous data.
 - Like, validation functions can ship either a goodEgg or a validation failure to the orchestration function by wrapping them in a Monad box, and it doesn't even care what's in the box.
 - Now, Orchestrator only has one job to do, just pump the data inside the pipeline ahead to the next validation function. ![wow](media/wow.gif)
 - Now, both the Parameter type and Algorithm are cleanly separate, and algo can be reused on multiple parameter types, which solves our last problem.

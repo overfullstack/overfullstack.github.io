@@ -10,7 +10,7 @@ import SEO from "../components/SEO"
 
 const PostTemplate = (props) => {
   const { subtitle } = props.data.site.siteMetadata
-  const post = props.data.markdownRemark
+  const post = props.data.mdx
   const {
     title: postTitle,
     description: postDescription,
@@ -72,9 +72,8 @@ export const pageQuery = graphql`
         url
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    mdx(fields: { slug: { eq: $slug } }) {
       id
-      html
       fields {
         tagSlugs
         slug
