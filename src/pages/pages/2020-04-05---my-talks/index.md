@@ -9,6 +9,8 @@ path: /my-talks
 
 He's an International Speaker, with his Tech-Talks being warmly received at:
 
+- 🇮🇳 [**Open-Source India**](https://www.opensourceindia.in/osi-speakers-2023/gopala-sarma-akshintala/), Bengaluru, 2023
+- 🇮🇳 **TMP Connections Tour**, Bengaluru, 2023
 - 🇮🇳 [**TMP Horizon**](https://www.youtube.com/watch?v=n849hcp6jkg&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1), Hyderabad, 2022
 - 🇮🇳 [**Google Cloud Community Days**](https://gdg.community.dev/events/details/google-gdg-cloud-hyderabad-presents-cloud-community-days-hyderabad-2022-1/), Hyderabad, 2022
 - 🇩🇪 [**WeAreDevelopers World Congress**](https://www.wearedevelopers.com/world-congress/speakers#:~:text=Architect%20at%20smapiot-,Gopal,-S%20Akshintala), 2022, Berlin, Germany.
