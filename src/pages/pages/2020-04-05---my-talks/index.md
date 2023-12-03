@@ -9,6 +9,7 @@ path: /my-talks
 
 He's an International Speaker, with his Tech-Talks being warmly received at:
 
+- 🇮🇳 [**Google Developer Group Devfest**](https://www.linkedin.com/posts/gdghyd_devfest-gdghyderabad-apiautomation-activity-7135551611447242753-q4C6), Hyderabad, 2023
 - 🇮🇳 [**Open-Source India**](https://www.opensourceindia.in/osi-speakers-2023/gopala-sarma-akshintala/), Bengaluru, 2023
 - 🇮🇳 **TMP Connections Tour**, Bengaluru, 2023
 - 🇮🇳 [**TMP Horizon**](https://www.youtube.com/watch?v=n849hcp6jkg&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1), Hyderabad, 2022
