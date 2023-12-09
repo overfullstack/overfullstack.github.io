@@ -15,7 +15,7 @@ He's an International Speaker, with his Tech-Talks being warmly received at:
 - 🇮🇳 [**TMP Horizon**](https://www.youtube.com/watch?v=n849hcp6jkg&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1), Hyderabad, 2022
 - 🇮🇳 [**Google Cloud Community Days**](https://gdg.community.dev/events/details/google-gdg-cloud-hyderabad-presents-cloud-community-days-hyderabad-2022-1/), Hyderabad, 2022
 - 🇩🇪 [**WeAreDevelopers World Congress**](https://www.wearedevelopers.com/world-congress/speakers#:~:text=Architect%20at%20smapiot-,Gopal,-S%20Akshintala), 2022, Berlin, Germany.
-- 🇮🇳 [**Git the Core on, May the perForce be ~~with you~~ Gone**](https://www.youtube.com/watch?v=YjtsQ-JjodM&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1), 2022
+- 🇮🇳 [**Git the Core on, May the perForce be Gone**](https://www.youtube.com/watch?v=YjtsQ-JjodM&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1), 2022
 - 🇮🇳 [**Functional Conf**](https://www.youtube.com/watch?v=MVnfndMW9zo&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1), 2022, India. [📃](https://confengine.com/conferences/functional-conf-2022/proposal/16085/huh-to-aha-a-refactoring-story)
 - 🇪🇸 [**JBCN Conf**](https://www.youtube.com/watch?v=Ip8SvyXLvD8&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1), 2021, Barcelona, Spain. [📃](https://www.jbcnconf.com/2021/infoSpeaker.html)
 - 🇺🇸 [**Vader & the Army of Validators**](https://www.youtube.com/watch?v=NuD32oEjfWk&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or), 2021, Season of Innovation, Salesforce
@@ -40,7 +40,7 @@ He's an International Speaker, with his Tech-Talks being warmly received at:
 `youtube: https://www.youtube.com/watch?v=n849hcp6jkg&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1`
 
 
-## Git the Core on, May the perForce be ~~with you~~ Gone
+## Git the Core on, May the perForce be Gone
 
 [Slide-deck](https://speakerdeck.com/gopalakshintala/git-the-core-on-may-the-perforce-be-gone)
 
