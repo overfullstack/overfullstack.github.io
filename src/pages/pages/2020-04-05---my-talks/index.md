@@ -10,7 +10,7 @@ path: /my-talks
 He's an International Speaker, with his Tech-Talks being warmly received at:
 
 - 🇮🇳 [**Google Developer Group Devfest**](https://www.linkedin.com/posts/gdghyd_devfest-gdghyderabad-apiautomation-activity-7135551611447242753-q4C6), Hyderabad, 2023
-- 🇮🇳 [**Open-Source India**](https://www.opensourceindia.in/osi-speakers-2023/gopala-sarma-akshintala/), Bengaluru, 2023
+- 🇮🇳 [**Open-Source India (OSI) Conf**](https://www.youtube.com/watch?v=YxeRddSFkxc&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1), Bengaluru, 2023. [📃](https://www.opensourceindia.in/osi-speakers-2023/gopala-sarma-akshintala/)
 - 🇮🇳 **TMP Connections Tour**, Bengaluru, 2023
 - 🇮🇳 [**TMP Horizon**](https://www.youtube.com/watch?v=n849hcp6jkg&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1), Hyderabad, 2022
 - 🇮🇳 [**Google Cloud Community Days**](https://gdg.community.dev/events/details/google-gdg-cloud-hyderabad-presents-cloud-community-days-hyderabad-2022-1/), Hyderabad, 2022
@@ -35,42 +35,41 @@ He's an International Speaker, with his Tech-Talks being warmly received at:
 
 # Recorded Talks
 
-## Automation → Obsession → Innovation
+## ReṼoman | A Template-driven API automation tool for JVM (Open-Source India (OSI) Conf, 2023)
+
+- [🎴 Slide-deck](https://speakerdeck.com/gopalakshintala/revoman-a-template-driven-api-automation-tool-for-jvm)
+- [Github-repo with Documentation](https://sfdc.co/revoman)
+
+`youtube: https://www.youtube.com/watch?v=YxeRddSFkxc&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1`
+
+## Automation → Obsession → Innovation (TMP Horizon, 2022)
 
 `youtube: https://www.youtube.com/watch?v=n849hcp6jkg&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1`
 
+## Git the Core on, May the perForce be Gone (Git Enablement & Adoption Camp, Salesforce, 2023)
 
-## Git the Core on, May the perForce be Gone
-
-[Slide-deck](https://speakerdeck.com/gopalakshintala/git-the-core-on-may-the-perforce-be-gone)
-
-### 06-2022 (Git Enablement & Adoption Camp, Salesforce)
+[🎴 Slide-deck](https://speakerdeck.com/gopalakshintala/git-the-core-on-may-the-perforce-be-gone)
 
 `youtube: https://www.youtube.com/watch?v=YjtsQ-JjodM&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1`
 
-## Huh?🤔 to Aha!😇 - A Refactoring Story
+## Huh?🤔 to Aha!😇 - A Refactoring Story (JBCN Conf, Barcelona, Spain, 2021)
 
-- [Slide-deck](https://bit.ly/h2a-deck)
+- [🎴 Slide-deck](https://bit.ly/h2a-deck)
 - [Source-code](https://bit.ly/h2a-code)
-
-### 07-2021 (JBCN Conf, 2021, Barcelona, Spain)
 
 `youtube: https://www.youtube.com/watch?v=Ip8SvyXLvD8&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1`
 
-## Vador & the Army of Validators
+## Vador & the Army of Validators (Season of Innovation, Salesforce, 2021)
 
-- [Slide-deck](https://bit.ly/vader-slides)
-- [Code-repo](https://github.com/salesforce-misc/Vador)
-
-### 10-2021 (Season of Innovation, Salesforce)
+- [🎴 Slide-deck](https://bit.ly/vader-slides)
+- [Github-repo with Documentation](https://sfdc.co/vador)
 
 `youtube: https://www.youtube.com/watch?v=NuD32oEjfWk&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or`
 
 ## Fight Complexity with Functional Programming (Kotlin)
 
-- The [Slide-deck](http://bit.ly/fcwfp-kt-slides)
+- The [🎴 Slide-deck](http://bit.ly/fcwfp-kt-slides)
 - Source-code links:
-
   - [imperative-vs-declarative](http://bit.ly/imp-vs-dec)
   - [railway-oriented-validation-kotlin](https://bit.ly/ro-validation-kt)
 
@@ -92,16 +91,15 @@ He's an International Speaker, with his Tech-Talks being warmly received at:
 
 ## Template-Oriented-Programming (TOP) to Ship Faster, Part-1
 
-- The [Slide-deck](https://speakerdeck.com/gopalakshintala/template-oriented-programming-top-to-ship-faster)
+- The [🎴 Slide-deck](https://speakerdeck.com/gopalakshintala/template-oriented-programming-top-to-ship-faster)
 - Source-code links: [ad-hoc-poly](https://github.com/overfullstack/ad-hoc-poly/)
 
 `youtube: https://www.youtube.com/watch?v=_QBlKtUY6ac&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=8`
 
 ## Fight Complexity with Functional Programming (Java)
 
-- The [Slide-deck](http://bit.ly/fcwfp-slides)
+- The [🎴 Slide-deck](http://bit.ly/fcwfp-slides)
 - Source-code links:
-
   - [imperative-vs-declarative](https://bit.ly/imp-vs-dec)
   - [railway-oriented-validation](https://bit.ly/ro-validation)
 
