@@ -19,10 +19,10 @@
   "author": "Gopal S Akshintala <gopalakshintala@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@mdx-js/react": "^3.0.0",
+    "@mdx-js/react": "^3.0.1",
     "bluebird": "^3.7.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "firebase": "^10.7.2",
+    "firebase": "^10.8.0",
     "gatsby": "^5.13.3",
     "gatsby-plugin-catch-links": "^5.13.1",
     "gatsby-plugin-cname": "^1.0.0",
@@ -54,12 +54,12 @@
     "katex": "^0.16.9",
     "lodash": "^4.17.21",
     "lru-cache": "^10.2.0",
-    "metascraper-description": "^5.43.4",
-    "metascraper-image": "^5.43.4",
-    "metascraper-title": "^5.43.4",
-    "metascraper-url": "^5.43.4",
+    "metascraper-description": "^5.44.0",
+    "metascraper-image": "^5.44.0",
+    "metascraper-title": "^5.44.0",
+    "metascraper-url": "^5.44.0",
     "moment": "^2.30.1",
-    "postcss": "^8.4.33",
+    "postcss": "^8.4.35",
     "prismjs": "^1.29.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
@@ -73,7 +73,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.23.9",
-    "@babel/eslint-parser": "^7.23.9",
+    "@babel/eslint-parser": "^7.23.10",
     "@babel/eslint-plugin": "^7.23.5",
     "@babel/plugin-syntax-flow": "^7.23.3",
     "@babel/plugin-transform-flow-strip-types": "^7.23.3",
@@ -91,11 +91,11 @@
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-simple-import-sort": "^12.0.0",
     "gh-pages": "^6.1.1",
     "lost": "^9.0.2",
     "postcss-pxtorem": "^6.1.0",
-    "prettier": "^3.2.4"
+    "prettier": "^3.2.5"
   },
   "resolutions": {
     "gatsby-plugin-sharp/probe-image-size": "^7.0.0"
