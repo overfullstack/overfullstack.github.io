@@ -71,8 +71,8 @@ He's an International Speaker, with his Tech-Talks being warmly received at:
 
 - The [🎴 Slide-deck](http://bit.ly/fcwfp-kt-slides)
 - Source-code links:
-  - [imperative-vs-declarative](http://bit.ly/imp-vs-dec)
-  - [railway-oriented-validation-kotlin](https://bit.ly/ro-validation-kt)
+  - [imperative-vs-declarative](https://github.com/overfullstack/fcwfp-root/tree/main/imperative-vs-declarative-kt)
+  - [railway-oriented-validation-kotlin](https://github.com/overfullstack/fcwfp-root/tree/main/railway-oriented-validation-kt)
 
 ### 10-2020 (All Things Open, Raleigh, USA)
 
@@ -101,8 +101,8 @@ He's an International Speaker, with his Tech-Talks being warmly received at:
 
 - The [🎴 Slide-deck](http://bit.ly/fcwfp-slides)
 - Source-code links:
-  - [imperative-vs-declarative](https://bit.ly/imp-vs-dec)
-  - [railway-oriented-validation](https://bit.ly/ro-validation)
+  - [imperative-vs-declarative](https://github.com/overfullstack/fcwfp-root/tree/main/imperative-vs-declarative)
+  - [railway-oriented-validation](https://github.com/overfullstack/fcwfp-root/tree/main/railway-oriented-validation)
 
 ## 06-2020 (Berlin FP Group, Germany)
 
