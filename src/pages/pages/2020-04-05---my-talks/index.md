@@ -7,8 +7,9 @@ path: /my-talks
 
 ![Speaking at Salesforce Hyd](hyd.jpg)
 
-He's an International Speaker, with his Tech-Talks being warmly received at:
+Gopal is an International Speaker, with his Tech-Talks being warmly received at:
 
+- 🇮🇳 [Chennai JVM Community](https://www.youtube.com/watch?v=1p-n1q0bjFI&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1)
 - 🇮🇳 [**Google Developer Student Club, Osmania University**](https://www.linkedin.com/posts/sreeja-pottabathula-56126a259_androidworkshop-kotlin-functionalprogramming-activity-7165614338626584576-BX_Y), Hyderabad, 2023
 - 🇮🇳 [**Google Developer Group Devfest**](https://www.linkedin.com/posts/gdghyd_devfest-gdghyderabad-apiautomation-activity-7135551611447242753-q4C6), Hyderabad, 2023
 - 🇮🇳 [**Open-Source India (OSI) Conf**](https://www.youtube.com/watch?v=YxeRddSFkxc&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1), Bengaluru, 2023. [📃](https://www.opensourceindia.in/osi-speakers-2023/gopala-sarma-akshintala/)
