@@ -37,12 +37,18 @@ Gopal is an International Speaker, with his Tech-Talks being warmly received at:
 
 # Recorded Talks
 
-## ReṼoman | A Template-driven API automation tool for JVM (Open-Source India (OSI) Conf, 2023)
+## ReṼoman | A Template-driven API automation tool for JVM
 
 - [🎴 Slide-deck](https://speakerdeck.com/gopalakshintala/revoman-a-template-driven-api-automation-tool-for-jvm)
 - [Github-repo with Documentation](https://sfdc.co/revoman)
 
+### Open-Source India (OSI) Conf, 2023
+
 `youtube: https://www.youtube.com/watch?v=YxeRddSFkxc&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1`
+
+### Chennai JVM Community
+
+`youtube:https://www.youtube.com/watch?v=1p-n1q0bjFI&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1`
 
 ## Automation → Obsession → Innovation (TMP Horizon, 2022)
 
