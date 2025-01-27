@@ -185,7 +185,7 @@ static List<Either<Tuple2<ID, Failure>, ImmutableEgg>> filterDuplicates(
 
 ![partial-failures-with-either-2](media/either-validate.png)
 
-- This also avoids the need for intermediate filtering between steps, coz all the failures contained in `Either.`left`are auto-skipped from processing downstream. This is possible due to the **Monad** property of`Either`.
+- This also avoids the need for intermediate filtering between steps, coz all the failures contained in `Either.left` are auto-skipped from processing downstream. This is possible due to the **Monad** property of `Either`.
 
 ```java
 static Either<Tuple2<ID, Failure>, ImmutableEgg> validate(
@@ -199,7 +199,7 @@ static Either<Tuple2<ID, Failure>, ImmutableEgg> validate(
 }
 ```
 
-Monad is out of scope to be covered here, but I have an entire 1 hour talk about this, which can help you fill in this missing piece:
+Monad is out of scope to be covered here, but I have a blog post [Monads for Drunken Coders](/posts/monads-for-drunken-coders-pint-1/) and an entire 1 hour talk about this, which can help you fill in this missing piece:
 
 - [Java Version](/my-talks/#Fight-Complexity-with-Functional-Programming-Java)
 - [Kotlin Version](/my-talks/#Fight-Complexity-with-Functional-Programming-Kotlin)
@@ -367,7 +367,7 @@ Let's do the same in code:
 }</string,></string,>
 
 ````
-- Now, We can focus on testing just the signal part.
+- Now, we can focus on testing just the signal part.
 - This [BiConsumer](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/function/BiConsumer.html) is agnostic of what's passed, so we can cleverly use a `HashMap::put` to test this function.
 - As our code turns testable, we don't need magical mocking frameworks or **over-granular testing** to achieve ~95% test coverage. We can easily write highly targeted tests.
 
@@ -382,7 +382,7 @@ public EggService(
   @Qualifier(EGG_REPO) EggRepo eggRepo,
   ...
 )
-````
+```
 
 But if all you need is a function from a Dependency, resist injecting the entire object. Instead, inject only the function that you need.
 
