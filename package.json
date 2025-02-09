@@ -51,7 +51,7 @@
     "gatsby-transformer-asciidoc": "^4.13.1",
     "gatsby-transformer-sharp": "^5.13.1",
     "gist-syntax-themes": "^1.1.0",
-    "katex": "^0.16.9",
+    "katex": "^0.16.10",
     "lodash": "^4.17.21",
     "lru-cache": "^10.2.0",
     "metascraper-description": "^5.45.0",
