@@ -67,7 +67,7 @@
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-toastify": "^10.0.5",
-    "sass": "^1.72.0",
+    "sass": "^1.79.0",
     "sharp": "^0.33.2",
     "styled-components": "^6.1.8"
   },
