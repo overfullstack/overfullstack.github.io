@@ -60,7 +60,7 @@
     "metascraper-url": "^5.46.5",
     "moment": "^2.30.1",
     "postcss": "^8.5.1",
-    "prismjs": "^1.29.0",
+    "prismjs": "^1.30.0",
     "prop-types": "^15.8.1",
     "react": "^19.0.0",
     "react-disqus-comments": "^1.4.0",
