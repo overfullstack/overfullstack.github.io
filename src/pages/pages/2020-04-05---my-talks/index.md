@@ -10,7 +10,7 @@ path: /my-talks
 Gopal is an International Speaker, with his Tech-Talks being warmly received at:
 
 - 🇮🇳 **Modern AI Stack for Java devs with MCP + LangGraph**, Salesforce Engineering Summit, 2025
-- 🇮🇳 [**Revenue Cloud Implementation Tips & Tricks**](https://reg.salesforce.com/flow/plus/tdx25bengaluru/sessioncatalog/page/catalog/session/1744063651201001AoXv), Bengaluru, 2025.
+- 🇮🇳 [**Revenue Cloud Implementation Tips & Tricks**](https://www.youtube.com/watch?v=wmGq7rox-b4&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or), Bengaluru, 2025.
 - 🇮🇳 [Chennai JVM Community](https://www.youtube.com/watch?v=1p-n1q0bjFI&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1)
 - 🇮🇳 [**Google Developer Student Club, Osmania University**](https://www.linkedin.com/posts/sreeja-pottabathula-56126a259_androidworkshop-kotlin-functionalprogramming-activity-7165614338626584576-BX_Y), Hyderabad, 2023
 - 🇮🇳 [**Google Developer Group Devfest**](https://www.linkedin.com/posts/gdghyd_devfest-gdghyderabad-apiautomation-activity-7135551611447242753-q4C6), Hyderabad, 2023
@@ -38,6 +38,10 @@ Gopal is an International Speaker, with his Tech-Talks being warmly received at:
 - 🇪🇸 [**JBCN Conf**](https://www.jbcnconf.com/2020/), 2020, Barcelona, Spain (This event got cancelled due to COVID-19).
 
 # Recorded Talks
+
+## Revenue Cloud Implementation Tips & Tricks
+
+`youtube: https://www.youtube.com/watch?v=wmGq7rox-b4&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or`
 
 ## ReṼoman | A Template-driven API automation tool for JVM
 
