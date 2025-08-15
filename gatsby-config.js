@@ -45,7 +45,7 @@ module.exports = {
       twitter: `https://bit.ly/agstwtr`,
       github: `https://bit.ly/agsgithubp`,
       resume: `https://bit.ly/ags-my-resume`,
-      linkedin: `https://bit.ly/agslnkd`,
+      linkedin: `https://bit.ly/ags-linkedin`,
       stackoverflow: `https://bit.ly/agsso`,
       aboutme: `/about-me`,
     },
