@@ -9,7 +9,7 @@ path: /my-talks
 
 Gopal is an International Speaker, with his Tech-Talks being warmly received at:
 
-- 🇮🇳 **Modern AI Stack for Java devs with MCP + LangGraph**, Salesforce Engineering Summit, 2025
+- 🇮🇳 [**Modern AI Stack for Java developers with MCP + Koog**](https://www.youtube.com/watch?v=buqoGb4r0MQ&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or), Salesforce Engineering Summit, 2025
 - 🇮🇳 [**Revenue Cloud Implementation Tips & Tricks**](https://www.youtube.com/watch?v=wmGq7rox-b4&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or), Bengaluru, 2025.
 - 🇮🇳 [Chennai JVM Community](https://www.youtube.com/watch?v=1p-n1q0bjFI&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or&index=1)
 - 🇮🇳 [**Google Developer Student Club, Osmania University**](https://www.linkedin.com/posts/sreeja-pottabathula-56126a259_androidworkshop-kotlin-functionalprogramming-activity-7165614338626584576-BX_Y), Hyderabad, 2023
@@ -38,6 +38,10 @@ Gopal is an International Speaker, with his Tech-Talks being warmly received at:
 - 🇪🇸 [**JBCN Conf**](https://www.jbcnconf.com/2020/), 2020, Barcelona, Spain (This event got cancelled due to COVID-19).
 
 # Recorded Talks
+
+## Modern AI Stack for Java developers with MCP + Koog
+
+`youtube: https://www.youtube.com/watch?v=buqoGb4r0MQ&list=PLrJbJ9wDl9EC0bG6y9fyDylcfmB_lT_Or`
 
 ## Revenue Cloud Implementation Tips & Tricks
 
