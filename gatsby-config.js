@@ -44,7 +44,7 @@ module.exports = {
       youtube: `https://www.youtube.com/@GopalAkshintala`,
       twitter: `https://bit.ly/agstwtr`,
       github: `https://bit.ly/agsgithubp`,
-      resume: `https://bit.ly/ags-resume-2`,
+      resume: `https://bit.ly/gsa-resume`,
       linkedin: `https://bit.ly/ags-linkedin`,
       stackoverflow: `https://bit.ly/agsso`,
       aboutme: `/about-me`,
