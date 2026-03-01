@@ -1,15 +1,28 @@
-node_modules/
-.cache/
-public/
-npm-debug.log
-.eslintcache
-.gatsby-context.js
-.DS_Store
-.intermediate-representation/
-/.idea/workspace.xml
-.idea/sonarlint
-/package-lock.json
+# Astro
+dist/
+.astro/
 
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.*
+
+# OS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Build
+npm-debug.log
+yarn-error.log
+
+# Yarn
 .yarn/*
 !.yarn/cache
 !.yarn/patches

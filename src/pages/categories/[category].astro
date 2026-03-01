@@ -1,0 +1,55 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PostCard from '../../components/PostCard.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  const categories = new Set<string>();
+  posts.forEach((post) => categories.add(post.data.category));
+
+  return [...categories].map((category) => ({
+    params: { category: category.toLowerCase().replace(/\s+/g, '-') },
+    props: {
+      category,
+      posts: posts
+        .filter((post) => post.data.category === category)
+        .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()),
+    },
+  }));
+}
+
+const { category, posts } = Astro.props;
+---
+
+<BaseLayout title={`Category: ${category}`}>
+  <Header />
+  <main class="mx-auto max-w-5xl px-4 py-10 sm:px-6">
+    <div class="mb-8 flex items-center gap-3">
+      <a href="/categories/" class="text-[var(--color-text-secondary)] hover:text-[var(--color-text)]">
+        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+      </a>
+      <h1 class="text-3xl font-extrabold tracking-tight">{category}</h1>
+      <span class="rounded-full bg-[var(--color-surface-alt)] px-3 py-1 text-sm text-[var(--color-text-secondary)]">
+        {posts.length} {posts.length === 1 ? 'post' : 'posts'}
+      </span>
+    </div>
+    <div class="grid gap-4 sm:grid-cols-2">
+      {posts.map((post) => (
+        <PostCard
+          title={post.data.title}
+          date={post.data.date}
+          description={post.data.description}
+          category={post.data.category}
+          tags={post.data.tags}
+          slug={post.id}
+        />
+      ))}
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

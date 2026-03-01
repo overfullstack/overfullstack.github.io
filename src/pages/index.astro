@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PostCard from '../components/PostCard.astro';
+import Bio from '../components/Bio.astro';
+
+const posts = (await getCollection('blog'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Articles">
+  <Header />
+  <main class="mx-auto max-w-5xl px-4 py-10 sm:px-6">
+    <!-- Hero / Bio Section -->
+    <section class="mb-12 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] p-6 sm:p-8">
+      <Bio />
+    </section>
+
+    <!-- Articles -->
+    <section>
+      <h2 class="mb-6 text-2xl font-bold tracking-tight">Articles</h2>
+      <div class="grid gap-4 sm:grid-cols-2">
+        {posts.map((post) => (
+          <PostCard
+            title={post.data.title}
+            date={post.data.date}
+            description={post.data.description}
+            category={post.data.category}
+            tags={post.data.tags}
+            slug={post.id}
+          />
+        ))}
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

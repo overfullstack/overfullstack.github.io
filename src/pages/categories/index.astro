@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const posts = await getCollection('blog');
+const categoryCounts = new Map<string, number>();
+
+posts.forEach((post) => {
+  const cat = post.data.category;
+  categoryCounts.set(cat, (categoryCounts.get(cat) || 0) + 1);
+});
+
+const sortedCategories = [...categoryCounts.entries()].sort((a, b) => b[1] - a[1]);
+---
+
+<BaseLayout title="Categories">
+  <Header />
+  <main class="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+    <h1 class="mb-8 text-3xl font-extrabold tracking-tight">Categories</h1>
+    <div class="grid gap-3 sm:grid-cols-2">
+      {sortedCategories.map(([category, count]) => (
+        <a
+          href={`/categories/${category.toLowerCase().replace(/\s+/g, '-')}/`}
+          class="flex items-center justify-between rounded-xl border border-[var(--color-border)] p-4 transition-all hover:border-[var(--color-primary-400)] hover:shadow-md"
+        >
+          <span class="font-semibold">{category}</span>
+          <span class="rounded-full bg-[var(--color-primary-500)]/10 px-3 py-1 text-sm font-medium text-[var(--color-primary-600)] dark:text-[var(--color-primary-400)]">
+            {count}
+          </span>
+        </a>
+      ))}
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

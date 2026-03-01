@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const posts = await getCollection('blog');
+const tagCounts = new Map<string, number>();
+
+posts.forEach((post) => {
+  post.data.tags?.forEach((tag) => {
+    tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+  });
+});
+
+const sortedTags = [...tagCounts.entries()].sort((a, b) => b[1] - a[1]);
+---
+
+<BaseLayout title="Tags">
+  <Header />
+  <main class="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+    <h1 class="mb-8 text-3xl font-extrabold tracking-tight">Tags</h1>
+    <div class="flex flex-wrap gap-3">
+      {sortedTags.map(([tag, count]) => (
+        <a
+          href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}/`}
+          class="inline-flex items-center gap-1.5 rounded-lg border border-[var(--color-border)] px-4 py-2 text-sm font-medium text-[var(--color-text)] transition-all hover:border-[var(--color-primary-400)] hover:text-[var(--color-primary-600)] dark:hover:text-[var(--color-primary-400)]"
+        >
+          #{tag}
+          <span class="rounded-full bg-[var(--color-surface-alt)] px-2 py-0.5 text-xs text-[var(--color-text-secondary)]">
+            {count}
+          </span>
+        </a>
+      ))}
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

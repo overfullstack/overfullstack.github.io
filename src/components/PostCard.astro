@@ -1,0 +1,53 @@
+---
+interface Props {
+  title: string;
+  date: Date;
+  description: string;
+  category: string;
+  tags?: string[];
+  slug: string;
+}
+
+const { title, date, description, category, tags = [], slug } = Astro.props;
+
+const formattedDate = date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<article class="group rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 transition-all duration-200 hover:border-[var(--color-primary-300)] hover:shadow-lg hover:shadow-[var(--color-primary-500)]/5 dark:hover:border-[var(--color-primary-700)]">
+  <a href={`/posts/${slug}/`} class="block">
+    <!-- Category & Date -->
+    <div class="mb-3 flex items-center gap-3 text-xs">
+      <span class="rounded-full bg-[var(--color-primary-500)]/10 px-2.5 py-0.5 font-medium text-[var(--color-primary-600)] dark:text-[var(--color-primary-400)]">
+        {category}
+      </span>
+      <time datetime={date.toISOString()} class="text-[var(--color-text-secondary)]">
+        {formattedDate}
+      </time>
+    </div>
+
+    <!-- Title -->
+    <h2 class="mb-2 text-lg font-bold leading-snug tracking-tight text-[var(--color-text)] transition-colors group-hover:text-[var(--color-primary-600)] dark:group-hover:text-[var(--color-primary-400)]">
+      {title}
+    </h2>
+
+    <!-- Description -->
+    <p class="mb-4 line-clamp-2 text-sm leading-relaxed text-[var(--color-text-secondary)]">
+      {description}
+    </p>
+
+    <!-- Tags -->
+    {tags.length > 0 && (
+      <div class="flex flex-wrap gap-1.5">
+        {tags.map((tag) => (
+          <span class="rounded-md bg-[var(--color-surface-alt)] px-2 py-0.5 text-xs text-[var(--color-text-secondary)]">
+            {tag}
+          </span>
+        ))}
+      </div>
+    )}
+  </a>
+</article>

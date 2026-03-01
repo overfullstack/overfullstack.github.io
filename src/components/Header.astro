@@ -1,0 +1,123 @@
+---
+const navLinks = [
+  { label: 'Articles', path: '/' },
+  { label: 'About me', path: '/about-me/' },
+  { label: 'My Talks', path: '/my-talks/' },
+  { label: 'Contact me', path: '/contact-me/' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-surface)]/80 backdrop-blur-lg">
+  <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 sm:px-6">
+    <!-- Logo / Site Title -->
+    <a href="/" class="group flex items-center gap-2 text-lg font-bold tracking-tight">
+      <img src="/logo.png" alt="Overfullstack" class="h-8 w-8 rounded-full" />
+      <span class="bg-gradient-to-r from-[var(--color-primary-500)] to-[var(--color-primary-700)] bg-clip-text text-transparent">
+        Overfullstack
+      </span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden items-center gap-1 md:flex">
+      {navLinks.map(({ label, path }) => (
+        <a
+          href={path}
+          class:list={[
+            'rounded-lg px-3 py-1.5 text-sm font-medium transition-colors',
+            currentPath === path
+              ? 'bg-[var(--color-primary-500)]/10 text-[var(--color-primary-600)] dark:text-[var(--color-primary-400)]'
+              : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-alt)] hover:text-[var(--color-text)]',
+          ]}
+        >
+          {label}
+        </a>
+      ))}
+      <button
+        id="theme-toggle"
+        class="ml-2 rounded-lg p-2 text-[var(--color-text-secondary)] transition-colors hover:bg-[var(--color-surface-alt)] hover:text-[var(--color-text)]"
+        aria-label="Toggle theme"
+      >
+        <svg class="hidden h-5 w-5 dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        <svg class="block h-5 w-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile menu button -->
+    <div class="flex items-center gap-2 md:hidden">
+      <button
+        id="theme-toggle-mobile"
+        class="rounded-lg p-2 text-[var(--color-text-secondary)] transition-colors hover:bg-[var(--color-surface-alt)]"
+        aria-label="Toggle theme"
+      >
+        <svg class="hidden h-5 w-5 dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+        <svg class="block h-5 w-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+      </button>
+      <button
+        id="mobile-menu-toggle"
+        class="rounded-lg p-2 text-[var(--color-text-secondary)] transition-colors hover:bg-[var(--color-surface-alt)]"
+        aria-label="Toggle menu"
+      >
+        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Nav -->
+  <nav id="mobile-menu" class="hidden border-t border-[var(--color-border)] md:hidden">
+    <div class="space-y-1 px-4 py-3">
+      {navLinks.map(({ label, path }) => (
+        <a
+          href={path}
+          class:list={[
+            'block rounded-lg px-3 py-2 text-sm font-medium transition-colors',
+            currentPath === path
+              ? 'bg-[var(--color-primary-500)]/10 text-[var(--color-primary-600)] dark:text-[var(--color-primary-400)]'
+              : 'text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-alt)] hover:text-[var(--color-text)]',
+          ]}
+        >
+          {label}
+        </a>
+      ))}
+    </div>
+  </nav>
+</header>
+
+<script>
+  function setupThemeToggle() {
+    const toggles = document.querySelectorAll('#theme-toggle, #theme-toggle-mobile');
+    toggles.forEach((toggle) => {
+      toggle.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      });
+    });
+  }
+
+  function setupMobileMenu() {
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle?.addEventListener('click', () => {
+      mobileMenu?.classList.toggle('hidden');
+    });
+  }
+
+  setupThemeToggle();
+  setupMobileMenu();
+
+  document.addEventListener('astro:after-swap', () => {
+    setupThemeToggle();
+    setupMobileMenu();
+  });
+</script>

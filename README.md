@@ -1,19 +1,46 @@
-# My Personal blog
+# Overfullstack
 
-Here, I would love to share my learning and digitize the notes I make, to make them helpful for other developers :)
+Gopal S Akshintala's personal blog — **Writing & Speaking are Test-Driven-Learning**.
 
-Please Visit the Blog @ [overfullstack.github.io](https://overfullstack.github.io)
+## Tech Stack
 
-## Features
+- **[Astro 5](https://astro.build)** — Static site generator with island architecture
+- **[Tailwind CSS 4](https://tailwindcss.com)** — Utility-first CSS framework
+- **[MDX](https://mdxjs.com)** — Markdown with JSX components
+- **[Expressive Code](https://expressive-code.com)** — Beautiful code blocks with titles & line highlighting
+- **Content Collections** — Type-safe content management with Zod schemas
 
-- Built using Gatsby.js
-- Integration with Travis CI for auto deployment to github pages.
-- Google Analytics integration.
-- Claps (like Medium).
-- Dark and Light mode.
-- SEO for blog and Individual Posts.
-- Code highlighting with Night Owl theme.
-- Mail Chimp integration for Subscription.
+## Development
+
+```sh
+npm install
+npm run dev        # Start dev server at http://localhost:4321
+npm run build      # Build for production (output in dist/)
+npm run preview    # Preview the production build locally
+```
+
+## Project Structure
+
+```
+src/
+├── components/     # Astro components (Header, Footer, PostCard, Bio)
+├── content/
+│   ├── blog/       # Blog posts (Markdown/MDX)
+│   └── pages/      # Static pages (About, Talks, Contact)
+├── layouts/        # BaseLayout, PostLayout, PageLayout
+├── pages/          # Astro page routes
+├── plugins/        # Remark plugins (YouTube embed)
+└── styles/         # Global CSS with Tailwind
+public/
+├── images/         # Post images and media
+├── favicon.png
+├── logo.png
+└── my-pic.png
+```
+
+## Deployment
+
+Deployed to GitHub Pages via GitHub Actions (`.github/workflows/deploy.yml`). Push to `main` to trigger a deploy.
 
 ## Content License
 

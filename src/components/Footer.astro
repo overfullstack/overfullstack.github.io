@@ -1,0 +1,46 @@
+---
+const socialLinks = [
+  { label: 'GitHub', url: 'https://bit.ly/agsgithubp', icon: 'github' },
+  { label: 'LinkedIn', url: 'https://bit.ly/ags-linkedin', icon: 'linkedin' },
+  { label: 'Twitter', url: 'https://bit.ly/agstwtr', icon: 'twitter' },
+  { label: 'YouTube', url: 'https://www.youtube.com/@GopalAkshintala', icon: 'youtube' },
+  { label: 'StackOverflow', url: 'https://bit.ly/agsso', icon: 'stackoverflow' },
+];
+---
+
+<footer class="border-t border-[var(--color-border)] bg-[var(--color-surface)]">
+  <div class="mx-auto max-w-5xl px-4 py-10 sm:px-6">
+    <div class="flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
+      <!-- Branding -->
+      <div class="text-center sm:text-left">
+        <p class="text-sm font-medium text-[var(--color-text)]">Overfullstack</p>
+        <p class="mt-1 text-xs text-[var(--color-text-secondary)]">
+          Writing & Speaking are Test-Driven-Learning
+        </p>
+      </div>
+
+      <!-- Social Links -->
+      <div class="flex items-center gap-4">
+        {socialLinks.map(({ label, url }) => (
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-primary-500)]"
+            aria-label={label}
+            title={label}
+          >
+            <span class="text-xs font-medium">{label}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-8 border-t border-[var(--color-border)] pt-6 text-center">
+      <p class="text-xs text-[var(--color-text-secondary)]">
+        &copy; {new Date().getFullYear()} Gopal S Akshintala. Built with
+        <a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="font-medium text-[var(--color-primary-500)] hover:underline">Astro</a>
+      </p>
+    </div>
+  </div>
+</footer>
