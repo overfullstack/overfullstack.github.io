@@ -93,6 +93,51 @@ git push origin source-v3
 
 Monitor the deployment at: **[github.com/overfullstack/overfullstack.github.io/actions](https://github.com/overfullstack/overfullstack.github.io/actions)**
 
+## Firebase Setup (Claps feature)
+
+Each post has a 👏 clap button backed by [Firebase Firestore](https://firebase.google.com/docs/firestore). To enable it:
+
+### 1. Create a Firebase project
+
+Go to [console.firebase.google.com](https://console.firebase.google.com), create a project, add a **Web app**, and copy the config values.
+
+### 2. Add environment variables
+
+Copy `env.example` to `.env` and fill in the Firebase values:
+
+```sh
+PUBLIC_FIREBASE_API_KEY=your-api-key
+PUBLIC_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
+PUBLIC_FIREBASE_PROJECT_ID=your-project-id
+```
+
+### 3. Set Firestore security rules
+
+In the Firebase Console → Firestore → Rules, allow public read/write on the `claps` collection:
+
+```
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /claps/{slug} {
+      allow read, write: if true;
+    }
+  }
+}
+```
+
+### 4. Add GitHub Secrets (for CI/CD)
+
+Go to **Settings → Secrets and variables → Actions** in the repo and add:
+
+| Secret                        | Description                         |
+| ----------------------------- | ----------------------------------- |
+| `PUBLIC_FIREBASE_API_KEY`     | Web app API key                     |
+| `PUBLIC_FIREBASE_AUTH_DOMAIN` | e.g. `your-project.firebaseapp.com` |
+| `PUBLIC_FIREBASE_PROJECT_ID`  | Your Firebase project ID            |
+
+Then push any commit to `source-v3` to redeploy with the live Firebase config.
+
 ## Project Structure
 
 ```
