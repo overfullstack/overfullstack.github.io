@@ -15,7 +15,7 @@ Gopal S Akshintala's personal blog — **Writing & Speaking are Test-Driven-Lear
 ### Prerequisites
 
 - **Node.js 22+** (managed by [Volta](https://volta.sh) — `volta install node` if needed)
-- **npm** (bundled with Node)
+- **pnpm** — `npm install -g pnpm` or `volta install pnpm`
 
 ### Setup
 
@@ -23,15 +23,15 @@ Gopal S Akshintala's personal blog — **Writing & Speaking are Test-Driven-Lear
 git clone https://github.com/overfullstack/overfullstack.github.io.git
 cd overfullstack.github.io
 git checkout source-v3
-npm install
+pnpm install
 ```
 
 ### Daily workflow
 
 ```sh
-npm run dev        # Start dev server with HMR → http://localhost:4321
-npm run build      # Production build → dist/
-npm run preview    # Preview the production build locally
+pnpm dev        # Start dev server with HMR → http://localhost:4321
+pnpm build      # Production build → dist/
+pnpm preview    # Preview the production build locally
 ```
 
 The dev server hot-reloads on every save, including Markdown content changes.
