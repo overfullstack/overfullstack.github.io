@@ -1,0 +1,149 @@
+---
+interface Props {
+  slug: string;
+}
+const { slug } = Astro.props;
+---
+
+<div class="claps-wrapper" data-slug={slug}>
+  <button
+    id="claps-btn"
+    aria-label="Clap for this post"
+    title="Clap for this post"
+  >
+    👏
+  </button>
+  <span id="claps-count" aria-live="polite"></span>
+  <span id="claps-plus" aria-hidden="true">+1</span>
+</div>
+
+<style>
+  .claps-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  #claps-btn {
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 50%;
+    border: 2px solid var(--color-border);
+    background: var(--color-surface);
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+      transform 0.15s ease,
+      border-color 0.15s ease,
+      box-shadow 0.15s ease;
+    line-height: 1;
+  }
+
+  #claps-btn:hover {
+    border-color: var(--color-primary-400, #60a5fa);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-primary-500, #3b82f6) 15%, transparent);
+    transform: scale(1.07);
+  }
+
+  #claps-btn:active {
+    transform: scale(0.93);
+  }
+
+  #claps-btn.clapped {
+    border-color: var(--color-primary-500, #3b82f6);
+    animation: clap-pop 0.3s ease;
+  }
+
+  #claps-count {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    min-width: 1.5ch;
+  }
+
+  #claps-plus {
+    position: absolute;
+    left: 50%;
+    top: -0.5rem;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-primary-500, #3b82f6);
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  #claps-plus.show {
+    animation: float-up 0.8s ease forwards;
+  }
+
+  @keyframes clap-pop {
+    0%   { transform: scale(0.93); }
+    50%  { transform: scale(1.15); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes float-up {
+    0%   { opacity: 1; top: -0.5rem; }
+    100% { opacity: 0; top: -2.5rem; }
+  }
+</style>
+
+<script>
+  import { initializeApp, getApps } from 'firebase/app';
+  import {
+    getFirestore,
+    doc,
+    getDoc,
+    setDoc,
+    increment,
+  } from 'firebase/firestore';
+
+  const apiKey = import.meta.env.PUBLIC_FIREBASE_API_KEY;
+  const authDomain = import.meta.env.PUBLIC_FIREBASE_AUTH_DOMAIN;
+  const projectId = import.meta.env.PUBLIC_FIREBASE_PROJECT_ID;
+
+  if (apiKey && projectId) {
+    const app = getApps().length
+      ? getApps()[0]
+      : initializeApp({ apiKey, authDomain, projectId });
+    const db = getFirestore(app);
+
+    const wrapper = document.querySelector<HTMLElement>('.claps-wrapper');
+    const slug = wrapper?.dataset.slug ?? '';
+    const btn = document.getElementById('claps-btn');
+    const countEl = document.getElementById('claps-count');
+    const plusEl = document.getElementById('claps-plus');
+
+    if (slug && btn && countEl && plusEl) {
+      const clapsRef = doc(db, 'claps', slug);
+
+      getDoc(clapsRef).then((snap) => {
+        if (snap.exists()) {
+          const n = snap.data().claps ?? 0;
+          countEl.textContent = n > 0 ? String(n) : '';
+        }
+      });
+
+      btn.addEventListener('click', async () => {
+        await setDoc(clapsRef, { claps: increment(1), lastClap: new Date() }, { merge: true });
+
+        const snap = await getDoc(clapsRef);
+        if (snap.exists()) {
+          const n = snap.data().claps ?? 0;
+          countEl.textContent = n > 0 ? String(n) : '';
+        }
+
+        btn.classList.add('clapped');
+        plusEl.classList.remove('show');
+        void plusEl.offsetWidth;
+        plusEl.classList.add('show');
+        btn.addEventListener('animationend', () => btn.classList.remove('clapped'), { once: true });
+      });
+    }
+  }
+</script>

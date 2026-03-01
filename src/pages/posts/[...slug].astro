@@ -21,6 +21,7 @@ const { Content } = await render(post);
   category={post.data.category}
   tags={post.data.tags}
   cover={post.data.cover}
+  slug={post.id}
 >
   <Content />
 </PostLayout>
