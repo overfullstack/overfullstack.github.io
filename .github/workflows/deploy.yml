@@ -29,6 +29,8 @@ jobs:
 
       - name: Build with Astro
         run: npm run build
+        env:
+          PUBLIC_GA_ID: ${{ secrets.PUBLIC_GA_ID }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

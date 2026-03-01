@@ -5,9 +5,13 @@ dist/
 # Dependencies
 node_modules/
 
-# Environment
+# Environment — never commit real secrets
 .env
 .env.*
+# env.example is intentionally tracked (no real values)
+
+# Legacy Gatsby cache
+.cache/
 
 # OS
 .DS_Store
