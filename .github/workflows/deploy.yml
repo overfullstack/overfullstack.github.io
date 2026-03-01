@@ -27,8 +27,11 @@ jobs:
           node-version: "22"
           cache: npm
 
+      - name: Upgrade npm
+        run: npm install -g npm@latest
+
       - name: Install dependencies
-        run: npm install
+        run: npm ci --no-optional
 
       - name: Build with Astro
         run: npm run build
