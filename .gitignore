@@ -26,12 +26,5 @@ node_modules/
 npm-debug.log
 yarn-error.log
 
-# Yarn
-.yarn/*
-!.yarn/cache
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
-.yarn/*.gz
+# Yarn (not used — project uses npm)
+.yarn/
