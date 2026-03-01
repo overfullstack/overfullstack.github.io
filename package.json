@@ -18,8 +18,10 @@
     "astro-expressive-code": "^0.38.0",
     "@tailwindcss/vite": "^4.0.0",
     "tailwindcss": "^4.0.0",
-    "sharp": "^0.33.5",
     "unist-util-visit": "^5.0.0"
+  },
+  "optionalDependencies": {
+    "sharp": "^0.33.5"
   },
   "volta": {
     "node": "22.14.0"
